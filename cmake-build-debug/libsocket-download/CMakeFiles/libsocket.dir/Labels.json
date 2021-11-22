@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-debug/libsocket-download/CMakeFiles/libsocket"
+		},
+		{
+			"file" : "/home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-debug/libsocket-download/CMakeFiles/libsocket.rule"
+		},
+		{
+			"file" : "/home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-debug/libsocket-download/CMakeFiles/libsocket-complete.rule"
+		},
+		{
+			"file" : "/home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-debug/libsocket-download/libsocket-prefix/src/libsocket-stamp/libsocket-build.rule"
+		},
+		{
+			"file" : "/home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-debug/libsocket-download/libsocket-prefix/src/libsocket-stamp/libsocket-configure.rule"
+		},
+		{
+			"file" : "/home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-debug/libsocket-download/libsocket-prefix/src/libsocket-stamp/libsocket-download.rule"
+		},
+		{
+			"file" : "/home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-debug/libsocket-download/libsocket-prefix/src/libsocket-stamp/libsocket-install.rule"
+		},
+		{
+			"file" : "/home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-debug/libsocket-download/libsocket-prefix/src/libsocket-stamp/libsocket-mkdir.rule"
+		},
+		{
+			"file" : "/home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-debug/libsocket-download/libsocket-prefix/src/libsocket-stamp/libsocket-patch.rule"
+		},
+		{
+			"file" : "/home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-debug/libsocket-download/libsocket-prefix/src/libsocket-stamp/libsocket-test.rule"
+		},
+		{
+			"file" : "/home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-debug/libsocket-download/libsocket-prefix/src/libsocket-stamp/libsocket-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"libsocket"
+		],
+		"name" : "libsocket"
+	}
+}

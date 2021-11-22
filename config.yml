@@ -1,0 +1,13 @@
+general:
+  loggerName: cosmology
+
+socketry:
+  luciferon: tcp://0.0.0.0:44400
+  palantir: ipc:///tmp/cosmographer_palantir
+  conductor: tcp://0.0.0.0:44441
+  fascia: tcp://10.0.0.219:44449
+
+keyhole:
+  count: 1
+  width: 20
+  height: 74
