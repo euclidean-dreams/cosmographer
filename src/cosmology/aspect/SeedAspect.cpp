@@ -3,8 +3,7 @@
 namespace cosmographer {
 
 SeedAspect::SeedAspect()
-        : x{0},
-          y{0} {
+        : displaySignal{nullptr} {
 
 }
 
@@ -12,9 +11,18 @@ std::unique_ptr<Lattice> SeedAspect::manifest(int tick) {
     auto height = Config::getInstance().getKeyholeHeight();
     auto width = Config::getInstance().getKeyholeWidth() * Config::getInstance().getKeyholeCount();
     auto lattice = std::make_unique<Lattice>(width, height);
-
-    for(int i = 0; i < 20; i++) {
-        lattice->setColor({i, i}, {250, 100, 50});
+    if (displaySignal != nullptr) {
+        for (int y = 0; y < lattice->height(); y++) {
+            for (int x = 0; x < lattice->width(); x++) {
+                uint32_t hue = tick / 10 % HSL_HUE_MAX;
+                auto displaySignalIndex = y * lattice->width() + x;
+                auto lightness = (int) (*displaySignal)[displaySignalIndex] * 100;
+                if (lightness > 100) {
+                    lightness = 100;
+                }
+                lattice->setColor({x, y}, {hue, 100, static_cast<uint8_t>(lightness)});
+            }
+        }
     }
 
     return lattice;
@@ -40,6 +48,27 @@ std::unique_ptr<Lattice> SeedAspect::manifest(int tick) {
 }
 
 void SeedAspect::alter(const impresarioUtils::Packet &packet) {
+    if (packet.getIdentifier() == ImpresarioSerialization::Identifier::displaySignal) {
+        auto rawDisplaySignal = packet.getDisplaySignal();
+        auto samples = rawDisplaySignal->samples();
+        displaySignal = std::make_unique<std::vector<float>>();
+        displaySignal->reserve(samples->size());
+        for (int index = 0; index < samples->size(); index++) {
+            auto sample = samples->Get(index);
+            if (sample < 0) {
+                sample = 0;
+            }
+
+            // due to mel filterbank overflow, that last triangular filter catches everything above it
+            // accommodate for crazy large last sample - this will go once those ridiculous triangular filters are changed
+            if (index == samples->size() - 1) {
+                sample /= 100;
+            }
+
+            // add sample
+            displaySignal->push_back(sample);
+        }
+    }
 
 }
 

@@ -11,20 +11,18 @@ PalantirVantage::PalantirVantage(std::shared_ptr<LatticeArbiter> latticeArbiter,
 
 void PalantirVantage::activate() {
     auto lattice = latticeArbiter->getLattice();
-    std::vector<uint8_t> sendBuffer{};
+    std::vector<ImpresarioSerialization::Color> sendBuffer{};
     sendBuffer.reserve(lattice->size() * 3);
 
     for (int y = lattice->height() - 1; y >= 0; y--) {
         for (int x = 0; x < lattice->width(); x++) {
             auto color = lattice->getColor({x, y}).convertToRGB();
-            sendBuffer.push_back(color.red);
-            sendBuffer.push_back(color.green);
-            sendBuffer.push_back(color.blue);
+            sendBuffer.emplace_back(color.red, color.green, color.blue);
         }
     }
 
     auto builder = std::make_unique<flatbuffers::FlatBufferBuilder>();
-    auto glimpse = builder->CreateVector(sendBuffer);
+    auto glimpse = builder->CreateVectorOfStructs(sendBuffer);
     auto luminary = ImpresarioSerialization::CreateLuminary(*builder, glimpse);
     builder->Finish(luminary);
 

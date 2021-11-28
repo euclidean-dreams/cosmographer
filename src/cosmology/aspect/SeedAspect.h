@@ -8,8 +8,7 @@ namespace cosmographer {
 
 class SeedAspect : public Aspect {
 private:
-    int x;
-    int y;
+    std::unique_ptr<std::vector<float>> displaySignal;
 
 public:
     SeedAspect();
