@@ -11,20 +11,15 @@ private:
     static std::unique_ptr<Paradigm> instance;
 
     std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomologyArbiter;
-    std::shared_ptr<const impresarioUtils::Parcel> currentAxiomologyParcel;
 
     explicit Paradigm(std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomologyArbiter);
-
-    static std::shared_ptr<const impresarioUtils::Parcel> generateDefaultAxiomology();
 
 public:
     static Paradigm &getInstance();
 
     static void initialize(std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomologyArbiter);
 
-    void refresh();
-
-    const ImpresarioSerialization::Axiomology *getAxiomology() const;
+    std::shared_ptr<const impresarioUtils::Parcel> getAxiomology() const;
 };
 
 }

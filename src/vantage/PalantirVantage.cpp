@@ -19,9 +19,10 @@ void PalantirVantage::send(const Lattice &lattice) {
         }
     }
 
+    auto axiomology = Paradigm::getInstance().getAxiomology();
+    auto brightness = impresarioUtils::Unwrap::Axiomology(*axiomology)->brightness();
     auto builder = std::make_unique<flatbuffers::FlatBufferBuilder>();
     auto glimpse = builder->CreateVectorOfStructs(sendBuffer);
-    auto brightness = Paradigm::getInstance().getAxiomology()->brightness();
     auto luminary = ImpresarioSerialization::CreateGlimpse(*builder, brightness, glimpse);
     builder->Finish(luminary);
 
