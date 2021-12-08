@@ -1,26 +1,21 @@
 #ifndef COSMOGRAPHER_PALANTIRVANTAGE_H
 #define COSMOGRAPHER_PALANTIRVANTAGE_H
 
-#include <ImpresarioUtils.h>
-#include "gizmo/LatticeArbiter.h"
-#include "Constants.h"
+#include "vantage/Vantage.h"
 
 namespace cosmographer {
 
-class PalantirVantage : public impresarioUtils::Circulable {
+class PalantirVantage : public Vantage {
 private:
-    std::shared_ptr<LatticeArbiter> latticeArbiter;
     std::unique_ptr<impresarioUtils::NetworkSocket> socket;
+    int tickInterval;
 
 public:
-    PalantirVantage(std::shared_ptr<LatticeArbiter> latticeArbiter,
-                    std::unique_ptr<impresarioUtils::NetworkSocket> socket);
+    explicit PalantirVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket);
 
-    void activate() override;
+    void send(const Lattice &lattice) override;
 
-    uint64_t getTickInterval() override;
-
-    bool finished() override;
+    int getRefreshRate() override;
 };
 
 }

@@ -1,13 +1,20 @@
-general:
-  loggerName: cosmology
+# general
+initial_brightness: 5
+# 0 = luciferon
+# 1 = palantir
+vantage_type: 0
 
-socketry:
-  luciferon: tcp://0.0.0.0:44400
-  palantir: ipc:///tmp/cosmographer_palantir
-  conductor: tcp://0.0.0.0:44441
-  fascia: tcp://10.0.0.219:44449
+# tick interval
+empyrium_tick_interval: 15000
+luciferon_tick_interval: 15000
+palantir_tick_interval: 15000
 
-keyhole:
-  count: 5
-  width: 20
-  height: 74
+# sockets
+luciferon_endpoint: tcp://0.0.0.0:44400
+palantir_endpoint: ipc:///tmp/cosmographer_palantir
+analogorium_endpoint: ipc:///tmp/signalarium
+volitia_endpoint: tcp://10.0.0.219:44440
+
+# lattice
+lattice_width: 10
+lattice_height: 74

@@ -10,21 +10,8 @@ integrate_cmake_dependency(
         GIT_TAG origin/dev
 )
 
-SET(YAML_CPP_BUILD_TESTS OFF)
-SET(YAML_CPP_INSTALL OFF)
-SET(YAML_MSVC_SHARED_RT OFF)
-SET(YAML_CPP_BUILD_TOOLS OFF)
-SET(YAML_CPP_BUILD_CONTRIB OFF)
-integrate_cmake_dependency(
-        NAME yaml
-        GIT_URL git@github.com:jbeder/yaml-cpp.git
-        GIT_TAG 9a3624205e8774953ef18f57067b3426c1c5ada6
-)
-
 set(
         SOURCE_FILES
-        src/Bootstrapper.cpp src/Bootstrapper.h
-        src/Config.cpp src/Config.h
 
         src/gizmo/Coordinate.cpp src/gizmo/Coordinate.h
 
@@ -33,12 +20,10 @@ set(
 
         src/Cosmographer.cpp src/Cosmographer.h
         src/cosmology/aspect/Aspect.h
-        src/cosmology/Lattice.cpp src/cosmology/Lattice.h
-        src/cosmology/aspect/SeedAspect.cpp src/cosmology/aspect/SeedAspect.h
+        src/gizmo/Lattice.cpp src/gizmo/Lattice.h
         src/cosmology/Cosmology.cpp src/cosmology/Cosmology.h
         src/vantage/LuciferonVantage.cpp src/vantage/LuciferonVantage.h
-        src/gizmo/LatticeArbiter.h src/Constants.h
-        src/vantage/PalantirVantage.cpp src/vantage/PalantirVantage.h src/gizmo/LatticeArbiter.cpp)
+        src/vantage/PalantirVantage.cpp src/vantage/PalantirVantage.h src/cosmology/illuminable/Illuminable.h src/cosmology/illuminable/shape/Circle.cpp src/cosmology/illuminable/shape/Circle.h src/cosmology/aspect/Plumage.cpp src/cosmology/aspect/Plumage.h src/cosmology/ephemera/Ephemera.h src/cosmology/ephemera/Bloom.cpp src/cosmology/ephemera/Bloom.h src/cosmology/ephemera/Ephemera.cpp src/cosmology/ephemera/EphemeraEcosystem.cpp src/cosmology/ephemera/EphemeraEcosystem.h src/percipient/AnalogoriumPercipient.cpp src/percipient/AnalogoriumPercipient.h src/vantage/Vantage.h src/Paradigm.cpp src/Paradigm.h src/percipient/VolitiaPercipient.cpp src/percipient/VolitiaPercipient.h src/Empyrium.cpp src/Empyrium.h src/Config.h src/gizmo/CoordinateTransformer.cpp src/gizmo/CoordinateTransformer.h src/cosmology/aspect/Aspect.cpp)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

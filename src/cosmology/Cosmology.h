@@ -1,25 +1,34 @@
 #ifndef COSMOGRAPHER_COSMOLOGY_H
 #define COSMOGRAPHER_COSMOLOGY_H
 
+#include <mutex>
 #include <ImpresarioUtils.h>
-#include "Config.h"
-#include "cosmology/Lattice.h"
-#include "cosmology/aspect/Aspect.h"
-#include "cosmology/aspect/SeedAspect.h"
+#include "Paradigm.h"
+#include "gizmo/Lattice.h"
+#include "cosmology/aspect/Plumage.h"
 
 namespace cosmographer {
 
 class Cosmology : public impresarioUtils::NonCopyable {
 private:
+    std::mutex mutex;
     std::unique_ptr<Aspect> aspect;
     int tick;
+    bool concluded;
+    impresarioUtils::BufferArbiter<const impresarioUtils::Parcel> &essentiology;
+    impresarioUtils::BufferArbiter<const impresarioUtils::Parcel> &phenomenology;
 
 public:
-    Cosmology();
+    explicit Cosmology(impresarioUtils::BufferArbiter<const impresarioUtils::Parcel> &essentiology,
+                       impresarioUtils::BufferArbiter<const impresarioUtils::Parcel> &phenomenology);
 
     std::unique_ptr<Lattice> observe();
 
-    void alter(const impresarioUtils::Packet &packet);
+    void alter();
+
+    void conclude();
+
+    bool isConcluded() const;
 };
 
 }

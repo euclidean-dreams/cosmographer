@@ -1,26 +1,21 @@
 #ifndef COSMOGRAPHER_LUCIFERONVANTAGE_H
 #define COSMOGRAPHER_LUCIFERONVANTAGE_H
 
-#include <ImpresarioUtils.h>
-#include "gizmo/LatticeArbiter.h"
-#include "Constants.h"
+#include "vantage/Vantage.h"
 
 namespace cosmographer {
 
-class LuciferonVantage : public impresarioUtils::Circulable {
+class LuciferonVantage : public Vantage {
 private:
-    std::shared_ptr<LatticeArbiter> latticeArbiter;
     std::unique_ptr<impresarioUtils::NetworkSocket> socket;
+    int tickInterval;
 
 public:
-    LuciferonVantage(std::shared_ptr<LatticeArbiter> latticeArbiter,
-                     std::unique_ptr<impresarioUtils::NetworkSocket> socket);
+    explicit LuciferonVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket);
 
-    void activate() override;
+    void send(const Lattice &lattice) override;
 
-    uint64_t getTickInterval() override;
-
-    bool finished() override;
+    int getRefreshRate() override;
 };
 
 }

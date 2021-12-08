@@ -15,6 +15,12 @@ void Lattice::setColor(Coordinate coordinate, HSLColor color) {
     data[coordinate.x][coordinate.y] = color;
 }
 
+void Lattice::setColorIfValid(Coordinate coordinate, HSLColor color) {
+    if (isValid(coordinate)) {
+        setColor(coordinate, color);
+    }
+}
+
 bool Lattice::isValid(Coordinate coordinate) const {
     if (coordinate.x >= 0 && coordinate.x < width()) {
         if (coordinate.y >= 0 && coordinate.y < height()) {

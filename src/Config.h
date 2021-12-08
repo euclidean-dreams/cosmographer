@@ -1,59 +1,23 @@
 #ifndef COSMOGRAPHER_CONFIG_H
 #define COSMOGRAPHER_CONFIG_H
 
-#include <memory>
-#include <stdexcept>
-#include <yaml-cpp/yaml.h>
-#include <ImpresarioUtils.h>
+// general
+#define INITIAL_BRIGHTNESS impresarioUtils::Config::getInstance().getInt("initial_brightness")
+#define VANTAGE_TYPE impresarioUtils::Config::getInstance().getInt("vantage_type")
 
-namespace cosmographer {
+// tick interval
+#define EMPYRIUM_TICK_INTERVAL impresarioUtils::Config::getInstance().getInt("empyrium_tick_interval")
+#define LUCIFERON_TICK_INTERVAL impresarioUtils::Config::getInstance().getInt("luciferon_tick_interval")
+#define PALANTIR_TICK_INTERVAL impresarioUtils::Config::getInstance().getInt("palantir_tick_interval")
 
-class Config {
-private:
-    static constexpr std::string_view CONFIG_FILE_PATH = "./config.yml";
-    static std::unique_ptr<Config> instance;
+// socketry
+#define LUCIFERON_ENDPOINT impresarioUtils::Config::getInstance().getString("luciferon_endpoint")
+#define PALANTIR_ENDPOINT impresarioUtils::Config::getInstance().getString("palantir_endpoint")
+#define ANALOGORIUM_ENDPOINT impresarioUtils::Config::getInstance().getString("analogorium_endpoint")
+#define VOLITIA_ENDPOINT impresarioUtils::Config::getInstance().getString("volitia_endpoint")
 
-    // general
-    std::string loggerName;
-
-    // socketry
-    std::string luciferonEndpoint;
-    std::string palantirEndpoint;
-    std::string conductorEndpoint;
-    std::string fasciaEndpoint;
-
-    // keyhole
-    uint keyholeCount;
-    uint keyholeWidth;
-    uint keyholeHeight;
-
-    Config();
-
-public:
-    static Config &getInstance();
-
-    static void initialize();
-
-    // general
-    std::string getLoggerName() const { return loggerName; }
-
-    // socketry
-    std::string getLuciferonEndpoint() const { return luciferonEndpoint; }
-
-    std::string getPalantirEndpoint() const { return palantirEndpoint; }
-
-    std::string getConductorEndpoint() const { return conductorEndpoint; }
-
-    std::string getFasciaEndpoint() const { return fasciaEndpoint; }
-
-    // keyhole
-    uint getKeyholeCount() const { return keyholeCount; }
-
-    uint getKeyholeWidth() const { return keyholeWidth; }
-
-    uint getKeyholeHeight() const { return keyholeHeight; }
-};
-
-}
+// lattice
+#define LATTICE_WIDTH impresarioUtils::Config::getInstance().getUint("lattice_width")
+#define LATTICE_HEIGHT impresarioUtils::Config::getInstance().getUint("lattice_height")
 
 #endif //COSMOGRAPHER_CONFIG_H

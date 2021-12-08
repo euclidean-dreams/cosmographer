@@ -2,15 +2,22 @@
 
 namespace cosmographer {
 
-HSLColor::HSLColor(uint32_t hue, uint8_t saturation, uint8_t lightness)
-        : hue{hue},
-          saturation{saturation},
-          lightness{lightness} {
-    if (hue > HSL_HUE_MAX || saturation > 100 || lightness > 100) {
+HSLColor::HSLColor(int hue, int saturation, int lightness) {
+    if (hue < 0 || saturation < 0 || saturation > 100 || lightness < 0 || lightness > 100) {
         std::ostringstream errorMessage;
         errorMessage << "invalid HSL Color: (" << hue << ", " << saturation << ", " << lightness << ")";
         throw std::out_of_range(errorMessage.str());
     }
+    this->hue = hue % HSL_HUE_MAX;
+    this->saturation = saturation;
+    this->lightness = lightness;
+}
+
+HSLColor::HSLColor(int signalSize, int index, int hueShift, int saturation, int lightness)
+        : HSLColor{static_cast<int>(static_cast<float>(index) / static_cast<float>(signalSize) * HSL_HUE_MAX +
+                                    static_cast<float>(hueShift)), saturation, lightness} {
+    // generates a frequency based hue
+
 }
 
 uint32_t HSLColor::getHue() const {
@@ -30,7 +37,7 @@ HSLColor HSLColor::lighten(int amount) const {
     if (newLightness > 100) {
         newLightness = 100;
     }
-    return {hue, saturation, static_cast<uint8_t>(newLightness)};
+    return {static_cast<int>(hue), saturation, static_cast<uint8_t>(newLightness)};
 }
 
 HSLColor HSLColor::darken(int amount) const {
@@ -38,7 +45,7 @@ HSLColor HSLColor::darken(int amount) const {
     if (newLightness < 0) {
         newLightness = 0;
     }
-    return {hue, saturation, static_cast<uint8_t>(newLightness)};
+    return {static_cast<int>(hue), saturation, static_cast<uint8_t>(newLightness)};
 }
 
 RGBColor HSLColor::convertToRGB() const {

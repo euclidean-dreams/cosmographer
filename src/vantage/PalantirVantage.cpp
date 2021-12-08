@@ -2,38 +2,34 @@
 
 namespace cosmographer {
 
-PalantirVantage::PalantirVantage(std::shared_ptr<LatticeArbiter> latticeArbiter,
-                                 std::unique_ptr<impresarioUtils::NetworkSocket> socket)
-        : latticeArbiter{move(latticeArbiter)},
-          socket{move(socket)} {
+PalantirVantage::PalantirVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket)
+        : socket{move(socket)},
+          tickInterval{PALANTIR_TICK_INTERVAL} {
 
 }
 
-void PalantirVantage::activate() {
-    auto lattice = latticeArbiter->getLattice();
+void PalantirVantage::send(const Lattice &lattice) {
     std::vector<ImpresarioSerialization::Color> sendBuffer{};
-    sendBuffer.reserve(lattice->size() * 3);
+    sendBuffer.reserve(lattice.size() * 3);
 
-    for (int y = lattice->height() - 1; y >= 0; y--) {
-        for (int x = 0; x < lattice->width(); x++) {
-            auto color = lattice->getColor({x, y}).convertToRGB();
+    for (int y = lattice.height() - 1; y >= 0; y--) {
+        for (int x = 0; x < lattice.width(); x++) {
+            auto color = lattice.getColor({x, y}).convertToRGB();
             sendBuffer.emplace_back(color.red, color.green, color.blue);
         }
     }
 
     auto builder = std::make_unique<flatbuffers::FlatBufferBuilder>();
     auto glimpse = builder->CreateVectorOfStructs(sendBuffer);
-    auto luminary = ImpresarioSerialization::CreateLuminary(*builder, glimpse);
+    auto brightness = Paradigm::getInstance().getAxiomology()->brightness();
+    auto luminary = ImpresarioSerialization::CreateGlimpse(*builder, brightness, glimpse);
     builder->Finish(luminary);
 
-    socket->sendSerializedData(ImpresarioSerialization::Identifier::luminary, *builder);
+    socket->sendParcel(ImpresarioSerialization::Identifier::glimpse, *builder);
 }
 
-uint64_t PalantirVantage::getTickInterval() {
-    return PALANTIR_REFRESH_RATE;
+int PalantirVantage::getRefreshRate() {
+    return tickInterval;
 }
 
-bool PalantirVantage::finished() {
-    return false;
-}
 }

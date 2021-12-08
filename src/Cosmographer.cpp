@@ -2,33 +2,26 @@
 
 namespace cosmographer {
 
-Cosmographer::Cosmographer(
-        std::unique_ptr<std::vector<std::unique_ptr<impresarioUtils::PacketReceiver>>> packetReceivers,
-        std::shared_ptr<LatticeArbiter> latticeArbiter)
-        : packetReceivers{move(packetReceivers)},
-          latticeArbiter{move(latticeArbiter)},
-          cosmology{} {
-
+Cosmographer::Cosmographer(std::unique_ptr<Vantage> vantage,
+                           std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> essentiology,
+                           std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> phenomenology)
+        : vantage{move(vantage)},
+          cosmology{nullptr},
+          empyriumThread{nullptr},
+          essentiology{move(essentiology)},
+          phenomenology{move(phenomenology)} {
+    cosmology = std::make_shared<Cosmology>(*this->essentiology, *this->phenomenology);
+    auto empyrium = std::make_unique<Empyrium>(cosmology);
+    empyriumThread = impresarioUtils::Circlet::begin(move(empyrium));
 }
 
 void Cosmographer::activate() {
-    handleIncomingPackets();
-    auto lattice = cosmology.observe();
-    latticeArbiter->updateLattice(move(lattice));
-}
-
-void Cosmographer::handleIncomingPackets() {
-    for (auto &packetReceiver: *packetReceivers) {
-        auto packets = packetReceiver->receive();
-        while (packets->morePacketsLeft()) {
-            auto packet = packets->popPacket();
-            cosmology.alter(*packet);
-        }
-    }
+    auto lattice = cosmology->observe();
+    vantage->send(*lattice);
 }
 
 uint64_t Cosmographer::getTickInterval() {
-    return 3 * 1000;
+    return vantage->getRefreshRate();
 }
 
 bool Cosmographer::finished() {

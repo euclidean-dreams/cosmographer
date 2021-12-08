@@ -18,6 +18,8 @@ public:
 
     void setColor(Coordinate coordinate, HSLColor color);
 
+    void setColorIfValid(Coordinate coordinate, HSLColor color);
+
     bool isValid(Coordinate coordinate) const;
 
     int width() const;
