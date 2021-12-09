@@ -2,41 +2,28 @@
 
 namespace cosmographer {
 
-Plumage::Plumage(uint latticeWidth, uint latticeHeight)
-        : Aspect{latticeWidth, latticeHeight},
-          ecosystem{} {
+Plumage::Plumage()
+        : ephemera{},
+          colorium{std::make_unique<JourneyColorium>(PARADIGM.getLatticeWidth() * PARADIGM.getLatticeHeight())} {
 
 }
 
 std::unique_ptr<Lattice> Plumage::manifest(int tick) {
-    auto lattice = std::make_unique<Lattice>(latticeWidth, latticeHeight);
-    ecosystem.observe(*lattice);
+    auto lattice = std::make_unique<Lattice>();
+    EphemeraEcosystem::trim(ephemera, 2000);
+    EphemeraEcosystem::observe(ephemera, *lattice);
     return lattice;
 }
 
 void Plumage::experiencePhenomenon(const ImpresarioSerialization::Phenomenon *phenomenon) {
-
+    colorium->experiencePhenomenon(phenomenon);
 }
 
 void Plumage::experienceEssentia(const ImpresarioSerialization::Essentia *essentia) {
-    auto samples = essentia->radixes();
-    for (int index = 0; index < samples->size(); index++) {
-        auto sample = samples->Get(index);
-        if (sample < 0) {
-            sample = 0;
-        }
-
-        // due to mel filterbank overflow, that last triangular filter catches everything above it
-        // accommodate for crazy large last sample - this will go once those ridiculous triangular filters are changed
-        if (index == samples->size() - 1) {
-            sample /= 100;
-        }
-
-        if (sample > 50) {
-            HSLColor color{static_cast<int>(samples->size()), index, 300, 100, 50};
-            auto bloom = std::make_unique<Bloom>(CoordinateTransformer::verticalWrap(index, latticeWidth), color);
-            ecosystem.add(move(bloom));
-        }
+    auto spawnIndices = EphemeraEcosystem::determineSpawnIndices(essentia, 500);
+    for (auto &index: spawnIndices) {
+        auto bloom = std::make_unique<Bloom>(CoordinateTransformer::verticalWrap(index), colorium->getColor(index));
+        ephemera.push_back(move(bloom));
     }
 }
 

@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_VANTAGE_H
 
 #include <ImpresarioUtils.h>
-#include "Paradigm.h"
+#include "gizmo/paradigm/Paradigm.h"
 #include "gizmo/Lattice.h"
 
 namespace cosmographer {

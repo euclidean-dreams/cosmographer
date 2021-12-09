@@ -6,13 +6,30 @@
 namespace cosmographer {
 
 class EphemeraEcosystem {
-private:
-    std::list<std::unique_ptr<Ephemera>> ecosystem;
-
 public:
-    void add(std::unique_ptr<Ephemera> ephemera);
+    template<typename T>
+    static void trim(std::list<std::unique_ptr<T>> &ephemera, int maxEphemera) {
+        while (ephemera.size() > maxEphemera) {
+            ephemera.pop_front();
+        }
+    }
 
-    void observe(Lattice &lattice);
+    template<typename T>
+    static void observe(std::list<std::unique_ptr<T>> &ephemera, Lattice &lattice) {
+        auto iterator = ephemera.begin();
+        while (iterator != ephemera.end()) {
+            if ((*iterator)->isDead()) {
+                iterator = ephemera.erase(iterator);
+            } else {
+                (*iterator)->live(lattice);
+                (*iterator)->incrementAge();
+                iterator++;
+            }
+        }
+    }
+
+    static std::vector<int> determineSpawnIndices(const ImpresarioSerialization::Essentia *essentia,
+                                                  float spawnFactor);
 };
 
 }

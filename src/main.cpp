@@ -37,13 +37,6 @@ int bootstrap() {
     auto volitiaPercipient = std::make_unique<VolitiaPercipient>(move(volitiaSocket), axiomologyArbiter, phenomenology);
     auto volitiaPercipientThread = impresarioUtils::Circlet::begin(move(volitiaPercipient));
 
-
-    // wait for first axiomology
-    while (axiomologyArbiter->take() == nullptr) {
-        impresarioUtils::sleep(5000);
-        LOGGER->info("waiting to receive first axiomology");
-    }
-
     // paradigm
     Paradigm::initialize(move(axiomologyArbiter));
 

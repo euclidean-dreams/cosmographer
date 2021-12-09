@@ -3,21 +3,22 @@
 namespace cosmographer {
 
 HSLColor::HSLColor(int hue, int saturation, int lightness) {
-    if (hue < 0 || saturation < 0 || saturation > 100 || lightness < 0 || lightness > 100) {
-        std::ostringstream errorMessage;
-        errorMessage << "invalid HSL Color: (" << hue << ", " << saturation << ", " << lightness << ")";
-        throw std::out_of_range(errorMessage.str());
+    if (lightness > 100) {
+        lightness = 100;
+    } else if (lightness < 0) {
+        lightness = 0;
+    }
+    if (saturation > 100) {
+        saturation = 100;
+    } else if (saturation < 0) {
+        saturation = 0;
+    }
+    while(hue < 0) {
+        hue += HSL_HUE_MAX;
     }
     this->hue = hue % HSL_HUE_MAX;
     this->saturation = saturation;
     this->lightness = lightness;
-}
-
-HSLColor::HSLColor(int signalSize, int index, int hueShift, int saturation, int lightness)
-        : HSLColor{static_cast<int>(static_cast<float>(index) / static_cast<float>(signalSize) * HSL_HUE_MAX +
-                                    static_cast<float>(hueShift)), saturation, lightness} {
-    // generates a frequency based hue
-
 }
 
 uint32_t HSLColor::getHue() const {
@@ -86,6 +87,18 @@ RGBColor HSLColor::convertToRGB() const {
     auto green = static_cast<uint8_t>(std::roundf((initialGreen + lightnessAdjustment) * 255));
     auto blue = static_cast<uint8_t>(std::roundf((initialBlue + lightnessAdjustment) * 255));
     return RGBColor{red, green, blue};
+}
+
+HSLColor HSLColor::newHue(int newHue) const {
+    return {newHue, saturation, lightness};
+}
+
+HSLColor HSLColor::newSaturation(int newSaturation) const {
+    return {static_cast<int>(hue), newSaturation, lightness};
+}
+
+HSLColor HSLColor::newLightness(int newLightness) const {
+    return {static_cast<int>(hue), saturation, newLightness};
 }
 
 }

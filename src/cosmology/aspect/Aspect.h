@@ -5,17 +5,13 @@
 #include "cosmology/ephemera/EphemeraEcosystem.h"
 #include "gizmo/Lattice.h"
 #include "gizmo/CoordinateTransformer.h"
+#include "gizmo/color/colorium/Colorium.h"
+#include "gizmo/paradigm/Paradigm.h"
 
 namespace cosmographer {
 
 class Aspect : public impresarioUtils::NonCopyable {
-protected:
-    uint latticeWidth;
-    uint latticeHeight;
-
 public:
-    Aspect(uint latticeWidth, uint latticeHeight);
-
     virtual ~Aspect() = default;
 
     virtual std::unique_ptr<Lattice> manifest(int tick) = 0;

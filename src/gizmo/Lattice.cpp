@@ -2,8 +2,8 @@
 
 namespace cosmographer {
 
-Lattice::Lattice(uint width, uint height)
-        : data{width, {height, HSLColor{0, 0, 0}}} {
+Lattice::Lattice()
+        : data{PARADIGM.getLatticeWidth(), {PARADIGM.getLatticeHeight(), HSLColor{0, 0, 0}}} {
 
 }
 

@@ -2,6 +2,7 @@
 #define COSMOGRAPHER_LATTICE_H
 
 #include <ImpresarioUtils.h>
+#include "gizmo/paradigm/Paradigm.h"
 #include "gizmo/color/HSLColor.h"
 #include "gizmo/Coordinate.h"
 
@@ -12,7 +13,7 @@ private:
     std::vector<std::vector<HSLColor>> data;
 
 public:
-    Lattice(uint width, uint height);
+    Lattice();
 
     HSLColor getColor(Coordinate coordinate) const;
 

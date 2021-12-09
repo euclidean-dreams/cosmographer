@@ -4,7 +4,7 @@
 #include <ImpresarioUtils.h>
 #include "vantage/Vantage.h"
 #include "cosmology/Cosmology.h"
-#include "Paradigm.h"
+#include "gizmo/paradigm/Paradigm.h"
 #include "Empyrium.h"
 
 namespace cosmographer {

@@ -9,6 +9,7 @@ Empyrium::Empyrium(std::shared_ptr<Cosmology> cosmology)
 }
 
 void Empyrium::activate() {
+    PARADIGM.refresh();
     cosmology->alter();
 }
 

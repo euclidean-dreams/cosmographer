@@ -20,13 +20,17 @@ private:
 public:
     HSLColor(int hue, int saturation, int lightness);
 
-    HSLColor(int signalSize, int index, int hueShift, int saturation, int lightness);
-
     uint32_t getHue() const;
 
     uint8_t getSaturation() const;
 
     uint8_t getLightness() const;
+
+    HSLColor newHue(int newHue) const;
+
+    HSLColor newSaturation(int newSaturation) const;
+
+    HSLColor newLightness(int newLightness) const;
 
     HSLColor lighten(int amount) const;
 

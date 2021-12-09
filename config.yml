@@ -5,7 +5,7 @@ initial_brightness: 5
 vantage_type: 0
 
 # tick interval
-empyrium_tick_interval: 15000
+empyrium_tick_interval: 1000
 luciferon_tick_interval: 15000
 palantir_tick_interval: 15000
 

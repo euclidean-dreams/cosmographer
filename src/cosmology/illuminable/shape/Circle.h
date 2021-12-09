@@ -7,12 +7,10 @@ namespace cosmographer {
 
 class Circle : public Illuminable {
 private:
-    Coordinate origin;
-    HSLColor color;
     int radius;
 
 public:
-    Circle(Coordinate origin, HSLColor color, int radius);
+    Circle(Coordinate origin, HSLColor soulColor, int radius);
 
     void illuminate(Lattice &lattice) override;
 };

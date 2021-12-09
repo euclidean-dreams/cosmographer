@@ -1,27 +1,29 @@
-#ifndef COSMOGRAPHER_PLUMAGE_H
-#define COSMOGRAPHER_PLUMAGE_H
+#ifndef COSMOGRAPHER_SIGNALARIUM_H
+#define COSMOGRAPHER_SIGNALARIUM_H
 
 #include "Aspect.h"
-#include "cosmology/ephemera/Bloom.h"
+#include "cosmology/illuminable/Signal.h"
 #include "gizmo/color/colorium/JourneyColorium.h"
+
 
 namespace cosmographer {
 
-class Plumage : public Aspect {
+class Signalarium : public Aspect {
 private:
-    std::list<std::unique_ptr<Bloom>> ephemera;
+    std::unique_ptr<Signal> signal;
     std::unique_ptr<Colorium> colorium;
 
 public:
-    Plumage();
+    Signalarium();
 
     std::unique_ptr<Lattice> manifest(int tick) override;
 
     void experiencePhenomenon(const ImpresarioSerialization::Phenomenon *phenomenon) override;
 
     void experienceEssentia(const ImpresarioSerialization::Essentia *essentia) override;
+
 };
 
 }
 
-#endif //COSMOGRAPHER_PLUMAGE_H
+#endif //COSMOGRAPHER_SIGNALARIUM_H

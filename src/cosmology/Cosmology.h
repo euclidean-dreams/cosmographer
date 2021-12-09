@@ -3,9 +3,10 @@
 
 #include <mutex>
 #include <ImpresarioUtils.h>
-#include "Paradigm.h"
+#include "gizmo/paradigm/Paradigm.h"
 #include "gizmo/Lattice.h"
 #include "cosmology/aspect/Plumage.h"
+#include "cosmology/aspect/Signalarium.h"
 
 namespace cosmographer {
 

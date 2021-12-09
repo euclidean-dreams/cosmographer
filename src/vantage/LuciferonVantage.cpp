@@ -25,12 +25,11 @@ void LuciferonVantage::send(const Lattice &lattice) {
         }
     }
 
-    auto axiomology = Paradigm::getInstance().getAxiomology();
-    auto brightness = impresarioUtils::Unwrap::Axiomology(*axiomology)->brightness();
     auto builder = std::make_unique<flatbuffers::FlatBufferBuilder>();
-    auto glimpse = builder->CreateVectorOfStructs(sendBuffer);
-    auto luminary = ImpresarioSerialization::CreateGlimpse(*builder, brightness, glimpse);
-    builder->Finish(luminary);
+    auto colors = builder->CreateVectorOfStructs(sendBuffer);
+    auto brightness = AXIOMOLOGY->getBrightness() * 255;
+    auto glimpse = ImpresarioSerialization::CreateGlimpse(*builder, static_cast<uint8_t>(brightness), colors);
+    builder->Finish(glimpse);
 
     socket->sendParcel(ImpresarioSerialization::Identifier::glimpse, *builder);
 }

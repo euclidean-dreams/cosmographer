@@ -2,23 +2,24 @@
 
 namespace cosmographer {
 
-Bloom::Bloom(Coordinate origin, HSLColor color)
-        : origin{origin},
-          innerColor{color} {
+Bloom::Bloom(Coordinate origin, HSLColor soulColor)
+        : Ephemera{origin, soulColor} {
 
 }
 
 void Bloom::live(Lattice &lattice) {
-    auto radius = 5;
-    if (radius > 5) {
-        radius = 5;
+    int radius = age / (5.1 - AXIOMOLOGY->getWildcard(0) * 5);
+    int maxRadius = AXIOMOLOGY->getWildcard(1) * 10;
+    if (radius > maxRadius) {
+        radius = maxRadius;
     }
-    Circle circle{origin, innerColor.darken(age * 3), radius};
+    soulColor = soulColor.darken(age / (AXIOMOLOGY->getWildcard(2) * 5));
+    Circle circle{origin, soulColor, radius};
     circle.illuminate(lattice);
 }
 
 bool Bloom::isDead() {
-    return age > 20;
+    return soulColor.getLightness() == 0;
 }
 
 }

@@ -5,7 +5,7 @@ namespace cosmographer {
 Cosmology::Cosmology(impresarioUtils::BufferArbiter<const impresarioUtils::Parcel> &essentiology,
                      impresarioUtils::BufferArbiter<const impresarioUtils::Parcel> &phenomenology)
         : mutex{},
-          aspect{std::make_unique<Plumage>(LATTICE_WIDTH, LATTICE_HEIGHT)},
+          aspect{std::make_unique<Plumage>()},
           tick{0},
           concluded{false},
           essentiology{essentiology},

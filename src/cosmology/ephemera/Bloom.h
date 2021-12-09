@@ -7,12 +7,8 @@
 namespace cosmographer {
 
 class Bloom : public Ephemera {
-private:
-    Coordinate origin;
-    HSLColor innerColor;
-
 public:
-    Bloom(Coordinate origin, HSLColor color);
+    Bloom(Coordinate origin, HSLColor soulColor);
 
     void live(Lattice &lattice) override;
 
