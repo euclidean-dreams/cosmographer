@@ -5,6 +5,9 @@
 #include "cosmology/ephemera/Bloom.h"
 #include "gizmo/color/colorium/JourneyColorium.h"
 
+#define SPAWN_FACTOR 300
+#define MAX_EPHEMERA 2000
+
 namespace cosmographer {
 
 class Plumage : public Aspect {

@@ -3,7 +3,7 @@
 namespace cosmographer {
 
 HSLColor SingleColorPalette::getColor(int index) {
-    return {Colorology::hueJitter(AXIOMOLOGY->getHue()), 100, 50};
+    return {Colorology::hueJitter(AXIOMOLOGY->getScaledHue()), 100, 50};
 }
 
 }

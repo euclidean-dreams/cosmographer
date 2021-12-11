@@ -8,6 +8,8 @@ namespace cosmographer {
 class SingleColorPalette : public Palette {
 public:
     HSLColor getColor(int index) override;
+
+    void experienceEssentia(const ImpresarioSerialization::Essentia *essentia) override {};
 };
 
 }

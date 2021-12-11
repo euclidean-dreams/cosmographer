@@ -19,6 +19,7 @@ public:
 
     virtual void experiencePhenomenon(const ImpresarioSerialization::Phenomenon *phenomenon) = 0;
 
+    virtual void experienceEssentia(const ImpresarioSerialization::Essentia *essentia) = 0;
 };
 
 }

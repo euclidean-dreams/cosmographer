@@ -11,6 +11,8 @@ namespace cosmographer {
 class Palette : public impresarioUtils::NonCopyable {
 public:
     virtual HSLColor getColor(int index) = 0;
+
+    virtual void experienceEssentia(const ImpresarioSerialization::Essentia *essentia) = 0;
 };
 
 }

@@ -10,7 +10,7 @@ Plumage::Plumage()
 
 std::unique_ptr<Lattice> Plumage::manifest(int tick) {
     auto lattice = std::make_unique<Lattice>();
-    EphemeraEcosystem::trim(ephemera, 2000);
+    EphemeraEcosystem::trim(ephemera, MAX_EPHEMERA);
     EphemeraEcosystem::observe(ephemera, *lattice);
     return lattice;
 }
@@ -20,7 +20,8 @@ void Plumage::experiencePhenomenon(const ImpresarioSerialization::Phenomenon *ph
 }
 
 void Plumage::experienceEssentia(const ImpresarioSerialization::Essentia *essentia) {
-    auto spawnIndices = EphemeraEcosystem::determineSpawnIndices(essentia, 500);
+    colorium->experienceEssentia(essentia);
+    auto spawnIndices = EphemeraEcosystem::determineSpawnIndices(essentia, SPAWN_FACTOR);
     for (auto &index: spawnIndices) {
         auto bloom = std::make_unique<Bloom>(CoordinateTransformer::verticalWrap(index), colorium->getColor(index));
         ephemera.push_back(move(bloom));

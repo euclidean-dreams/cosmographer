@@ -13,7 +13,7 @@ void Bloom::live(Lattice &lattice) {
     if (radius > maxRadius) {
         radius = maxRadius;
     }
-    soulColor = soulColor.darken(age / (AXIOMOLOGY->getWildcard(2) * 5));
+    soulColor = soulColor.darken(age / (AXIOMOLOGY->getWildcard(2) * 20));
     Circle circle{origin, soulColor, radius};
     circle.illuminate(lattice);
 }
