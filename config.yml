@@ -16,5 +16,5 @@ analogorium_endpoint: ipc:///tmp/signalarium
 volitia_endpoint: tcp://10.0.0.219:44440
 
 # lattice
-lattice_width: 20
+lattice_width: 60
 lattice_height: 74

@@ -43,13 +43,25 @@ int bootstrap() {
     // vantage
     std::unique_ptr<Vantage> vantage;
     if (VANTAGE_TYPE == 0) {
-        auto luciferonSocket = std::make_unique<impresarioUtils::NetworkSocket>(
+        auto socket0 = std::make_unique<impresarioUtils::NetworkSocket>(
                 bootstrapper.getZmqContext(),
-                LUCIFERON_ENDPOINT,
+                "tcp://0.0.0.0:44400",
                 zmq::socket_type::pub,
                 true
         );
-        vantage = std::make_unique<LuciferonVantage>(move(luciferonSocket));
+        auto socket1 = std::make_unique<impresarioUtils::NetworkSocket>(
+                bootstrapper.getZmqContext(),
+                "tcp://0.0.0.0:44401",
+                zmq::socket_type::pub,
+                true
+        );
+        auto socket2 = std::make_unique<impresarioUtils::NetworkSocket>(
+                bootstrapper.getZmqContext(),
+                "tcp://0.0.0.0:44402",
+                zmq::socket_type::pub,
+                true
+        );
+        vantage = std::make_unique<LuciferonVantage>(move(socket0), move(socket1), move(socket2));
     } else if (VANTAGE_TYPE == 1) {
         auto palantirSocket = std::make_unique<impresarioUtils::NetworkSocket>(
                 bootstrapper.getZmqContext(),

@@ -2,8 +2,12 @@
 
 namespace cosmographer {
 
-LuciferonVantage::LuciferonVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket)
-        : socket{move(socket)},
+LuciferonVantage::LuciferonVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket0,
+                                   std::unique_ptr<impresarioUtils::NetworkSocket> socket1,
+                                   std::unique_ptr<impresarioUtils::NetworkSocket> socket2)
+        : socket0{move(socket0)},
+          socket1{move(socket1)},
+          socket2{move(socket2)},
           tickInterval{LUCIFERON_TICK_INTERVAL} {
 
 }
@@ -11,7 +15,7 @@ LuciferonVantage::LuciferonVantage(std::unique_ptr<impresarioUtils::NetworkSocke
 void LuciferonVantage::send(const Lattice &lattice) {
     std::vector<ImpresarioSerialization::Color> sendBuffer{};
     sendBuffer.reserve(lattice.size());
-    for (int x = 0; x < lattice.width(); x++) {
+    for (int x = 0; x < 20; x++) {
         if (x % 2 == 0) {
             for (int y = 0; y < lattice.height(); y++) {
                 auto color = lattice.getColor({x, y}).convertToRGB();
@@ -31,7 +35,55 @@ void LuciferonVantage::send(const Lattice &lattice) {
     auto glimpse = ImpresarioSerialization::CreateGlimpse(*builder, static_cast<uint8_t>(brightness), colors);
     builder->Finish(glimpse);
 
-    socket->sendParcel(ImpresarioSerialization::Identifier::glimpse, *builder);
+    socket0->sendParcel(ImpresarioSerialization::Identifier::glimpse, *builder);
+
+    std::vector<ImpresarioSerialization::Color> sendBuffer1{};
+    sendBuffer1.reserve(lattice.size());
+    for (int x = 20; x < 40; x++) {
+        if (x % 2 == 0) {
+            for (int y = 0; y < lattice.height(); y++) {
+                auto color = lattice.getColor({x, y}).convertToRGB();
+                sendBuffer1.emplace_back(color.red, color.green, color.blue);
+            }
+        } else {
+            for (int y = lattice.height() - 1; y >= 0; y--) {
+                auto color = lattice.getColor({x, y}).convertToRGB();
+                sendBuffer1.emplace_back(color.red, color.green, color.blue);
+            }
+        }
+    }
+
+    builder = std::make_unique<flatbuffers::FlatBufferBuilder>();
+    colors = builder->CreateVectorOfStructs(sendBuffer1);
+    brightness = AXIOMOLOGY->getBrightness() * 255;
+    glimpse = ImpresarioSerialization::CreateGlimpse(*builder, static_cast<uint8_t>(brightness), colors);
+    builder->Finish(glimpse);
+
+    socket1->sendParcel(ImpresarioSerialization::Identifier::glimpse, *builder);
+
+    std::vector<ImpresarioSerialization::Color> sendBuffer2{};
+    sendBuffer2.reserve(lattice.size());
+    for (int x = 40; x < 60; x++) {
+        if (x % 2 == 0) {
+            for (int y = 0; y < lattice.height(); y++) {
+                auto color = lattice.getColor({x, y}).convertToRGB();
+                sendBuffer2.emplace_back(color.red, color.green, color.blue);
+            }
+        } else {
+            for (int y = lattice.height() - 1; y >= 0; y--) {
+                auto color = lattice.getColor({x, y}).convertToRGB();
+                sendBuffer2.emplace_back(color.red, color.green, color.blue);
+            }
+        }
+    }
+
+    builder = std::make_unique<flatbuffers::FlatBufferBuilder>();
+    colors = builder->CreateVectorOfStructs(sendBuffer2);
+    brightness = AXIOMOLOGY->getBrightness() * 255;
+    glimpse = ImpresarioSerialization::CreateGlimpse(*builder, static_cast<uint8_t>(brightness), colors);
+    builder->Finish(glimpse);
+
+    socket2->sendParcel(ImpresarioSerialization::Identifier::glimpse, *builder);
 }
 
 int LuciferonVantage::getRefreshRate() {
