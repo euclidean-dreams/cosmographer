@@ -1,22 +1,23 @@
-#ifndef COSMOGRAPHER_PLUMAGE_H
-#define COSMOGRAPHER_PLUMAGE_H
+#ifndef COSMOGRAPHER_DRAGONARIUM_H
+#define COSMOGRAPHER_DRAGONARIUM_H
 
 #include "Aspect.h"
 #include "cosmology/ephemera/Bloom.h"
 #include "gizmo/color/colorium/JourneyColorium.h"
+#include "cosmology/ephemera/DragonRoar.h"
 
 namespace cosmographer {
 
-class Plumage : public Aspect {
+class Dragonarium : public Aspect {
 private:
-    const int maxEphemera = 300;
-    std::list<std::unique_ptr<Bloom>> ephemera;
+    const int maxEphemera = 100;
+    const int maxNewEphemera = 5;
+    std::list<std::unique_ptr<DragonRoar>> ephemera;
     std::unique_ptr<Colorium> colorium;
-    float scale;
     float spawnFactor;
 
 public:
-    Plumage(float scale, float spawnFactor);
+    explicit Dragonarium(float spawnFactor);
 
     std::unique_ptr<Lattice> manifest(int tick) override;
 
@@ -27,4 +28,4 @@ public:
 
 }
 
-#endif //COSMOGRAPHER_PLUMAGE_H
+#endif //COSMOGRAPHER_DRAGONARIUM_H

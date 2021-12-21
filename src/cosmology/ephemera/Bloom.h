@@ -7,8 +7,11 @@
 namespace cosmographer {
 
 class Bloom : public Ephemera {
+private:
+    float scale;
+
 public:
-    Bloom(Coordinate origin, HSLColor soulColor);
+    Bloom(Coordinate origin, HSLColor soulColor, float scale);
 
     void live(Lattice &lattice) override;
 

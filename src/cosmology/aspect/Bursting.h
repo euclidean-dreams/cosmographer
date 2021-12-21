@@ -1,22 +1,22 @@
-#ifndef COSMOGRAPHER_PLUMAGE_H
-#define COSMOGRAPHER_PLUMAGE_H
+#ifndef COSMOGRAPHER_BURSTING_H
+#define COSMOGRAPHER_BURSTING_H
 
 #include "Aspect.h"
-#include "cosmology/ephemera/Bloom.h"
+#include "cosmology/ephemera/Burst.h"
 #include "gizmo/color/colorium/JourneyColorium.h"
 
 namespace cosmographer {
 
-class Plumage : public Aspect {
+class Bursting : public Aspect {
 private:
-    const int maxEphemera = 300;
-    std::list<std::unique_ptr<Bloom>> ephemera;
+    const int maxEphemera = 100;
+    std::list<std::unique_ptr<Burst>> ephemera;
     std::unique_ptr<Colorium> colorium;
     float scale;
     float spawnFactor;
 
 public:
-    Plumage(float scale, float spawnFactor);
+    Bursting(float scale, float spawnFactor);
 
     std::unique_ptr<Lattice> manifest(int tick) override;
 
@@ -27,4 +27,4 @@ public:
 
 }
 
-#endif //COSMOGRAPHER_PLUMAGE_H
+#endif //COSMOGRAPHER_BURSTING_H

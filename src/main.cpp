@@ -38,7 +38,7 @@ int bootstrap() {
     auto volitiaPercipientThread = impresarioUtils::Circlet::begin(move(volitiaPercipient));
 
     // paradigm
-    Paradigm::initialize(move(axiomologyArbiter));
+    Paradigm::initialize(axiomologyArbiter);
 
     // vantage
     std::unique_ptr<Vantage> vantage;
@@ -61,7 +61,7 @@ int bootstrap() {
                 zmq::socket_type::pub,
                 true
         );
-        vantage = std::make_unique<LuciferonVantage>(move(socket0), move(socket1), move(socket2));
+        vantage = std::make_unique<LuciferonVantage>(move(socket0), move(socket1), move(socket2), axiomologyArbiter);
     } else if (VANTAGE_TYPE == 1) {
         auto palantirSocket = std::make_unique<impresarioUtils::NetworkSocket>(
                 bootstrapper.getZmqContext(),
@@ -69,7 +69,7 @@ int bootstrap() {
                 zmq::socket_type::pub,
                 true
         );
-        vantage = std::make_unique<PalantirVantage>(move(palantirSocket));
+        vantage = std::make_unique<PalantirVantage>(move(palantirSocket), axiomologyArbiter);
     } else {
         LOGGER->error("invalid vantage type: {}", VANTAGE_TYPE);
         return -1;

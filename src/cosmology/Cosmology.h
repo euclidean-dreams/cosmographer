@@ -7,13 +7,18 @@
 #include "gizmo/Lattice.h"
 #include "cosmology/aspect/Plumage.h"
 #include "cosmology/aspect/Signalarium.h"
+#include "cosmology/aspect/Dragonarium.h"
+#include "cosmology/aspect/Bursting.h"
+#include "cosmology/affinity/OverlapAffinity.h"
+#include "cosmology/affinity/PassthroughAffinity.h"
+#include "cosmology/affinity/SlottedAffinity.h"
 
 namespace cosmographer {
 
 class Cosmology : public impresarioUtils::NonCopyable {
 private:
     std::mutex mutex;
-    std::unique_ptr<Aspect> aspect;
+    std::unique_ptr<Affinity> rootAffinity;
     int tick;
     bool concluded;
     impresarioUtils::BufferArbiter<const impresarioUtils::Parcel> &essentiology;

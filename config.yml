@@ -4,10 +4,10 @@ initial_brightness: 5
 # 1 = palantir
 vantage_type: 0
 
-# tick interval
+# tick interval d
 empyrium_tick_interval: 1000
 luciferon_tick_interval: 15000
-palantir_tick_interval: 15000
+palantir_tick_interval: 10000
 
 # sockets
 luciferon_endpoint: tcp://0.0.0.0:44400

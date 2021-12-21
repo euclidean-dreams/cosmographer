@@ -14,9 +14,8 @@ class Paradigm : public impresarioUtils::NonCopyable {
 private:
     static std::unique_ptr<Paradigm> instance;
 
-    std::mutex mutex;
     std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomologyArbiter;
-    std::shared_ptr<const Axiomology> axiomology;
+    std::unique_ptr<const Axiomology> axiomology;
     uint latticeWidth;
     uint latticeHeight;
 
@@ -29,7 +28,7 @@ public:
 
     void refresh();
 
-    std::shared_ptr<const Axiomology> getAxiomology();
+    const Axiomology &getAxiomology();
 
     uint getLatticeWidth() const;
 

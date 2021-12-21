@@ -1,0 +1,12 @@
+#ifndef COSMOGRAPHER_LINDOGRAMASSEMBLER_H
+#define COSMOGRAPHER_LINDOGRAMASSEMBLER_H
+
+namespace cosmographer {
+
+class LindogramAssembler {
+
+};
+
+}
+
+#endif //COSMOGRAPHER_LINDOGRAMASSEMBLER_H

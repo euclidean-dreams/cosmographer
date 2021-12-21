@@ -19,7 +19,6 @@ public:
     uint64_t getTickInterval() override;
 
     bool finished() override;
-
 };
 
 }

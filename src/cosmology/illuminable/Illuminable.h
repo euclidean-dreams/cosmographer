@@ -19,6 +19,8 @@ public:
 
     Illuminable(Coordinate origin, HSLColor soulColor);
 
+    void changeSoulColor(HSLColor color);
+
     virtual void illuminate(Lattice &lattice) = 0;
 };
 

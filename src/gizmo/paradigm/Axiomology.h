@@ -8,19 +8,27 @@ namespace cosmographer {
 
 class Axiomology {
 private:
+    const int wildcardCount = 5;
+
     float brightness;
-    float magnitude;
+    float gain;
+    float ephemeraNormalizationScale;
+    float ephemeraSpawnThreshold;
     float hue;
     std::vector<float> wildcards;
 
 public:
-    explicit Axiomology(const impresarioUtils::Parcel &axiomologyParcel);
+    Axiomology();
 
-    Axiomology(float brightness, float magnitude, float hue, std::vector<float> &wildcards);
+    explicit Axiomology(const impresarioUtils::Parcel &axiomologyParcel);
 
     float getBrightness() const;
 
-    float getMagnitude() const;
+    float getGain() const;
+
+    float getEphemeraNormalizationScale() const;
+
+    float getEphemeraSpawnThreshold() const;
 
     float getHue() const;
 

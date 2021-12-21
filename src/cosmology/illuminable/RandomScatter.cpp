@@ -1,14 +1,15 @@
-#include "Circle.h"
+#include "RandomScatter.h"
 
 namespace cosmographer {
 
-Circle::Circle(Coordinate origin, HSLColor soulColor, int radius)
-        : Illuminable{origin, soulColor},
-          radius{radius} {
+RandomScatter::RandomScatter(Coordinate origin, HSLColor soulColor, int radius, float density)
+        : Illuminable(origin, soulColor),
+          radius{radius},
+          density{density} {
 
 }
 
-void Circle::illuminate(Lattice &lattice) {
+void RandomScatter::illuminate(Lattice &lattice) {
     auto minX = origin.x - radius;
     if (minX < 0) {
         minX = 0;
@@ -27,7 +28,7 @@ void Circle::illuminate(Lattice &lattice) {
     }
     for (int y = minY; y <= maxY; y++) {
         for (int x = minX; x <= maxX; x++) {
-            if (radius * radius > (x - origin.x) * (x - origin.x) + (y - origin.y) * (y - origin.y)) {
+            if (RANDOM.generateProportion() < density) {
                 lattice.setColorIfValid({x, y}, soulColor);
             }
         }

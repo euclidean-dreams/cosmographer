@@ -4,15 +4,27 @@ namespace cosmographer {
 
 LuciferonVantage::LuciferonVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket0,
                                    std::unique_ptr<impresarioUtils::NetworkSocket> socket1,
-                                   std::unique_ptr<impresarioUtils::NetworkSocket> socket2)
+                                   std::unique_ptr<impresarioUtils::NetworkSocket> socket2,
+                                   std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomologyArbiter)
         : socket0{move(socket0)},
           socket1{move(socket1)},
           socket2{move(socket2)},
+          axiomologyArbiter{move(axiomologyArbiter)},
           tickInterval{LUCIFERON_TICK_INTERVAL} {
 
 }
 
 void LuciferonVantage::send(const Lattice &lattice) {
+    auto axiomologyParcel = axiomologyArbiter->take();
+    auto rawBrightness = 0.5;
+    if (axiomologyParcel != nullptr) {
+        auto axioms = impresarioUtils::Unwrap::Axiomology(*axiomologyParcel)->axioms();
+        if (axioms->size() > 0) {
+            rawBrightness = axioms->Get(0);
+        }
+    }
+    auto brightness = rawBrightness * 255;
+
     std::vector<ImpresarioSerialization::Color> sendBuffer{};
     sendBuffer.reserve(lattice.size());
     for (int x = 0; x < 20; x++) {
@@ -31,7 +43,6 @@ void LuciferonVantage::send(const Lattice &lattice) {
 
     auto builder = std::make_unique<flatbuffers::FlatBufferBuilder>();
     auto colors = builder->CreateVectorOfStructs(sendBuffer);
-    auto brightness = AXIOMOLOGY->getBrightness() * 255;
     auto glimpse = ImpresarioSerialization::CreateGlimpse(*builder, static_cast<uint8_t>(brightness), colors);
     builder->Finish(glimpse);
 
@@ -55,7 +66,6 @@ void LuciferonVantage::send(const Lattice &lattice) {
 
     builder = std::make_unique<flatbuffers::FlatBufferBuilder>();
     colors = builder->CreateVectorOfStructs(sendBuffer1);
-    brightness = AXIOMOLOGY->getBrightness() * 255;
     glimpse = ImpresarioSerialization::CreateGlimpse(*builder, static_cast<uint8_t>(brightness), colors);
     builder->Finish(glimpse);
 
@@ -79,7 +89,6 @@ void LuciferonVantage::send(const Lattice &lattice) {
 
     builder = std::make_unique<flatbuffers::FlatBufferBuilder>();
     colors = builder->CreateVectorOfStructs(sendBuffer2);
-    brightness = AXIOMOLOGY->getBrightness() * 255;
     glimpse = ImpresarioSerialization::CreateGlimpse(*builder, static_cast<uint8_t>(brightness), colors);
     builder->Finish(glimpse);
 

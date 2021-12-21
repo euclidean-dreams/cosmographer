@@ -10,7 +10,7 @@ FrequencyOscillationPalette::FrequencyOscillationPalette()
 
 HSLColor FrequencyOscillationPalette::getColor(int index) {
     if (impresarioUtils::getElapsedTime(lastOscillation) >
-        MAX_OSCILLATION_RATE - MAX_OSCILLATION_RATE * AXIOMOLOGY->getHue()) {
+        MAX_OSCILLATION_RATE - MAX_OSCILLATION_RATE * AXIOMOLOGY.getHue()) {
         lastOscillation = impresarioUtils::getCurrentTime();
         hueShift++;
     }

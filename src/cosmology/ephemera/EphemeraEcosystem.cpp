@@ -15,9 +15,11 @@ std::vector<int> EphemeraEcosystem::determineSpawnIndices(const ImpresarioSerial
             sample /= 100;
         }
 
-        auto magnitude = AXIOMOLOGY->getMagnitude();
-        auto threshold = spawnFactor - magnitude * spawnFactor;
-        if (sample > threshold) {
+        // normalize
+        auto normalizationScale = AXIOMOLOGY.getEphemeraNormalizationScale();
+        auto normalizedSample = 1 - 1 / (std::pow(sample / (-1 * (1000 - 1000 * normalizationScale)), 2) + 1);
+
+        if (normalizedSample > 1 - AXIOMOLOGY.getEphemeraSpawnThreshold()) {
             result.push_back(index);
         }
     }

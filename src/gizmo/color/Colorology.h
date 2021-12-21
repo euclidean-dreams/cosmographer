@@ -3,7 +3,7 @@
 
 #include "gizmo/paradigm/Paradigm.h"
 
-#define HUE_JITTER 500
+#define HUE_JITTER 200
 
 namespace cosmographer {
 

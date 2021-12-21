@@ -9,8 +9,13 @@ Illuminable::Illuminable(HSLColor soulColor)
 
 Illuminable::Illuminable(Coordinate origin, HSLColor soulColor)
         : origin{origin},
-          soulColor{soulColor} {
+          soulColor{soulColor},
+          age{0} {
 
+}
+
+void Illuminable::changeSoulColor(HSLColor color) {
+    soulColor = color;
 }
 
 }

@@ -20,9 +20,9 @@ void BeatPalette::experienceEssentia(const ImpresarioSerialization::Essentia *es
         energy += samples->Get(index);
     }
     auto flux = energy - previousEnergy;
-    auto fluxRequirement = MAX_FLUX_REQUIREMENT - MAX_FLUX_REQUIREMENT * AXIOMOLOGY->getHue();
+    auto fluxRequirement = MAX_FLUX_REQUIREMENT - MAX_FLUX_REQUIREMENT * AXIOMOLOGY.getHue();
     if (flux > fluxRequirement && impresarioUtils::getElapsedTime(lastBeat) > MINIMUM_BEAT_INTERVAL) {
-        hue += RANDOM.generate(HSL_HUE_MAX * AXIOMOLOGY->getWildcard(6));
+        hue += RANDOM.generate(HSL_HUE_MAX * AXIOMOLOGY.getWildcard(3));
     }
     previousEnergy = energy;
 }

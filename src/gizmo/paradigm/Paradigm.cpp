@@ -14,12 +14,10 @@ void Paradigm::initialize(std::shared_ptr<impresarioUtils::Arbiter<const impresa
 
 Paradigm::Paradigm(std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomologyArbiter)
         : axiomologyArbiter{move(axiomologyArbiter)},
-          axiomology{nullptr},
+          axiomology{std::make_unique<Axiomology>()},
           latticeWidth{LATTICE_WIDTH},
           latticeHeight{LATTICE_HEIGHT} {
-    auto wildcards = std::vector<float>{};
-    wildcards.resize(100, 0);
-    axiomology = std::make_shared<Axiomology>(INITIAL_BRIGHTNESS, 0.5, 0, wildcards);
+
 }
 
 Paradigm &Paradigm::getInstance() {
@@ -27,16 +25,14 @@ Paradigm &Paradigm::getInstance() {
 }
 
 void Paradigm::refresh() {
-    std::unique_lock<std::mutex> lock{mutex};
-    auto axiomologyParcel = axiomologyArbiter->take();
-    if (axiomologyParcel != nullptr) {
-        axiomology = std::make_shared<Axiomology>(*axiomologyParcel);
+    if (axiomologyArbiter->newDataAvailable()) {
+        auto axiomologyParcel = axiomologyArbiter->take();
+        axiomology = std::make_unique<Axiomology>(*axiomologyParcel);
     }
 }
 
-std::shared_ptr<const Axiomology> Paradigm::getAxiomology() {
-    std::unique_lock<std::mutex> lock{mutex};
-    return axiomology;
+const Axiomology &Paradigm::getAxiomology() {
+    return *axiomology;
 }
 
 uint Paradigm::getLatticeWidth() const {
