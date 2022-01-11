@@ -17,7 +17,7 @@ Axiomology::Axiomology()
 Axiomology::Axiomology(const impresarioUtils::Parcel &axiomologyParcel)
         : Axiomology{} {
     auto axioms = impresarioUtils::Unwrap::Axiomology(axiomologyParcel)->axioms();
-    if (axioms->size() == 11) {
+    if (axioms->size() > 0) {
         brightness = axioms->Get(0);
         gain = axioms->Get(1);
         ephemeraNormalizationScale = axioms->Get(2);

@@ -2,18 +2,18 @@
 initial_brightness: 5
 # 0 = luciferon
 # 1 = palantir
-vantage_type: 0
+vantage_type: 1
 
 # tick interval d
 empyrium_tick_interval: 1000
 luciferon_tick_interval: 15000
-palantir_tick_interval: 10000
+palantir_tick_interval: 15000
 
 # sockets
 luciferon_endpoint: tcp://0.0.0.0:44400
-palantir_endpoint: ipc:///tmp/cosmographer_palantir
-analogorium_endpoint: ipc:///tmp/signalarium
-volitia_endpoint: tcp://10.0.0.219:44440
+palantir_endpoint: ipc:///tmp/cosmographer
+analogorium_endpoint: ipc:///tmp/analogorium
+volitia_endpoint: tcp://ambrose:44440
 
 # lattice
 lattice_width: 60
