@@ -17,20 +17,18 @@ namespace cosmographer {
 
 class Cosmology : public impresarioUtils::NonCopyable {
 private:
-    std::mutex mutex;
     std::unique_ptr<Affinity> rootAffinity;
     int tick;
     bool concluded;
-    impresarioUtils::BufferArbiter<const impresarioUtils::Parcel> &essentiology;
-    impresarioUtils::BufferArbiter<const impresarioUtils::Parcel> &phenomenology;
 
 public:
-    explicit Cosmology(impresarioUtils::BufferArbiter<const impresarioUtils::Parcel> &essentiology,
-                       impresarioUtils::BufferArbiter<const impresarioUtils::Parcel> &phenomenology);
+    Cosmology();
 
     std::unique_ptr<Lattice> observe();
 
-    void alter();
+    void experiencePhenomenon(const ImpresarioSerialization::Phenomenon *phenomenon);
+
+    void experienceEssentia(const ImpresarioSerialization::Essentia *essentia);
 
     void conclude();
 

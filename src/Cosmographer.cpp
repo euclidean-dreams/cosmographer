@@ -3,25 +3,50 @@
 namespace cosmographer {
 
 Cosmographer::Cosmographer(std::unique_ptr<Vantage> vantage,
-                           std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> essentiology,
+                           std::unique_ptr<impresarioUtils::NetworkSocket> essentiaSocket,
                            std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> phenomenology)
         : vantage{move(vantage)},
-          cosmology{nullptr},
-          empyriumThread{nullptr},
-          essentiology{move(essentiology)},
-          phenomenology{move(phenomenology)} {
-    cosmology = std::make_shared<Cosmology>(*this->essentiology, *this->phenomenology);
-    auto empyrium = std::make_unique<Empyrium>(cosmology);
-    empyriumThread = impresarioUtils::Circlet::begin(move(empyrium));
+          essentiaSocket{move(essentiaSocket)},
+          phenomenology{move(phenomenology)},
+          cosmology{std::make_shared<Cosmology>()} {
+
 }
 
 void Cosmographer::activate() {
+    // wait for a new essentia
+    auto essentiaParcelBundle = receiveEssentiaParcelBundle();
+
+    // refresh the paradigm
+    PARADIGM.refresh();
+
+    // handle new phenomena
+    auto newPhenomenonParcels = phenomenology->take();
+    for (auto &phenomenonParcel: *newPhenomenonParcels) {
+        auto phenomenon = impresarioUtils::Unwrap::Phenomenon(*phenomenonParcel);
+        cosmology->experiencePhenomenon(phenomenon);
+    }
+
+    // experience the essentia
+    for (auto &essentiaParcel: essentiaParcelBundle) {
+        auto essentia = impresarioUtils::Unwrap::Essentia(*essentiaParcel);
+        cosmology->experienceEssentia(essentia);
+    }
+
+
+    // generate lattice and send frame
     auto lattice = cosmology->observe();
     vantage->send(*lattice);
 }
 
-uint64_t Cosmographer::getTickInterval() {
-    return vantage->getRefreshRate();
+std::vector<std::unique_ptr<impresarioUtils::Parcel>> Cosmographer::receiveEssentiaParcelBundle() {
+    std::vector<std::unique_ptr<impresarioUtils::Parcel>> bundle{};
+    bundle.push_back(essentiaSocket->receiveParcel());
+    auto essentia = essentiaSocket->receiveParcel(zmq::recv_flags::dontwait);
+    while (essentia != nullptr) {
+        bundle.push_back(move(essentia));
+        essentia = essentiaSocket->receiveParcel(zmq::recv_flags::dontwait);
+    }
+    return bundle;
 }
 
 bool Cosmographer::finished() {

@@ -10,18 +10,13 @@ private:
     std::unique_ptr<impresarioUtils::NetworkSocket> socket0;
     std::unique_ptr<impresarioUtils::NetworkSocket> socket1;
     std::unique_ptr<impresarioUtils::NetworkSocket> socket2;
-    std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomologyArbiter;
-    int tickInterval;
 
 public:
-    explicit LuciferonVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket0,
-                              std::unique_ptr<impresarioUtils::NetworkSocket> socket1,
-                              std::unique_ptr<impresarioUtils::NetworkSocket> socket2,
-                              std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomologyArbiter);
+    LuciferonVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket0,
+                     std::unique_ptr<impresarioUtils::NetworkSocket> socket1,
+                     std::unique_ptr<impresarioUtils::NetworkSocket> socket2);
 
     void send(const Lattice &lattice) override;
-
-    int getRefreshRate() override;
 };
 
 }

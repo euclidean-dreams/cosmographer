@@ -31,11 +31,9 @@ set(
         src/cosmology/ephemera/Bloom.cpp src/cosmology/ephemera/Bloom.h
         src/cosmology/ephemera/Ephemera.cpp
         src/cosmology/ephemera/EphemeraEcosystem.h
-        src/percipient/AnalogoriumPercipient.cpp src/percipient/AnalogoriumPercipient.h
         src/vantage/Vantage.h
         src/gizmo/paradigm/Paradigm.cpp src/gizmo/paradigm/Paradigm.h
         src/percipient/VolitiaPercipient.cpp src/percipient/VolitiaPercipient.h
-        src/Empyrium.cpp src/Empyrium.h
         src/Config.h
         src/gizmo/CoordinateTransformer.cpp src/gizmo/CoordinateTransformer.h
         src/cosmology/illuminable/Signal.cpp src/cosmology/illuminable/Signal.h
@@ -65,7 +63,7 @@ set(
         src/cosmology/illuminable/RandomScatter.cpp src/cosmology/illuminable/RandomScatter.h
         src/cosmology/ephemera/Burst.cpp src/cosmology/ephemera/Burst.h
         src/cosmology/aspect/Bursting.cpp src/cosmology/aspect/Bursting.h
-        src/cosmology/affinity/SlottedAffinity.cpp src/cosmology/affinity/SlottedAffinity.h)
+        src/cosmology/affinity/SlottedAffinity.cpp src/cosmology/affinity/SlottedAffinity.h src/cosmology/ephemera/Observer.cpp src/cosmology/ephemera/Observer.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

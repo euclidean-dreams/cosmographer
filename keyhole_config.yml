@@ -1,7 +1,7 @@
 # general
 # 0 = keyhole
 # 1 = palantir
-vantage_type: 1
+vantage_type: 0
 
 # tick interval
 luciferon_tick_interval: 15000
@@ -13,5 +13,5 @@ analogorium_endpoint: ipc:///tmp/analogorium
 volitia_endpoint: tcp://volitia:44440
 
 # lattice
-lattice_width: 100
+lattice_width: 60
 lattice_height: 74

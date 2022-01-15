@@ -4,25 +4,15 @@ namespace cosmographer {
 
 LuciferonVantage::LuciferonVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket0,
                                    std::unique_ptr<impresarioUtils::NetworkSocket> socket1,
-                                   std::unique_ptr<impresarioUtils::NetworkSocket> socket2,
-                                   std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomologyArbiter)
+                                   std::unique_ptr<impresarioUtils::NetworkSocket> socket2)
         : socket0{move(socket0)},
           socket1{move(socket1)},
-          socket2{move(socket2)},
-          axiomologyArbiter{move(axiomologyArbiter)},
-          tickInterval{LUCIFERON_TICK_INTERVAL} {
+          socket2{move(socket2)} {
 
 }
 
 void LuciferonVantage::send(const Lattice &lattice) {
-    auto axiomologyParcel = axiomologyArbiter->take();
-    auto rawBrightness = 0.5;
-    if (axiomologyParcel != nullptr) {
-        auto axioms = impresarioUtils::Unwrap::Axiomology(*axiomologyParcel)->axioms();
-        if (axioms->size() > 0) {
-            rawBrightness = axioms->Get(0);
-        }
-    }
+    auto rawBrightness = AXIOMOLOGY.getBrightness();
     auto brightness = rawBrightness * 255;
 
     std::vector<ImpresarioSerialization::Color> sendBuffer{};
@@ -93,10 +83,6 @@ void LuciferonVantage::send(const Lattice &lattice) {
     builder->Finish(glimpse);
 
     socket2->sendParcel(ImpresarioSerialization::Identifier::glimpse, *builder);
-}
-
-int LuciferonVantage::getRefreshRate() {
-    return tickInterval;
 }
 
 }

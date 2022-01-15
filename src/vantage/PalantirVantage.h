@@ -8,16 +8,11 @@ namespace cosmographer {
 class PalantirVantage : public Vantage {
 private:
     std::unique_ptr<impresarioUtils::NetworkSocket> socket;
-    std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomologyArbiter;
-    int tickInterval;
 
 public:
-    explicit PalantirVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket,
-                             std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomologyArbiter);
+    explicit PalantirVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket);
 
     void send(const Lattice &lattice) override;
-
-    int getRefreshRate() override;
 };
 
 }

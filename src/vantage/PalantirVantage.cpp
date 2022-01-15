@@ -2,23 +2,13 @@
 
 namespace cosmographer {
 
-PalantirVantage::PalantirVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket,
-                                 std::shared_ptr<impresarioUtils::Arbiter<const impresarioUtils::Parcel>> axiomologyArbiter)
-        : socket{move(socket)},
-          axiomologyArbiter{move(axiomologyArbiter)},
-          tickInterval{PALANTIR_TICK_INTERVAL} {
+PalantirVantage::PalantirVantage(std::unique_ptr<impresarioUtils::NetworkSocket> socket)
+        : socket{move(socket)} {
 
 }
 
 void PalantirVantage::send(const Lattice &lattice) {
-    auto axiomologyParcel = axiomologyArbiter->take();
-    auto rawBrightness = 0.5;
-    if (axiomologyParcel != nullptr) {
-        auto axioms = impresarioUtils::Unwrap::Axiomology(*axiomologyParcel)->axioms();
-        if (axioms->size() > 0) {
-            rawBrightness = axioms->Get(0);
-        }
-    }
+    auto rawBrightness = AXIOMOLOGY.getBrightness();
     auto brightness = rawBrightness * 255;
 
     std::vector<ImpresarioSerialization::Color> sendBuffer{};
@@ -36,10 +26,6 @@ void PalantirVantage::send(const Lattice &lattice) {
     builder->Finish(glimpse);
 
     socket->sendParcel(ImpresarioSerialization::Identifier::glimpse, *builder);
-}
-
-int PalantirVantage::getRefreshRate() {
-    return tickInterval;
 }
 
 }

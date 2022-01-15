@@ -20,10 +20,6 @@ void VolitiaPercipient::activate() {
     }
 }
 
-uint64_t VolitiaPercipient::getTickInterval() {
-    return 0;
-}
-
 bool VolitiaPercipient::finished() {
     return false;
 }

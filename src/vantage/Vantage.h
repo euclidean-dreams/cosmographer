@@ -12,8 +12,6 @@ public:
     virtual ~Vantage() = default;
 
     virtual void send(const Lattice &lattice) = 0;
-
-    virtual int getRefreshRate() = 0;
 };
 
 }

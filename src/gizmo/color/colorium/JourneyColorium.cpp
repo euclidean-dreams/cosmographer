@@ -17,7 +17,7 @@ void JourneyColorium::experiencePhenomenon(const ImpresarioSerialization::Phenom
         palette = std::make_unique<SingleColorPalette>();
     } else if (phenomenon->identity() == 3) {
         palette = std::make_unique<BeatPalette>();
-    } else if (phenomenon->identity() == 5) {
+    } else if (phenomenon->identity() == 4) {
         palette = std::make_unique<RandomPalette>();
     }
 }
