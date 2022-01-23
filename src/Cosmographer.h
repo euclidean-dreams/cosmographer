@@ -11,7 +11,7 @@ namespace cosmographer {
 class Cosmographer : public impresarioUtils::Circulable {
 private:
     std::unique_ptr<Vantage> vantage;
-    std::shared_ptr<Cosmology> cosmology;
+    std::unique_ptr<Cosmology> cosmology;
     std::unique_ptr<impresarioUtils::NetworkSocket> essentiaSocket;
     std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> phenomenology;
 

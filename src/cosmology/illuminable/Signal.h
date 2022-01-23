@@ -7,10 +7,10 @@ namespace cosmographer {
 
 class Signal : public Illuminable {
 private:
-    std::vector<float> signal;
+    std::vector<float> samples;
 
 public:
-    Signal(HSLColor soulColor, std::vector<float> signal);
+    Signal(Coordinate origin, HSLColor soulColor, std::vector<float> samples);
 
     void illuminate(Lattice &lattice) override;
 };

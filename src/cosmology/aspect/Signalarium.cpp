@@ -3,8 +3,8 @@
 namespace cosmographer {
 
 Signalarium::Signalarium()
-        : signal{nullptr},
-          colorium{std::make_unique<JourneyColorium>(PARADIGM.getLatticeWidth() * PARADIGM.getLatticeHeight())} {
+        : colorium{std::make_unique<JourneyColorium>(PARADIGM.getLatticeWidth() * PARADIGM.getLatticeHeight())},
+          signal{} {
 
 }
 
@@ -21,13 +21,15 @@ void Signalarium::experiencePhenomenon(const ImpresarioSerialization::Phenomenon
 }
 
 void Signalarium::experienceEssentia(const ImpresarioSerialization::Essentia *essentia) {
-    auto mels = essentia->melSignal();
-    std::vector<float> collectedMels{};
-    collectedMels.reserve(mels->size());
-    for (int index = 0; index < mels->size(); index++) {
-        collectedMels.push_back(mels->Get(index));
+    colorium->experienceEssentia(essentia);
+    std::vector<float> frame{};
+    auto samples = essentia->melSignal();
+    frame.reserve(samples->size());
+    for (int index = 0; index < samples->size(); index++) {
+        auto sample = samples->Get(index);
+        frame.push_back(sample);
     }
-    signal = std::make_unique<Signal>(colorium->getColor(), move(collectedMels));
+    signal = std::make_unique<Signal>(Coordinate{0, 0}, colorium->getColor(), move(frame));
 }
 
 }

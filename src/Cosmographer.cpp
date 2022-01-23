@@ -8,7 +8,7 @@ Cosmographer::Cosmographer(std::unique_ptr<Vantage> vantage,
         : vantage{move(vantage)},
           essentiaSocket{move(essentiaSocket)},
           phenomenology{move(phenomenology)},
-          cosmology{std::make_shared<Cosmology>()} {
+          cosmology{std::make_unique<Cosmology>()} {
 
 }
 

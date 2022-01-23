@@ -2,17 +2,22 @@
 
 namespace cosmographer {
 
-Signal::Signal(HSLColor soulColor, std::vector<float> signal)
+Signal::Signal(Coordinate origin, HSLColor soulColor, std::vector<float> samples)
         : Illuminable{soulColor},
-          signal{move(signal)} {
+          samples{move(samples)} {
 
 }
 
 void Signal::illuminate(Lattice &lattice) {
-    for (int index = 0; index < signal.size(); index++) {
+    auto normalizationScale = AXIOMOLOGY.getEphemeraNormalizationScale();
+    for (int index = 0; index < samples.size(); index++) {
         auto coordinate = CoordinateTransformer::verticalWrap(index);
-        if (signal[index] > 0) {
-            auto color = soulColor.lighten(signal[index] / 10);
+        if (samples[index] > 0) {
+            auto maxLightness = 100;
+            auto lightness = maxLightness - maxLightness /
+                                            (std::pow(samples[index] / (-1 * (1000 - 1000 * normalizationScale)), 2) +
+                                             1);
+            auto color = soulColor.newLightness(lightness);
             lattice.setColor(coordinate, color);
         }
     }

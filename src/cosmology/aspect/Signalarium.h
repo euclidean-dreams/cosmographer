@@ -5,13 +5,12 @@
 #include "cosmology/illuminable/Signal.h"
 #include "gizmo/color/colorium/JourneyColorium.h"
 
-
 namespace cosmographer {
 
 class Signalarium : public Aspect {
 private:
-    std::unique_ptr<Signal> signal;
     std::unique_ptr<Colorium> colorium;
+    std::unique_ptr<Signal> signal;
 
 public:
     Signalarium();
@@ -21,7 +20,6 @@ public:
     void experiencePhenomenon(const ImpresarioSerialization::Phenomenon *phenomenon) override;
 
     void experienceEssentia(const ImpresarioSerialization::Essentia *essentia) override;
-
 };
 
 }

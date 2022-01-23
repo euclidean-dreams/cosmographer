@@ -6,7 +6,8 @@ Cosmology::Cosmology()
         : rootAffinity{nullptr},
           tick{0},
           concluded{false} {
-    auto aspect = std::make_unique<Plumage>(1.0, 1.0);
+//    auto aspect = std::make_unique<Plumage>(1.0, 1.0);
+    auto aspect = std::make_unique<Signalarium>();
     rootAffinity = std::make_unique<PassthroughAffinity>(move(aspect));
 }
 

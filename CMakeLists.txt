@@ -47,7 +47,6 @@ set(
         src/cosmology/ephemera/EphemeraEcosystem.cpp
         src/gizmo/color/Colorology.cpp src/gizmo/color/Colorology.h
         src/cosmology/illuminable/Illuminable.cpp
-        src/cosmology/aspect/Signalarium.cpp src/cosmology/aspect/Signalarium.h
         src/gizmo/color/palette/FrequencyOscillationPalette.cpp src/gizmo/color/palette/FrequencyOscillationPalette.h
         src/gizmo/color/palette/BeatPalette.cpp src/gizmo/color/palette/BeatPalette.h
         src/cosmology/illuminable/lindogram/Lindogram.cpp src/cosmology/illuminable/lindogram/Lindogram.h
@@ -63,7 +62,7 @@ set(
         src/cosmology/illuminable/RandomScatter.cpp src/cosmology/illuminable/RandomScatter.h
         src/cosmology/ephemera/Burst.cpp src/cosmology/ephemera/Burst.h
         src/cosmology/aspect/Bursting.cpp src/cosmology/aspect/Bursting.h
-        src/cosmology/affinity/SlottedAffinity.cpp src/cosmology/affinity/SlottedAffinity.h src/cosmology/ephemera/Observer.cpp src/cosmology/ephemera/Observer.h)
+        src/cosmology/affinity/SlottedAffinity.cpp src/cosmology/affinity/SlottedAffinity.h src/cosmology/aspect/Signalarium.cpp src/cosmology/aspect/Signalarium.h src/cosmology/glimmer/Glimmer.cpp src/cosmology/glimmer/Glimmer.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 
