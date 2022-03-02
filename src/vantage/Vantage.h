@@ -1,16 +1,13 @@
 #ifndef COSMOGRAPHER_VANTAGE_H
 #define COSMOGRAPHER_VANTAGE_H
 
-#include <ImpresarioUtils.h>
-#include "gizmo/paradigm/Paradigm.h"
-#include "gizmo/Lattice.h"
+#include "CosmographerCommunity.h"
+#include "primitive/Lattice.h"
 
 namespace cosmographer {
 
-class Vantage : public impresarioUtils::NonCopyable {
+class Vantage : public Fellow<CosmographerCommunity> {
 public:
-    virtual ~Vantage() = default;
-
     virtual void send(const Lattice &lattice) = 0;
 };
 

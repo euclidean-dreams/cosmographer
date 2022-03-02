@@ -1,24 +1,24 @@
 #ifndef COSMOGRAPHER_ASPECT_H
 #define COSMOGRAPHER_ASPECT_H
 
-#include <ImpresarioUtils.h>
-#include "cosmology/ephemera/EphemeraEcosystem.h"
-#include "gizmo/Lattice.h"
-#include "gizmo/CoordinateTransformer.h"
-#include "gizmo/color/colorium/Colorium.h"
-#include "gizmo/paradigm/Paradigm.h"
+#include "cosmology/CosmologyCommunity.h"
+#include "AspectCommunity.h"
+#include "primitive/Lattice.h"
+#include "glimmering/Glimmering.h"
+#include "mesh/Mesh.h"
+#include "cosmology/aspect/glimmering/revealery/CircleRevealery.h"
 
 namespace cosmographer {
 
-class Aspect : public impresarioUtils::NonCopyable {
+class Aspect : public Fellow<CosmologyCommunity>, public Liaison<AspectCommunity> {
 public:
-    virtual ~Aspect() = default;
+    Aspect(
+            CosmologyCommunity *community
+    );
 
-    virtual std::unique_ptr<Lattice> manifest(int tick) = 0;
+    up<Lattice> manifest();
 
-    virtual void experiencePhenomenon(const ImpresarioSerialization::Phenomenon *phenomenon) = 0;
-
-    virtual void experienceEssentia(const ImpresarioSerialization::Essentia *essentia) = 0;
+    void experienceEssentia(const Essentia *essentia);
 };
 
 }

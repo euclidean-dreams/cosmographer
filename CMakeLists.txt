@@ -13,56 +13,66 @@ integrate_cmake_dependency(
 set(
         SOURCE_FILES
 
-        src/gizmo/Coordinate.cpp src/gizmo/Coordinate.h
+        # primitive
+        src/primitive/Lattice.cpp src/primitive/Lattice.h
+        src/primitive/color/HSLColor.cpp src/primitive/color/HSLColor.h
+        src/primitive/color/RGBColor.h
 
-        src/gizmo/color/RGBColor.h
-        src/gizmo/color/HSLColor.cpp src/gizmo/color/HSLColor.h
+        # squire
+        src/squire/SimpleMovingAverage.cpp src/squire/SimpleMovingAverage.h
 
-        src/Cosmographer.cpp src/Cosmographer.h
-        src/cosmology/aspect/Aspect.h
-        src/gizmo/Lattice.cpp src/gizmo/Lattice.h
-        src/cosmology/Cosmology.cpp src/cosmology/Cosmology.h
-        src/vantage/LuciferonVantage.cpp src/vantage/LuciferonVantage.h
-        src/vantage/PalantirVantage.cpp src/vantage/PalantirVantage.h
-        src/cosmology/illuminable/Illuminable.h
-        src/cosmology/illuminable/shape/Circle.cpp src/cosmology/illuminable/shape/Circle.h
-        src/cosmology/aspect/Plumage.cpp src/cosmology/aspect/Plumage.h
-        src/cosmology/ephemera/Ephemera.h
-        src/cosmology/ephemera/Bloom.cpp src/cosmology/ephemera/Bloom.h
-        src/cosmology/ephemera/Ephemera.cpp
-        src/cosmology/ephemera/EphemeraEcosystem.h
+
+        # framework
+        src/framework/Paradigm.h
+        src/framework/Config.h
+        src/framework/Macros.h
+        src/framework/Framework.h
+        src/framework/Libs.h
+        src/framework/Community.h
+
+        # cloister
+        src/cloister/Cloister.h src/cloister/CloisterCommunity.h
+        src/cloister/Cartographer.cpp src/cloister/Cartographer.h
+        src/cloister/AxiomRefresher.cpp src/cloister/AxiomRefresher.h
+
+        # chromatica
+        src/cloister/chromatica/Chromatica.cpp src/cloister/chromatica/Chromatica.h src/cloister/chromatica/ChromaticaCommunity.h
+        src/cloister/chromatica/pixie/ColorPixie.cpp src/cloister/chromatica/pixie/ColorPixie.h
+        src/cloister/chromatica/palette/Palette.h
+        src/cloister/chromatica/palette/SingleColorPalette.h
+        src/cloister/chromatica/palette/BeatPalette.cpp src/cloister/chromatica/palette/BeatPalette.h
+        src/cloister/chromatica/palette/CentrifugalPalette.cpp src/cloister/chromatica/palette/CentrifugalPalette.h
+
+        # vantage
         src/vantage/Vantage.h
-        src/gizmo/paradigm/Paradigm.cpp src/gizmo/paradigm/Paradigm.h
-        src/percipient/VolitiaPercipient.cpp src/percipient/VolitiaPercipient.h
-        src/Config.h
-        src/gizmo/CoordinateTransformer.cpp src/gizmo/CoordinateTransformer.h
-        src/cosmology/illuminable/Signal.cpp src/cosmology/illuminable/Signal.h
-        src/gizmo/paradigm/Axiomology.cpp src/gizmo/paradigm/Axiomology.h
-        src/gizmo/color/palette/Palette.h
-        src/gizmo/color/palette/FrequencyPalette.cpp src/gizmo/color/palette/FrequencyPalette.h
-        src/gizmo/color/colorium/Colorium.cpp src/gizmo/color/colorium/Colorium.h
-        src/gizmo/color/colorium/JourneyColorium.cpp src/gizmo/color/colorium/JourneyColorium.h
-        src/gizmo/color/palette/RandomPalette.cpp src/gizmo/color/palette/RandomPalette.h
-        src/gizmo/color/palette/SingleColorPalette.cpp src/gizmo/color/palette/SingleColorPalette.h
-        src/cosmology/ephemera/EphemeraEcosystem.cpp
-        src/gizmo/color/Colorology.cpp src/gizmo/color/Colorology.h
-        src/cosmology/illuminable/Illuminable.cpp
-        src/gizmo/color/palette/FrequencyOscillationPalette.cpp src/gizmo/color/palette/FrequencyOscillationPalette.h
-        src/gizmo/color/palette/BeatPalette.cpp src/gizmo/color/palette/BeatPalette.h
-        src/cosmology/illuminable/lindogram/Lindogram.cpp src/cosmology/illuminable/lindogram/Lindogram.h
-        src/gizmo/Point.cpp src/gizmo/Point.h
-        src/cosmology/illuminable/lindogram/DragonCurve.cpp src/cosmology/illuminable/lindogram/DragonCurve.h
-        src/cosmology/aspect/Dragonarium.cpp src/cosmology/aspect/Dragonarium.h
-        src/cosmology/ephemera/DragonRoar.cpp src/cosmology/ephemera/DragonRoar.h
-        src/cosmology/illuminable/lindogram/LindogramAssembler.cpp src/cosmology/illuminable/lindogram/LindogramAssembler.h
+        src/vantage/PalantirVantage.cpp src/vantage/PalantirVantage.h
 
-        src/cosmology/affinity/Affinity.h
-        src/cosmology/affinity/OverlapAffinity.cpp src/cosmology/affinity/OverlapAffinity.h
-        src/cosmology/affinity/PassthroughAffinity.cpp src/cosmology/affinity/PassthroughAffinity.h
-        src/cosmology/illuminable/RandomScatter.cpp src/cosmology/illuminable/RandomScatter.h
-        src/cosmology/ephemera/Burst.cpp src/cosmology/ephemera/Burst.h
-        src/cosmology/aspect/Bursting.cpp src/cosmology/aspect/Bursting.h
-        src/cosmology/affinity/SlottedAffinity.cpp src/cosmology/affinity/SlottedAffinity.h src/cosmology/aspect/Signalarium.cpp src/cosmology/aspect/Signalarium.h src/cosmology/glimmer/Glimmer.cpp src/cosmology/glimmer/Glimmer.h)
+        # cosmographer
+        src/Cosmographer.cpp src/Cosmographer.h src/CosmographerCommunity.h
+        src/cosmology/Cosmology.cpp src/cosmology/Cosmology.h src/cosmology/CosmologyCommunity.h
+        src/cosmology/aspect/Aspect.cpp src/cosmology/aspect/Aspect.h src/cosmology/aspect/AspectCommunity.h
+
+        # mesh
+        src/cosmology/aspect/mesh/Mesh.cpp src/cosmology/aspect/mesh/Mesh.h src/cosmology/aspect/mesh/MeshCommunity.h
+        src/cosmology/aspect/mesh/lumion/Lumion.cpp src/cosmology/aspect/mesh/lumion/Lumion.h
+
+        # glimmering
+        src/cosmology/aspect/glimmering/Glimmering.cpp src/cosmology/aspect/glimmering/Glimmering.h src/cosmology/aspect/glimmering/GlimmeringCommunity.h
+        src/cosmology/aspect/glimmering/revealery/Revealery.h
+        src/cosmology/aspect/glimmering/revealery/CircleRevealery.cpp src/cosmology/aspect/glimmering/revealery/CircleRevealery.h
+
+        # glimmer
+        src/cosmology/aspect/glimmering/glimmer/Glimmer.cpp src/cosmology/aspect/glimmering/glimmer/Glimmer.h src/cosmology/aspect/glimmering/glimmer/GlimmerCommunity.h
+
+        # ephemera
+        src/cosmology/aspect/glimmering/glimmer/ephemera/Ephemera.h
+        src/cosmology/aspect/glimmering/glimmer/ephemera/Linger.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Linger.h
+
+        # illuminable
+        src/cosmology/aspect/glimmering/glimmer/illuminable/Illuminable.h
+        src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h
+
+        src/default.h src/framework/Minimal.h src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.h src/primitive/Loci.h src/primitive/Loci.cpp)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

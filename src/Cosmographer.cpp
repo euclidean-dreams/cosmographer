@@ -2,13 +2,34 @@
 
 namespace cosmographer {
 
-Cosmographer::Cosmographer(std::unique_ptr<Vantage> vantage,
-                           std::unique_ptr<impresarioUtils::NetworkSocket> essentiaSocket,
-                           std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> phenomenology)
-        : vantage{move(vantage)},
-          essentiaSocket{move(essentiaSocket)},
-          phenomenology{move(phenomenology)},
-          cosmology{std::make_unique<Cosmology>()} {
+Cosmographer::Cosmographer(
+        zmq::context_t &zmqContext,
+        Paradigm *paradigm,
+        sp<BufferArbiter<const Parcel>> phenomenology
+) :
+        Liaison<CosmographerCommunity>(paradigm) {
+    subCommunity.cosmology = mkup<Cosmology>(&subCommunity);
+    subCommunity.cosmology->initialize(&subCommunity);
+    subCommunity.phenomenology = mv(phenomenology);
+
+    // vantage
+    auto palantirSocket = mkup<NetworkSocket>(
+            zmqContext,
+            PALANTIR_ENDPOINT,
+            zmq::socket_type::pub,
+            true
+    );
+    subCommunity.vantage = mkup<PalantirVantage>(mv(palantirSocket));
+    subCommunity.vantage->initialize(&subCommunity);
+
+    // cosmographer
+    subCommunity.essentiaSocket = mkup<NetworkSocket>(
+            zmqContext,
+            ANALOGORIUM_ENDPOINT,
+            zmq::socket_type::sub,
+            false
+    );
+    subCommunity.essentiaSocket->setSubscriptionFilter(Identifier::essentia);
 
 }
 
@@ -17,40 +38,35 @@ void Cosmographer::activate() {
     auto essentiaParcelBundle = receiveEssentiaParcelBundle();
 
     // refresh the paradigm
-    PARADIGM.refresh();
+    subCommunity.paradigm->cloister->axiomRefresher->refresh();
 
     // handle new phenomena
-    auto newPhenomenonParcels = phenomenology->take();
+    auto newPhenomenonParcels = subCommunity.phenomenology->take();
     for (auto &phenomenonParcel: *newPhenomenonParcels) {
-        auto phenomenon = impresarioUtils::Unwrap::Phenomenon(*phenomenonParcel);
-        cosmology->experiencePhenomenon(phenomenon);
+        auto phenomenon = Unwrap::Phenomenon(*phenomenonParcel);
+        subCommunity.paradigm->cloister->chromatica->experiencePhenomenon(phenomenon);
     }
 
     // experience the essentia
     for (auto &essentiaParcel: essentiaParcelBundle) {
-        auto essentia = impresarioUtils::Unwrap::Essentia(*essentiaParcel);
-        cosmology->experienceEssentia(essentia);
+        auto essentia = Unwrap::Essentia(*essentiaParcel);
+        subCommunity.paradigm->cloister->chromatica->experienceEssentia(essentia);
+        subCommunity.cosmology->experienceEssentia(essentia);
     }
-
 
     // generate lattice and send frame
-    auto lattice = cosmology->observe();
-    vantage->send(*lattice);
+    subCommunity.cosmology->observe();
 }
 
-std::vector<std::unique_ptr<impresarioUtils::Parcel>> Cosmographer::receiveEssentiaParcelBundle() {
-    std::vector<std::unique_ptr<impresarioUtils::Parcel>> bundle{};
-    bundle.push_back(essentiaSocket->receiveParcel());
-    auto essentia = essentiaSocket->receiveParcel(zmq::recv_flags::dontwait);
+vec<up<Parcel>> Cosmographer::receiveEssentiaParcelBundle() {
+    vec<up<Parcel>> bundle{};
+    bundle.push_back(subCommunity.essentiaSocket->receiveParcel());
+    auto essentia = subCommunity.essentiaSocket->receiveParcel(zmq::recv_flags::dontwait);
     while (essentia != nullptr) {
-        bundle.push_back(move(essentia));
-        essentia = essentiaSocket->receiveParcel(zmq::recv_flags::dontwait);
+        bundle.push_back(mv(essentia));
+        essentia = subCommunity.essentiaSocket->receiveParcel(zmq::recv_flags::dontwait);
     }
     return bundle;
-}
-
-bool Cosmographer::finished() {
-    return false;
 }
 
 }

@@ -2,6 +2,7 @@
 # 0 = keyhole
 # 1 = palantir
 vantage_type: 1
+axiomology_size: 10
 
 # tick interval
 luciferon_tick_interval: 15000
@@ -15,3 +16,8 @@ volitia_endpoint: tcp://volitia:44440
 # lattice
 lattice_width: 100
 lattice_height: 74
+
+# mesh
+lumion_count: 7400
+#lumion_count: 4097
+#lumion_count: 1000

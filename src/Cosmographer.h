@@ -1,30 +1,26 @@
 #ifndef COSMOGRAPHER_COSMOGRAPHER_H
 #define COSMOGRAPHER_COSMOGRAPHER_H
 
-#include <ImpresarioUtils.h>
-#include "vantage/Vantage.h"
+#include "CosmographerCommunity.h"
+#include "vantage/PalantirVantage.h"
 #include "cosmology/Cosmology.h"
-#include "gizmo/paradigm/Paradigm.h"
 
 namespace cosmographer {
 
-class Cosmographer : public impresarioUtils::Circulable {
+class Cosmographer : public Liaison<CosmographerCommunity>, public Circulable {
 private:
-    std::unique_ptr<Vantage> vantage;
-    std::unique_ptr<Cosmology> cosmology;
-    std::unique_ptr<impresarioUtils::NetworkSocket> essentiaSocket;
-    std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> phenomenology;
+    up<Paradigm> paradigm;
 
-    std::vector<std::unique_ptr<impresarioUtils::Parcel>> receiveEssentiaParcelBundle();
+    vec<up<Parcel>> receiveEssentiaParcelBundle();
 
 public:
-    explicit Cosmographer(std::unique_ptr<Vantage> vantage,
-                          std::unique_ptr<impresarioUtils::NetworkSocket> essentiaSocket,
-                          std::shared_ptr<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>> phenomenology);
+    Cosmographer(
+            zmq::context_t &zmqContext,
+            Paradigm *paradigm,
+            sp<BufferArbiter<const Parcel>> phenomenology
+    );
 
     void activate() override;
-
-    bool finished() override;
 };
 
 }

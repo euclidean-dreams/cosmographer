@@ -1,78 +1,42 @@
-#include <ImpresarioUtils.h>
-#include "Config.h"
+#include "default.h"
 #include "Cosmographer.h"
-#include "vantage/LuciferonVantage.h"
-#include "vantage/PalantirVantage.h"
-#include "percipient/VolitiaPercipient.h"
 
 namespace cosmographer {
 
 int bootstrap() {
     std::string configFilePath = "./config.yml";
-    impresarioUtils::Bootstrapper bootstrapper(configFilePath, 1);
+    Bootstrapper bootstrapper(configFilePath, 1);
 
     // percipient
-    auto axiomologyArbiter = std::make_shared<impresarioUtils::Arbiter<const impresarioUtils::Parcel>>();
-    auto phenomenology = std::make_shared<impresarioUtils::BufferArbiter<const impresarioUtils::Parcel>>();
-    auto volitiaSocket = std::make_unique<impresarioUtils::NetworkSocket>(
+    auto axiomArbiter = mksp<Arbiter<const Parcel>>();
+    auto phenomenology = mksp<BufferArbiter<const Parcel>>();
+    auto volitiaPercipientThread = VolitiaPercipient::create(
             bootstrapper.getZmqContext(),
             VOLITIA_ENDPOINT,
-            zmq::socket_type::sub,
-            false
+            axiomArbiter,
+            phenomenology
     );
-    volitiaSocket->setSubscriptionFilter(ImpresarioSerialization::Identifier::axiomology);
-    volitiaSocket->setSubscriptionFilter(ImpresarioSerialization::Identifier::phenomenon);
-    auto volitiaPercipient = std::make_unique<VolitiaPercipient>(move(volitiaSocket), axiomologyArbiter, phenomenology);
-    auto volitiaPercipientThread = impresarioUtils::Circlet::begin(move(volitiaPercipient));
 
-    // paradigm
-    Paradigm::initialize(move(axiomologyArbiter));
+    // build paradigm
+    auto paradigm = mkup<Paradigm>();
+    paradigm->axioms.resize(AXIOMOLOGY_SIZE, 0.5);
+    paradigm->latticeWidth = LATTICE_WIDTH;
+    paradigm->latticeHeight = LATTICE_HEIGHT;
 
-    // vantage
-    std::unique_ptr<Vantage> vantage;
-    if (VANTAGE_TYPE == 0) {
-        auto socket0 = std::make_unique<impresarioUtils::NetworkSocket>(
-                bootstrapper.getZmqContext(),
-                "tcp://0.0.0.0:44400",
-                zmq::socket_type::pub,
-                true
-        );
-        auto socket1 = std::make_unique<impresarioUtils::NetworkSocket>(
-                bootstrapper.getZmqContext(),
-                "tcp://0.0.0.0:44401",
-                zmq::socket_type::pub,
-                true
-        );
-        auto socket2 = std::make_unique<impresarioUtils::NetworkSocket>(
-                bootstrapper.getZmqContext(),
-                "tcp://0.0.0.0:44402",
-                zmq::socket_type::pub,
-                true
-        );
-        vantage = std::make_unique<LuciferonVantage>(move(socket0), move(socket1), move(socket2));
-    } else if (VANTAGE_TYPE == 1) {
-        auto palantirSocket = std::make_unique<impresarioUtils::NetworkSocket>(
-                bootstrapper.getZmqContext(),
-                PALANTIR_ENDPOINT,
-                zmq::socket_type::pub,
-                true
-        );
-        vantage = std::make_unique<PalantirVantage>(move(palantirSocket));
-    } else {
-        LOGGER->error("invalid vantage type: {}", VANTAGE_TYPE);
-        return -1;
-    }
+    paradigm->cloister = mkup<CloisterCommunity>(paradigm.get());
+    paradigm->cloister->axiomRefresher = mkup<AxiomRefresher>(axiomArbiter);
+    paradigm->cloister->axiomRefresher->initialize(paradigm->cloister.get());
+    paradigm->cloister->cartographer = mkup<Cartographer>();
+    paradigm->cloister->cartographer->initialize(paradigm->cloister.get());
+    paradigm->cloister->chromatica = mkup<Chromatica>(paradigm->cloister.get());
+    paradigm->cloister->chromatica->initialize(paradigm->cloister.get());
 
-    // cosmographer
-    auto essentiaSocket = std::make_unique<impresarioUtils::NetworkSocket>(
+    auto cosmographer = mkup<Cosmographer>(
             bootstrapper.getZmqContext(),
-            ANALOGORIUM_ENDPOINT,
-            zmq::socket_type::sub,
-            false
+            paradigm.get(),
+            mv(phenomenology)
     );
-    essentiaSocket->setSubscriptionFilter(ImpresarioSerialization::Identifier::essentia);
-    auto cosmographer = std::make_unique<Cosmographer>(move(vantage), move(essentiaSocket), move(phenomenology));
-    auto cosmographerThread = impresarioUtils::Circlet::begin(move(cosmographer));
+    auto cosmographerThread = Circlet::begin(mv(cosmographer));
 
     // go time!
     cosmographerThread->join();
