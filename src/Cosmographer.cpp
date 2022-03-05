@@ -45,6 +45,12 @@ void Cosmographer::activate() {
     for (auto &phenomenonParcel: *newPhenomenonParcels) {
         auto phenomenon = Unwrap::Phenomenon(*phenomenonParcel);
         subCommunity.paradigm->cloister->chromatica->experiencePhenomenon(phenomenon);
+
+        // TODO get rid of this hacky nonsense once the analogorium is up and running
+        if (phenomenon->identity() == 5) {
+            auto result = system("kill -KILL \"$(pidof conductor)\"");
+            result = system("cd /home/josiah/projects/code/impresario-systems/conductor && ./conductor.sh &");
+        }
     }
 
     // experience the essentia

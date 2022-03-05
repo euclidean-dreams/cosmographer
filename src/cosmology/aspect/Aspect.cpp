@@ -3,13 +3,15 @@
 namespace cosmographer {
 
 Aspect::Aspect(
-        CosmologyCommunity *community
+        CosmologyCommunity *community,
+        up<Revealery> revealery
 ) :
         Liaison<AspectCommunity>(community) {
     subCommunity.mesh = mkup<Mesh>(&subCommunity, LUMION_COUNT);
     subCommunity.mesh->initialize(&subCommunity);
-    auto revealery = mkup<CircleRevealery>();
-    subCommunity.glimmering = mkup<Glimmering>(&subCommunity, mv(revealery));
+    subCommunity.revealery = mv(revealery);
+    subCommunity.revealery->initialize(&subCommunity);
+    subCommunity.glimmering = mkup<Glimmering>(&subCommunity);
     subCommunity.glimmering->initialize(&subCommunity);
 }
 

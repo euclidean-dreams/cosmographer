@@ -58,8 +58,8 @@ set(
 
         # glimmering
         src/cosmology/aspect/glimmering/Glimmering.cpp src/cosmology/aspect/glimmering/Glimmering.h src/cosmology/aspect/glimmering/GlimmeringCommunity.h
-        src/cosmology/aspect/glimmering/revealery/Revealery.h
-        src/cosmology/aspect/glimmering/revealery/CircleRevealery.cpp src/cosmology/aspect/glimmering/revealery/CircleRevealery.h
+        src/cosmology/aspect/revealery/Revealery.h
+        src/cosmology/aspect/revealery/BrushPartyRevealery.cpp src/cosmology/aspect/revealery/BrushPartyRevealery.h
 
         # glimmer
         src/cosmology/aspect/glimmering/glimmer/Glimmer.cpp src/cosmology/aspect/glimmering/glimmer/Glimmer.h src/cosmology/aspect/glimmering/glimmer/GlimmerCommunity.h
@@ -72,7 +72,13 @@ set(
         src/cosmology/aspect/glimmering/glimmer/illuminable/Illuminable.h
         src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h
 
-        src/default.h src/framework/Minimal.h src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.h src/primitive/Loci.h src/primitive/Loci.cpp)
+        # unsorted
+        src/default.h
+        src/framework/Minimal.h
+        src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.h
+        src/primitive/Loci.h src/primitive/Loci.cpp
+
+        src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h src/cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.h src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.h src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/LindogramSketcher.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/LindogramSketcher.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

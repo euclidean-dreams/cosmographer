@@ -24,7 +24,7 @@ void Mesh::meld(
     for (auto &lumion: subCommunity.lumions) {
         auto excitation = lumion->excite(signal);
         if (excitation.magnitude > 0.1) {
-            community->glimmering->excite(excitation);
+            community->revealery->reveal(excitation);
         }
     }
 }

@@ -1,11 +1,11 @@
-#ifndef COSMOGRAPHER_CIRCLE_H
-#define COSMOGRAPHER_CIRCLE_H
+#ifndef COSMOGRAPHER_DRAGONCURVE_H
+#define COSMOGRAPHER_DRAGONCURVE_H
 
 #include "cosmology/aspect/glimmering/glimmer/illuminable/Illuminable.h"
 
 namespace cosmographer {
 
-class Circle : public Illuminable {
+class DragonCurve : public Illuminable {
 public:
     void illuminate(
             Lattice &lattice
@@ -14,4 +14,4 @@ public:
 
 }
 
-#endif //COSMOGRAPHER_CIRCLE_H
+#endif //COSMOGRAPHER_DRAGONCURVE_H

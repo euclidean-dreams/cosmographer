@@ -16,6 +16,9 @@
 #define MAX_DRIFT_DISTANCE 10
 #define MAX_GLIMMER_COUNT 15
 
+// illuminable
+#define PARAMETRO_TIMELING_INCREMENT 0.05
+
 // palette
 #define MAX_HUE_JITTER 30
 #define MAX_FLUX_REQUIREMENT (50 * 1000)

@@ -4,6 +4,7 @@
 #include "MeshCommunity.h"
 #include "cosmology/aspect/AspectCommunity.h"
 #include "cosmology/aspect/glimmering/Glimmering.h"
+#include "cosmology/aspect/revealery/Revealery.h"
 #include "cosmology/aspect/mesh/lumion/Lumion.h"
 
 namespace cosmographer {

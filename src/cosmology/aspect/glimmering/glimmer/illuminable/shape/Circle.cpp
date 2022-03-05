@@ -2,15 +2,10 @@
 
 namespace cosmographer {
 
-Circle::Circle(
-        int radius
-) :
-        radius{radius} {
-}
-
 void Circle::illuminate(
         Lattice &lattice
 ) {
+    auto radius = community->size;
     auto locus = community->locus;
     auto minX = locus.x - radius;
     if (minX < 0) {

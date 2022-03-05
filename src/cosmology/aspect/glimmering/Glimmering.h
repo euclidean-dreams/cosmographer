@@ -3,26 +3,25 @@
 
 #include "GlimmeringCommunity.h"
 #include "cosmology/aspect/AspectCommunity.h"
+#include "cosmology/aspect/revealery/Revealery.h"
 #include "cosmology/aspect/glimmering/glimmer/Glimmer.h"
-#include "cosmology/aspect/glimmering/revealery/Revealery.h"
 #include "cosmology/aspect/mesh/lumion/Lumion.h"
 #include "primitive/Lattice.h"
 
 namespace cosmographer {
 
-class Glimmering : public Fellow<AspectCommunity>,  public Liaison<GlimmeringCommunity> {
+class Glimmering : public Fellow<AspectCommunity>, public Liaison<GlimmeringCommunity> {
 public:
     Glimmering(
-            AspectCommunity *community,
-            up<Revealery> revealery
-    );
-
-    void excite(
-            LumionExcitation excitation
+            AspectCommunity *community
     );
 
     void illuminate(
             Lattice &lattice
+    );
+
+    void addGlimmer(
+            up<Glimmer> glimmer
     );
 };
 

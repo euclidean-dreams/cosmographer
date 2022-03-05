@@ -6,14 +6,15 @@
 #include "primitive/Lattice.h"
 #include "glimmering/Glimmering.h"
 #include "mesh/Mesh.h"
-#include "cosmology/aspect/glimmering/revealery/CircleRevealery.h"
+#include "cosmology/aspect/revealery/Revealery.h"
 
 namespace cosmographer {
 
 class Aspect : public Fellow<CosmologyCommunity>, public Liaison<AspectCommunity> {
 public:
     Aspect(
-            CosmologyCommunity *community
+            CosmologyCommunity *community,
+            up<Revealery> revealery
     );
 
     up<Lattice> manifest();

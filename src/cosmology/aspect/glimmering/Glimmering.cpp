@@ -3,18 +3,9 @@
 namespace cosmographer {
 
 Glimmering::Glimmering(
-        AspectCommunity *community,
-        up<Revealery> revealery
+        AspectCommunity *community
 ) :
         Liaison<GlimmeringCommunity>(community) {
-    subCommunity.revealery = mv(revealery);
-    subCommunity.revealery->initialize(&subCommunity);
-}
-
-void Glimmering::excite(
-        LumionExcitation excitation
-) {
-    subCommunity.revealery->reveal(excitation);
 }
 
 void Glimmering::illuminate(
@@ -29,7 +20,13 @@ void Glimmering::illuminate(
             iterator = subCommunity.glimmers.erase(iterator);
         }
     }
+}
 
+void Glimmering::addGlimmer(
+        up<Glimmer> glimmer
+) {
+    glimmer->initialize(&subCommunity);
+    subCommunity.glimmers.push_back(mv(glimmer));
 }
 
 }

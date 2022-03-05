@@ -12,11 +12,12 @@ namespace cosmographer {
 class Glimmer : public Fellow<GlimmeringCommunity>,  public Liaison<GlimmerCommunity> {
 public:
     Glimmer(
-            GlimmeringCommunity *community,
+            Paradigm *paradigm,
             up<Ephemera> ephemera,
             up<Illuminable> illuminable,
             Point locus,
-            HSLColor color
+            HSLColor color,
+            float size
     );
 
     bool illuminate(

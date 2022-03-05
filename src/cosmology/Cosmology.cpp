@@ -1,4 +1,5 @@
 #include "Cosmology.h"
+#include "cosmology/aspect/revealery/BrushPartyRevealery.h"
 
 namespace cosmographer {
 
@@ -6,7 +7,8 @@ Cosmology::Cosmology(
         CosmographerCommunity *community
 ) :
         Liaison<CosmologyCommunity>(community) {
-    subCommunity.aspect = mkup<Aspect>(&subCommunity);
+    auto revealery = mkup<BrushPartyRevealery>();
+    subCommunity.aspect = mkup<Aspect>(&subCommunity, mv(revealery));
     subCommunity.aspect->initialize(&subCommunity);
 }
 

@@ -13,6 +13,7 @@ public:
     up<class Illuminable> illuminable;
     Point locus;
     HSLColor color;
+    float size;
     int age;
 };
 
