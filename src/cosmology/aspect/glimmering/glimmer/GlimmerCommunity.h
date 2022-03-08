@@ -9,8 +9,9 @@ namespace cosmographer {
 
 class GlimmerCommunity : public Community {
 public:
-    up<class Ephemera> ephemera;
+    vec<up<class Ephemera>> ephemera;
     up<class Illuminable> illuminable;
+    vec<up<class Terminus>> termini;
     Point locus;
     HSLColor color;
     float size;

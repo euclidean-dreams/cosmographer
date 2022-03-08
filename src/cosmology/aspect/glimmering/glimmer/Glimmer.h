@@ -4,6 +4,7 @@
 #include "GlimmerCommunity.h"
 #include "cosmology/aspect/glimmering/GlimmeringCommunity.h"
 #include "ephemera/Ephemera.h"
+#include "terminus/Terminus.h"
 #include "illuminable/Illuminable.h"
 #include "primitive/Lattice.h"
 
@@ -13,7 +14,6 @@ class Glimmer : public Fellow<GlimmeringCommunity>,  public Liaison<GlimmerCommu
 public:
     Glimmer(
             Paradigm *paradigm,
-            up<Ephemera> ephemera,
             up<Illuminable> illuminable,
             Point locus,
             HSLColor color,
@@ -23,6 +23,10 @@ public:
     bool illuminate(
             Lattice &lattice
     );
+
+    void addTerminus(up<Terminus> terminus);
+
+    void addEphemera(up<Ephemera> ephemera);
 };
 
 }

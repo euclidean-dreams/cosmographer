@@ -10,7 +10,7 @@ BeatPalette::BeatPalette() :
 }
 
 HSLColor BeatPalette::getColor() {
-    return community->colorPixie->hueJitter({hue, 100, 50});
+    return CLOISTER->colorPixie->hueJitter({hue, 100, 50});
 }
 
 void BeatPalette::experienceEssentia(const Essentia *essentia) {

@@ -1,9 +1,11 @@
 #include "BrushPartyRevealery.h"
 #include "cosmology/aspect/glimmering/glimmer/Glimmer.h"
-#include "cosmology/aspect/glimmering/glimmer/ephemera/Linger.h"
+#include "cosmology/aspect/glimmering/glimmer/ephemera/Fade.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h"
 #include "cosmology/aspect/glimmering/glimmer/ephemera/Drift.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.h"
+#include "cosmology/aspect/glimmering/glimmer/terminus/FullyFaded.h"
+#include "cosmology/aspect/glimmering/glimmer/terminus/OriginOffLattice.h"
 
 namespace cosmographer {
 
@@ -24,15 +26,6 @@ void BrushPartyRevealery::reveal(LumionExcitation excitation) {
         glimmerCount = 1;
     }
     for (int count = 0; count < glimmerCount; count++) {
-
-        // ephemera
-        up<Ephemera> ephemera;
-
-        float inclinationOffset = cast(float, count) / glimmerCount;
-        ephemera = mkup<Drift>(inclinationOffset);
-
-//        ephemera = mkup<Linger>(lighten);
-
         // locus
         auto locus = excitation.point;
 //        auto locus = Point{cast(double, PARADIGM->latticeWidth / 2), cast(double, PARADIGM->latticeHeight / 2)};
@@ -50,12 +43,21 @@ void BrushPartyRevealery::reveal(LumionExcitation excitation) {
         // wiring
         auto glimmer = mkup<Glimmer>(
                 PARADIGM,
-                mv(ephemera),
                 mv(illuminable),
                 locus,
                 color,
                 size
         );
+
+        // ephemera
+        float inclinationOffset = cast(float, count) / glimmerCount;
+        glimmer->addEphemera(mkup<Drift>(inclinationOffset));
+        glimmer->addEphemera(mkup<Fade>(color));
+
+        // terminus
+        glimmer->addTerminus(mkup<FullyFaded>());
+        glimmer->addTerminus(mkup<OriginOffLattice>());
+
         community->glimmering->addGlimmer(mv(glimmer));
     }
 }

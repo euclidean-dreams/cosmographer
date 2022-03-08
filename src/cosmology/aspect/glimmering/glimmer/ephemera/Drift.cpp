@@ -16,8 +16,4 @@ void Drift::live() {
     community->locus = CLOISTER->cartographer->shiftPoint(community->locus, driftDistance, driftAngle);
 }
 
-bool Drift::isAlive() {
-    return CLOISTER->cartographer->isValid(community->locus);
-}
-
 }

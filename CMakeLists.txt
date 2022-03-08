@@ -37,7 +37,7 @@ set(
 
         # chromatica
         src/cloister/chromatica/Chromatica.cpp src/cloister/chromatica/Chromatica.h src/cloister/chromatica/ChromaticaCommunity.h
-        src/cloister/chromatica/pixie/ColorPixie.cpp src/cloister/chromatica/pixie/ColorPixie.h
+        src/cloister/ColorPixie.cpp src/cloister/ColorPixie.h
         src/cloister/chromatica/palette/Palette.h
         src/cloister/chromatica/palette/SingleColorPalette.h
         src/cloister/chromatica/palette/BeatPalette.cpp src/cloister/chromatica/palette/BeatPalette.h
@@ -66,7 +66,7 @@ set(
 
         # ephemera
         src/cosmology/aspect/glimmering/glimmer/ephemera/Ephemera.h
-        src/cosmology/aspect/glimmering/glimmer/ephemera/Linger.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Linger.h
+        src/cosmology/aspect/glimmering/glimmer/ephemera/Fade.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Fade.h
 
         # illuminable
         src/cosmology/aspect/glimmering/glimmer/illuminable/Illuminable.h

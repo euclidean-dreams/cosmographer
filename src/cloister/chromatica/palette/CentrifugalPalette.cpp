@@ -9,7 +9,7 @@ CentrifugalPalette::CentrifugalPalette() :
 }
 
 HSLColor CentrifugalPalette::getColor() {
-    return community->colorPixie->hueJitter({hue, 100, 50});
+    return CLOISTER->colorPixie->hueJitter({hue, 100, 50});
 }
 
 void CentrifugalPalette::experienceEssentia(const Essentia *essentia) {

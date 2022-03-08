@@ -20,6 +20,11 @@ int bootstrap() {
     // build paradigm
     auto paradigm = mkup<Paradigm>();
     paradigm->axioms.resize(AXIOMOLOGY_SIZE, 0.5);
+    paradigm->latticeInitialColor = HSLColor{
+            LATTICE_INITIAL_HUE,
+            LATTICE_INITIAL_SATURATION,
+            LATTICE_INITIAL_LIGHTNESS
+    };
     paradigm->latticeWidth = LATTICE_WIDTH;
     paradigm->latticeHeight = LATTICE_HEIGHT;
 
@@ -30,7 +35,8 @@ int bootstrap() {
     paradigm->cloister->cartographer->initialize(paradigm->cloister.get());
     paradigm->cloister->chromatica = mkup<Chromatica>(paradigm->cloister.get());
     paradigm->cloister->chromatica->initialize(paradigm->cloister.get());
-    paradigm->latticeInitialColor = HSLColor{LATTICE_INITIAL_HUE, LATTICE_INITIAL_SATURATION, LATTICE_INITIAL_LIGHTNESS};
+    paradigm->cloister->colorPixie = mkup<ColorPixie>();
+    paradigm->cloister->colorPixie->initialize(paradigm->cloister.get());
 
     auto cosmographer = mkup<Cosmographer>(
             bootstrapper.getZmqContext(),

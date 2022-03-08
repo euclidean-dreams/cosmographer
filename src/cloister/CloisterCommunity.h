@@ -12,6 +12,7 @@ public:
     up<class Cartographer> cartographer;
     up<class AxiomRefresher> axiomRefresher;
     up<class Chromatica> chromatica;
+    up<class ColorPixie> colorPixie;
 
     CloisterCommunity(Paradigm *paradigm) : Community{paradigm} {}
 };

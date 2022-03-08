@@ -4,15 +4,12 @@ namespace cosmographer {
 
 Glimmer::Glimmer(
         Paradigm *paradigm,
-        up<Ephemera> ephemera,
         up<Illuminable> illuminable,
         Point locus,
         HSLColor color,
         float size
 ) :
         Liaison<GlimmerCommunity>(paradigm) {
-    subCommunity.ephemera = mv(ephemera);
-    subCommunity.ephemera->initialize(&subCommunity);
     subCommunity.illuminable = mv(illuminable);
     subCommunity.illuminable->initialize(&subCommunity);
     subCommunity.locus = locus;
@@ -24,11 +21,32 @@ Glimmer::Glimmer(
 bool Glimmer::illuminate(
         Lattice &lattice
 ) {
-    subCommunity.ephemera->live();
+    subCommunity.age++;
+    for (auto &ephemera: subCommunity.ephemera) {
+        ephemera->live();
+    }
     subCommunity.illuminable->illuminate(lattice);
+    for (auto &terminus: subCommunity.termini) {
+        if (terminus->shouldTerminate()) {
+            // returns false if dead
+            return false;
+        }
+    }
+    return true;
+}
 
-    // returns false if dead
-    return subCommunity.ephemera->isAlive();
+void Glimmer::addTerminus(
+        up<Terminus> terminus
+) {
+    terminus->initialize(&subCommunity);
+    subCommunity.termini.push_back(mv(terminus));
+}
+
+void Glimmer::addEphemera(
+        up<Ephemera> ephemera
+) {
+    ephemera->initialize(&subCommunity);
+    subCommunity.ephemera.push_back(mv(ephemera));
 }
 
 }

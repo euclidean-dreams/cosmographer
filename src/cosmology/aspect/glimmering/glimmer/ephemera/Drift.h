@@ -14,8 +14,6 @@ public:
     );
 
     void live() override;
-
-    bool isAlive() override;
 };
 }
 

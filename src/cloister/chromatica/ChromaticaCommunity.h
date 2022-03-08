@@ -8,7 +8,6 @@ namespace cosmographer {
 class ChromaticaCommunity : public Community {
 public:
     up<class Palette> palette;
-    up<class ColorPixie> colorPixie;
 };
 
 }

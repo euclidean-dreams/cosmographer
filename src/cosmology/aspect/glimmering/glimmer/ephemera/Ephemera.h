@@ -8,8 +8,6 @@ namespace cosmographer {
 class Ephemera : public Fellow<GlimmerCommunity> {
 public:
     virtual void live() = 0;
-
-    virtual bool isAlive() = 0;
 };
 
 }

@@ -11,8 +11,6 @@ Chromatica::Chromatica(
         Liaison<ChromaticaCommunity>(community) {
     subCommunity.palette = mkup<CentrifugalPalette>();
     subCommunity.palette->initialize(&subCommunity);
-    subCommunity.colorPixie = mkup<ColorPixie>();
-    subCommunity.colorPixie->initialize(&subCommunity);
 
 }
 

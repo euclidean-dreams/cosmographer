@@ -3,7 +3,7 @@
 
 #include "default.h"
 #include "cloister/chromatica/ChromaticaCommunity.h"
-#include "cloister/chromatica/pixie/ColorPixie.h"
+#include "cloister/ColorPixie.h"
 #include "primitive/color/HSLColor.h"
 
 namespace cosmographer {
