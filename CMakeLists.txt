@@ -73,7 +73,7 @@ set(
         src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h
 
         # unsorted
-        src/default.h
+        src/Default.h
         src/framework/Minimal.h
         src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.h
         src/primitive/Loci.h src/primitive/Loci.cpp

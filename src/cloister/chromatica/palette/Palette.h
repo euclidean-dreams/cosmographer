@@ -1,7 +1,7 @@
 #ifndef COSMOGRAPHER_PALETTE_H
 #define COSMOGRAPHER_PALETTE_H
 
-#include "default.h"
+#include "Default.h"
 #include "cloister/chromatica/ChromaticaCommunity.h"
 #include "cloister/ColorPixie.h"
 #include "primitive/color/HSLColor.h"

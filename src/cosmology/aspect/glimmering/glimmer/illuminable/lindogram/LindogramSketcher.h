@@ -1,7 +1,7 @@
 #ifndef COSMOGRAPHER_LINDOGRAMSKETCHER_H
 #define COSMOGRAPHER_LINDOGRAMSKETCHER_H
 
-#include "default.h"
+#include "Default.h"
 #include "primitive/Lattice.h"
 
 namespace cosmographer {

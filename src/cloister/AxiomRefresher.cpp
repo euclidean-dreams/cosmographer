@@ -1,5 +1,5 @@
 #include "AxiomRefresher.h"
-#include "default.h"
+#include "Default.h"
 
 namespace cosmographer {
 

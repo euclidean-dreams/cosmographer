@@ -1,7 +1,7 @@
 #ifndef COSMOGRAPHER_COSMOGRAPHERCOMMUNITY_H
 #define COSMOGRAPHER_COSMOGRAPHERCOMMUNITY_H
 
-#include "default.h"
+#include "Default.h"
 
 namespace cosmographer {
 

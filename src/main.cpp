@@ -1,4 +1,4 @@
-#include "default.h"
+#include "Default.h"
 #include "Cosmographer.h"
 
 namespace cosmographer {
@@ -46,8 +46,8 @@ int bootstrap() {
     auto cosmographerThread = Circlet::begin(mv(cosmographer));
 
     // TODO get rid of this thing
-    int result = system("cd /home/josiah/projects/code/impresario-systems/conductor && ./conductor.sh &");
-    result = system("cd /home/josiah/projects/code/impresario-systems/palantir && ./palantir.sh &");
+//    int result = system("cd /home/josiah/projects/code/impresario-systems/conductor && ./conductor.sh &");
+//    result = system("cd /home/josiah/projects/code/impresario-systems/palantir && ./palantir.sh &");
 
     // go time!
     cosmographerThread->join();

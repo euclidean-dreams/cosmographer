@@ -1,7 +1,7 @@
 #ifndef COSMOGRAPHER_GLIMMERCOMMUNITY_H
 #define COSMOGRAPHER_GLIMMERCOMMUNITY_H
 
-#include "default.h"
+#include "Default.h"
 #include "primitive/Loci.h"
 #include "primitive/color/HSLColor.h"
 
