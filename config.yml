@@ -21,6 +21,6 @@ lattice_initial_saturation: 0
 lattice_initial_lightness: 100
 
 # mesh
-#lumion_count: 7400
-lumion_count: 4097
+lumion_count: 7400
+#lumion_count: 4097
 #lumion_count: 1000
