@@ -78,7 +78,11 @@ set(
         src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.h
         src/primitive/Loci.h src/primitive/Loci.cpp
 
-        src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h src/cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.h src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.h src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/LindogramSketcher.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/LindogramSketcher.h)
+        src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h
+        src/cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.h
+        src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.h
+        src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/LindogramSketcher.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/LindogramSketcher.h
+        src/cosmology/aspect/glimmering/glimmer/terminus/Terminus.h src/cosmology/aspect/glimmering/glimmer/terminus/OriginOffLattice.h src/cosmology/aspect/glimmering/glimmer/terminus/FullyFaded.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

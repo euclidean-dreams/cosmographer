@@ -30,6 +30,7 @@ int bootstrap() {
     paradigm->cloister->cartographer->initialize(paradigm->cloister.get());
     paradigm->cloister->chromatica = mkup<Chromatica>(paradigm->cloister.get());
     paradigm->cloister->chromatica->initialize(paradigm->cloister.get());
+    paradigm->latticeInitialColor = HSLColor{LATTICE_INITIAL_HUE, LATTICE_INITIAL_SATURATION, LATTICE_INITIAL_LIGHTNESS};
 
     auto cosmographer = mkup<Cosmographer>(
             bootstrapper.getZmqContext(),

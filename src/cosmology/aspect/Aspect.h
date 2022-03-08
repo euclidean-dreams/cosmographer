@@ -17,9 +17,13 @@ public:
             up<Revealery> revealery
     );
 
-    up<Lattice> manifest();
+    void manifest(
+            Lattice &lattice
+    );
 
-    void experienceEssentia(const Essentia *essentia);
+    void experienceEssentia(
+            const Essentia *essentia
+    );
 };
 
 }

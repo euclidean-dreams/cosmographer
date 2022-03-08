@@ -15,13 +15,15 @@ Aspect::Aspect(
     subCommunity.glimmering->initialize(&subCommunity);
 }
 
-up<Lattice> Aspect::manifest() {
-    auto lattice = mkup<Lattice>(community->paradigm->latticeWidth, community->paradigm->latticeHeight);
-    subCommunity.glimmering->illuminate(*lattice);
-    return lattice;
+void Aspect::manifest(
+        Lattice &lattice
+) {
+    subCommunity.glimmering->illuminate(lattice);
 }
 
-void Aspect::experienceEssentia(const Essentia *essentia) {
+void Aspect::experienceEssentia(
+        const Essentia *essentia
+) {
     std::vector<float> signal{};
     auto samples = essentia->melSignal();
     signal.reserve(samples->size());

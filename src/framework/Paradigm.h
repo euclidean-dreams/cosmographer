@@ -4,6 +4,7 @@
 #include "framework/Libs.h"
 #include "framework/Macros.h"
 #include "cloister/CloisterCommunity.h"
+#include "primitive/color/HSLColor.h"
 
 namespace cosmographer {
 
@@ -13,6 +14,7 @@ public:
     vec<float> axioms;
     uint latticeWidth;
     uint latticeHeight;
+    HSLColor latticeInitialColor;
 };
 
 }

@@ -29,6 +29,8 @@ public:
             int lightness
     );
 
+    bool operator==(HSLColor &other) const;
+
     void lighten(int amount);
 
     void darken(int amount);

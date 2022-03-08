@@ -17,7 +17,8 @@ public:
 
     explicit Lattice(
             uint width,
-            uint height
+            uint height,
+            HSLColor initialColor
     );
 
     HSLColor getColor(

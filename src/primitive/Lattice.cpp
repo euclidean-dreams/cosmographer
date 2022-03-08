@@ -4,12 +4,13 @@ namespace cosmographer {
 
 Lattice::Lattice(
         uint width,
-        uint height
+        uint height,
+        HSLColor initialColor
 ) :
         data{
                 width,
                 {height,
-                 DEFAULT_LATTICE_COLOR
+                 initialColor
                 }
         },
         width{cast(int, width)},

@@ -11,27 +11,27 @@ namespace cosmographer {
 
 class LindogramSketcher : NonCopyable {
 private:
-//    Point location;
-//    double orientation;
-//
-//    static void advance(
-//            double distance
-//    );
-//
-//    static void rotate(
-//            double radians
-//    );
-//
-//public:
-//    LindogramSketcher(
-//            Point location,
-//            double orientation
-//    );
-//
-//    static void sketch(
-//            Lattice &lattice,
-//            int instruction
-//    );
+    Point location;
+    double orientation;
+
+    static void advance(
+            double distance
+    );
+
+    static void rotate(
+            double radians
+    );
+
+public:
+    LindogramSketcher(
+            Point location,
+            double orientation
+    );
+
+    static void sketch(
+            Lattice &lattice,
+            int instruction
+    );
 };
 
 }

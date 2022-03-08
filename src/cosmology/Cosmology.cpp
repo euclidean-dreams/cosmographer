@@ -13,7 +13,8 @@ Cosmology::Cosmology(
 }
 
 void Cosmology::observe() {
-    auto lattice = subCommunity.aspect->manifest();
+    auto lattice = mkup<Lattice>(PARADIGM->latticeWidth, PARADIGM->latticeHeight, PARADIGM->latticeInitialColor);
+    subCommunity.aspect->manifest(*lattice);
     community->vantage->send(*lattice);
 }
 

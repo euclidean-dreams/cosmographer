@@ -25,9 +25,6 @@
 #define MINIMUM_BEAT_INTERVAL (100 * 1000)
 #define MOVING_AVERAGE_SIZE 100
 
-// other
-#define DEFAULT_LATTICE_COLOR HSLColor{100, 100, 100}
-
 // general
 #define VANTAGE_TYPE Config::getInstance().getInt("vantage_type")
 #define AXIOMOLOGY_SIZE Config::getInstance().getUint("axiomology_size")
@@ -44,6 +41,9 @@
 // lattice
 #define LATTICE_WIDTH Config::getInstance().getUint("lattice_width")
 #define LATTICE_HEIGHT Config::getInstance().getUint("lattice_height")
+#define LATTICE_INITIAL_HUE Config::getInstance().getInt("lattice_initial_hue")
+#define LATTICE_INITIAL_SATURATION Config::getInstance().getInt("lattice_initial_saturation")
+#define LATTICE_INITIAL_LIGHTNESS Config::getInstance().getInt("lattice_initial_lightness")
 
 // mesh
 #define LUMION_COUNT Config::getInstance().getUint("lumion_count")
