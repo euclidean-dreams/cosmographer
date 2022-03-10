@@ -17,7 +17,7 @@ public:
     Point shiftPoint(
             Point point,
             float distance,
-            float angle
+            float direction
     );
 };
 

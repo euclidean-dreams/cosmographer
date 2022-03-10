@@ -12,7 +12,9 @@ private:
     SimpleMovingAverage simpleMovingAverage;
 
 public:
-    CentrifugalPalette();
+    CentrifugalPalette(
+            uint movingAverageSize
+    );
 
     HSLColor getColor() override;
 

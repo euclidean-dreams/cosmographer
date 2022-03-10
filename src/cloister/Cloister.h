@@ -5,6 +5,8 @@
 #include "AxiomRefresher.h"
 #include "Cartographer.h"
 #include "ColorPixie.h"
+#include "Constants.h"
+#include "Randomizer.h"
 #include "chromatica/palette/Palette.h"
 #include "chromatica/Chromatica.h"
 

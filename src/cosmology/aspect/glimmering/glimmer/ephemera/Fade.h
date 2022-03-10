@@ -8,9 +8,13 @@ namespace cosmographer {
 class Fade : public Ephemera {
 public:
     HSLColor initialColor;
+    HSLColor finalColor;
+    float lifespan;
 
     Fade(
-            HSLColor initialColor
+            HSLColor initialColor,
+            HSLColor finalColor,
+            float lifespan
     );
 
     void live() override;

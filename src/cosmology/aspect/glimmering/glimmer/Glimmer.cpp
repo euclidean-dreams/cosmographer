@@ -18,21 +18,27 @@ Glimmer::Glimmer(
     subCommunity.age = 0;
 }
 
-bool Glimmer::illuminate(
-        Lattice &lattice
-) {
+void Glimmer::live() {
     subCommunity.age++;
     for (auto &ephemera: subCommunity.ephemera) {
         ephemera->live();
     }
-    subCommunity.illuminable->illuminate(lattice);
+}
+
+bool Glimmer::shouldTerminate() {
     for (auto &terminus: subCommunity.termini) {
         if (terminus->shouldTerminate()) {
-            // returns false if dead
-            return false;
+            return true;
         }
     }
-    return true;
+    return false;
+}
+
+void Glimmer::illuminate(
+        Lattice &lattice
+) {
+    // this should not touch anything outside the glimmer for thread safety
+    subCommunity.illuminable->illuminate(lattice);
 }
 
 void Glimmer::addTerminus(

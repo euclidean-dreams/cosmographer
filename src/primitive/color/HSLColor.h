@@ -31,6 +31,8 @@ public:
 
     bool operator==(HSLColor &other) const;
 
+    bool operator!=(HSLColor &other) const;
+
     void lighten(int amount);
 
     void darken(int amount);

@@ -101,4 +101,14 @@ bool HSLColor::operator==(HSLColor &other) const {
     } else return false;
 }
 
+bool HSLColor::operator!=(HSLColor &other) const {
+    if (
+            hue != other.hue ||
+            saturation != other.saturation ||
+            lightness != other.lightness
+            ) {
+        return true;
+    } else return false;
+}
+
 }

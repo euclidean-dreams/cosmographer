@@ -4,15 +4,22 @@ namespace cosmographer {
 
 Mesh::Mesh(
         AspectCommunity *community,
-        int glimmerCount
+        int lumionCount
 ) :
         Liaison<MeshCommunity>(community) {
-    auto latticeSize = community->paradigm->latticeHeight * community->paradigm->latticeWidth;
-    float placingIncrement = cast(float, latticeSize) / glimmerCount;
-    for (int signalIndex = 0; signalIndex < glimmerCount; signalIndex++) {
-        auto latticeIndex = placingIncrement * signalIndex;
+    auto latticeSize = CONSTANTS->latticeHeight * CONSTANTS->latticeWidth;
+
+    // glimmer_placement in desmos
+    auto L = latticeSize;
+    auto G = lumionCount;
+    auto a = CONSTANTS->lumionPlacement * lumionCount;
+    auto b = G / (std::exp(L / a) - 1);
+
+    for (int lumionIndex = 0; lumionIndex < lumionCount; lumionIndex++) {
+        auto x = lumionIndex;
+        auto latticeIndex = a * std::log(1 + x / b);
         auto latticePoint = CLOISTER->cartographer->verticalWrap(latticeIndex);
-        auto lumion = mkup<Lumion>(signalIndex, latticePoint);
+        auto lumion = mkup<Lumion>(lumionIndex, latticePoint);
         lumion->initialize(&subCommunity);
         subCommunity.lumions.push_back(mv(lumion));
     }
@@ -23,7 +30,7 @@ void Mesh::meld(
 ) {
     for (auto &lumion: subCommunity.lumions) {
         auto excitation = lumion->excite(signal);
-        if (excitation.magnitude > 0.1) {
+        if (excitation.magnitude > 0.2) {
             community->revealery->reveal(excitation);
         }
     }

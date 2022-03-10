@@ -1,5 +1,6 @@
 #include "Default.h"
 #include "Cosmographer.h"
+#include "cloister/Constants.h"
 
 namespace cosmographer {
 
@@ -7,30 +8,21 @@ int bootstrap() {
     std::string configFilePath = "./config.yml";
     Bootstrapper bootstrapper(configFilePath, 1);
 
-    // percipient
+    // arbiters
     auto axiomArbiter = mksp<Arbiter<const Parcel>>();
     auto phenomenology = mksp<BufferArbiter<const Parcel>>();
-    auto volitiaPercipientThread = VolitiaPercipient::create(
-            bootstrapper.getZmqContext(),
-            VOLITIA_ENDPOINT,
-            axiomArbiter,
-            phenomenology
-    );
 
     // build paradigm
     auto paradigm = mkup<Paradigm>();
-    paradigm->axioms.resize(AXIOMOLOGY_SIZE, 0.5);
-    paradigm->latticeInitialColor = HSLColor{
-            LATTICE_INITIAL_HUE,
-            LATTICE_INITIAL_SATURATION,
-            LATTICE_INITIAL_LIGHTNESS
-    };
-    paradigm->latticeWidth = LATTICE_WIDTH;
-    paradigm->latticeHeight = LATTICE_HEIGHT;
 
+    // cloister
     paradigm->cloister = mkup<CloisterCommunity>(paradigm.get());
+    paradigm->cloister->constants = mkup<Constants>();
+    paradigm->cloister->constants->initialize(paradigm->cloister.get());
     paradigm->cloister->axiomRefresher = mkup<AxiomRefresher>(axiomArbiter);
     paradigm->cloister->axiomRefresher->initialize(paradigm->cloister.get());
+    paradigm->cloister->randomizer = mkup<Randomizer>();
+    paradigm->cloister->randomizer->initialize(paradigm->cloister.get());
     paradigm->cloister->cartographer = mkup<Cartographer>();
     paradigm->cloister->cartographer->initialize(paradigm->cloister.get());
     paradigm->cloister->chromatica = mkup<Chromatica>(paradigm->cloister.get());
@@ -38,16 +30,25 @@ int bootstrap() {
     paradigm->cloister->colorPixie = mkup<ColorPixie>();
     paradigm->cloister->colorPixie->initialize(paradigm->cloister.get());
 
+    // extras
+    paradigm->axioms.resize(paradigm->cloister->constants->axiomologySize, 0.5);
+    paradigm->mode = CIRCLE_MODE;
+
+    // percipient
+    auto volitiaPercipientThread = VolitiaPercipient::create(
+            bootstrapper.getZmqContext(),
+            paradigm->cloister->constants->volitiaEndpoint,
+            axiomArbiter,
+            phenomenology
+    );
+
+    // cosmographer
     auto cosmographer = mkup<Cosmographer>(
             bootstrapper.getZmqContext(),
             paradigm.get(),
             mv(phenomenology)
     );
     auto cosmographerThread = Circlet::begin(mv(cosmographer));
-
-    // TODO get rid of this thing
-//    int result = system("cd /home/josiah/projects/code/impresario-systems/conductor && ./conductor.sh &");
-//    result = system("cd /home/josiah/projects/code/impresario-systems/palantir && ./palantir.sh &");
 
     // go time!
     cosmographerThread->join();

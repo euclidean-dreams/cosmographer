@@ -16,6 +16,9 @@ public:
     HSLColor color;
     float size;
     int age;
+
+    // dependency bundle
+    up<class Sketcher> sketcher;
 };
 
 }

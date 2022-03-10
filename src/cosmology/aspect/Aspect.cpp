@@ -7,7 +7,7 @@ Aspect::Aspect(
         up<Revealery> revealery
 ) :
         Liaison<AspectCommunity>(community) {
-    subCommunity.mesh = mkup<Mesh>(&subCommunity, LUMION_COUNT);
+    subCommunity.mesh = mkup<Mesh>(&subCommunity, CONSTANTS->lumionCount);
     subCommunity.mesh->initialize(&subCommunity);
     subCommunity.revealery = mv(revealery);
     subCommunity.revealery->initialize(&subCommunity);
@@ -25,11 +25,12 @@ void Aspect::experienceEssentia(
         const Essentia *essentia
 ) {
     std::vector<float> signal{};
-    auto samples = essentia->melSignal();
+    auto samples = essentia->stft();
     signal.reserve(samples->size());
     for (int index = 0; index < samples->size(); index++) {
         if (index < samples->size()) {
-            signal.push_back(samples->Get(index));
+            auto sample = samples->Get(index);
+            signal.push_back(sample);
         } else {
             signal.push_back(0);
         }

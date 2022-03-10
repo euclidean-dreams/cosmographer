@@ -13,7 +13,7 @@ class Mesh : public Fellow<AspectCommunity>, public Liaison<MeshCommunity> {
 public:
     Mesh(
             AspectCommunity *community,
-            int glimmerCount
+            int lumionCount
     );
 
     void meld(

@@ -1,26 +1,23 @@
 # general
-# 0 = keyhole
-# 1 = palantir
-vantage_type: 1
-axiomology_size: 10
-
-# tick interval
-luciferon_tick_interval: 15000
+axiomologySize: 10
+illuminatorThreadCount: 4
+maxGlimmers: 50000
 
 # sockets
-luciferon_endpoint: tcp://0.0.0.0:44400
-palantir_endpoint: ipc:///tmp/cosmographer
-analogorium_endpoint: ipc:///tmp/analogorium
-volitia_endpoint: tcp://volitia:44440
+palantirEndpoint: ipc:///tmp/cosmographer
+essentiaEndpoint: ipc:///tmp/analogorium
+volitiaEndpoint: tcp://volitia:44440
 
 # lattice
-lattice_width: 100
-lattice_height: 74
-lattice_initial_hue: 0
-lattice_initial_saturation: 0
-lattice_initial_lightness: 100
+latticeWidth: 100
+latticeHeight: 74
+latticeInitialHue: 0
+latticeInitialSaturation: 0
+latticeInitialLightness: 100
 
 # mesh
-lumion_count: 7400
-#lumion_count: 4097
-#lumion_count: 1000
+#lumionCount: 7400
+lumionCount: 4097
+
+# value bounds depend on mesh and signal size
+lumionPlacement: 0.2

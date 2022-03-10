@@ -12,9 +12,7 @@ class Paradigm : public NonCopyable {
 public:
     up<CloisterCommunity> cloister;
     vec<float> axioms;
-    uint latticeWidth;
-    uint latticeHeight;
-    HSLColor latticeInitialColor;
+    int mode;
 };
 
 }

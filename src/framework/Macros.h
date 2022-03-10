@@ -13,5 +13,6 @@
 
 #define PARADIGM community->paradigm
 #define CLOISTER PARADIGM->cloister
+#define CONSTANTS CLOISTER->constants
 
 #endif //COSMOGRAPHER_MACROS_H

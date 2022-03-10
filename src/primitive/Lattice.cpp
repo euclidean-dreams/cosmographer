@@ -5,16 +5,17 @@ namespace cosmographer {
 Lattice::Lattice(
         uint width,
         uint height,
-        HSLColor initialColor
+        HSLColor nullColor
 ) :
         data{
                 width,
                 {height,
-                 initialColor
+                 nullColor
                 }
         },
         width{cast(int, width)},
-        height{cast(int, height)} {
+        height{cast(int, height)},
+        nullColor{nullColor} {
 
 }
 
@@ -47,6 +48,17 @@ bool Lattice::isValid(
         }
     }
     return false;
+}
+
+void Lattice::meld(Lattice &other) {
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            auto potentialColor = other.getColor(x, y);
+            if (potentialColor != nullColor) {
+                setColor(x, y, potentialColor);
+            }
+        }
+    }
 }
 
 }

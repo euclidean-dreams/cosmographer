@@ -6,11 +6,12 @@
 #include "ephemera/Ephemera.h"
 #include "terminus/Terminus.h"
 #include "illuminable/Illuminable.h"
+#include "cosmology/aspect/glimmering/glimmer/ephemera/lindogram/Sketcher.h"
 #include "primitive/Lattice.h"
 
 namespace cosmographer {
 
-class Glimmer : public Fellow<GlimmeringCommunity>,  public Liaison<GlimmerCommunity> {
+class Glimmer : public Fellow<GlimmeringCommunity>, public Liaison<GlimmerCommunity> {
 public:
     Glimmer(
             Paradigm *paradigm,
@@ -20,7 +21,11 @@ public:
             float size
     );
 
-    bool illuminate(
+    void live();
+
+    bool shouldTerminate();
+
+    void illuminate(
             Lattice &lattice
     );
 

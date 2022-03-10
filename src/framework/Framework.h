@@ -3,9 +3,8 @@
 
 #include "Libs.h"
 #include "Macros.h"
-#include "Config.h"
 #include "Community.h"
 #include "Paradigm.h"
-
+#include "Bindings.h"
 
 #endif //COSMOGRAPHER_FRAMEWORK_H

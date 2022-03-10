@@ -3,18 +3,21 @@
 namespace cosmographer {
 
 Fade::Fade(
-        HSLColor initialColor
+        HSLColor initialColor,
+        HSLColor finalColor,
+        float lifespan
 ) :
-        initialColor{initialColor} {
+        initialColor{initialColor},
+        finalColor{finalColor},
+        lifespan{lifespan} {
 
 }
 
 void Fade::live() {
-    auto fadeIncrement = EPHEMERA_AXIOM_2 / 20;
-    auto fade = fadeIncrement * community->age;
+    float fade = community->age / lifespan;
     community->color = CLOISTER->colorPixie->gradiate(
             initialColor,
-            PARADIGM->latticeInitialColor,
+            finalColor,
             fade
     );
 }

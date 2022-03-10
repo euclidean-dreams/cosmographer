@@ -15,7 +15,7 @@ Cosmographer::Cosmographer(
     // vantage
     auto palantirSocket = mkup<NetworkSocket>(
             zmqContext,
-            PALANTIR_ENDPOINT,
+            paradigm->cloister->constants->palantirEndpoint,
             zmq::socket_type::pub,
             true
     );
@@ -25,12 +25,11 @@ Cosmographer::Cosmographer(
     // cosmographer
     subCommunity.essentiaSocket = mkup<NetworkSocket>(
             zmqContext,
-            ANALOGORIUM_ENDPOINT,
+            paradigm->cloister->constants->essentiaEndpoint,
             zmq::socket_type::sub,
             false
     );
     subCommunity.essentiaSocket->setSubscriptionFilter(Identifier::essentia);
-
 }
 
 void Cosmographer::activate() {
@@ -44,12 +43,11 @@ void Cosmographer::activate() {
     auto newPhenomenonParcels = subCommunity.phenomenology->take();
     for (auto &phenomenonParcel: *newPhenomenonParcels) {
         auto phenomenon = Unwrap::Phenomenon(*phenomenonParcel);
-        subCommunity.paradigm->cloister->chromatica->experiencePhenomenon(phenomenon);
-
-        // TODO get rid of this hacky nonsense once the analogorium is up and running
-        if (phenomenon->identity() == 5) {
-            auto result = system("kill -KILL \"$(pidof conductor)\"");
-            result = system("cd /home/josiah/projects/code/impresario-systems/conductor && ./conductor.sh &");
+        auto button = phenomenon->identity();
+        if (button < 5) {
+            subCommunity.paradigm->cloister->chromatica->experiencePhenomenon(phenomenon);
+        } else if (button < 10) {
+            subCommunity.paradigm->mode = phenomenon->identity() - 5;
         }
     }
 

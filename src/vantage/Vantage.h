@@ -2,6 +2,7 @@
 #define COSMOGRAPHER_VANTAGE_H
 
 #include "CosmographerCommunity.h"
+#include "cosmology/Cosmology.h"
 #include "primitive/Lattice.h"
 
 namespace cosmographer {

@@ -16,12 +16,12 @@ void Circle::illuminate(
         minY = 0;
     }
     auto maxX = locus.x + radius;
-    if (maxX >= PARADIGM->latticeWidth) {
-        maxX = PARADIGM->latticeWidth - 1;
+    if (maxX >= CONSTANTS->latticeWidth) {
+        maxX = CONSTANTS->latticeWidth - 1;
     }
     auto maxY = locus.y + radius;
-    if (maxY >= PARADIGM->latticeHeight) {
-        maxY = PARADIGM->latticeHeight - 1;
+    if (maxY >= CONSTANTS->latticeHeight) {
+        maxY = CONSTANTS->latticeHeight - 1;
     }
     for (int y = minY; y <= maxY; y++) {
         for (int x = minX; x <= maxX; x++) {

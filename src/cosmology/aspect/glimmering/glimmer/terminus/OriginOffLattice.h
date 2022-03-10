@@ -6,6 +6,7 @@
 namespace cosmographer {
 
 class OriginOffLattice : public Terminus {
+public:
     bool shouldTerminate() override {
         return !CLOISTER->cartographer->isValid(community->locus);
     }

@@ -13,6 +13,8 @@ public:
     up<class AxiomRefresher> axiomRefresher;
     up<class Chromatica> chromatica;
     up<class ColorPixie> colorPixie;
+    up<class Constants> constants;
+    up<class Randomizer> randomizer;
 
     CloisterCommunity(Paradigm *paradigm) : Community{paradigm} {}
 };

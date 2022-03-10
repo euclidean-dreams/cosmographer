@@ -24,7 +24,6 @@ set(
 
         # framework
         src/framework/Paradigm.h
-        src/framework/Config.h
         src/framework/Macros.h
         src/framework/Framework.h
         src/framework/Libs.h
@@ -80,9 +79,7 @@ set(
 
         src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h
         src/cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.h
-        src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.h
-        src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/LindogramSketcher.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/LindogramSketcher.h
-        src/cosmology/aspect/glimmering/glimmer/terminus/Terminus.h src/cosmology/aspect/glimmering/glimmer/terminus/OriginOffLattice.h src/cosmology/aspect/glimmering/glimmer/terminus/FullyFaded.h)
+        src/cosmology/aspect/glimmering/glimmer/terminus/Terminus.h src/cosmology/aspect/glimmering/glimmer/terminus/OriginOffLattice.h src/cosmology/aspect/glimmering/glimmer/terminus/FullyFaded.h src/cosmology/aspect/glimmering/glimmer/ephemera/Grow.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Grow.h src/cosmology/aspect/glimmering/glimmer/terminus/Age.h src/cosmology/aspect/glimmering/Orchestrator.cpp src/cosmology/aspect/glimmering/Orchestrator.h src/cosmology/aspect/glimmering/Illuminator.cpp src/cosmology/aspect/glimmering/Illuminator.h src/cloister/Constants.h src/framework/Bindings.h src/cloister/Randomizer.cpp src/cloister/Randomizer.h src/cosmology/aspect/glimmering/glimmer/illuminable/Canvas.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/Canvas.h src/cosmology/aspect/glimmering/glimmer/ephemera/lindogram/Sketcher.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/lindogram/Sketcher.h src/cosmology/aspect/glimmering/glimmer/ephemera/lindogram/DragonCurve.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/lindogram/DragonCurve.h src/cosmology/aspect/glimmering/glimmer/ephemera/lindogram/DragonCurveSystem.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

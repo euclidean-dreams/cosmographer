@@ -7,6 +7,8 @@
 #include "cosmology/aspect/glimmering/glimmer/Glimmer.h"
 #include "cosmology/aspect/mesh/lumion/Lumion.h"
 #include "primitive/Lattice.h"
+#include "Illuminator.h"
+#include "Orchestrator.h"
 
 namespace cosmographer {
 

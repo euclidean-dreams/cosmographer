@@ -6,20 +6,26 @@ Glimmering::Glimmering(
         AspectCommunity *community
 ) :
         Liaison<GlimmeringCommunity>(community) {
+    subCommunity.orchestrator = mkup<Orchestrator>();
+    subCommunity.orchestrator->initialize(&subCommunity);
+    for (int identifier = 0; identifier < CONSTANTS->illuminatorThreadCount; identifier++) {
+        auto illuminator = mkup<Illuminator>(identifier);
+        illuminator->initialize(&subCommunity);
+        auto illuminatorThread = Circlet::begin(mv(illuminator));
+        subCommunity.illuminatorThreads.push_back(mv(illuminatorThread));
+    }
+    subCommunity.illuminatorLattices.resize(CONSTANTS->illuminatorThreadCount);
+    subCommunity.illuminatorTasking.resize(CONSTANTS->illuminatorThreadCount);
+    subCommunity.finishedIlluminators = 0;
 }
 
 void Glimmering::illuminate(
         Lattice &lattice
 ) {
-    auto iterator = subCommunity.glimmers.begin();
-    while (iterator != subCommunity.glimmers.end()) {
-        auto isAlive = (*iterator)->illuminate(lattice);
-        if (isAlive) {
-            iterator++;
-        } else {
-            iterator = subCommunity.glimmers.erase(iterator);
-        }
+    if (PARADIGM->mode == CLEAR_MODE) {
+        subCommunity.glimmers.clear();
     }
+    subCommunity.orchestrator->orchestrate(lattice);
 }
 
 void Glimmering::addGlimmer(

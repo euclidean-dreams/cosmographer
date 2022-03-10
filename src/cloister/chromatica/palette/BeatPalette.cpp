@@ -20,9 +20,9 @@ void BeatPalette::experienceEssentia(const Essentia *essentia) {
         energy += samples->Get(index);
     }
     auto flux = energy - previousEnergy;
-    auto fluxRequirement = MAX_FLUX_REQUIREMENT - MAX_FLUX_REQUIREMENT * PALETTE_AXIOM_0;
-    if (flux > fluxRequirement && getElapsedTime(lastBeat) > MINIMUM_BEAT_INTERVAL) {
-        hue += RANDOM.generate(HSL_HUE_MAX * PALETTE_AXIOM_1);
+    auto fluxRequirement = CONSTANTS->maxFluxRequirement - CONSTANTS->maxFluxRequirement * PALETTE_AXIOM_0;
+    if (flux > fluxRequirement && getElapsedTime(lastBeat) > CONSTANTS->minimumBeatInterval) {
+        hue += CLOISTER->randomizer->generate(HSL_HUE_MAX * PALETTE_AXIOM_0);
     }
     previousEnergy = energy;
 }

@@ -14,12 +14,22 @@ Lumion::Lumion(
 LumionExcitation Lumion::excite(
         vec<float> &signal
 ) {
+    // calculate excitation
     auto normalizationScale = LUMION_EXCITATION_AXIOM;
     auto sample = signal[signalIndex];
-    auto normalizedSample = 1 - 1 / (std::pow(sample / (-1 * (10000 - 10000 * normalizationScale)), 2) + 1);
+    auto excitation = 1 - 1 / (std::pow(sample / (-1 * (10000 - 9950 * normalizationScale)), 2) + 1);
+
+    // float around
+    auto distance = excitation * LUMION_DRIFT * 10;
+    auto direction = CLOISTER->randomizer->generateProportion() * 2 * M_PI;
+    auto potentialNewLatticePoint = CLOISTER->cartographer->shiftPoint(latticePoint, distance, direction);
+    if(CLOISTER->cartographer->isValid(potentialNewLatticePoint)) {
+        latticePoint = potentialNewLatticePoint;
+    }
+
     return LumionExcitation{
             latticePoint,
-            cast(float, normalizedSample)
+            cast(float, excitation)
     };
 }
 

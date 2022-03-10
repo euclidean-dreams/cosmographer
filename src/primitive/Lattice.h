@@ -14,11 +14,12 @@ private:
 public:
     int width;
     int height;
+    HSLColor nullColor;
 
     explicit Lattice(
             uint width,
             uint height,
-            HSLColor initialColor
+            HSLColor nullColor
     );
 
     HSLColor getColor(
@@ -38,6 +39,10 @@ public:
             int x,
             int y
     ) const;
+
+    void meld(
+            Lattice &other
+    );
 };
 
 }

@@ -6,8 +6,9 @@
 namespace cosmographer {
 
 class FullyFaded : public Terminus {
+public:
     bool shouldTerminate() override {
-        return community->color == PARADIGM->latticeInitialColor;
+        return community->color == CONSTANTS->latticeInitialColor;
     }
 };
 
