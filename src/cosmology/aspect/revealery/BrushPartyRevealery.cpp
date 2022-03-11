@@ -16,7 +16,7 @@ namespace cosmographer {
 void BrushPartyRevealery::reveal(LumionExcitation excitation) {
     // color
     auto color = CLOISTER->chromatica->getColor();
-    color.lightness = 70 - 40 * excitation.magnitude;
+    color.lightness = 100 - 60 * excitation.magnitude;
 
 //    auto ephemera = mkup<Linger>(lighten);
     int glimmerCount = GLIMMER_COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * excitation.magnitude;
@@ -44,7 +44,7 @@ void BrushPartyRevealery::reveal(LumionExcitation excitation) {
             illuminable = mkup<Circle>();
         } else if (PARADIGM->mode == RECTANGLE_MODE) {
             size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
-            illuminable = mkup<Rectangle>(1);
+            illuminable = mkup<Rectangle>(2 * excitation.magnitude);
         } else if (PARADIGM->mode == DRAGON_MODE) {
             size = excitation.magnitude * 25 * GLIMMER_SIZE_AXIOM + 2;
             auto canvasIntermediary = mkup<Canvas>();

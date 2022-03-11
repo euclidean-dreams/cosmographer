@@ -58,6 +58,9 @@ void Cosmographer::activate() {
         subCommunity.cosmology->experienceEssentia(essentia);
     }
 
+    // todo find a better place for this
+//    subCommunity.paradigm->cloister->constants.
+
     // generate lattice and send frame
     subCommunity.cosmology->observe();
 }
