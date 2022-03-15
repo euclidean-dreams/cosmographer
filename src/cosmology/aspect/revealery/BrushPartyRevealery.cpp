@@ -16,7 +16,7 @@ namespace cosmographer {
 void BrushPartyRevealery::reveal(LumionExcitation excitation) {
     // color
     auto color = CLOISTER->chromatica->getColor();
-    color.lightness = 100 - 60 * excitation.magnitude;
+    color.lightness = 100 - 50 * excitation.magnitude;
 
 //    auto ephemera = mkup<Linger>(lighten);
     int glimmerCount = GLIMMER_COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * excitation.magnitude;

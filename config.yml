@@ -6,7 +6,7 @@ maxGlimmers: 20000
 # sockets
 palantirEndpoint: ipc:///tmp/cosmographer
 essentiaEndpoint: ipc:///tmp/analogorium
-volitiaEndpoint: tcp://volitia:44440
+volitiaEndpoint: tcp://192.168.90.161:44440
 
 # lattice
 latticeWidth: 100
