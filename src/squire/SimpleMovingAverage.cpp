@@ -8,20 +8,17 @@ SimpleMovingAverage::SimpleMovingAverage(uint size)
 }
 
 void SimpleMovingAverage::addSample(float sample) {
-    samples[oldestSampleIndex] = sample;
-    oldestSampleIndex++;
-    if (oldestSampleIndex > samples.size()) {
-        oldestSampleIndex = 0;
+    samples.pop_front();
+    samples.push_back(sample);
+    auto sum = 0;
+    for (auto value: samples) {
+        sum += value;
     }
+    currentValue = sum / samples.size();
 }
 
 float SimpleMovingAverage::calculate() {
-    auto sum = 0;
-    for (auto sample: samples) {
-        sum += sample;
-    }
-    auto mean = sum / samples.size();
-    return mean;
+    return currentValue;
 }
 
 }

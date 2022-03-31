@@ -1,4 +1,4 @@
-#include "BrushPartyRevealery.h"
+#include "WorkshopRevealery.h"
 #include "cosmology/aspect/glimmering/glimmer/Glimmer.h"
 #include "cosmology/aspect/glimmering/glimmer/ephemera/Fade.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h"
@@ -13,10 +13,20 @@
 
 namespace cosmographer {
 
-void BrushPartyRevealery::reveal(LumionExcitation excitation) {
+WorkshopRevealery::WorkshopRevealery(
+
+) :
+        energyAverage{50} {
+
+}
+
+void WorkshopRevealery::reveal(LumionExcitation excitation) {
+    energyAverage.addSample(excitation.energy);
+    auto energyDelta = excitation.energy / energyAverage.calculate();
     // color
     auto color = CLOISTER->chromatica->getColor();
-    color.lightness = 100 - 50 * excitation.magnitude;
+    color.lightness = 70 - 30 * excitation.magnitude;
+//    color.lightness = 20 + 70 * excitation.magnitude;
 
 //    auto ephemera = mkup<Linger>(lighten);
     int glimmerCount = GLIMMER_COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * excitation.magnitude;
@@ -35,9 +45,8 @@ void BrushPartyRevealery::reveal(LumionExcitation excitation) {
 
         // illuminable
         up<Illuminable> illuminable;
-        up<Canvas> canvas = nullptr;
-        up<Sketcher> sketcher = nullptr;
         float size;
+        size = excitation.magnitude * energyDelta * GLIMMER_SIZE_AXIOM * 500 + 2;
 
         if (PARADIGM->mode == CIRCLE_MODE || PARADIGM->mode == RADIATE_MODE) {
             size = excitation.magnitude * 25 * GLIMMER_SIZE_AXIOM + 2;
@@ -45,12 +54,6 @@ void BrushPartyRevealery::reveal(LumionExcitation excitation) {
         } else if (PARADIGM->mode == RECTANGLE_MODE) {
             size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
             illuminable = mkup<Rectangle>(2 * excitation.magnitude);
-        } else if (PARADIGM->mode == DRAGON_MODE) {
-            size = excitation.magnitude * 25 * GLIMMER_SIZE_AXIOM + 2;
-            auto canvasIntermediary = mkup<Canvas>();
-//            illuminable =
-//            canvas = illuminable.get();
-//            sketcher = mkup<Sketcher>();
         } else {
             size = 2;
             illuminable = mkup<Rectangle>(1);
@@ -75,7 +78,7 @@ void BrushPartyRevealery::reveal(LumionExcitation excitation) {
         }
         auto finalColor = CONSTANTS->latticeInitialColor;
         finalColor.hue = color.hue;
-//        glimmer->addEphemera(mkup<Fade>(color, finalColor, lifespan));
+        glimmer->addEphemera(mkup<Fade>(color, finalColor, lifespan));
 
         glimmer->addEphemera(mkup<Grow>());
 

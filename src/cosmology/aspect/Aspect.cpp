@@ -24,16 +24,11 @@ void Aspect::manifest(
 void Aspect::experienceEssentia(
         const Essentia *essentia
 ) {
-    std::vector<float> signal{};
     auto samples = essentia->stft();
-    signal.reserve(samples->size());
+    Signal signal{static_cast<int>(samples->size())};
     for (int index = 0; index < samples->size(); index++) {
-        if (index < samples->size()) {
-            auto sample = samples->Get(index);
-            signal.push_back(sample);
-        } else {
-            signal.push_back(0);
-        }
+        auto sample = samples->Get(index);
+        signal.addSample(sample);
     }
     subCommunity.mesh->meld(signal);
 }

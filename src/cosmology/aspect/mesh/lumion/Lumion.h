@@ -3,6 +3,7 @@
 
 #include "cosmology/aspect/mesh/MeshCommunity.h"
 #include "primitive/Loci.h"
+#include "primitive/Signal.h"
 
 namespace cosmographer {
 
@@ -10,6 +11,7 @@ class LumionExcitation {
 public:
     Point point;
     float magnitude;
+    float energy;
 };
 
 class Lumion : public Fellow<MeshCommunity> {
@@ -23,7 +25,7 @@ public:
     );
 
     LumionExcitation excite(
-            vec<float> &signal
+            Signal &signal
     );
 };
 

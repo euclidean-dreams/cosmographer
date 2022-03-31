@@ -7,9 +7,9 @@ Mesh::Mesh(
         int lumionCount
 ) :
         Liaison<MeshCommunity>(community) {
-    auto latticeSize = CONSTANTS->latticeHeight * CONSTANTS->latticeWidth;
 
     // glimmer_placement in desmos
+    auto latticeSize = CONSTANTS->latticeHeight * CONSTANTS->latticeWidth;
     auto L = latticeSize;
     auto G = lumionCount;
     auto a = CONSTANTS->lumionPlacement * lumionCount;
@@ -23,14 +23,24 @@ Mesh::Mesh(
         lumion->initialize(&subCommunity);
         subCommunity.lumions.push_back(mv(lumion));
     }
+
+//    for (int lumionIndex = 0; lumionIndex < lumionCount; lumionIndex++) {
+//        auto latticePoint = Point{
+//                CLOISTER->randomizer->generateProportion() * CONSTANTS->latticeWidth,
+//                CLOISTER->randomizer->generateProportion() * CONSTANTS->latticeHeight
+//        };
+//        auto lumion = mkup<Lumion>(lumionIndex, latticePoint);
+//        lumion->initialize(&subCommunity);
+//        subCommunity.lumions.push_back(mv(lumion));
+//    }
 }
 
 void Mesh::meld(
-        vec<float> &signal
+        Signal &signal
 ) {
     for (auto &lumion: subCommunity.lumions) {
         auto excitation = lumion->excite(signal);
-        if (excitation.magnitude > 0.2) {
+        if (excitation.magnitude > LUMION_EXCITATION_AXIOM / 20) {
             community->revealery->reveal(excitation);
         }
     }

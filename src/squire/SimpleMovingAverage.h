@@ -7,8 +7,8 @@ namespace cosmographer {
 
 class SimpleMovingAverage {
 private:
-    vec<float> samples;
-    int oldestSampleIndex;
+    lst<float> samples;
+    float currentValue;
 
 public:
     explicit SimpleMovingAverage(uint size);

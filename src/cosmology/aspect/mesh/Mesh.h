@@ -17,7 +17,7 @@ public:
     );
 
     void meld(
-            vec<float> &signal
+            Signal &signal
     );
 };
 

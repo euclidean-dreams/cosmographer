@@ -1,16 +1,16 @@
 # general
 axiomologySize: 10
-illuminatorThreadCount: 4
-maxGlimmers: 20000
+illuminatorThreadCount: 8
+maxGlimmers: 5000
 
 # sockets
 palantirEndpoint: ipc:///tmp/cosmographer
 essentiaEndpoint: ipc:///tmp/analogorium
-volitiaEndpoint: tcp://192.168.90.161:44440
+volitiaEndpoint: tcp://volitia:44440
 
 # lattice
-latticeWidth: 100
-latticeHeight: 74
+latticeWidth: 96
+latticeHeight: 54
 latticeInitialHue: 0
 latticeInitialSaturation: 0
 latticeInitialLightness: 100
@@ -18,6 +18,7 @@ latticeInitialLightness: 100
 # mesh
 #lumionCount: 7400
 lumionCount: 4097
+#lumionCount: 2073600
 
 # value bounds depend on mesh and signal size
 lumionPlacement: 0.2
