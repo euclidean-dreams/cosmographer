@@ -75,7 +75,7 @@ set(
         src/Default.h
         src/framework/Minimal.h
         src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.h
-        src/primitive/Loci.h src/primitive/Loci.cpp
+        src/primitive/Loci.h
 
         src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h
         src/cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.h

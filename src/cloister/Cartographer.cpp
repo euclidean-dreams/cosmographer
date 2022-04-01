@@ -28,7 +28,7 @@ Point Cartographer::shiftPoint(
 ) {
     auto x = point.x + distance * cos(direction);
     auto y = point.y + distance * sin(direction);
-    return {x, y, point.z};
+    return {x, y};
 }
 
 }

@@ -5,33 +5,14 @@
 
 namespace cosmographer {
 
-class Point {
-public:
+struct Coordinate {
+    int x;
+    int y;
+};
+
+struct Point {
     double x;
     double y;
-    double z;
-
-    Point();
-
-    Point(
-            double x
-    );
-
-    Point(
-            double x,
-            double y
-    );
-
-    Point(
-            int x,
-            int y
-    );
-
-    Point(
-            double x,
-            double y,
-            double z
-    );
 };
 
 }
