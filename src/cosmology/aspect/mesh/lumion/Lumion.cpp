@@ -34,6 +34,7 @@ LumionExcitation Lumion::excite(
 
     return LumionExcitation{
             latticePoint,
+            signalIndex,
             cast(float, excitation),
             cast(float, signal.energy)
     };

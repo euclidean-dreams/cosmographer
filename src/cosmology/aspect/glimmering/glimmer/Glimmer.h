@@ -6,7 +6,6 @@
 #include "ephemera/Ephemera.h"
 #include "terminus/Terminus.h"
 #include "illuminable/Illuminable.h"
-#include "cosmology/aspect/glimmering/glimmer/ephemera/lindogram/Sketcher.h"
 #include "primitive/Lattice.h"
 
 namespace cosmographer {

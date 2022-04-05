@@ -7,6 +7,8 @@ namespace cosmographer {
 
 class Terminus : public Fellow<GlimmerCommunity> {
 public:
+    virtual ~Terminus() = default;
+
     virtual bool shouldTerminate() = 0;
 };
 

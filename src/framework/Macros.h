@@ -8,6 +8,7 @@
 #define mv move
 #define vec std::vector
 #define lst std::list
+#define umap std::unordered_map
 #define cast(type, object) static_cast<type>(object)
 
 

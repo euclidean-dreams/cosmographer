@@ -9,7 +9,8 @@
 #include "cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h"
 #include "cosmology/aspect/glimmering/glimmer/ephemera/Grow.h"
 #include "cosmology/aspect/glimmering/glimmer/terminus/Age.h"
-#include "cosmology/aspect/glimmering/glimmer/ephemera/lindogram/DragonCurve.h"
+#include "cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.h"
+#include "cosmology/aspect/glimmering/glimmer/illuminable/lindogram/Painter.h"
 
 namespace cosmographer {
 
@@ -25,7 +26,7 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
     auto energyDelta = excitation.energy / energyAverage.calculate();
     // color
     auto color = CLOISTER->chromatica->getColor();
-    color.lightness = 70 - 30 * excitation.magnitude;
+    color.lightness = 70 - 50 * excitation.magnitude;
 //    color.lightness = 20 + 70 * excitation.magnitude;
 
 //    auto ephemera = mkup<Linger>(lighten);
@@ -48,12 +49,16 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
         float size;
         size = excitation.magnitude * energyDelta * GLIMMER_SIZE_AXIOM * 500 + 2;
 
-        if (PARADIGM->mode == CIRCLE_MODE || PARADIGM->mode == RADIATE_MODE) {
+        if (PARADIGM->mode == CIRCLE_MODE) {
             size = excitation.magnitude * 25 * GLIMMER_SIZE_AXIOM + 2;
             illuminable = mkup<Circle>();
         } else if (PARADIGM->mode == RECTANGLE_MODE) {
             size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
             illuminable = mkup<Rectangle>(2 * excitation.magnitude);
+        } else if (PARADIGM->mode == DRAGON_MODE || PARADIGM->mode == RADIATE_MODE) {
+            size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
+            auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
+            illuminable = mkup<DragonCurve>(community->paradigm, orientation);
         } else {
             size = 2;
             illuminable = mkup<Rectangle>(1);
@@ -80,7 +85,7 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
         finalColor.hue = color.hue;
         glimmer->addEphemera(mkup<Fade>(color, finalColor, lifespan));
 
-        glimmer->addEphemera(mkup<Grow>());
+//        glimmer->addEphemera(mkup<Grow>());
 
         // terminus
         glimmer->addTerminus(mkup<FullyFaded>());

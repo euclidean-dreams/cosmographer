@@ -28,17 +28,6 @@ public:
     }
 };
 
-template<class Community>
-class MicroFellow : public NonCopyable {
-protected:
-    Community *community;
-
-public:
-    void initialize(Community *associatedCommunity) {
-        community = associatedCommunity;
-    }
-};
-
 template<class SubCommunity>
 class Liaison : public NonCopyable {
 protected:

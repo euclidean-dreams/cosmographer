@@ -9,6 +9,8 @@ namespace cosmographer {
 // nothing in subclasses should call out - these are multithreaded
 class Illuminable : public Fellow<GlimmerCommunity> {
 public:
+    virtual ~Illuminable() = default;
+
     virtual void illuminate(
             Lattice &lattice
     ) = 0;

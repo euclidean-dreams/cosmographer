@@ -19,10 +19,10 @@ Glimmer::Glimmer(
 }
 
 void Glimmer::live() {
-    subCommunity.age++;
     for (auto &ephemera: subCommunity.ephemera) {
         ephemera->live();
     }
+    subCommunity.age++;
 }
 
 bool Glimmer::shouldTerminate() {

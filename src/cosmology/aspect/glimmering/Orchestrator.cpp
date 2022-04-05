@@ -49,17 +49,10 @@ void Orchestrator::orchestrate(
     }
 
     // wait for illuminators
-    community->finishedIlluminators = 0;
-    {
-        std::unique_lock<std::mutex> lock{community->illuminatorKickoffMutex};
-        community->illuminatorKickoff.notify_all();
-    }
-    {
-        std::unique_lock<std::mutex> lock{community->illuminatorFinishMutex};
-        while (community->finishedIlluminators < illuminatorCount) {
-            community->illuminatorFinish.wait(lock);
-        }
-    }
+    community->kickoffAntechamber->lounge();
+    community->kickoffAntechamber->clean();
+    community->completionAntechamber->lounge();
+    community->completionAntechamber->clean();
 
     // illuminate
     for (auto &illuminatorLattice: community->illuminatorLattices) {

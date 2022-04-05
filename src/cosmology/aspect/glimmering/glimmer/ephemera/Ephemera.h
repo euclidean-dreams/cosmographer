@@ -7,6 +7,8 @@ namespace cosmographer {
 
 class Ephemera : public Fellow<GlimmerCommunity> {
 public:
+    virtual ~Ephemera() = default;
+
     virtual void live() = 0;
 };
 

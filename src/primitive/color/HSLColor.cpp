@@ -2,7 +2,10 @@
 
 namespace cosmographer {
 
-HSLColor::HSLColor() {
+HSLColor::HSLColor() :
+        hue{0},
+        saturation{0},
+        lightness{0} {
 }
 
 HSLColor::HSLColor(

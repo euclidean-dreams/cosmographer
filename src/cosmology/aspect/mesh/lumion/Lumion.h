@@ -10,6 +10,7 @@ namespace cosmographer {
 class LumionExcitation {
 public:
     Point point;
+    int signalIndex;
     float magnitude;
     float energy;
 };

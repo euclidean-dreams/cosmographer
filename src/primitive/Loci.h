@@ -13,6 +13,16 @@ struct Coordinate {
 struct Point {
     double x;
     double y;
+
+    bool operator==(const Point &other) const {
+        return x == other.x && y == other.y;
+    }
+};
+
+struct PointHash {
+    size_t operator()(const Point &point) const {
+        return point.x + point.y;
+    }
 };
 
 }
