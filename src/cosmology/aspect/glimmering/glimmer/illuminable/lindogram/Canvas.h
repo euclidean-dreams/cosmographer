@@ -8,16 +8,16 @@ namespace cosmographer {
 
 class Canvas : public Fellow<LindogramCommunity> {
 public:
-    umap<Point, HSLColor, PointHash> dots;
+    umap<Coordinate, HSLColor, CoordinateHash> dots;
 
     void paint(
-            Point point,
+            Coordinate locus,
             HSLColor color
     );
 
     void show(
             Lattice &lattice,
-            Point locus
+            Coordinate locus
     );
 };
 

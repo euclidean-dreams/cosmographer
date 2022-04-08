@@ -14,7 +14,7 @@ void Painter::advance(
         HSLColor color
 ) {
     location = CLOISTER->cartographer->shiftPoint(location, distance, orientation);
-    community->canvas->paint(location, color);
+    community->canvas->paint({cast(int, location.x), cast(int, location.y)}, color);
 }
 
 void Painter::rotate(

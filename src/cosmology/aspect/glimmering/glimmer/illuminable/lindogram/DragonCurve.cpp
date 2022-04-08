@@ -30,7 +30,8 @@ void DragonCurve::illuminate(Lattice &lattice) {
         }
     }
     lastRuneIndex = endRuneIndex;
-    subCommunity.canvas->show(lattice, community->locus);
+    Coordinate locus{cast(int, community->locus.x), cast(int, community->locus.y)};
+    subCommunity.canvas->show(lattice, locus);
 }
 
 }

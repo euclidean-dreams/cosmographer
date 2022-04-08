@@ -24,9 +24,6 @@ Glimmering::Glimmering(
 void Glimmering::illuminate(
         Lattice &lattice
 ) {
-    if (PARADIGM->mode == CLEAR_MODE) {
-        subCommunity.glimmers.clear();
-    }
     subCommunity.orchestrator->orchestrate(lattice);
 }
 

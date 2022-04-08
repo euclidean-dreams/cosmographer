@@ -8,21 +8,21 @@ namespace cosmographer {
 struct Coordinate {
     int x;
     int y;
+
+    bool operator==(const Coordinate &other) const {
+        return x == other.x && y == other.y;
+    }
+};
+
+struct CoordinateHash {
+    size_t operator()(const Coordinate &locus) const {
+        return locus.x + locus.y;
+    }
 };
 
 struct Point {
     double x;
     double y;
-
-    bool operator==(const Point &other) const {
-        return x == other.x && y == other.y;
-    }
-};
-
-struct PointHash {
-    size_t operator()(const Point &point) const {
-        return point.x + point.y;
-    }
 };
 
 }

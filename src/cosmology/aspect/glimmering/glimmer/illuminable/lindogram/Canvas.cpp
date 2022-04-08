@@ -4,15 +4,15 @@
 namespace cosmographer {
 
 void Canvas::paint(
-        Point point,
+        Coordinate locus,
         HSLColor color
 ) {
-    dots.insert_or_assign(point, color);
+    dots.insert_or_assign(locus, color);
 }
 
 void Canvas::show(
         Lattice &lattice,
-        Point locus
+        Coordinate locus
 ) {
     for (auto &dot: dots) {
         auto x = dot.first.x + locus.x;

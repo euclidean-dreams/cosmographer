@@ -11,6 +11,7 @@
 #include "cosmology/aspect/glimmering/glimmer/terminus/Age.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/lindogram/Painter.h"
+#include "cosmology/aspect/glimmering/glimmer/illuminable/lindogram/RandomWalk.h"
 
 namespace cosmographer {
 
@@ -38,11 +39,12 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
         // locus
 
         Point locus;
-        if (PARADIGM->mode == RADIATE_MODE) {
-            locus = Point{cast(double, CONSTANTS->latticeWidth / 2), cast(double, CONSTANTS->latticeHeight / 2)};
-        } else {
-            locus = excitation.point;
-        }
+//        if (PARADIGM->mode == RADIATE_MODE) {
+//            locus = Point{cast(double, CONSTANTS->latticeWidth / 2), cast(double, CONSTANTS->latticeHeight / 2)};
+//        } else {
+//            locus = excitation.point;
+//        }
+        locus = Point{cast(double, CONSTANTS->latticeWidth / 2), cast(double, CONSTANTS->latticeHeight / 2)};
 
         // illuminable
         up<Illuminable> illuminable;
@@ -54,14 +56,16 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
             illuminable = mkup<Circle>();
         } else if (PARADIGM->mode == RECTANGLE_MODE) {
             size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
-            illuminable = mkup<Rectangle>(2 * excitation.magnitude);
-        } else if (PARADIGM->mode == DRAGON_MODE || PARADIGM->mode == RADIATE_MODE) {
+            illuminable = mkup<Rectangle>(1);
+        } else if (PARADIGM->mode == DRAGON_MODE) {
             size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
             auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
             illuminable = mkup<DragonCurve>(community->paradigm, orientation);
         } else {
-            size = 2;
-            illuminable = mkup<Rectangle>(1);
+            size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
+            auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
+            auto spin = 2 * M_PI * CLOISTER->randomizer->generateProportion() * excitation.magnitude;
+            illuminable = mkup<RandomWalk>(community->paradigm, orientation, spin);
         }
 
         // wiring

@@ -6,7 +6,7 @@
 #define RECTANGLE_MODE 1
 #define DRAGON_MODE 2
 #define RADIATE_MODE 3
-#define CLEAR_MODE 4
+#define WORKSHOP_MODE 4
 
 // axiom bindings
 #define AXIOM(index) community->paradigm->axioms[index]
