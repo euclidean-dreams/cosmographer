@@ -39,12 +39,12 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
         // locus
 
         Point locus;
-//        if (PARADIGM->mode == RADIATE_MODE) {
-//            locus = Point{cast(double, CONSTANTS->latticeWidth / 2), cast(double, CONSTANTS->latticeHeight / 2)};
-//        } else {
-//            locus = excitation.point;
-//        }
-        locus = Point{cast(double, CONSTANTS->latticeWidth / 2), cast(double, CONSTANTS->latticeHeight / 2)};
+        if (PARADIGM->mode == RADIATE_MODE || PARADIGM->mode == WORKSHOP_MODE) {
+            locus = Point{cast(double, CONSTANTS->latticeWidth / 2), cast(double, CONSTANTS->latticeHeight / 2)};
+        } else {
+            locus = excitation.point;
+        }
+//        locus = Point{cast(double, CONSTANTS->latticeWidth / 2), cast(double, CONSTANTS->latticeHeight / 2)};
 
         // illuminable
         up<Illuminable> illuminable;
@@ -57,7 +57,7 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
         } else if (PARADIGM->mode == RECTANGLE_MODE) {
             size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
             illuminable = mkup<Rectangle>(1);
-        } else if (PARADIGM->mode == DRAGON_MODE) {
+        } else if (PARADIGM->mode == DRAGON_MODE || PARADIGM->mode == RADIATE_MODE) {
             size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
             auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
             illuminable = mkup<DragonCurve>(community->paradigm, orientation);

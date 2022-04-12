@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_CENTRIFUGALPALETTE_H
 
 #include "Palette.h"
-#include "squire/SimpleMovingAverage.h"
+#include "oddments/SimpleMovingAverage.h"
 
 namespace cosmographer {
 

@@ -6,6 +6,8 @@
 
 namespace cosmographer {
 
+// already tried two lists, slowed the thing down
+
 class Canvas : public Fellow<LindogramCommunity> {
 public:
     umap<Coordinate, HSLColor, CoordinateHash> dots;

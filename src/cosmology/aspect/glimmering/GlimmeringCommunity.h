@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_GLIMMERINGCOMMUNITY_H
 
 #include "Default.h"
-#include "squire/Antechamber.h"
+#include "oddments/Antechamber.h"
 
 namespace cosmographer {
 

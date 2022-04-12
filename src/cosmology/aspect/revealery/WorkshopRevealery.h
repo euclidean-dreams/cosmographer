@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_WORKSHOPREVEALERY_H
 
 #include "Revealery.h"
-#include "squire/SimpleMovingAverage.h"
+#include "oddments/SimpleMovingAverage.h"
 
 namespace cosmographer {
 
