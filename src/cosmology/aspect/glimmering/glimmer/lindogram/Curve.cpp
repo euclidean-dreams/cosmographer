@@ -1,9 +1,9 @@
-#include "RandomWalk.h"
+#include "Curve.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/painter/Painter.h"
 
 namespace cosmographer {
 
-RandomWalk::RandomWalk(
+Curve::Curve(
         GlimmerCommunity *glimmerCommunity,
         PainterCommunity *painterCommunity,
         float initialOrientation,
@@ -12,18 +12,16 @@ RandomWalk::RandomWalk(
         glimmerCommunity{glimmerCommunity},
         painterCommunity{painterCommunity},
         initialOrientation{initialOrientation},
-        spin{spin},
-        initialized{false} {
+        spin{spin} {
 }
 
-void RandomWalk::live() {
-    if (!initialized) {
+void Curve::live() {
+    if (glimmerCommunity->age == 0) {
         painterCommunity->painter->rotate(initialOrientation);
-        initialized = true;
     }
     painterCommunity->painter->advance(1, glimmerCommunity->color);
     painterCommunity->painter->advance(1, glimmerCommunity->color);
-    painterCommunity->painter->rotate(spin / glimmerCommunity->age);
+    painterCommunity->painter->rotate(spin);
 }
 
 }

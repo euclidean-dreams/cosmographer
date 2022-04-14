@@ -16,10 +16,10 @@ DragonCurve::DragonCurve(
 }
 
 void DragonCurve::live() {
-    if (lastRuneIndex == 0) {
+    if (glimmerCommunity->age == 0) {
         painterCommunity->painter->rotate(initialOrientation);
     }
-    auto endRuneIndex = glimmerCommunity->size * glimmerCommunity->age;
+    auto endRuneIndex = glimmerCommunity->size * glimmerCommunity->age + 10;
     for (int runeIndex = lastRuneIndex; runeIndex < endRuneIndex && runeIndex < dragonCurveRunes.size(); runeIndex++) {
         auto rune = dragonCurveRunes[runeIndex];
         if (rune == DragonCurveRunology::advance) {

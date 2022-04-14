@@ -13,8 +13,7 @@ namespace cosmographer {
 class Aspect : public Fellow<CosmologyCommunity>, public Liaison<AspectCommunity> {
 public:
     Aspect(
-            CosmologyCommunity *community,
-            up<Revealery> revealery
+            CosmologyCommunity *community
     );
 
     void manifest(

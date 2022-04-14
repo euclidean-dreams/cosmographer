@@ -44,10 +44,15 @@ void Cosmographer::activate() {
     for (auto &phenomenonParcel: *newPhenomenonParcels) {
         auto phenomenon = Unwrap::Phenomenon(*phenomenonParcel);
         auto button = phenomenon->identity();
+//        if (button < 5) {
+//            subCommunity.paradigm->cloister->chromatica->experiencePhenomenon(phenomenon);
+//        } else if (button < 10) {
+//            subCommunity.paradigm->mode = phenomenon->identity() - 5;
+//        }
         if (button < 5) {
-            subCommunity.paradigm->cloister->chromatica->experiencePhenomenon(phenomenon);
+            subCommunity.paradigm->microMode = phenomenon->identity();
         } else if (button < 10) {
-            subCommunity.paradigm->mode = phenomenon->identity() - 5;
+            subCommunity.paradigm->macroMode = phenomenon->identity() - 5;
         }
     }
 

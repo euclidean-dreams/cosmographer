@@ -1,16 +1,23 @@
 #include "Aspect.h"
+#include "cosmology/aspect/revealery/WorkshopRevealery.h"
+#include "cosmology/aspect/revealery/OrbRevealery.h"
 
 namespace cosmographer {
 
 Aspect::Aspect(
-        CosmologyCommunity *community,
-        up<Revealery> revealery
+        CosmologyCommunity *community
 ) :
         Liaison<AspectCommunity>(community) {
     subCommunity.mesh = mkup<Mesh>(&subCommunity, CONSTANTS->lumionCount);
     subCommunity.mesh->initialize(&subCommunity);
-    subCommunity.revealery = mv(revealery);
-    subCommunity.revealery->initialize(&subCommunity);
+    subCommunity.revealeries.push_back(mkup<OrbRevealery>());
+    subCommunity.revealeries.push_back(mkup<OrbRevealery>());
+    subCommunity.revealeries.push_back(mkup<OrbRevealery>());
+    subCommunity.revealeries.push_back(mkup<OrbRevealery>());
+    subCommunity.revealeries.push_back(mkup<WorkshopRevealery>());
+    for (auto &revealery: subCommunity.revealeries) {
+        revealery->initialize(&subCommunity);
+    }
     subCommunity.glimmering = mkup<Glimmering>(&subCommunity);
     subCommunity.glimmering->initialize(&subCommunity);
 }

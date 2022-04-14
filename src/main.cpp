@@ -32,7 +32,8 @@ int bootstrap() {
 
     // extras
     paradigm->axioms.resize(paradigm->cloister->constants->axiomologySize, 0.5);
-    paradigm->mode = CIRCLE_MODE;
+    paradigm->microMode = 0;
+    paradigm->macroMode = 0;
 
     // percipient
     auto volitiaPercipientThread = VolitiaPercipient::create(

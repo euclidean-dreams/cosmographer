@@ -21,7 +21,13 @@ LumionExcitation Lumion::excite(
 //    auto excitation = targetSample / signal.energy;
 
     // brute threshold
-    auto excitation = 1 - 1 / (std::pow(targetSample / (-1 * (10000 - 9950 * LUMION_EXCITATION_AXIOM)), 2) + 1);
+//    auto excitation = 1 - 1 / (std::pow(targetSample / (-1 * (10000 - 9950 * LUMION_EXCITATION_AXIOM)), 2) + 1);
+
+    // just gimmie that friggan valuuuuue! And cap it!
+    auto excitation = targetSample / 1000;
+    if (excitation > 1) {
+        excitation = 1;
+    }
 
     // float around
     // takes some serious compute

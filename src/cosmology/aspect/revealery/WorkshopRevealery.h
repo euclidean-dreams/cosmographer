@@ -8,10 +8,6 @@ namespace cosmographer {
 
 class WorkshopRevealery : public Revealery {
 public:
-    SimpleMovingAverage energyAverage;
-
-    WorkshopRevealery();
-
     void reveal(
             LumionExcitation excitation
     ) override;

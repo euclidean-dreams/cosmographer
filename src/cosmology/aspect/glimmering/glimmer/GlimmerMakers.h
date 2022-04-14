@@ -1,0 +1,16 @@
+#ifndef COSMOGRAPHER_GLIMMERMAKERS_H
+#define COSMOGRAPHER_GLIMMERMAKERS_H
+
+#include "Glimmer.h"
+#include "cosmology/aspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h"
+
+namespace cosmographer {
+
+class GlimmerMakers {
+public:
+    static PainterCommunity *createPainterCommunity(Glimmer *glimmer);
+};
+
+}
+
+#endif //COSMOGRAPHER_GLIMMERMAKERS_H

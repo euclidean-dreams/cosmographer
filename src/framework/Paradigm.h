@@ -12,7 +12,8 @@ class Paradigm : public NonCopyable {
 public:
     up<CloisterCommunity> cloister;
     vec<float> axioms;
-    int mode;
+    int microMode;
+    int macroMode;
 };
 
 }

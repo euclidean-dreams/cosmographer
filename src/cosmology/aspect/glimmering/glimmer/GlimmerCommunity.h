@@ -14,7 +14,8 @@ public:
     Point locus;
     HSLColor color;
     float size;
-    int age;
+    int age = 0;
+    bool alive = true;
 };
 
 }

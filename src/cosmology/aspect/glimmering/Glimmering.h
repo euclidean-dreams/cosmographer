@@ -25,6 +25,8 @@ public:
     void addGlimmer(
             up<Glimmer> glimmer
     );
+
+    GlimmeringCommunity *fetchSubcommunity();
 };
 
 }

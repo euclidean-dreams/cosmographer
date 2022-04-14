@@ -33,6 +33,9 @@ public:
                 finalColor,
                 fade
         );
+        if (glimmerCommunity->color == glimmerCommunity->paradigm->cloister->constants->latticeInitialColor) {
+            glimmerCommunity->alive = false;
+        }
     }
 };
 

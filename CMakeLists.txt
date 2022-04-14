@@ -78,10 +78,7 @@ set(
         src/primitive/Loci.h
 
         src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h
-        src/cosmology/aspect/glimmering/glimmer/terminable/OriginOffLattice.h
-        src/cosmology/aspect/glimmering/glimmer/terminable/FullyFaded.h
         src/cosmology/aspect/glimmering/glimmer/lively/Grow.h
-        src/cosmology/aspect/glimmering/glimmer/terminable/Age.h
         src/cosmology/aspect/glimmering/Orchestrator.cpp src/cosmology/aspect/glimmering/Orchestrator.h
         src/cosmology/aspect/glimmering/Illuminator.cpp src/cosmology/aspect/glimmering/Illuminator.h
         src/cloister/Constants.h
@@ -93,9 +90,12 @@ set(
         src/cosmology/aspect/glimmering/glimmer/lindogram/DragonCurveSystem.h
         src/primitive/Signal.cpp src/primitive/Signal.h
         src/oddments/Antechamber.cpp src/oddments/Antechamber.h
-        src/cosmology/aspect/glimmering/glimmer/lindogram/RandomWalk.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/RandomWalk.h
-        src/cosmology/aspect/glimmering/glimmer/terminable/Terminable.h
-        src/cosmology/aspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h src/cosmology/aspect/glimmering/glimmer/lively/AgeIncrementer.h)
+        src/cosmology/aspect/glimmering/glimmer/lindogram/Curve.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Curve.h
+        src/cosmology/aspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h
+        src/cosmology/aspect/revealery/OrbRevealery.cpp src/cosmology/aspect/revealery/OrbRevealery.h
+        src/cosmology/aspect/glimmering/glimmer/GlimmerMakers.cpp src/cosmology/aspect/glimmering/glimmer/GlimmerMakers.h
+        src/cosmology/aspect/glimmering/glimmer/lively/Lifespan.h
+)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

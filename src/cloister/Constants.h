@@ -33,6 +33,7 @@ public:
 
     // ephemera
     int maxDriftDistance = 2;
+    int maxLifespan = 300;
     int maxGlimmerSpawnCount = 15;
 
     // illuminable
@@ -41,7 +42,7 @@ public:
     // palette
     int maxHueJitter = 100;
     int maxFluxRequirement = 100 * 1000;
-    int centrifugalPaletteFlux = 10 * 1000;
+    int centrifugalPaletteFlux = 5 * 1000;
     int minimumBeatInterval = 100 * 1000;
     uint movingAverageSize = 100;
 

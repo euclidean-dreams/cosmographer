@@ -27,6 +27,9 @@ public:
                         glimmerCommunity->paradigm->cloister->constants->maxDriftDistance;
         glimmerCommunity->locus = glimmerCommunity->paradigm->cloister->cartographer->shiftPoint(
                 glimmerCommunity->locus, distance, direction);
+        if (!glimmerCommunity->paradigm->cloister->cartographer->isValid(glimmerCommunity->locus)) {
+            glimmerCommunity->alive = false;
+        }
     }
 };
 

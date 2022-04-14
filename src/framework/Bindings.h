@@ -1,13 +1,6 @@
 #ifndef COSMOGRAPHER_BINDINGS_H
 #define COSMOGRAPHER_BINDINGS_H
 
-// modes
-#define CIRCLE_MODE 0
-#define RECTANGLE_MODE 1
-#define DRAGON_MODE 2
-#define RADIATE_MODE 3
-#define WORKSHOP_MODE 4
-
 // axiom bindings
 #define AXIOM(index) community->paradigm->axioms[index]
 #define PALETTE_AXIOM_0 AXIOM(0)

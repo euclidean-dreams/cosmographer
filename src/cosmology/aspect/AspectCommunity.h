@@ -9,7 +9,7 @@ class AspectCommunity : public Community {
 public:
     up<class Glimmering> glimmering;
     up<class Mesh> mesh;
-    up<class Revealery> revealery;
+    vec<up<class Revealery>> revealeries;
 };
 
 }

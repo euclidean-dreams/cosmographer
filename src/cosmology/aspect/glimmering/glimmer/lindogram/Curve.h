@@ -1,5 +1,5 @@
-#ifndef COSMOGRAPHER_RANDOMWALK_H
-#define COSMOGRAPHER_RANDOMWALK_H
+#ifndef COSMOGRAPHER_CURVE_H
+#define COSMOGRAPHER_CURVE_H
 
 #include "Default.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h"
@@ -8,15 +8,14 @@
 
 namespace cosmographer {
 
-class RandomWalk : public Lively {
+class Curve : public Lively {
 public:
     GlimmerCommunity *glimmerCommunity;
     PainterCommunity *painterCommunity;
     float initialOrientation;
     float spin;
-    bool initialized;
 
-    RandomWalk(
+    Curve(
             GlimmerCommunity *glimmerCommunity,
             PainterCommunity *painterCommunity,
             float initialOrientation,
@@ -28,4 +27,4 @@ public:
 
 }
 
-#endif //COSMOGRAPHER_RANDOMWALK_H
+#endif //COSMOGRAPHER_CURVE_H

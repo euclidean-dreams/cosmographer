@@ -40,8 +40,8 @@ void Mesh::meld(
 ) {
     for (auto &lumion: subCommunity.lumions) {
         auto excitation = lumion->excite(signal);
-        if (excitation.magnitude > LUMION_EXCITATION_AXIOM / 20) {
-            community->revealery->reveal(excitation);
+        if (excitation.magnitude > LUMION_EXCITATION_AXIOM) {
+            community->revealeries[PARADIGM->macroMode]->reveal(excitation);
         }
     }
 }

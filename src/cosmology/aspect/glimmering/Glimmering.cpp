@@ -30,8 +30,11 @@ void Glimmering::illuminate(
 void Glimmering::addGlimmer(
         up<Glimmer> glimmer
 ) {
-    glimmer->initialize(&subCommunity);
     subCommunity.glimmers.push_back(mv(glimmer));
+}
+
+GlimmeringCommunity *Glimmering::fetchSubcommunity() {
+    return &subCommunity;
 }
 
 }
