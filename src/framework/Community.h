@@ -39,6 +39,11 @@ public:
     Liaison(Community *community) : subCommunity{community} {}
 };
 
+class Constituent : public NonCopyable {
+public:
+    virtual ~Constituent() = default;
+};
+
 }
 
 #endif //COSMOGRAPHER_COMMUNITY_H

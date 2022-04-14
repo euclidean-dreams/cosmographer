@@ -1,7 +1,7 @@
 # general
 axiomologySize: 10
 illuminatorThreadCount: 8
-maxGlimmers: 30000
+maxGlimmers: 15000
 
 # sockets
 palantirEndpoint: ipc:///tmp/cosmographer

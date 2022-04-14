@@ -2,11 +2,17 @@
 
 namespace cosmographer {
 
+Circle::Circle(
+        GlimmerCommunity *glimmerCommunity
+) :
+        glimmerCommunity{glimmerCommunity} {
+}
+
 void Circle::illuminate(
         Lattice &lattice
 ) {
-    auto radius = community->size;
-    auto locus = community->locus;
+    auto radius = glimmerCommunity->size;
+    auto locus = glimmerCommunity->locus;
     auto minX = locus.x - radius;
     if (minX < 0) {
         minX = 0;
@@ -16,12 +22,12 @@ void Circle::illuminate(
         minY = 0;
     }
     auto maxX = locus.x + radius;
-    if (maxX >= CONSTANTS->latticeWidth) {
-        maxX = CONSTANTS->latticeWidth - 1;
+    if (maxX >= glimmerCommunity->paradigm->cloister->constants->latticeWidth) {
+        maxX = glimmerCommunity->paradigm->cloister->constants->latticeWidth - 1;
     }
     auto maxY = locus.y + radius;
-    if (maxY >= CONSTANTS->latticeHeight) {
-        maxY = CONSTANTS->latticeHeight - 1;
+    if (maxY >= glimmerCommunity->paradigm->cloister->constants->latticeHeight) {
+        maxY = glimmerCommunity->paradigm->cloister->constants->latticeHeight - 1;
     }
     for (int y = minY; y <= maxY; y++) {
         for (int x = minX; x <= maxX; x++) {
@@ -29,10 +35,11 @@ void Circle::illuminate(
                 (x - locus.x) * (x - locus.x) +
                 (y - locus.y) * (y - locus.y)) {
                 if (lattice.isValid(x, y)) {
-                    lattice.setColor(x, y, community->color);
+                    lattice.setColor(x, y, glimmerCommunity->color);
                 }
             }
         }
     }
 }
+
 }

@@ -3,17 +3,19 @@
 
 #include "Default.h"
 #include "Canvas.h"
-#include "LindogramCommunity.h"
+#include "PainterCommunity.h"
 
 namespace cosmographer {
 
-class Painter : public Fellow<LindogramCommunity> {
-private:
+class Painter : public Constituent {
+public:
+    PainterCommunity *painterCommunity;
     Point location;
     float orientation;
 
-public:
-    Painter();
+    Painter(
+            PainterCommunity *painterCommunity
+    );
 
     void advance(
             float distance,

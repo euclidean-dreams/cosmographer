@@ -1,8 +1,6 @@
 #ifndef COSMOGRAPHER_DRAGONCURVESYSTEM_H
 #define COSMOGRAPHER_DRAGONCURVESYSTEM_H
 
-#include "Painter.h"
-
 namespace cosmographer {
 
 enum DragonCurveRunology {

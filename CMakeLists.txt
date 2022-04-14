@@ -64,8 +64,8 @@ set(
         src/cosmology/aspect/glimmering/glimmer/Glimmer.cpp src/cosmology/aspect/glimmering/glimmer/Glimmer.h src/cosmology/aspect/glimmering/glimmer/GlimmerCommunity.h
 
         # ephemera
-        src/cosmology/aspect/glimmering/glimmer/ephemera/Ephemera.h
-        src/cosmology/aspect/glimmering/glimmer/ephemera/Fade.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Fade.h
+        src/cosmology/aspect/glimmering/glimmer/lively/Lively.h
+        src/cosmology/aspect/glimmering/glimmer/lively/Fade.h
 
         # illuminable
         src/cosmology/aspect/glimmering/glimmer/illuminable/Illuminable.h
@@ -74,12 +74,28 @@ set(
         # unsorted
         src/Default.h
         src/framework/Minimal.h
-        src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Drift.h
+        src/cosmology/aspect/glimmering/glimmer/lively/Drift.h
         src/primitive/Loci.h
 
         src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h
-        src/cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.h
-        src/cosmology/aspect/glimmering/glimmer/terminus/Terminus.h src/cosmology/aspect/glimmering/glimmer/terminus/OriginOffLattice.h src/cosmology/aspect/glimmering/glimmer/terminus/FullyFaded.h src/cosmology/aspect/glimmering/glimmer/ephemera/Grow.cpp src/cosmology/aspect/glimmering/glimmer/ephemera/Grow.h src/cosmology/aspect/glimmering/glimmer/terminus/Age.h src/cosmology/aspect/glimmering/Orchestrator.cpp src/cosmology/aspect/glimmering/Orchestrator.h src/cosmology/aspect/glimmering/Illuminator.cpp src/cosmology/aspect/glimmering/Illuminator.h src/cloister/Constants.h src/framework/Bindings.h src/cloister/Randomizer.cpp src/cloister/Randomizer.h src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/Canvas.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/Canvas.h src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/Painter.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/Painter.h src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.h src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurveSystem.h src/primitive/Signal.cpp src/primitive/Signal.h src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/LindogramCommunity.h src/oddments/Antechamber.cpp src/oddments/Antechamber.h src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/RandomWalk.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/lindogram/RandomWalk.h)
+        src/cosmology/aspect/glimmering/glimmer/terminable/OriginOffLattice.h
+        src/cosmology/aspect/glimmering/glimmer/terminable/FullyFaded.h
+        src/cosmology/aspect/glimmering/glimmer/lively/Grow.h
+        src/cosmology/aspect/glimmering/glimmer/terminable/Age.h
+        src/cosmology/aspect/glimmering/Orchestrator.cpp src/cosmology/aspect/glimmering/Orchestrator.h
+        src/cosmology/aspect/glimmering/Illuminator.cpp src/cosmology/aspect/glimmering/Illuminator.h
+        src/cloister/Constants.h
+        src/framework/Bindings.h
+        src/cloister/Randomizer.cpp src/cloister/Randomizer.h
+        src/cosmology/aspect/glimmering/glimmer/illuminable/painter/Canvas.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/painter/Canvas.h
+        src/cosmology/aspect/glimmering/glimmer/illuminable/painter/Painter.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/painter/Painter.h
+        src/cosmology/aspect/glimmering/glimmer/lindogram/DragonCurve.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/DragonCurve.h
+        src/cosmology/aspect/glimmering/glimmer/lindogram/DragonCurveSystem.h
+        src/primitive/Signal.cpp src/primitive/Signal.h
+        src/oddments/Antechamber.cpp src/oddments/Antechamber.h
+        src/cosmology/aspect/glimmering/glimmer/lindogram/RandomWalk.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/RandomWalk.h
+        src/cosmology/aspect/glimmering/glimmer/terminable/Terminable.h
+        src/cosmology/aspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h src/cosmology/aspect/glimmering/glimmer/lively/AgeIncrementer.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

@@ -1,17 +1,17 @@
 #include "WorkshopRevealery.h"
 #include "cosmology/aspect/glimmering/glimmer/Glimmer.h"
-#include "cosmology/aspect/glimmering/glimmer/ephemera/Fade.h"
+#include "cosmology/aspect/glimmering/glimmer/illuminable/painter/Painter.h"
+#include "cosmology/aspect/glimmering/glimmer/illuminable/painter/Canvas.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h"
-#include "cosmology/aspect/glimmering/glimmer/ephemera/Drift.h"
-#include "cosmology/aspect/glimmering/glimmer/illuminable/parametro/Paraboloid.h"
-#include "cosmology/aspect/glimmering/glimmer/terminus/FullyFaded.h"
-#include "cosmology/aspect/glimmering/glimmer/terminus/OriginOffLattice.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h"
-#include "cosmology/aspect/glimmering/glimmer/ephemera/Grow.h"
-#include "cosmology/aspect/glimmering/glimmer/terminus/Age.h"
-#include "cosmology/aspect/glimmering/glimmer/illuminable/lindogram/DragonCurve.h"
-#include "cosmology/aspect/glimmering/glimmer/illuminable/lindogram/Painter.h"
-#include "cosmology/aspect/glimmering/glimmer/illuminable/lindogram/RandomWalk.h"
+#include "cosmology/aspect/glimmering/glimmer/lindogram/DragonCurve.h"
+#include "cosmology/aspect/glimmering/glimmer/lindogram/RandomWalk.h"
+#include "cosmology/aspect/glimmering/glimmer/lively/Drift.h"
+#include "cosmology/aspect/glimmering/glimmer/lively/Fade.h"
+#include "cosmology/aspect/glimmering/glimmer/terminable/FullyFaded.h"
+#include "cosmology/aspect/glimmering/glimmer/terminable/OriginOffLattice.h"
+#include "cosmology/aspect/glimmering/glimmer/terminable/Age.h"
+#include "cosmology/aspect/glimmering/glimmer/lively/AgeIncrementer.h"
 
 namespace cosmographer {
 
@@ -25,10 +25,6 @@ WorkshopRevealery::WorkshopRevealery(
 void WorkshopRevealery::reveal(LumionExcitation excitation) {
     energyAverage.addSample(excitation.energy);
     auto energyDelta = excitation.energy / energyAverage.calculate();
-    // color
-    auto color = CLOISTER->chromatica->getColor();
-    color.lightness = 70 - 50 * excitation.magnitude;
-//    color.lightness = 20 + 70 * excitation.magnitude;
 
 //    auto ephemera = mkup<Linger>(lighten);
     int glimmerCount = GLIMMER_COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * excitation.magnitude;
@@ -36,65 +32,115 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
         glimmerCount = 1;
     }
     for (int count = 0; count < glimmerCount; count++) {
+        auto glimmer = mkup<Glimmer>();
+        auto glimmerCommunityController = mkup<GlimmerCommunity>(community->paradigm);
+        auto glimmerCommunity = glimmerCommunityController.get();
+        glimmer->constituents.push_back(mv(glimmerCommunityController));
+
+        // color
+        glimmerCommunity->age = 0;
+        glimmerCommunity->color = CLOISTER->chromatica->getColor();
+        glimmerCommunity->color.lightness = 70 - 50 * excitation.magnitude;
+
         // locus
-
-        Point locus;
         if (PARADIGM->mode == RADIATE_MODE || PARADIGM->mode == WORKSHOP_MODE) {
-            locus = Point{cast(double, CONSTANTS->latticeWidth / 2), cast(double, CONSTANTS->latticeHeight / 2)};
+            glimmerCommunity->locus = Point{cast(double, CONSTANTS->latticeWidth / 2),
+                                            cast(double, CONSTANTS->latticeHeight / 2)};
         } else {
-            locus = excitation.point;
+            glimmerCommunity->locus = excitation.point;
         }
-//        locus = Point{cast(double, CONSTANTS->latticeWidth / 2), cast(double, CONSTANTS->latticeHeight / 2)};
 
-        // illuminable
-        up<Illuminable> illuminable;
-        float size;
-        size = excitation.magnitude * energyDelta * GLIMMER_SIZE_AXIOM * 500 + 2;
-
+        // illuminables
         if (PARADIGM->mode == CIRCLE_MODE) {
-            size = excitation.magnitude * 25 * GLIMMER_SIZE_AXIOM + 2;
-            illuminable = mkup<Circle>();
+            glimmerCommunity->size = excitation.magnitude * 25 * GLIMMER_SIZE_AXIOM + 2;
+            auto illuminableController = mkup<Circle>(glimmerCommunity);
+            glimmer->illuminables.push_back(illuminableController.get());
+            glimmer->constituents.push_back(mv(illuminableController));
         } else if (PARADIGM->mode == RECTANGLE_MODE) {
-            size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
-            illuminable = mkup<Rectangle>(1);
+            glimmerCommunity->size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
+            auto illuminableController = mkup<Rectangle>(glimmerCommunity, 1);
+            glimmer->illuminables.push_back(illuminableController.get());
+            glimmer->constituents.push_back(mv(illuminableController));
         } else if (PARADIGM->mode == DRAGON_MODE || PARADIGM->mode == RADIATE_MODE) {
-            size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
+            // painter community
+            auto painterCommunityController = mkup<PainterCommunity>(community->paradigm);
+            auto painterCommunity = painterCommunityController.get();
+            glimmer->constituents.push_back(mv(painterCommunityController));
+
+            auto painterController = mkup<Painter>(painterCommunity);
+            painterCommunity->painter = painterController.get();
+            glimmer->constituents.push_back(mv(painterController));
+
+            auto canvasController = mkup<Canvas>(glimmerCommunity);
+            painterCommunity->canvas = canvasController.get();
+            glimmer->constituents.push_back(mv(canvasController));
+            glimmer->illuminables.push_back(painterCommunity->canvas);
+
+            // dragon curve
+            glimmerCommunity->size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
             auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
-            illuminable = mkup<DragonCurve>(community->paradigm, orientation);
+            auto dragonCurveController = mkup<DragonCurve>(glimmerCommunity, painterCommunity, orientation);
+            glimmer->livelies.push_back(dragonCurveController.get());
+            glimmer->constituents.push_back(mv(dragonCurveController));
         } else {
-            size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
+            // painter community
+            auto painterCommunityController = mkup<PainterCommunity>(community->paradigm);
+            auto painterCommunity = painterCommunityController.get();
+            glimmer->constituents.push_back(mv(painterCommunityController));
+
+            auto painterController = mkup<Painter>(painterCommunity);
+            painterCommunity->painter = painterController.get();
+            glimmer->constituents.push_back(mv(painterController));
+
+            auto canvasController = mkup<Canvas>(glimmerCommunity);
+            painterCommunity->canvas = canvasController.get();
+            glimmer->constituents.push_back(mv(canvasController));
+            glimmer->illuminables.push_back(painterCommunity->canvas);
+
+            // random walk
+            glimmerCommunity->size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
             auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
             auto spin = 2 * M_PI * CLOISTER->randomizer->generateProportion() * excitation.magnitude;
-            illuminable = mkup<RandomWalk>(community->paradigm, orientation, spin);
+            auto randomWalkController = mkup<RandomWalk>(glimmerCommunity, painterCommunity, orientation, spin);
+            glimmer->livelies.push_back(randomWalkController.get());
+            glimmer->constituents.push_back(mv(randomWalkController));
         }
+        // age incrementer
+        auto ageIncrementerController = mkup<AgeIncrementer>(glimmerCommunity);
+        glimmer->livelies.push_back(ageIncrementerController.get());
+        glimmer->constituents.push_back(mv(ageIncrementerController));
 
-        // wiring
-        auto glimmer = mkup<Glimmer>(
-                PARADIGM,
-                mv(illuminable),
-                locus,
-                color,
-                size
-        );
-
-        // ephemera
+        // drift
         float inclinationOffset = cast(float, count) / glimmerCount;
-        glimmer->addEphemera(mkup<Drift>(inclinationOffset));
+        auto driftController = mkup<Drift>(glimmerCommunity, inclinationOffset);
+        glimmer->livelies.push_back(driftController.get());
+        glimmer->constituents.push_back(mv(driftController));
 
+        // fade
         auto lifespan = 300 * EPHEMERA_AXIOM_2;
         if (lifespan < 5) {
             lifespan = 5;
         }
         auto finalColor = CONSTANTS->latticeInitialColor;
-        finalColor.hue = color.hue;
-        glimmer->addEphemera(mkup<Fade>(color, finalColor, lifespan));
+        finalColor.hue = glimmerCommunity->color.hue;
+        auto fadeController = mkup<Fade>(glimmerCommunity, glimmerCommunity->color, finalColor, lifespan);
+        glimmer->livelies.push_back(fadeController.get());
+        glimmer->constituents.push_back(mv(fadeController));
 
-//        glimmer->addEphemera(mkup<Grow>());
+        // fully faded
+        auto fullyFadedController = mkup<FullyFaded>(glimmerCommunity);
+        glimmer->terminbles.push_back(fullyFadedController.get());
+        glimmer->constituents.push_back(mv(fullyFadedController));
 
-        // terminus
-        glimmer->addTerminus(mkup<FullyFaded>());
-        glimmer->addTerminus(mkup<OriginOffLattice>());
-        glimmer->addTerminus(mkup<Age>(lifespan));
+        // origin off lattice
+        auto originOffLatticeController = mkup<OriginOffLattice>(glimmerCommunity);
+        glimmer->terminbles.push_back(originOffLatticeController.get());
+        glimmer->constituents.push_back(mv(originOffLatticeController));
+
+        // age
+        auto ageController = mkup<Age>(glimmerCommunity, lifespan);
+        glimmer->terminbles.push_back(ageController.get());
+        glimmer->constituents.push_back(mv(ageController));
 
         community->glimmering->addGlimmer(mv(glimmer));
     }

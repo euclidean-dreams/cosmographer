@@ -3,6 +3,14 @@
 
 namespace cosmographer {
 
+Canvas::Canvas(
+        GlimmerCommunity *glimmerCommunity
+) :
+        glimmerCommunity{glimmerCommunity},
+        dots{} {
+
+}
+
 void Canvas::paint(
         Coordinate locus,
         HSLColor color
@@ -10,13 +18,12 @@ void Canvas::paint(
     dots.insert_or_assign(locus, color);
 }
 
-void Canvas::show(
-        Lattice &lattice,
-        Coordinate locus
+void Canvas::illuminate(
+        Lattice &lattice
 ) {
     for (auto &dot: dots) {
-        auto x = dot.first.x + locus.x;
-        auto y = dot.first.y + locus.y;
+        auto x = dot.first.x + glimmerCommunity->locus.x;
+        auto y = dot.first.y + glimmerCommunity->locus.y;
         if (lattice.isValid(x, y)) {
             lattice.setColor(x, y, dot.second);
         }

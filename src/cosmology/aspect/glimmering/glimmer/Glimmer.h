@@ -1,24 +1,20 @@
 #ifndef COSMOGRAPHER_GLIMMER_H
 #define COSMOGRAPHER_GLIMMER_H
 
-#include "GlimmerCommunity.h"
 #include "cosmology/aspect/glimmering/GlimmeringCommunity.h"
-#include "ephemera/Ephemera.h"
-#include "terminus/Terminus.h"
-#include "illuminable/Illuminable.h"
+#include "cosmology/aspect/glimmering/glimmer/lively//Lively.h"
+#include "cosmology/aspect/glimmering/glimmer/illuminable/Illuminable.h"
+#include "cosmology/aspect/glimmering/glimmer/terminable/Terminable.h"
 #include "primitive/Lattice.h"
 
 namespace cosmographer {
 
-class Glimmer : public Fellow<GlimmeringCommunity>, public Liaison<GlimmerCommunity> {
+class Glimmer : public Fellow<GlimmeringCommunity> {
 public:
-    Glimmer(
-            Paradigm *paradigm,
-            up<Illuminable> illuminable,
-            Point locus,
-            HSLColor color,
-            float size
-    );
+    vec<up<Constituent>> constituents;
+    vec<Lively *> livelies;
+    vec<Terminable *> terminbles;
+    vec<Illuminable *> illuminables;
 
     void live();
 
@@ -27,10 +23,6 @@ public:
     void illuminate(
             Lattice &lattice
     );
-
-    void addTerminus(up<Terminus> terminus);
-
-    void addEphemera(up<Ephemera> ephemera);
 };
 
 }
