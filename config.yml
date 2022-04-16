@@ -1,12 +1,12 @@
 # general
 axiomologySize: 10
 illuminatorThreadCount: 8
-maxGlimmers: 15000
+maxGlimmers: 100000
 
 # sockets
 # remote palantir
-#palantirEndpoint: tcp://10.42.0.1:44447
-palantirEndpoint: ipc:///tmp/cosmographer
+palantirEndpoint: tcp://10.42.0.1:44447
+#palantirEndpoint: ipc:///tmp/cosmographer
 essentiaEndpoint: ipc:///tmp/analogorium
 volitiaEndpoint: tcp://volitia:44440
 

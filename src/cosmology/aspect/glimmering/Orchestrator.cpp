@@ -9,7 +9,7 @@ void Orchestrator::orchestrate(
     auto illuminatorCount = community->illuminatorThreads.size();
 
     // trim
-    while (community->glimmers.size() > CONSTANTS->maxGlimmers) {
+    while (community->glimmers.size() > CONSTANTS->maxGlimmers * LUMION_DRIFT) {
         community->glimmers.pop_front();
     }
 
