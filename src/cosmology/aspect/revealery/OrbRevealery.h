@@ -5,8 +5,18 @@
 
 namespace cosmographer {
 
-class OrbRevealery  : public Revealery {
+class OrbRevealery : public Revealery {
 public:
+    int currentShape;
+    float currentInclination;
+    float previousEnergy;
+
+    OrbRevealery(
+
+    );
+
+    void experienceSignal(Signal &signal) override;
+
     void reveal(
             LumionExcitation excitation
     ) override;

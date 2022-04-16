@@ -4,9 +4,10 @@ illuminatorThreadCount: 8
 maxGlimmers: 15000
 
 # sockets
+# remote palantir
+#palantirEndpoint: tcp://10.42.0.1:44447
 palantirEndpoint: ipc:///tmp/cosmographer
 essentiaEndpoint: ipc:///tmp/analogorium
-#essentiaEndpoint: tcp://10.42.0.1:44444
 volitiaEndpoint: tcp://volitia:44440
 
 # lattice

@@ -38,6 +38,9 @@ void Aspect::experienceEssentia(
         signal.addSample(sample);
     }
     subCommunity.mesh->meld(signal);
+    for (auto &revealery: subCommunity.revealeries) {
+        revealery->experienceSignal(signal);
+    }
 }
 
 }

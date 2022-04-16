@@ -13,6 +13,28 @@
 
 namespace cosmographer {
 
+OrbRevealery::OrbRevealery(
+
+) :
+        currentShape{0},
+        currentInclination{0},
+        previousEnergy{0} {
+
+}
+
+void OrbRevealery::experienceSignal(Signal &signal) {
+    currentInclination += signal.energy - previousEnergy;
+    if (currentInclination > 10) {
+        currentInclination = 0;
+    } else if (currentInclination < -10) {
+        currentInclination = 0;
+    }
+    if (signal.energy * WORKSHOP_AXIOM * 4 > previousEnergy) {
+        currentShape = RANDOM.generate(4);
+    }
+    previousEnergy = signal.energy;
+}
+
 void OrbRevealery::reveal(LumionExcitation excitation) {
     auto glimmerCount = 20 * excitation.magnitude;
     if (glimmerCount < 3) {
@@ -34,9 +56,24 @@ void OrbRevealery::reveal(LumionExcitation excitation) {
 
         auto mode = community->paradigm->microMode;
         if (mode == 0) {
-            glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerCommunity));
+            if (currentShape == 0) {
+                glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerCommunity));
+            } else if (currentShape == 1) {
+                auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
+                auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
+                glimmer->addLively(mkup<DragonCurve>(glimmer->glimmerCommunity, painterCommunity, orientation));
+            } else if (currentShape == 2) {
+                auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
+                auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
+                auto spin = 2 * M_PI * CLOISTER->randomizer->generateProportion();
+                glimmer->addLively(mkup<Curve>(glimmer->glimmerCommunity, painterCommunity, orientation, spin));
+            } else if (currentShape == 3) {
+                glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerCommunity, 0.2));
+                glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerCommunity, 0.4));
+                glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerCommunity, 0.8));
+            }
         } else if (mode == 1) {
-            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerCommunity, excitation.magnitude * 5));
+            glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerCommunity));
         } else if (mode == 2) {
             auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
             auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
@@ -52,7 +89,7 @@ void OrbRevealery::reveal(LumionExcitation excitation) {
             glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerCommunity, 0.8));
         }
 
-        float inclinationOffset = cast(float, count) / glimmerCount;
+        float inclinationOffset = cast(float, count) / glimmerCount + currentInclination;
         glimmer->addLively(mkup<Drift>(glimmer->glimmerCommunity, inclinationOffset));
 
         community->glimmering->addGlimmer(mv(glimmer));

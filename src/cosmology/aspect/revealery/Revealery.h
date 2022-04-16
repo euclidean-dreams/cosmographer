@@ -12,6 +12,8 @@ public:
     virtual void reveal(
             LumionExcitation excitation
     ) = 0;
+
+    virtual void experienceSignal(Signal &signal) {};
 };
 
 }
