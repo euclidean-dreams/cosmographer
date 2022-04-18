@@ -5,10 +5,11 @@ maxGlimmers: 100000
 
 # sockets
 # remote palantir
-palantirEndpoint: tcp://10.42.0.1:44447
-#palantirEndpoint: ipc:///tmp/cosmographer
+#palantirEndpoint: tcp://10.42.0.1:44447
+palantirEndpoint: ipc:///tmp/cosmographer
 essentiaEndpoint: ipc:///tmp/analogorium
 volitiaEndpoint: tcp://volitia:44440
+#volitiaEndpoint: tcp://192.168.22.161:44440
 
 # lattice
 # fullscreen
@@ -22,7 +23,6 @@ latticeHeight: 108
 latticeInitialHue: 0
 latticeInitialSaturation: 0
 latticeInitialLightness: 100
-#latticeInitialLightness: 0
 
 # mesh
 #lumionCount: 7400
