@@ -16,29 +16,29 @@ int bootstrap() {
     auto phenomenology = mksp<BufferArbiter<const Parcel>>();
 
     // cloister
-    paradigm->cloister = mkup<CloisterCommunity>();
-    paradigm->cloister->constants = mkup<Constants>();
-    paradigm->cloister->constants->initialize(paradigm->cloister.get());
-    paradigm->cloister->axiomRefresher = mkup<AxiomRefresher>(axiomArbiter);
-    paradigm->cloister->axiomRefresher->initialize(paradigm->cloister.get());
-    paradigm->cloister->randomizer = mkup<Randomizer>();
-    paradigm->cloister->randomizer->initialize(paradigm->cloister.get());
-    paradigm->cloister->cartographer = mkup<Cartographer>();
-    paradigm->cloister->cartographer->initialize(paradigm->cloister.get());
-    paradigm->cloister->chromatica = mkup<Chromatica>(paradigm->cloister.get());
-    paradigm->cloister->chromatica->initialize(paradigm->cloister.get());
-    paradigm->cloister->colorPixie = mkup<ColorPixie>();
-    paradigm->cloister->colorPixie->initialize(paradigm->cloister.get());
+    CLOISTER = mkup<CloisterCommunity>();
+    CONSTANTS = mkup<Constants>();
+    CONSTANTS->initialize(CLOISTER.get());
+    CLOISTER->axiomRefresher = mkup<AxiomRefresher>(axiomArbiter);
+    CLOISTER->axiomRefresher->initialize(CLOISTER.get());
+    CLOISTER->randomizer = mkup<Randomizer>();
+    CLOISTER->randomizer->initialize(CLOISTER.get());
+    CLOISTER->cartographer = mkup<Cartographer>();
+    CLOISTER->cartographer->initialize(CLOISTER.get());
+    CLOISTER->chromatica = mkup<Chromatica>(CLOISTER.get());
+    CLOISTER->chromatica->initialize(CLOISTER.get());
+    CLOISTER->colorPixie = mkup<ColorPixie>();
+    CLOISTER->colorPixie->initialize(CLOISTER.get());
 
     // extras
-    paradigm->axioms.resize(paradigm->cloister->constants->axiomologySize, 0.5);
+    paradigm->axioms.resize(CONSTANTS->axiomologySize, 0.5);
     paradigm->microMode = 0;
     paradigm->macroMode = 0;
 
     // percipient
     auto volitiaPercipientThread = VolitiaPercipient::create(
             bootstrapper.getZmqContext(),
-            paradigm->cloister->constants->volitiaEndpoint,
+            CONSTANTS->volitiaEndpoint,
             axiomArbiter,
             phenomenology
     );

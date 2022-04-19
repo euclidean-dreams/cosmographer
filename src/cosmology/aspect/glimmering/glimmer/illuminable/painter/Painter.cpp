@@ -15,7 +15,7 @@ void Painter::advance(
         float distance,
         HSLColor color
 ) {
-    location = paradigm->cloister->cartographer->shiftPoint(location, distance, orientation);
+    location = CLOISTER->cartographer->shiftPoint(location, distance, orientation);
     painterCommunity->canvas->paint({cast(int, location.x), cast(int, location.y)}, color);
 }
 

@@ -15,7 +15,7 @@ Cosmographer::Cosmographer(
     // vantage
     auto palantirSocket = mkup<NetworkSocket>(
             zmqContext,
-            paradigm->cloister->constants->palantirEndpoint,
+            CONSTANTS->palantirEndpoint,
             zmq::socket_type::pub,
             true
     );
@@ -25,7 +25,7 @@ Cosmographer::Cosmographer(
     // cosmographer
     subCommunity.essentiaSocket = mkup<NetworkSocket>(
             zmqContext,
-            paradigm->cloister->constants->essentiaEndpoint,
+            CONSTANTS->essentiaEndpoint,
             zmq::socket_type::sub,
             false
     );
@@ -37,7 +37,7 @@ void Cosmographer::activate() {
     auto essentiaParcelBundle = receiveEssentiaParcelBundle();
 
     // refresh the paradigm
-    paradigm->cloister->axiomRefresher->refresh();
+    CLOISTER->axiomRefresher->refresh();
 
     // handle new phenomena
     auto newPhenomenonParcels = subCommunity.phenomenology->take();
@@ -45,7 +45,7 @@ void Cosmographer::activate() {
         auto phenomenon = Unwrap::Phenomenon(*phenomenonParcel);
         auto button = phenomenon->identity();
 //        if (button < 5) {
-//            paradigm->cloister->chromatica->experiencePhenomenon(phenomenon);
+//            CLOISTER->chromatica->experiencePhenomenon(phenomenon);
 //        } else if (button < 10) {
 //            paradigm->mode = phenomenon->identity() - 5;
 //        }
@@ -59,12 +59,12 @@ void Cosmographer::activate() {
     // experience the essentia
     for (auto &essentiaParcel: essentiaParcelBundle) {
         auto essentia = Unwrap::Essentia(*essentiaParcel);
-        paradigm->cloister->chromatica->experienceEssentia(essentia);
+        CLOISTER->chromatica->experienceEssentia(essentia);
         subCommunity.cosmology->experienceEssentia(essentia);
     }
 
     // todo find a better place for this
-//    paradigm->cloister->constants.
+//    CONSTANTS.
 
     // generate lattice and send frame
     subCommunity.cosmology->observe();

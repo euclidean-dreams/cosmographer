@@ -3,37 +3,32 @@
 
 #include "Lively.h"
 #include "cosmology/aspect/glimmering/glimmer/GlimmerSoul.h"
+#include "Lifespan.h"
 
 namespace cosmographer {
 
 class Fade : public Lively {
 public:
     GlimmerSoul *glimmerSoul;
-    HSLColor initialColor;
-    HSLColor finalColor;
-    float lifespan;
+    Lifespan *lifespan;
 
     Fade(
             GlimmerSoul *glimmerSoul,
-            HSLColor initialColor,
-            HSLColor finalColor,
-            float lifespan
+            Lifespan *lifespan
     ) :
             glimmerSoul{glimmerSoul},
-            initialColor{initialColor},
-            finalColor{finalColor},
             lifespan{lifespan} {
 
     }
 
     void live() override {
-        float fade = glimmerSoul->age / lifespan;
-        glimmerSoul->color = paradigm->cloister->colorPixie->gradiate(
-                initialColor,
-                finalColor,
+        float fade = glimmerSoul->age / lifespan->value;
+        glimmerSoul->color = CLOISTER->colorPixie->gradiate(
+                glimmerSoul->color,
+                CONSTANTS->latticeInitialColor,
                 fade
         );
-        if (glimmerSoul->color == paradigm->cloister->constants->latticeInitialColor) {
+        if (glimmerSoul->color == CONSTANTS->latticeInitialColor) {
             glimmerSoul->alive = false;
         }
     }

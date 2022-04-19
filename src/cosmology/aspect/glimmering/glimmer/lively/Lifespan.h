@@ -7,21 +7,28 @@
 namespace cosmographer {
 
 class Lifespan : public Lively {
+private:
+    float calculateLifespan() {
+        value = CONSTANTS->maxLifespan * paradigm->axioms[7];
+        if (value < 5) {
+            value = 5;
+        }
+        return value;
+    }
+
 public:
     GlimmerSoul *glimmerSoul;
+    float value;
 
     Lifespan(
             GlimmerSoul *glimmerSoul
     ) :
-            glimmerSoul{glimmerSoul} {}
+            glimmerSoul{glimmerSoul},
+            value{calculateLifespan()} {}
 
     void live() override {
-        auto lifespan = paradigm->cloister->constants->maxLifespan
-                        * paradigm->axioms[7];
-        if (lifespan < 5) {
-            lifespan = 5;
-        }
-        if (glimmerSoul->age > lifespan) {
+        value = calculateLifespan();
+        if (glimmerSoul->age > value) {
             glimmerSoul->alive = false;
         }
     }

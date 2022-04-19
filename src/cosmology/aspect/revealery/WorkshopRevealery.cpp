@@ -9,6 +9,7 @@
 #include "cosmology/aspect/glimmering/glimmer/lindogram/Curve.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Drift.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Lifespan.h"
+#include "cosmology/aspect/glimmering/glimmer/lively/Fade.h"
 
 namespace cosmographer {
 
@@ -45,7 +46,9 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
             auto spin = 2 * M_PI * CLOISTER->randomizer->generateProportion();
             glimmer->addLively(mkup<Curve>(glimmer->glimmerSoul, painterCommunity, orientation, spin));
         }
-        glimmer->addLively(mkup<Lifespan>(glimmer->glimmerSoul));
+        auto lifespanWrapper = mkup<Lifespan>(glimmer->glimmerSoul);
+        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get()));
+        glimmer->addLively(mv(lifespanWrapper));
 
         float inclinationOffset = cast(float, count) / glimmerCount;
         glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, inclinationOffset));

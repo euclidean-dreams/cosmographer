@@ -23,11 +23,9 @@ public:
     void live() override {
         auto pole = paradigm->axioms[5] * 2 * M_PI;
         auto direction = inclinationOffset * 2 * M_PI + pole;
-        auto distance = paradigm->axioms[6] *
-                paradigm->cloister->constants->maxDriftDistance;
-        glimmerSoul->locus = paradigm->cloister->cartographer->shiftPoint(
-                glimmerSoul->locus, distance, direction);
-        if (!paradigm->cloister->cartographer->isValid(glimmerSoul->locus)) {
+        auto distance = paradigm->axioms[6] * CONSTANTS->maxDriftDistance;
+        glimmerSoul->locus = CLOISTER->cartographer->shiftPoint(glimmerSoul->locus, distance, direction);
+        if (!CLOISTER->cartographer->isValid(glimmerSoul->locus)) {
             glimmerSoul->alive = false;
         }
     }
