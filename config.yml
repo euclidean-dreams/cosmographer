@@ -13,12 +13,12 @@ volitiaEndpoint: tcp://volitia:44440
 
 # lattice
 # fullscreen
-latticeWidth: 192
-latticeHeight: 108
+#latticeWidth: 192
+#latticeHeight: 108
 
 # cube
-#latticeWidth: 100
-#latticeHeight: 100
+latticeWidth: 250
+latticeHeight: 250
 
 latticeInitialHue: 0
 latticeInitialSaturation: 0
@@ -31,4 +31,4 @@ lumionCount: 4097
 
 # value bounds depend on mesh and signal size
 # lumionPlacement: 0.2
-lumionPlacement: 0.6
+lumionPlacement: 2.0

@@ -42,7 +42,7 @@ public:
     // palette
     int maxHueJitter = 100;
     int maxFluxRequirement = 100 * 1000;
-    int centrifugalPaletteFlux = 5 * 1000;
+    int centrifugalPaletteFlux = 10;
     int minimumBeatInterval = 100 * 1000;
     uint movingAverageSize = 100;
 
