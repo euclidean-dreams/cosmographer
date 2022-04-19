@@ -6,5 +6,6 @@
 #include "Community.h"
 #include "Paradigm.h"
 #include "Bindings.h"
+#include "Element.h"
 
 #endif //COSMOGRAPHER_FRAMEWORK_H

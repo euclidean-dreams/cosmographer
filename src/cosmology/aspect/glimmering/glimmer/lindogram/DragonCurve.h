@@ -4,19 +4,19 @@
 #include "Default.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Lively.h"
-#include "cosmology/aspect/glimmering/glimmer/GlimmerCommunity.h"
+#include "cosmology/aspect/glimmering/glimmer/GlimmerSoul.h"
 
 namespace cosmographer {
 
 class DragonCurve : public Lively {
 public:
-    GlimmerCommunity *glimmerCommunity;
+    GlimmerSoul *glimmerSoul;
     PainterCommunity *painterCommunity;
     float initialOrientation;
     int lastRuneIndex;
 
     DragonCurve(
-            GlimmerCommunity *glimmerCommunity,
+            GlimmerSoul *glimmerSoul,
             PainterCommunity *painterCommunity,
             float initialOrientation
     );

@@ -9,7 +9,7 @@ Chromatica::Chromatica(
         CloisterCommunity *community
 ) :
         Liaison<ChromaticaCommunity>(community) {
-    subCommunity.palette = mkup<CentrifugalPalette>(community->paradigm->cloister->constants->movingAverageSize);
+    subCommunity.palette = mkup<CentrifugalPalette>(paradigm->cloister->constants->movingAverageSize);
     subCommunity.palette->initialize(&subCommunity);
 
 }

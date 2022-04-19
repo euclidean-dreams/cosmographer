@@ -9,23 +9,23 @@ Glimmer::Glimmer(
         int size
 ) {
     initialize(glimmeringCommunity);
-    auto glimmerCommunityController = mkup<GlimmerCommunity>(community->paradigm);
-    glimmerCommunity = glimmerCommunityController.get();
-    constituents.push_back(mv(glimmerCommunityController));
-    glimmerCommunity->locus = locus;
-    glimmerCommunity->color = color;
-    glimmerCommunity->size = size;
+    auto glimmerSoulWrapper = mkup<GlimmerSoul>();
+    glimmerSoul = glimmerSoulWrapper.get();
+    constituents.push_back(mv(glimmerSoulWrapper));
+    glimmerSoul->locus = locus;
+    glimmerSoul->color = color;
+    glimmerSoul->size = size;
 }
 
 void Glimmer::live() {
     for (auto &lively: livelies) {
         lively->live();
     }
-    glimmerCommunity->age++;
+    glimmerSoul->age++;
 }
 
 bool Glimmer::shouldTerminate() {
-    return !glimmerCommunity->alive;
+    return !glimmerSoul->alive;
 }
 
 void Glimmer::illuminate(

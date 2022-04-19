@@ -37,7 +37,7 @@ void Cosmographer::activate() {
     auto essentiaParcelBundle = receiveEssentiaParcelBundle();
 
     // refresh the paradigm
-    subCommunity.paradigm->cloister->axiomRefresher->refresh();
+    paradigm->cloister->axiomRefresher->refresh();
 
     // handle new phenomena
     auto newPhenomenonParcels = subCommunity.phenomenology->take();
@@ -45,26 +45,26 @@ void Cosmographer::activate() {
         auto phenomenon = Unwrap::Phenomenon(*phenomenonParcel);
         auto button = phenomenon->identity();
 //        if (button < 5) {
-//            subCommunity.paradigm->cloister->chromatica->experiencePhenomenon(phenomenon);
+//            paradigm->cloister->chromatica->experiencePhenomenon(phenomenon);
 //        } else if (button < 10) {
-//            subCommunity.paradigm->mode = phenomenon->identity() - 5;
+//            paradigm->mode = phenomenon->identity() - 5;
 //        }
         if (button < 5) {
-            subCommunity.paradigm->microMode = phenomenon->identity();
+            paradigm->microMode = phenomenon->identity();
         } else if (button < 10) {
-            subCommunity.paradigm->macroMode = phenomenon->identity() - 5;
+            paradigm->macroMode = phenomenon->identity() - 5;
         }
     }
 
     // experience the essentia
     for (auto &essentiaParcel: essentiaParcelBundle) {
         auto essentia = Unwrap::Essentia(*essentiaParcel);
-        subCommunity.paradigm->cloister->chromatica->experienceEssentia(essentia);
+        paradigm->cloister->chromatica->experienceEssentia(essentia);
         subCommunity.cosmology->experienceEssentia(essentia);
     }
 
     // todo find a better place for this
-//    subCommunity.paradigm->cloister->constants.
+//    paradigm->cloister->constants.
 
     // generate lattice and send frame
     subCommunity.cosmology->observe();

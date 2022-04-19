@@ -5,7 +5,7 @@
 
 namespace cosmographer {
 
-class Lively : public Constituent {
+class Lively : public Element {
 public:
     virtual ~Lively() = default;
 

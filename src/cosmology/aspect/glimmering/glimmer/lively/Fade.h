@@ -2,24 +2,24 @@
 #define COSMOGRAPHER_FADE_H
 
 #include "Lively.h"
-#include "cosmology/aspect/glimmering/glimmer/GlimmerCommunity.h"
+#include "cosmology/aspect/glimmering/glimmer/GlimmerSoul.h"
 
 namespace cosmographer {
 
 class Fade : public Lively {
 public:
-    GlimmerCommunity *glimmerCommunity;
+    GlimmerSoul *glimmerSoul;
     HSLColor initialColor;
     HSLColor finalColor;
     float lifespan;
 
     Fade(
-            GlimmerCommunity *glimmerCommunity,
+            GlimmerSoul *glimmerSoul,
             HSLColor initialColor,
             HSLColor finalColor,
             float lifespan
     ) :
-            glimmerCommunity{glimmerCommunity},
+            glimmerSoul{glimmerSoul},
             initialColor{initialColor},
             finalColor{finalColor},
             lifespan{lifespan} {
@@ -27,14 +27,14 @@ public:
     }
 
     void live() override {
-        float fade = glimmerCommunity->age / lifespan;
-        glimmerCommunity->color = glimmerCommunity->paradigm->cloister->colorPixie->gradiate(
+        float fade = glimmerSoul->age / lifespan;
+        glimmerSoul->color = paradigm->cloister->colorPixie->gradiate(
                 initialColor,
                 finalColor,
                 fade
         );
-        if (glimmerCommunity->color == glimmerCommunity->paradigm->cloister->constants->latticeInitialColor) {
-            glimmerCommunity->alive = false;
+        if (glimmerSoul->color == paradigm->cloister->constants->latticeInitialColor) {
+            glimmerSoul->alive = false;
         }
     }
 };

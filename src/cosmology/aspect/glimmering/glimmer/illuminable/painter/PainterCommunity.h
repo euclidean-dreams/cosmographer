@@ -5,10 +5,8 @@
 
 namespace cosmographer {
 
-class PainterCommunity : public Community, public Constituent {
+class PainterCommunity : public Community, public Element {
 public:
-    PainterCommunity(Paradigm *paradigm) : Community(paradigm) {}
-
     class Painter *painter;
 
     class Canvas *canvas;

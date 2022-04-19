@@ -61,7 +61,7 @@ set(
         src/cosmology/aspect/revealery/WorkshopRevealery.cpp src/cosmology/aspect/revealery/WorkshopRevealery.h
 
         # glimmer
-        src/cosmology/aspect/glimmering/glimmer/Glimmer.cpp src/cosmology/aspect/glimmering/glimmer/Glimmer.h src/cosmology/aspect/glimmering/glimmer/GlimmerCommunity.h
+        src/cosmology/aspect/glimmering/glimmer/Glimmer.cpp src/cosmology/aspect/glimmering/glimmer/Glimmer.h src/cosmology/aspect/glimmering/glimmer/GlimmerSoul.h
 
         # ephemera
         src/cosmology/aspect/glimmering/glimmer/lively/Lively.h
@@ -95,7 +95,7 @@ set(
         src/cosmology/aspect/revealery/OrbRevealery.cpp src/cosmology/aspect/revealery/OrbRevealery.h
         src/cosmology/aspect/glimmering/glimmer/GlimmerMakers.cpp src/cosmology/aspect/glimmering/glimmer/GlimmerMakers.h
         src/cosmology/aspect/glimmering/glimmer/lively/Lifespan.h
-)
+        src/framework/Element.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

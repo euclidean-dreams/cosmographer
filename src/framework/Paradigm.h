@@ -16,6 +16,9 @@ public:
     int macroMode;
 };
 
+extern up<Paradigm> paradigmWrapper;
+extern Paradigm *paradigm;
+
 }
 
 #endif //COSMOGRAPHER_PARADIGM_H

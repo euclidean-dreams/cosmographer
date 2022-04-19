@@ -52,45 +52,45 @@ void OrbRevealery::reveal(LumionExcitation excitation) {
                 color,
                 size
         );
-        glimmer->addLively(mkup<Lifespan>(glimmer->glimmerCommunity));
+        glimmer->addLively(mkup<Lifespan>(glimmer->glimmerSoul));
 
-        auto mode = community->paradigm->microMode;
+        auto mode = paradigm->microMode;
         if (mode == 0) {
             if (currentShape == 0) {
-                glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerCommunity));
+                glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerSoul));
             } else if (currentShape == 1) {
                 auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
                 auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
-                glimmer->addLively(mkup<DragonCurve>(glimmer->glimmerCommunity, painterCommunity, orientation));
+                glimmer->addLively(mkup<DragonCurve>(glimmer->glimmerSoul, painterCommunity, orientation));
             } else if (currentShape == 2) {
                 auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
                 auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
                 auto spin = 2 * M_PI * CLOISTER->randomizer->generateProportion();
-                glimmer->addLively(mkup<Curve>(glimmer->glimmerCommunity, painterCommunity, orientation, spin));
+                glimmer->addLively(mkup<Curve>(glimmer->glimmerSoul, painterCommunity, orientation, spin));
             } else if (currentShape == 3) {
-                glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerCommunity, 0.2));
-                glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerCommunity, 0.4));
-                glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerCommunity, 0.8));
+                glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 0.2));
+                glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 0.4));
+                glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 0.8));
             }
         } else if (mode == 1) {
-            glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerCommunity));
+            glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerSoul));
         } else if (mode == 2) {
             auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
             auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
-            glimmer->addLively(mkup<DragonCurve>(glimmer->glimmerCommunity, painterCommunity, orientation));
+            glimmer->addLively(mkup<DragonCurve>(glimmer->glimmerSoul, painterCommunity, orientation));
         } else if (mode == 3) {
             auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
             auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
             auto spin = 2 * M_PI * CLOISTER->randomizer->generateProportion();
-            glimmer->addLively(mkup<Curve>(glimmer->glimmerCommunity, painterCommunity, orientation, spin));
+            glimmer->addLively(mkup<Curve>(glimmer->glimmerSoul, painterCommunity, orientation, spin));
         } else if (mode == 4) {
-            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerCommunity, 0.2));
-            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerCommunity, 0.4));
-            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerCommunity, 0.8));
+            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 0.2));
+            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 0.4));
+            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 0.8));
         }
 
         float inclinationOffset = cast(float, count) / glimmerCount + currentInclination;
-        glimmer->addLively(mkup<Drift>(glimmer->glimmerCommunity, inclinationOffset));
+        glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, inclinationOffset));
 
         community->glimmering->addGlimmer(mv(glimmer));
     }

@@ -3,10 +3,10 @@
 namespace cosmographer {
 
 Rectangle::Rectangle(
-        GlimmerCommunity *glimmerCommunity,
+        GlimmerSoul *glimmerSoul,
         int heightRatio
 ) :
-        glimmerCommunity{glimmerCommunity},
+        glimmerSoul{glimmerSoul},
         heightRatio{heightRatio} {
 
 }
@@ -14,10 +14,10 @@ Rectangle::Rectangle(
 void Rectangle::illuminate(
         Lattice &lattice
 ) {
-    auto xLocus = glimmerCommunity->locus.x;
-    auto yLocus = glimmerCommunity->locus.y;
-    auto width = glimmerCommunity->size;
-    auto height = glimmerCommunity->size * heightRatio;
+    auto xLocus = glimmerSoul->locus.x;
+    auto yLocus = glimmerSoul->locus.y;
+    auto width = glimmerSoul->size;
+    auto height = glimmerSoul->size * heightRatio;
     auto yMin = yLocus - height / 2;
     auto yMax = yLocus + height / 2;
     auto xMin = xLocus - width / 2;
@@ -25,7 +25,7 @@ void Rectangle::illuminate(
     for (int y = yMin; y <= yMax; y++) {
         for (int x = xMin; x <= xMax; x++) {
             if (lattice.isValid(x, y)) {
-                lattice.setColor(x, y, glimmerCommunity->color);
+                lattice.setColor(x, y, glimmerSoul->color);
             }
         }
     }

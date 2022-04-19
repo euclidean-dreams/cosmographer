@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_GLIMMER_H
 
 #include "cosmology/aspect/glimmering/GlimmeringCommunity.h"
-#include "GlimmerCommunity.h"
+#include "GlimmerSoul.h"
 #include "cosmology/aspect/glimmering/glimmer/lively//Lively.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/Illuminable.h"
 #include "primitive/Lattice.h"
@@ -11,8 +11,8 @@ namespace cosmographer {
 
 class Glimmer : public Fellow<GlimmeringCommunity> {
 public:
-    GlimmerCommunity *glimmerCommunity;
-    vec<up<Constituent>> constituents;
+    GlimmerSoul *glimmerSoul;
+    vec<up<Element>> constituents;
     vec<Lively *> livelies;
     vec<Illuminable *> illuminables;
 

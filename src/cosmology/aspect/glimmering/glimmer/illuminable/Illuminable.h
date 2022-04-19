@@ -7,7 +7,7 @@
 namespace cosmographer {
 
 // nothing in subclasses should call out - these are multithreaded
-class Illuminable : public Constituent {
+class Illuminable : public Element {
 public:
     virtual ~Illuminable() = default;
 

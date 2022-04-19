@@ -4,23 +4,23 @@
 namespace cosmographer {
 
 Curve::Curve(
-        GlimmerCommunity *glimmerCommunity,
+        GlimmerSoul *glimmerSoul,
         PainterCommunity *painterCommunity,
         float initialOrientation,
         float spin
 ) :
-        glimmerCommunity{glimmerCommunity},
+        glimmerSoul{glimmerSoul},
         painterCommunity{painterCommunity},
         initialOrientation{initialOrientation},
         spin{spin} {
 }
 
 void Curve::live() {
-    if (glimmerCommunity->age == 0) {
+    if (glimmerSoul->age == 0) {
         painterCommunity->painter->rotate(initialOrientation);
     }
-    painterCommunity->painter->advance(1, glimmerCommunity->color);
-    painterCommunity->painter->advance(1, glimmerCommunity->color);
+    painterCommunity->painter->advance(1, glimmerSoul->color);
+    painterCommunity->painter->advance(1, glimmerSoul->color);
     painterCommunity->painter->rotate(spin);
 }
 

@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_BINDINGS_H
 
 // axiom bindings
-#define AXIOM(index) community->paradigm->axioms[index]
+#define AXIOM(index) paradigm->axioms[index]
 #define PALETTE_AXIOM_0 AXIOM(0)
 #define LUMION_EXCITATION_AXIOM AXIOM(1)
 #define LUMION_DRIFT AXIOM(2)

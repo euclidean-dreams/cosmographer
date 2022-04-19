@@ -5,7 +5,7 @@
 namespace cosmographer {
 
 PainterCommunity *GlimmerMakers::createPainterCommunity(Glimmer *glimmer) {
-    auto painterCommunityController = mkup<PainterCommunity>(glimmer->glimmerCommunity->paradigm);
+    auto painterCommunityController = mkup<PainterCommunity>();
     auto painterCommunity = painterCommunityController.get();
     glimmer->constituents.push_back(mv(painterCommunityController));
 
@@ -13,7 +13,7 @@ PainterCommunity *GlimmerMakers::createPainterCommunity(Glimmer *glimmer) {
     painterCommunity->painter = painterController.get();
     glimmer->constituents.push_back(mv(painterController));
 
-    auto canvasController = mkup<Canvas>(glimmer->glimmerCommunity);
+    auto canvasController = mkup<Canvas>(glimmer->glimmerSoul);
     painterCommunity->canvas = canvasController.get();
     glimmer->illuminables.push_back(painterCommunity->canvas);
     glimmer->constituents.push_back(mv(canvasController));

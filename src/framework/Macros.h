@@ -11,9 +11,7 @@
 #define umap std::unordered_map
 #define cast(type, object) static_cast<type>(object)
 
-
-#define PARADIGM community->paradigm
-#define CLOISTER PARADIGM->cloister
+#define CLOISTER paradigm->cloister
 #define CONSTANTS CLOISTER->constants
 
 #endif //COSMOGRAPHER_MACROS_H

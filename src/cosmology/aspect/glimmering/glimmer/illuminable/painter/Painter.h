@@ -7,7 +7,7 @@
 
 namespace cosmographer {
 
-class Painter : public Constituent {
+class Painter : public Element {
 public:
     PainterCommunity *painterCommunity;
     Point location;

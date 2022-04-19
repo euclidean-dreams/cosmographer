@@ -5,25 +5,25 @@
 namespace cosmographer {
 
 DragonCurve::DragonCurve(
-        GlimmerCommunity *glimmerCommunity,
+        GlimmerSoul *glimmerSoul,
         PainterCommunity *painterCommunity,
         float initialOrientation
 ) :
-        glimmerCommunity{glimmerCommunity},
+        glimmerSoul{glimmerSoul},
         painterCommunity{painterCommunity},
         initialOrientation{initialOrientation},
         lastRuneIndex{0} {
 }
 
 void DragonCurve::live() {
-    if (glimmerCommunity->age == 0) {
+    if (glimmerSoul->age == 0) {
         painterCommunity->painter->rotate(initialOrientation);
     }
-    auto endRuneIndex = glimmerCommunity->size * glimmerCommunity->age + 10;
+    auto endRuneIndex = glimmerSoul->size * glimmerSoul->age + 10;
     for (int runeIndex = lastRuneIndex; runeIndex < endRuneIndex && runeIndex < dragonCurveRunes.size(); runeIndex++) {
         auto rune = dragonCurveRunes[runeIndex];
         if (rune == DragonCurveRunology::advance) {
-            painterCommunity->painter->advance(1, glimmerCommunity->color);
+            painterCommunity->painter->advance(1, glimmerSoul->color);
         } else if (rune == DragonCurveRunology::rotateLeftQuarter) {
             painterCommunity->painter->rotate(M_PI / 2);
         } else if (rune == DragonCurveRunology::rotateRightQuarter) {

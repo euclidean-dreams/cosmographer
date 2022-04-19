@@ -10,11 +10,7 @@ class Paradigm;
 
 class Community : public NonCopyable {
 public:
-    Paradigm *paradigm;
-
-    Community(Paradigm *paradigm) : paradigm{paradigm} {}
-
-    Community(Community *parentCommunity) : paradigm{parentCommunity->paradigm} {}
+    ~Community() = default;
 };
 
 template<class Community>
@@ -34,14 +30,9 @@ protected:
     SubCommunity subCommunity;
 
 public:
-    Liaison(Paradigm *paradigm) : subCommunity{paradigm} {}
+    Liaison(Paradigm *paradigm) {}
 
-    Liaison(Community *community) : subCommunity{community} {}
-};
-
-class Constituent : public NonCopyable {
-public:
-    virtual ~Constituent() = default;
+    Liaison(Community *community) {}
 };
 
 }

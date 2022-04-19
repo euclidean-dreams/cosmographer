@@ -4,9 +4,9 @@
 namespace cosmographer {
 
 Canvas::Canvas(
-        GlimmerCommunity *glimmerCommunity
+        GlimmerSoul *glimmerSoul
 ) :
-        glimmerCommunity{glimmerCommunity},
+        glimmerSoul{glimmerSoul},
         dots{} {
 
 }
@@ -22,8 +22,8 @@ void Canvas::illuminate(
         Lattice &lattice
 ) {
     for (auto &dot: dots) {
-        auto x = dot.first.x + glimmerCommunity->locus.x;
-        auto y = dot.first.y + glimmerCommunity->locus.y;
+        auto x = dot.first.x + glimmerSoul->locus.x;
+        auto y = dot.first.y + glimmerSoul->locus.y;
         if (lattice.isValid(x, y)) {
             lattice.setColor(x, y, dot.second);
         }

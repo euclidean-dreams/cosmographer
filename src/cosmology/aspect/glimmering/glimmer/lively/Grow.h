@@ -2,26 +2,26 @@
 #define COSMOGRAPHER_GROW_H
 
 #include "Lively.h"
-#include "cosmology/aspect/glimmering/glimmer/GlimmerCommunity.h"
+#include "cosmology/aspect/glimmering/glimmer/GlimmerSoul.h"
 
 namespace cosmographer {
 
 class Grow : public Lively {
 public:
-    GlimmerCommunity *glimmerCommunity;
+    GlimmerSoul *glimmerSoul;
 
     Grow(
-            GlimmerCommunity *glimmerCommunity
+            GlimmerSoul *glimmerSoul
     ) :
-            glimmerCommunity{glimmerCommunity} {}
+            glimmerSoul{glimmerSoul} {}
 
     void live() override {
-        int rate = 10 - glimmerCommunity->paradigm->axioms[5] * 10;
+        int rate = 10 - paradigm->axioms[5] * 10;
         if (rate == 0) {
             rate = 1;
         }
-        if (glimmerCommunity->age % rate == 0) {
-            glimmerCommunity->size++;
+        if (glimmerSoul->age % rate == 0) {
+            glimmerSoul->size++;
         }
     }
 };

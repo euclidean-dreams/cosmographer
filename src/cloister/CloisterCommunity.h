@@ -5,8 +5,6 @@
 
 namespace cosmographer {
 
-class Paradigm;
-
 class CloisterCommunity : public Community {
 public:
     up<class Cartographer> cartographer;
@@ -15,8 +13,6 @@ public:
     up<class ColorPixie> colorPixie;
     up<class Constants> constants;
     up<class Randomizer> randomizer;
-
-    CloisterCommunity(Paradigm *paradigm) : Community{paradigm} {}
 };
 
 }

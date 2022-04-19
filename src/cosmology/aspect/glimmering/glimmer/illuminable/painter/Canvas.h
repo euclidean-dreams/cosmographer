@@ -3,19 +3,19 @@
 
 #include "cosmology/aspect/glimmering/glimmer/illuminable/Illuminable.h"
 #include "primitive/Lattice.h"
-#include "cosmology/aspect/glimmering/glimmer/GlimmerCommunity.h"
+#include "cosmology/aspect/glimmering/glimmer/GlimmerSoul.h"
 
 namespace cosmographer {
 
 class Canvas : public Illuminable {
 public:
-    GlimmerCommunity *glimmerCommunity;
+    GlimmerSoul *glimmerSoul;
 
     // already tried two lists, slowed the thing down
     umap<Coordinate, HSLColor, CoordinateHash> dots;
 
     Canvas(
-            GlimmerCommunity *glimmerCommunity
+            GlimmerSoul *glimmerSoul
     );
 
     void paint(

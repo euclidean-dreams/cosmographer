@@ -2,27 +2,27 @@
 #define COSMOGRAPHER_LIFESPAN_H
 
 #include "Lively.h"
-#include "cosmology/aspect/glimmering/glimmer/GlimmerCommunity.h"
+#include "cosmology/aspect/glimmering/glimmer/GlimmerSoul.h"
 
 namespace cosmographer {
 
 class Lifespan : public Lively {
 public:
-    GlimmerCommunity *glimmerCommunity;
+    GlimmerSoul *glimmerSoul;
 
     Lifespan(
-            GlimmerCommunity *glimmerCommunity
+            GlimmerSoul *glimmerSoul
     ) :
-            glimmerCommunity{glimmerCommunity} {}
+            glimmerSoul{glimmerSoul} {}
 
     void live() override {
-        auto lifespan = glimmerCommunity->paradigm->cloister->constants->maxLifespan
-                        * glimmerCommunity->paradigm->axioms[7];
+        auto lifespan = paradigm->cloister->constants->maxLifespan
+                        * paradigm->axioms[7];
         if (lifespan < 5) {
             lifespan = 5;
         }
-        if (glimmerCommunity->age > lifespan) {
-            glimmerCommunity->alive = false;
+        if (glimmerSoul->age > lifespan) {
+            glimmerSoul->alive = false;
         }
     }
 };

@@ -2,33 +2,33 @@
 #define COSMOGRAPHER_DRIFT_H
 
 #include "Lively.h"
-#include "cosmology/aspect/glimmering/glimmer/GlimmerCommunity.h"
+#include "cosmology/aspect/glimmering/glimmer/GlimmerSoul.h"
 
 namespace cosmographer {
 
 class Drift : public Lively {
 public:
-    GlimmerCommunity *glimmerCommunity;
+    GlimmerSoul *glimmerSoul;
     float inclinationOffset;
 
     Drift(
-            GlimmerCommunity *glimmerCommunity,
+            GlimmerSoul *glimmerSoul,
             float inclinationOffset
     ) :
-            glimmerCommunity{glimmerCommunity},
+            glimmerSoul{glimmerSoul},
             inclinationOffset{inclinationOffset} {
 
     }
 
     void live() override {
-        auto pole = glimmerCommunity->paradigm->axioms[5] * 2 * M_PI;
+        auto pole = paradigm->axioms[5] * 2 * M_PI;
         auto direction = inclinationOffset * 2 * M_PI + pole;
-        auto distance = glimmerCommunity->paradigm->axioms[6] *
-                        glimmerCommunity->paradigm->cloister->constants->maxDriftDistance;
-        glimmerCommunity->locus = glimmerCommunity->paradigm->cloister->cartographer->shiftPoint(
-                glimmerCommunity->locus, distance, direction);
-        if (!glimmerCommunity->paradigm->cloister->cartographer->isValid(glimmerCommunity->locus)) {
-            glimmerCommunity->alive = false;
+        auto distance = paradigm->axioms[6] *
+                paradigm->cloister->constants->maxDriftDistance;
+        glimmerSoul->locus = paradigm->cloister->cartographer->shiftPoint(
+                glimmerSoul->locus, distance, direction);
+        if (!paradigm->cloister->cartographer->isValid(glimmerSoul->locus)) {
+            glimmerSoul->alive = false;
         }
     }
 };

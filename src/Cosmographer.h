@@ -9,8 +9,6 @@ namespace cosmographer {
 
 class Cosmographer : public Liaison<CosmographerCommunity>, public Circulable {
 private:
-    up<Paradigm> paradigm;
-
     vec<up<Parcel>> receiveEssentiaParcelBundle();
 
 public:

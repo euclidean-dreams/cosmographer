@@ -4,6 +4,9 @@
 
 namespace cosmographer {
 
+up<Paradigm> paradigmWrapper = mkup<Paradigm>();
+Paradigm *paradigm = paradigmWrapper.get();
+
 int bootstrap() {
     std::string configFilePath = "./config.yml";
     Bootstrapper bootstrapper(configFilePath, 1);
@@ -12,11 +15,8 @@ int bootstrap() {
     auto axiomArbiter = mksp<Arbiter<const Parcel>>();
     auto phenomenology = mksp<BufferArbiter<const Parcel>>();
 
-    // build paradigm
-    auto paradigm = mkup<Paradigm>();
-
     // cloister
-    paradigm->cloister = mkup<CloisterCommunity>(paradigm.get());
+    paradigm->cloister = mkup<CloisterCommunity>();
     paradigm->cloister->constants = mkup<Constants>();
     paradigm->cloister->constants->initialize(paradigm->cloister.get());
     paradigm->cloister->axiomRefresher = mkup<AxiomRefresher>(axiomArbiter);
@@ -46,7 +46,7 @@ int bootstrap() {
     // cosmographer
     auto cosmographer = mkup<Cosmographer>(
             bootstrapper.getZmqContext(),
-            paradigm.get(),
+            paradigm,
             mv(phenomenology)
     );
     auto cosmographerThread = Circlet::begin(mv(cosmographer));
