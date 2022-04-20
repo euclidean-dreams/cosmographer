@@ -10,6 +10,8 @@ class ColorPixie : public Fellow<CloisterCommunity> {
 public:
     HSLColor hueJitter(HSLColor color);
 
+    HSLColor hueJitter(HSLColor color, int maxJitter);
+
     HSLColor gradiate(
             HSLColor initialColor,
             HSLColor finalColor,

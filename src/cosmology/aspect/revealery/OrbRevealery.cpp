@@ -29,7 +29,7 @@ void OrbRevealery::experienceSignal(Signal &signal) {
     } else if (currentInclination < -10) {
         currentInclination = 0;
     }
-    if (signal.energy * EPHEMERA_AXIOM_0 * 4 > previousEnergy) {
+    if (signal.energy * 2 > previousEnergy) {
         currentShape = RANDOM.generate(4);
     }
     previousEnergy = signal.energy;
@@ -45,12 +45,11 @@ void OrbRevealery::reveal(LumionExcitation excitation) {
                            cast(float, CONSTANTS->latticeHeight / 2)};
         auto color = CLOISTER->chromatica->getColor();
         color.lightness = 90 - 50 * excitation.magnitude;
-        auto size = excitation.magnitude * 50 * GLIMMER_SIZE_AXIOM + 2;
         auto glimmer = mkup<Glimmer>(
                 community->glimmering->fetchSubcommunity(),
                 locus,
                 color,
-                size
+                calculateBaseSize(excitation.magnitude)
         );
         glimmer->addLively(mkup<Lifespan>(glimmer->glimmerSoul));
 

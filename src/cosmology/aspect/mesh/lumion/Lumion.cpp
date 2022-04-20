@@ -41,7 +41,7 @@ void Lumion::excite(
 //        latticePoint = potentialNewLatticePoint;
 //    }
 
-    if (magnitude > LUMION_EXCITATION_AXIOM) {
+    if (magnitude > LUMION_EXCITATION_THRESHOLD_AXIOM) {
         auto excitation = LumionExcitation{
                 latticePoint,
                 signalIndex,

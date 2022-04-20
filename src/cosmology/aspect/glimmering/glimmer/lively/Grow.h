@@ -16,13 +16,13 @@ public:
             glimmerSoul{glimmerSoul} {}
 
     void live() override {
-        int rate = 10 - paradigm->axioms[5] * 10;
-        if (rate == 0) {
-            rate = 1;
-        }
-        if (glimmerSoul->age % rate == 0) {
-            glimmerSoul->size++;
-        }
+//        int rate = 10 - paradigm->axioms[5] * 10;
+//        if (rate == 0) {
+//            rate = 1;
+//        }
+//        if (glimmerSoul->age % rate == 0) {
+//            glimmerSoul->size++;
+//        }
     }
 };
 

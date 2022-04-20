@@ -9,7 +9,7 @@ namespace cosmographer {
 class Lifespan : public Lively {
 private:
     float calculateLifespan() {
-        value = CONSTANTS->maxLifespan * paradigm->axioms[7];
+        value = CONSTANTS->maxLifespan * LIFESPAN_AXIOM;
         if (value < 5) {
             value = 5;
         }

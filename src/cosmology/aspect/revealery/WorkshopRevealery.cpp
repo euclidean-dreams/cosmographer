@@ -11,11 +11,12 @@
 #include "cosmology/aspect/glimmering/glimmer/lively/Lifespan.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Fade.h"
 #include "cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.h"
+#include "cosmology/aspect/glimmering/glimmer/lively/Mutator.h"
 
 namespace cosmographer {
 
 void WorkshopRevealery::reveal(LumionExcitation excitation) {
-    int glimmerCount = GLIMMER_COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * excitation.magnitude;
+    int glimmerCount = COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * excitation.magnitude;
     if (glimmerCount < 1) {
         glimmerCount = 1;
     }
@@ -23,12 +24,11 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
         auto locus = excitation.point;
         auto color = CLOISTER->chromatica->getColor();
         color.lightness = 90 - 50 * excitation.magnitude;
-        auto size = excitation.magnitude * 25 * GLIMMER_SIZE_AXIOM + 2;
         auto glimmer = mkup<Glimmer>(
                 community->glimmering->fetchSubcommunity(),
                 locus,
                 color,
-                size
+                calculateBaseSize(excitation.magnitude)
         );
 
 
@@ -40,13 +40,12 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
         glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
 
         auto lifespanWrapper = mkup<Lifespan>(glimmer->glimmerSoul);
-        auto fadeColor = CONSTANTS->latticeInitialColor;
-        fadeColor.hue = HSL_HUE_MAX * WORKSHOP_AXIOM;
-        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(), fadeColor));
+        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(), HSLColor{color.hue, 0, 100}));
         glimmer->addLively(mv(lifespanWrapper));
 
         float inclinationOffset = cast(float, count) / glimmerCount;
         glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, inclinationOffset));
+        glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
 
         community->glimmering->addGlimmer(mv(glimmer));
     }

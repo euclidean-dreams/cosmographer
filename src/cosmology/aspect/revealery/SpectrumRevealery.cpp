@@ -14,7 +14,7 @@
 namespace cosmographer {
 
 void SpectrumRevealery::reveal(LumionExcitation excitation) {
-    int glimmerCount = GLIMMER_COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * excitation.magnitude;
+    int glimmerCount = COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * excitation.magnitude;
     if (glimmerCount < 1) {
         glimmerCount = 1;
     }
@@ -22,12 +22,11 @@ void SpectrumRevealery::reveal(LumionExcitation excitation) {
         auto locus = excitation.point;
         auto color = CLOISTER->chromatica->getColor();
         color.lightness = 90 - 50 * excitation.magnitude;
-        auto size = excitation.magnitude * 25 * GLIMMER_SIZE_AXIOM + 2;
         auto glimmer = mkup<Glimmer>(
                 community->glimmering->fetchSubcommunity(),
                 locus,
                 color,
-                size
+                calculateBaseSize(excitation.magnitude)
         );
 
 
@@ -47,7 +46,7 @@ void SpectrumRevealery::reveal(LumionExcitation excitation) {
             glimmer->addLively(mkup<Curve>(glimmer->glimmerSoul, painterCommunity, orientation, spin));
         }
         auto lifespanWrapper = mkup<Lifespan>(glimmer->glimmerSoul);
-        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(), HSLColor{0, 0, 100}));
+        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(), HSLColor{color.hue, 0, 100}));
         glimmer->addLively(mv(lifespanWrapper));
 
         float inclinationOffset = cast(float, count) / glimmerCount;
