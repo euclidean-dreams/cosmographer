@@ -11,13 +11,16 @@ class Fade : public Lively {
 public:
     GlimmerSoul *glimmerSoul;
     Lifespan *lifespan;
+    HSLColor fadeColor;
 
     Fade(
             GlimmerSoul *glimmerSoul,
-            Lifespan *lifespan
+            Lifespan *lifespan,
+            HSLColor fadeColor
     ) :
             glimmerSoul{glimmerSoul},
-            lifespan{lifespan} {
+            lifespan{lifespan},
+            fadeColor{fadeColor} {
 
     }
 
@@ -25,10 +28,10 @@ public:
         float fade = glimmerSoul->age / lifespan->value;
         glimmerSoul->color = CLOISTER->colorPixie->gradiate(
                 glimmerSoul->color,
-                CONSTANTS->latticeInitialColor,
+                fadeColor,
                 fade
         );
-        if (glimmerSoul->color == CONSTANTS->latticeInitialColor) {
+        if (glimmerSoul->color == fadeColor) {
             glimmerSoul->alive = false;
         }
     }

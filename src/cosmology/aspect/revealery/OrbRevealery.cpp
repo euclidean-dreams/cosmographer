@@ -29,7 +29,7 @@ void OrbRevealery::experienceSignal(Signal &signal) {
     } else if (currentInclination < -10) {
         currentInclination = 0;
     }
-    if (signal.energy * WORKSHOP_AXIOM * 4 > previousEnergy) {
+    if (signal.energy * EPHEMERA_AXIOM_0 * 4 > previousEnergy) {
         currentShape = RANDOM.generate(4);
     }
     previousEnergy = signal.energy;

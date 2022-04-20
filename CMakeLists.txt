@@ -95,7 +95,7 @@ set(
         src/cosmology/aspect/revealery/OrbRevealery.cpp src/cosmology/aspect/revealery/OrbRevealery.h
         src/cosmology/aspect/glimmering/glimmer/GlimmerMakers.cpp src/cosmology/aspect/glimmering/glimmer/GlimmerMakers.h
         src/cosmology/aspect/glimmering/glimmer/lively/Lifespan.h
-        src/framework/Element.h)
+        src/framework/Element.h src/cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.h src/cosmology/aspect/revealery/SpectrumRevealery.cpp src/cosmology/aspect/revealery/SpectrumRevealery.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

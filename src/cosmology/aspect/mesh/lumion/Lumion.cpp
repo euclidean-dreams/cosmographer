@@ -1,17 +1,20 @@
 #include "Lumion.h"
+#include "cosmology/aspect/revealery/Revealery.h"
 
 namespace cosmographer {
 
 Lumion::Lumion(
+        AspectCommunity *aspectCommunity,
         int signalIndex,
         Point latticePoint
 ) :
+        aspectCommunity{aspectCommunity},
         signalIndex{signalIndex},
         latticePoint{latticePoint} {
 
 }
 
-LumionExcitation Lumion::excite(
+void Lumion::excite(
         Signal &signal
 ) {
     // calculate excitation
@@ -24,9 +27,9 @@ LumionExcitation Lumion::excite(
 //    auto excitation = 1 - 1 / (std::pow(targetSample / (-1 * (10000 - 9950 * LUMION_EXCITATION_AXIOM)), 2) + 1);
 
     // just gimmie that friggan valuuuuue! And cap it!
-    auto excitation = targetSample;
-    if (excitation > 1) {
-        excitation = 1;
+    auto magnitude = targetSample;
+    if (magnitude > 1) {
+        magnitude = 1;
     }
 
     // float around
@@ -38,12 +41,16 @@ LumionExcitation Lumion::excite(
 //        latticePoint = potentialNewLatticePoint;
 //    }
 
-    return LumionExcitation{
-            latticePoint,
-            signalIndex,
-            cast(float, excitation),
-            cast(float, signal.energy)
-    };
+    if (magnitude > LUMION_EXCITATION_AXIOM) {
+        auto excitation = LumionExcitation{
+                latticePoint,
+                signalIndex,
+                cast(float, magnitude),
+                cast(float, signal.energy)
+        };
+
+        aspectCommunity->revealeries[paradigm->macroMode]->reveal(excitation);
+    }
 }
 
 }

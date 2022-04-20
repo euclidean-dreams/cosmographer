@@ -1,4 +1,4 @@
-#include "WorkshopRevealery.h"
+#include "SpectrumRevealery.h"
 #include "cosmology/aspect/glimmering/glimmer/Glimmer.h"
 #include "cosmology/aspect/glimmering/glimmer/GlimmerMakers.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/painter/Painter.h"
@@ -10,11 +10,10 @@
 #include "cosmology/aspect/glimmering/glimmer/lively/Drift.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Lifespan.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Fade.h"
-#include "cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.h"
 
 namespace cosmographer {
 
-void WorkshopRevealery::reveal(LumionExcitation excitation) {
+void SpectrumRevealery::reveal(LumionExcitation excitation) {
     int glimmerCount = GLIMMER_COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * excitation.magnitude;
     if (glimmerCount < 1) {
         glimmerCount = 1;
@@ -33,16 +32,22 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
 
 
         // illuminables
-//        auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
-//        auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
-//        glimmer->addLively(mkup<WorkshopCurve>(glimmer->glimmerSoul, painterCommunity, orientation));
-
-        glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
-
+        if (paradigm->microMode == 0) {
+            glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerSoul));
+        } else if (paradigm->microMode == 1) {
+            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
+        } else if (paradigm->microMode == 2) {
+            auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
+            auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
+            glimmer->addLively(mkup<DragonCurve>(glimmer->glimmerSoul, painterCommunity, orientation));
+        } else {
+            auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
+            auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
+            auto spin = 2 * M_PI * CLOISTER->randomizer->generateProportion();
+            glimmer->addLively(mkup<Curve>(glimmer->glimmerSoul, painterCommunity, orientation, spin));
+        }
         auto lifespanWrapper = mkup<Lifespan>(glimmer->glimmerSoul);
-        auto fadeColor = CONSTANTS->latticeInitialColor;
-        fadeColor.hue = HSL_HUE_MAX * WORKSHOP_AXIOM;
-        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(), fadeColor));
+        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(), HSLColor{0, 0, 100}));
         glimmer->addLively(mv(lifespanWrapper));
 
         float inclinationOffset = cast(float, count) / glimmerCount;

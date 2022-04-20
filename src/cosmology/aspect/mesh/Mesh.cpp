@@ -19,7 +19,7 @@ Mesh::Mesh(
         auto x = lumionIndex;
         auto latticeIndex = a * std::log(1 + x / b);
         auto latticePoint = CLOISTER->cartographer->verticalWrap(latticeIndex);
-        auto lumion = mkup<Lumion>(lumionIndex, latticePoint);
+        auto lumion = mkup<Lumion>(community, lumionIndex, latticePoint);
         lumion->initialize(&subCommunity);
         subCommunity.lumions.push_back(mv(lumion));
     }
@@ -39,10 +39,7 @@ void Mesh::meld(
         Signal &signal
 ) {
     for (auto &lumion: subCommunity.lumions) {
-        auto excitation = lumion->excite(signal);
-        if (excitation.magnitude > LUMION_EXCITATION_AXIOM) {
-            community->revealeries[paradigm->macroMode]->reveal(excitation);
-        }
+        lumion->excite(signal);
     }
 }
 
