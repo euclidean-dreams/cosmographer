@@ -40,7 +40,7 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
         glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
 
         auto lifespanWrapper = mkup<Lifespan>(glimmer->glimmerSoul);
-        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(), HSLColor{color.hue, 0, 100}));
+        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(), HSLColor{color.hue, 0, 0}));
         glimmer->addLively(mv(lifespanWrapper));
 
         float inclinationOffset = cast(float, count) / glimmerCount;

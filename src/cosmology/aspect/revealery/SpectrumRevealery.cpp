@@ -10,6 +10,7 @@
 #include "cosmology/aspect/glimmering/glimmer/lively/Drift.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Lifespan.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Fade.h"
+#include "cosmology/aspect/glimmering/glimmer/lively/Mutator.h"
 
 namespace cosmographer {
 
@@ -45,6 +46,7 @@ void SpectrumRevealery::reveal(LumionExcitation excitation) {
             auto spin = 2 * M_PI * CLOISTER->randomizer->generateProportion();
             glimmer->addLively(mkup<Curve>(glimmer->glimmerSoul, painterCommunity, orientation, spin));
         }
+        glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
         auto lifespanWrapper = mkup<Lifespan>(glimmer->glimmerSoul);
         glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(), HSLColor{color.hue, 0, 100}));
         glimmer->addLively(mv(lifespanWrapper));

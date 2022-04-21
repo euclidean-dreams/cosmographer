@@ -11,11 +11,11 @@ Aspect::Aspect(
         Liaison<AspectCommunity>(community) {
     subCommunity.mesh = mkup<Mesh>(&subCommunity, CONSTANTS->lumionCount);
     subCommunity.mesh->initialize(&subCommunity);
-    subCommunity.revealeries.push_back(mkup<WorkshopRevealery>());
     subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
     subCommunity.revealeries.push_back(mkup<OrbRevealery>());
-    subCommunity.revealeries.push_back(mkup<OrbRevealery>());
-    subCommunity.revealeries.push_back(mkup<OrbRevealery>());
+    subCommunity.revealeries.push_back(mkup<WorkshopRevealery>());
+    subCommunity.revealeries.push_back(mkup<WorkshopRevealery>());
+    subCommunity.revealeries.push_back(mkup<WorkshopRevealery>());
     for (auto &revealery: subCommunity.revealeries) {
         revealery->initialize(&subCommunity);
     }

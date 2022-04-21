@@ -18,7 +18,17 @@ public:
     void live() override {
         float sizeDeviation = 50 * MUTATION_AXIOM * SIZE_AXIOM;
         glimmerSoul->size += RANDOM.generate(sizeDeviation * 2) - sizeDeviation;
-//        glimmerSoul->color = CLOISTER->colorPixie->hueJitter(glimmerSoul->color, 50 * MUTATION_AXIOM);
+        float ageDeviation = 5 * MUTATION_AXIOM;
+        glimmerSoul->age += RANDOM.generate(ageDeviation * 2) - ageDeviation;
+        float locusDeviation = 0.5 * MUTATION_AXIOM;
+        glimmerSoul->locus.x += RANDOM.generate(locusDeviation * 2) - locusDeviation;
+        glimmerSoul->locus.y += RANDOM.generate(locusDeviation * 2) - locusDeviation;
+        float colorDeviation = 25 * MUTATION_AXIOM * HUE_JITTER_AXIOM;
+        glimmerSoul->color = {
+                glimmerSoul->color.hue + RANDOM.generate(colorDeviation * 2) - colorDeviation,
+                cast(int, glimmerSoul->color.saturation + RANDOM.generate(colorDeviation * 2) - colorDeviation),
+                cast(int, glimmerSoul->color.lightness + RANDOM.generate(colorDeviation * 2) - colorDeviation)
+        };
 //        glimmerSoul->size += RANDOM.generate(max) - max / 2;
     }
 };

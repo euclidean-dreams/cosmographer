@@ -10,6 +10,7 @@
 #include "cosmology/aspect/glimmering/glimmer/lively/Fade.h"
 #include "cosmology/aspect/glimmering/glimmer/GlimmerMakers.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Lifespan.h"
+#include "cosmology/aspect/glimmering/glimmer/lively/Mutator.h"
 
 namespace cosmographer {
 
@@ -89,6 +90,7 @@ void OrbRevealery::reveal(LumionExcitation excitation) {
         }
 
         float inclinationOffset = cast(float, count) / glimmerCount + currentInclination;
+        glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
         glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, inclinationOffset));
 
         community->glimmering->addGlimmer(mv(glimmer));

@@ -3,15 +3,6 @@
 
 namespace cosmographer {
 
-HSLColor ColorPixie::hueJitter(HSLColor color) {
-    return hueJitter(color, CONSTANTS->maxHueJitter);
-}
-
-HSLColor ColorPixie::hueJitter(HSLColor color, int maxJitter) {
-    color.hue += CLOISTER->randomizer->generate(maxJitter * HUE_JITTER_AXIOM);
-    return color;
-}
-
 HSLColor ColorPixie::gradiate(
         HSLColor initialColor,
         HSLColor finalColor,
