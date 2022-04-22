@@ -7,7 +7,10 @@
     </libraryRoots>
     <excludeRoots>
       <file path="$PROJECT_DIR$/cmake-build-debug" />
+      <file path="$PROJECT_DIR$/cmake-build-debug-local" />
       <file path="$PROJECT_DIR$/cmake-build-release" />
+      <file path="$PROJECT_DIR$/cmake-build-release-ambrose" />
+      <file path="$PROJECT_DIR$/cmake-build-release-local" />
     </excludeRoots>
   </component>
 </project>

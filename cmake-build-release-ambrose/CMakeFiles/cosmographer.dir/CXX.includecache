@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/root/cosmographer/src/vantage/keyhole/KeyholeVantage.cpp
+KeyholeVantage.h
+/root/cosmographer/src/vantage/keyhole/KeyholeVantage.h
+
+/root/cosmographer/src/vantage/keyhole/KeyholeVantage.h
+
