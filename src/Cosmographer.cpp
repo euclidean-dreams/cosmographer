@@ -1,7 +1,17 @@
 #include "Cosmographer.h"
 
-#ifdef KEYHOLE
+#if VANTAGE == palantir
+
+#include "vantage/PalantirVantage.h"
+
+#endif
+#if VANTAGE == keyhole
+
 #include "vantage/keyhole/KeyholeVantage.h"
+
+#endif
+#if VANTAGE == gubbin
+
 #endif
 
 namespace cosmographer {
@@ -17,9 +27,7 @@ Cosmographer::Cosmographer(
     subCommunity.phenomenology = mv(phenomenology);
 
     // vantage
-#ifdef KEYHOLE
-    subCommunity.vantage = mkup<KeyholeVantage>();
-#else
+#if VANTAGE == palantir
     auto palantirSocket = mkup<NetworkSocket>(
             zmqContext,
             CONSTANTS->palantirEndpoint,
@@ -27,6 +35,9 @@ Cosmographer::Cosmographer(
             true
     );
     subCommunity.vantage = mkup<PalantirVantage>(mv(palantirSocket));
+#elif VANTAGE == keyhole
+    subCommunity.vantage = mkup<KeyholeVantage>();
+#elif VANTAGE == gubbin
 #endif
     subCommunity.vantage->initialize(&subCommunity);
 

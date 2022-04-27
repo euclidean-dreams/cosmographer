@@ -2,7 +2,6 @@
 #define COSMOGRAPHER_COSMOGRAPHER_H
 
 #include "CosmographerCommunity.h"
-#include "vantage/PalantirVantage.h"
 #include "cosmology/Cosmology.h"
 
 namespace cosmographer {
