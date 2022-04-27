@@ -3,13 +3,8 @@ axiomologySize: 10
 illuminatorThreadCount: 4
 maxGlimmers: 1000
 
-# 0 == palantir
-# 1 == keyhole
-vantageType: 0
-
 # sockets
-# remote palantir
-#palantirEndpoint: tcp://10.42.0.1:44447
+#palantirEndpoint: tcp://0.0.0.0:44447
 palantirEndpoint: ipc:///tmp/cosmographer
 essentiaEndpoint: ipc:///tmp/analogorium
 #essentiaEndpoint: tcp://vinculus_chateau-rose:44447
@@ -38,9 +33,7 @@ lumionPlacement: 1
 
 latticeInitialHue: 0
 latticeInitialSaturation: 0
-latticeInitialLightness: 0
+latticeInitialLightness: 100
 
 # mesh
-#lumionCount: 7400
 lumionCount: 4097
-#lumionCount: 2073600

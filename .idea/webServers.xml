@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f7ae1b16-a37d-4e12-b01e-825c1f771828" name="pi-cosmographer">
+        <fileTransfer accessType="SFTP" host="10.42.0.188" port="22" sshConfigId="9e6c0449-a18c-414c-99ab-c5cb90ac0735" sshConfig="tether">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

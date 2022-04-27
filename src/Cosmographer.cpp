@@ -1,5 +1,8 @@
 #include "Cosmographer.h"
+
+#ifdef KEYHOLE
 #include "vantage/keyhole/KeyholeVantage.h"
+#endif
 
 namespace cosmographer {
 
@@ -14,18 +17,17 @@ Cosmographer::Cosmographer(
     subCommunity.phenomenology = mv(phenomenology);
 
     // vantage
-    auto vantageType = Config::getInstance().getInt("vantageType");
-    if (vantageType == 0) {
-        auto palantirSocket = mkup<NetworkSocket>(
-                zmqContext,
-                CONSTANTS->palantirEndpoint,
-                zmq::socket_type::pub,
-                true
-        );
-        subCommunity.vantage = mkup<PalantirVantage>(mv(palantirSocket));
-    } else {
-        subCommunity.vantage = mkup<KeyholeVantage>();
-    }
+#ifdef KEYHOLE
+    subCommunity.vantage = mkup<KeyholeVantage>();
+#else
+    auto palantirSocket = mkup<NetworkSocket>(
+            zmqContext,
+            CONSTANTS->palantirEndpoint,
+            zmq::socket_type::pub,
+            true
+    );
+    subCommunity.vantage = mkup<PalantirVantage>(mv(palantirSocket));
+#endif
     subCommunity.vantage->initialize(&subCommunity);
 
     // cosmographer

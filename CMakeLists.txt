@@ -3,7 +3,13 @@ project(cosmographer VERSION 0.1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-option(KEYHOLE "build keyholes - requires pigpio" OFF)
+add_compile_options(-Wno-dev)
+
+# possible vantage types:
+# palantir
+# keyhole
+# gubbin
+add_compile_definitions(VANTAGE=${VANTAGE})
 
 include(lib/cmake-utils/dependency-integrator.cmake)
 integrate_cmake_dependency(
@@ -12,12 +18,22 @@ integrate_cmake_dependency(
         GIT_TAG origin/dev
 )
 
-if (KEYHOLE)
+if (${VANTAGE} STREQUAL palantir)
+    # no extra config necessary
+elseif (${VANTAGE} STREQUAL keyhole)
     integrate_cmake_dependency(
             NAME pigpio
             GIT_URL git@github.com:joan2937/pigpio.git
             GIT_TAG c33738a320a3e28824af7807edafda440952c05d
     )
+elseif (${VANTAGE} STREQUAL gubbin)
+    integrate_cmake_dependency(
+            NAME ws281x
+            GIT_URL git@github.com:jgarff/rpi_ws281x.git
+            GIT_TAG 9be313f77aa494036e2dc205b6ec2860e7ee988c
+    )
+else ()
+    message(FATAL_ERROR "invalid vantage type specified: ${VANTAGE}")
 endif ()
 
 set(
@@ -54,7 +70,6 @@ set(
 
         # vantage
         src/vantage/Vantage.h
-        src/vantage/PalantirVantage.cpp src/vantage/PalantirVantage.h
 
         # cosmographer
         src/Cosmographer.cpp src/Cosmographer.h src/CosmographerCommunity.h
@@ -110,7 +125,15 @@ set(
         src/cosmology/aspect/revealery/SpectrumRevealery.cpp src/cosmology/aspect/revealery/SpectrumRevealery.h
         src/cosmology/aspect/glimmering/glimmer/lively/Mutator.h
 )
-if (KEYHOLE)
+
+if (${VANTAGE} STREQUAL palantir)
+    set(
+            SOURCE_FILES
+            ${SOURCE_FILES}
+            src/vantage/PalantirVantage.cpp src/vantage/PalantirVantage.h
+    )
+endif ()
+if (${VANTAGE} STREQUAL keyhole)
     set(
             SOURCE_FILES
             ${SOURCE_FILES}
@@ -119,15 +142,26 @@ if (KEYHOLE)
             src/vantage/keyhole/KeyholeConstants.h
     )
 endif ()
+if (${VANTAGE} STREQUAL gubbin)
+    set(
+            SOURCE_FILES
+            ${SOURCE_FILES}
+    )
+endif ()
+
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 
 # finalize
 foreach (target IN LISTS TARGETS)
     target_include_directories(${target} PRIVATE src)
-    if (KEYHOLE)
+    if (${VANTAGE} STREQUAL keyhole)
         target_include_directories(${target} PRIVATE ${CMAKE_BINARY_DIR}/pigpio-src)
         target_link_libraries(${target} PRIVATE pigpio)
+    endif ()
+    if (${VANTAGE} STREQUAL gubbin)
+        target_include_directories(${target} PRIVATE ${CMAKE_BINARY_DIR}/rpi_ws281x-src)
+        target_link_libraries(${target} PRIVATE ws2811)
     endif ()
     target_link_libraries(${target} PRIVATE impresario-utils)
 endforeach ()
