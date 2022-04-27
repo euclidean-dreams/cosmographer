@@ -1,4 +1,4 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Release -DKEYHOLE=ON -G "CodeBlocks - Unix Makefiles" /root/cosmographer
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Release -DKEYHOLE=ON -G "CodeBlocks - Unix Makefiles" -S /root/cosmographer -B /root/cosmographer/cmake-build-release-ambrose
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /root/cosmographer/cmake-build-release-ambrose/impresario-utils-download

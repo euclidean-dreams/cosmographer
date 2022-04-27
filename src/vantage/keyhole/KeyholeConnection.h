@@ -9,15 +9,12 @@ class KeyholeConnection {
 private:
     std::vector<char> sendBuffer;
     int spiHandle;
-    int baudRate = 5 * 1000 * 1000;
 
 public:
     KeyholeConnection();
 
     void send(const unsigned char *data);
 };
-
-}
 
 }
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+    <option name="confirmBeforeUploading" value="false" />
     <serverData>
-      <paths name="ambrose (600b804e-e260-49c8-a8cb-1c547965c114)">
+      <paths name="ambrose (6cea954e-3fe1-43e5-9be3-7f3908dfcb22)">
         <serverdata>
           <mappings>
             <mapping deploy="/root/cosmographer" local="$PROJECT_DIR$" />
@@ -13,6 +14,61 @@
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-ambrose" />
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-local" />
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-ambrose" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="keyhole_0 (708822c4-643e-4a0d-b9b4-a841982e6acc)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/root/cosmographer" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-local" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-ambrose" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-keyhole_2" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-local" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-ambrose" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-keyhole_0" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-keyhole_1" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="keyhole_1 (b09193d8-7534-4f22-8d7f-055a23b5fc75)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/root/cosmographer" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-local" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-ambrose" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-keyhole_2" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-local" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-ambrose" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-keyhole_0" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-keyhole_1" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="keyhole_2 (8fb3c510-891e-4262-b87e-4bd43adb0f3d)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/root/cosmographer" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-local" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-ambrose" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-keyhole_2" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-local" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-ambrose" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-keyhole_0" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-keyhole_1" />
           </excludedPaths>
         </serverdata>
       </paths>

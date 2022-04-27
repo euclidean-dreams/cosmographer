@@ -6,6 +6,7 @@ PalantirVantage::PalantirVantage(
         up<NetworkSocket> socket
 ) :
         socket{mv(socket)} {
+    LOGGER->info("initializing palantir vantage");
 }
 
 void PalantirVantage::send(const Lattice &lattice) {

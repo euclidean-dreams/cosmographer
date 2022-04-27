@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./cmake-build-release/cosmographer
+./cmake-build-release-local/cosmographer

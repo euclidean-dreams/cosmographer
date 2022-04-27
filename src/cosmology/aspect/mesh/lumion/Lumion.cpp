@@ -40,7 +40,6 @@ void Lumion::excite(
 //    if (CLOISTER->cartographer->isValid(potentialNewLatticePoint)) {
 //        latticePoint = potentialNewLatticePoint;
 //    }
-
     if (magnitude > LUMION_EXCITATION_THRESHOLD_AXIOM) {
         auto excitation = LumionExcitation{
                 latticePoint,

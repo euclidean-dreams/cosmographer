@@ -8,10 +8,6 @@ namespace cosmographer {
 
 class KeyholeVantage : public Vantage {
 public:
-    int headerSize = 4;
-    int ledCount = 74 * 20;
-    int packetSize = headerSize + ledCount * 3;
-
     KeyholeConnection keyholeConnection;
 
     KeyholeVantage(

@@ -115,7 +115,9 @@ if (KEYHOLE)
             SOURCE_FILES
             ${SOURCE_FILES}
             src/vantage/keyhole/KeyholeConnection.cpp src/vantage/keyhole/KeyholeConnection.h
-            src/vantage/keyhole/KeyholeVantage.cpp src/vantage/keyhole/KeyholeVantage.h src/vantage/keyhole/KeyholeConstants.h)
+            src/vantage/keyhole/KeyholeVantage.cpp src/vantage/keyhole/KeyholeVantage.h
+            src/vantage/keyhole/KeyholeConstants.h
+    )
 endif ()
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
@@ -124,6 +126,7 @@ add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 foreach (target IN LISTS TARGETS)
     target_include_directories(${target} PRIVATE src)
     if (KEYHOLE)
+        target_include_directories(${target} PRIVATE ${CMAKE_BINARY_DIR}/pigpio-src)
         target_link_libraries(${target} PRIVATE pigpio)
     endif ()
     target_link_libraries(${target} PRIVATE impresario-utils)
