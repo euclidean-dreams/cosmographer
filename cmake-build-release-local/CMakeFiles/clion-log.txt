@@ -1,4 +1,4 @@
-/home/josiah/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6777.58/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" /home/josiah/projects/code/impresario-systems/cosmographer
+/snap/clion/189/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" -S /home/josiah/projects/code/impresario-systems/cosmographer -B /home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-release-local
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/josiah/projects/code/impresario-systems/cosmographer/cmake-build-release-local/impresario-utils-download
