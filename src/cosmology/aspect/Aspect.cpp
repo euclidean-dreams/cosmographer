@@ -2,6 +2,7 @@
 #include "cosmology/aspect/revealery/WorkshopRevealery.h"
 #include "cosmology/aspect/revealery/OrbRevealery.h"
 #include "cosmology/aspect/revealery/SpectrumRevealery.h"
+#include "cosmology/aspect/revealery/BorderRevealery.h"
 
 namespace cosmographer {
 
@@ -13,7 +14,7 @@ Aspect::Aspect(
     subCommunity.mesh->initialize(&subCommunity);
     subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
     subCommunity.revealeries.push_back(mkup<OrbRevealery>());
-    subCommunity.revealeries.push_back(mkup<WorkshopRevealery>());
+    subCommunity.revealeries.push_back(mkup<BorderRevealery>());
     subCommunity.revealeries.push_back(mkup<WorkshopRevealery>());
     subCommunity.revealeries.push_back(mkup<WorkshopRevealery>());
     for (auto &revealery: subCommunity.revealeries) {
