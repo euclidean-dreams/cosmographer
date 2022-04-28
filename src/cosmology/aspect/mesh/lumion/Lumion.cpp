@@ -31,14 +31,14 @@ void Lumion::react() {
 
     // float around
     // takes some serious compute
-//    auto distance = -excitation * LUMION_DRIFT;
-//    auto direction = CLOISTER->randomizer->generateProportion() * 2 * M_PI;
-//    auto potentialNewLatticePoint = CLOISTER->cartographer->shiftPoint(latticePoint, distance, direction);
-//    if (CLOISTER->cartographer->isValid(potentialNewLatticePoint)) {
-//        latticePoint = potentialNewLatticePoint;
-//    }
+    auto distance = 10 * magnitude * MOVEMENT_AXIOM;
+    auto direction = CLOISTER->randomizer->generateProportion() * 2 * M_PI;
+    auto potentialNewLatticePoint = CLOISTER->cartographer->shiftPoint(latticePoint, distance, direction);
+    if (CLOISTER->cartographer->isValid(potentialNewLatticePoint)) {
+        latticePoint = potentialNewLatticePoint;
+    }
     if (excited) {
-        if (magnitude < LUMION_EXCITATION_THRESHOLD_AXIOM / 4) {
+        if (magnitude < LUMION_EXCITATION_THRESHOLD_AXIOM / 2) {
             excited = false;
         }
     } else if (magnitude > LUMION_EXCITATION_THRESHOLD_AXIOM) {

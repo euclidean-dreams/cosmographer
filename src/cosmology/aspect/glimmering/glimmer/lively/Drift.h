@@ -23,7 +23,7 @@ public:
     void live() override {
         auto pole = 0;
         auto direction = inclinationOffset * 2 * M_PI + pole;
-        auto distance = SPEED_AXIOM * CONSTANTS->maxDriftDistance;
+        auto distance = MOVEMENT_AXIOM * CONSTANTS->maxDriftDistance;
         glimmerSoul->locus = CLOISTER->cartographer->shiftPoint(glimmerSoul->locus, distance, direction);
         if (!CLOISTER->cartographer->isValid(glimmerSoul->locus)) {
             glimmerSoul->alive = false;

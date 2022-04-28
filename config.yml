@@ -17,14 +17,14 @@ volitiaEndpoint: tcp://10.0.0.85:44440
 ###########
 
 # fullscreen
-#latticeWidth: 192
-#latticeHeight: 108
-#lumionPlacement: 1
+latticeWidth: 192
+latticeHeight: 108
+lumionPlacement: 1
 
 # cube
-latticeWidth: 200
-latticeHeight: 200
-lumionPlacement: 3
+#latticeWidth: 200
+#latticeHeight: 200
+#lumionPlacement: 3
 
 # keyhole
 #latticeWidth: 20
