@@ -38,7 +38,7 @@ void Lumion::react() {
 //        latticePoint = potentialNewLatticePoint;
 //    }
     if (excited) {
-        if (magnitude < LUMION_EXCITATION_THRESHOLD_AXIOM / 2) {
+        if (magnitude < LUMION_EXCITATION_THRESHOLD_AXIOM / 4) {
             excited = false;
         }
     } else if (magnitude > LUMION_EXCITATION_THRESHOLD_AXIOM) {

@@ -11,6 +11,7 @@
 #include "cosmology/aspect/glimmering/glimmer/lively/Lifespan.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Fade.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Mutator.h"
+#include "cosmology/aspect/glimmering/glimmer/lively/LumionMimic.h"
 
 namespace cosmographer {
 
@@ -30,6 +31,7 @@ void SpectrumRevealery::reveal(
                 color,
                 calculateBaseSize(lumion->magnitude)
         );
+        glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
 
 
         // illuminables
@@ -48,11 +50,6 @@ void SpectrumRevealery::reveal(
             glimmer->addLively(mkup<Curve>(glimmer->glimmerSoul, painterCommunity, orientation, spin));
         }
         glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
-        auto lifespanWrapper = mkup<Lifespan>(glimmer->glimmerSoul);
-        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(),
-                                      HSLColor{color.hue, CONSTANTS->latticeInitialColor.saturation,
-                                               CONSTANTS->latticeInitialColor.lightness}));
-        glimmer->addLively(mv(lifespanWrapper));
 
         float inclinationOffset = cast(float, count) / glimmerCount;
         glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, inclinationOffset));

@@ -32,16 +32,9 @@ void WorkshopRevealery::reveal(
                 color,
                 calculateBaseSize(lumion->magnitude)
         );
-
-
-        // illuminables
-//        auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
-//        auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
-//        glimmer->addLively(mkup<WorkshopCurve>(glimmer->glimmerSoul, painterCommunity, orientation));
+        glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
 
         glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
-
-        glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
 
         float inclinationOffset = cast(float, count) / glimmerCount;
         glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, inclinationOffset));

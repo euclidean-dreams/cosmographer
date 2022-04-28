@@ -11,6 +11,7 @@
 #include "cosmology/aspect/glimmering/glimmer/GlimmerMakers.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Lifespan.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Mutator.h"
+#include "cosmology/aspect/glimmering/glimmer/lively/LumionMimic.h"
 
 namespace cosmographer {
 
@@ -53,7 +54,7 @@ void OrbRevealery::reveal(
                 color,
                 calculateBaseSize(lumion->magnitude)
         );
-        glimmer->addLively(mkup<Lifespan>(glimmer->glimmerSoul));
+        glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
 
         auto mode = paradigm->microMode;
         if (mode == 0) {
