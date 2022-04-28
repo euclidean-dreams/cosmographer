@@ -8,6 +8,8 @@
 #include "Constants.h"
 #include "Randomizer.h"
 #include "Signalarium.h"
+#include "Pole.h"
+#include "LumionBookie.h"
 #include "chromatica/palette/Palette.h"
 #include "chromatica/Chromatica.h"
 

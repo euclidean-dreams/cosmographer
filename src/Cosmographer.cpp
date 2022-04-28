@@ -80,10 +80,11 @@ void Cosmographer::activate() {
         CLOISTER->signalarium->refresh(mv(essentiaParcel));
         CLOISTER->chromatica->experienceEssentia();
         subCommunity.cosmology->experienceEssentia();
+        CLOISTER->pole->refresh();
+        CLOISTER->lumionBookie->clear();
     }
 
     // todo find a better place for this
-//    CONSTANTS.
 
     // generate lattice and send frame
     subCommunity.cosmology->observe();

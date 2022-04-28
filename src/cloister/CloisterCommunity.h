@@ -14,6 +14,8 @@ public:
     up<class Constants> constants;
     up<class Randomizer> randomizer;
     up<class Signalarium> signalarium;
+    up<class Pole> pole;
+    up<class LumionBookie> lumionBookie;
 };
 
 }

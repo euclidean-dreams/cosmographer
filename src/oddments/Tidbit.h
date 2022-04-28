@@ -8,6 +8,8 @@ public:
     static float bind(float value, float min, float max);
 
     static int bind(int value, int min, int max);
+
+    static float collapse(float value, float max);
 };
 
 }

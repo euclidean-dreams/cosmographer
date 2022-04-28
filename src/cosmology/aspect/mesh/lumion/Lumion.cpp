@@ -43,6 +43,7 @@ void Lumion::react() {
         }
     } else if (magnitude > LUMION_EXCITATION_THRESHOLD_AXIOM) {
         excited = true;
+        CLOISTER->lumionBookie->recordActivation(magnitude);
     }
 
     if (excited) {

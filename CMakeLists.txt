@@ -153,7 +153,7 @@ set(
         src/cosmology/aspect/revealery/SpectrumRevealery.cpp src/cosmology/aspect/revealery/SpectrumRevealery.h
         src/cosmology/aspect/glimmering/glimmer/lively/Mutator.h
         src/cosmology/aspect/revealery/TriangleRevealery.cpp src/cosmology/aspect/revealery/TriangleRevealery.h
-        src/oddments/Tidbit.cpp src/oddments/Tidbit.h src/cosmology/aspect/glimmering/glimmer/lively/LumionMimic.h src/cosmology/aspect/revealery/BorderRevealery.cpp src/cosmology/aspect/revealery/BorderRevealery.h)
+        src/oddments/Tidbit.cpp src/oddments/Tidbit.h src/cosmology/aspect/glimmering/glimmer/lively/LumionMimic.h src/cosmology/aspect/revealery/BorderRevealery.cpp src/cosmology/aspect/revealery/BorderRevealery.h src/cloister/Pole.cpp src/cloister/Pole.h src/cloister/LumionBookie.cpp src/cloister/LumionBookie.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

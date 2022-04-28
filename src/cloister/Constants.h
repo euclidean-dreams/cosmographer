@@ -32,7 +32,6 @@ public:
     float lumionPlacement = Config::getInstance().getFloat("lumionPlacement");
 
     // ephemera
-    int maxDriftDistance = 2;
     int maxLifespan = 300;
     int maxGlimmerSpawnCount = 15;
 
