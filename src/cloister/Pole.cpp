@@ -20,7 +20,7 @@ void Pole::refresh() {
         pole = Tidbit::collapse(pole + delta, 2 * M_PI);
     } else {
         pole = Tidbit::collapse(pole - delta, 2 * M_PI);
-    };
+    }
 }
 
 }
