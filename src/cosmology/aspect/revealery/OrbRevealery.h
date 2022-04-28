@@ -18,7 +18,7 @@ public:
     void experienceSignal() override;
 
     void reveal(
-            LumionExcitation excitation
+            Lumion *lumion
     ) override;
 };
 

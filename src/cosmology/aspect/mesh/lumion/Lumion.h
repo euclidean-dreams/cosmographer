@@ -10,10 +10,6 @@ namespace cosmographer {
 
 class LumionExcitation {
 public:
-    Point point;
-    int signalIndex;
-    float magnitude;
-    float energy;
 };
 
 class Lumion : public Fellow<MeshCommunity> {
@@ -21,6 +17,8 @@ public:
     AspectCommunity *aspectCommunity;
     int signalIndex;
     Point latticePoint;
+    bool excited;
+    float magnitude;
 
     Lumion(
             AspectCommunity *aspectCommunity,
@@ -28,7 +26,7 @@ public:
             Point latticePoint
     );
 
-    void excite();
+    void react();
 };
 
 }

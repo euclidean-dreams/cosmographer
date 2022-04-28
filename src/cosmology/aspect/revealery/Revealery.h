@@ -16,7 +16,7 @@ protected:
 
 public:
     virtual void reveal(
-            LumionExcitation excitation
+            Lumion *lumion
     ) = 0;
 
     virtual void experienceSignal() {};

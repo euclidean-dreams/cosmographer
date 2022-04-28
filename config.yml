@@ -1,7 +1,7 @@
 # general
 axiomologySize: 10
-illuminatorThreadCount: 4
-maxGlimmers: 1000
+illuminatorThreadCount: 8
+maxGlimmers: 10000
 
 # sockets
 #palantirEndpoint: tcp://0.0.0.0:44447

@@ -37,7 +37,7 @@ Mesh::Mesh(
 
 void Mesh::meld() {
     for (auto &lumion: subCommunity.lumions) {
-        lumion->excite();
+        lumion->react();
     }
 }
 

@@ -9,7 +9,7 @@ namespace cosmographer {
 class TriangleRevealery : public Revealery {
 public:
     void reveal(
-            LumionExcitation excitation
+            Lumion *lumion
     ) override;
 };
 

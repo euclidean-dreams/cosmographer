@@ -3,7 +3,7 @@
 namespace cosmographer {
 
 void TriangleRevealery::reveal(
-        LumionExcitation excitation
+        Lumion *lumion
 ) {
 
 }

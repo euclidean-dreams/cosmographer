@@ -12,23 +12,25 @@
 #include "cosmology/aspect/glimmering/glimmer/lively/Fade.h"
 #include "cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Mutator.h"
+#include "cosmology/aspect/glimmering/glimmer/lively/LumionMimic.h"
 
 namespace cosmographer {
 
-void WorkshopRevealery::reveal(LumionExcitation excitation) {
-    int glimmerCount = COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * excitation.magnitude;
+void WorkshopRevealery::reveal(
+        Lumion *lumion
+) {
+    int glimmerCount = COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * lumion->magnitude;
     if (glimmerCount < 1) {
         glimmerCount = 1;
     }
     for (int count = 0; count < glimmerCount; count++) {
-        auto locus = excitation.point;
         auto color = CLOISTER->chromatica->getColor();
-        color.lightness = 90 - 50 * excitation.magnitude;
+        color.lightness = 90 - 50 * lumion->magnitude;
         auto glimmer = mkup<Glimmer>(
                 community->glimmering->fetchSubcommunity(),
-                locus,
+                lumion,
                 color,
-                calculateBaseSize(excitation.magnitude)
+                calculateBaseSize(lumion->magnitude)
         );
 
 
@@ -39,9 +41,7 @@ void WorkshopRevealery::reveal(LumionExcitation excitation) {
 
         glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
 
-        auto lifespanWrapper = mkup<Lifespan>(glimmer->glimmerSoul);
-        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(), HSLColor{color.hue, 0, 0}));
-        glimmer->addLively(mv(lifespanWrapper));
+        glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
 
         float inclinationOffset = cast(float, count) / glimmerCount;
         glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, inclinationOffset));

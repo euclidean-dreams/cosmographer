@@ -14,20 +14,21 @@
 
 namespace cosmographer {
 
-void SpectrumRevealery::reveal(LumionExcitation excitation) {
-    int glimmerCount = COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * excitation.magnitude;
+void SpectrumRevealery::reveal(
+        Lumion *lumion
+) {
+    int glimmerCount = COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * lumion->magnitude;
     if (glimmerCount < 1) {
         glimmerCount = 1;
     }
     for (int count = 0; count < glimmerCount; count++) {
-        auto locus = excitation.point;
         auto color = CLOISTER->chromatica->getColor();
-        color.lightness = 90 - 50 * excitation.magnitude;
+        color.lightness = 90 - 50 * lumion->magnitude;
         auto glimmer = mkup<Glimmer>(
                 community->glimmering->fetchSubcommunity(),
-                locus,
+                lumion,
                 color,
-                calculateBaseSize(excitation.magnitude)
+                calculateBaseSize(lumion->magnitude)
         );
 
 
@@ -48,7 +49,9 @@ void SpectrumRevealery::reveal(LumionExcitation excitation) {
         }
         glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
         auto lifespanWrapper = mkup<Lifespan>(glimmer->glimmerSoul);
-        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(), HSLColor{color.hue, 0, 100}));
+        glimmer->addLively(mkup<Fade>(glimmer->glimmerSoul, lifespanWrapper.get(),
+                                      HSLColor{color.hue, CONSTANTS->latticeInitialColor.saturation,
+                                               CONSTANTS->latticeInitialColor.lightness}));
         glimmer->addLively(mv(lifespanWrapper));
 
         float inclinationOffset = cast(float, count) / glimmerCount;

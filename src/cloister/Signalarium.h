@@ -11,6 +11,7 @@ public:
     up<Parcel> essentiaParcel;
     const Essentia *essentia;
     Signal stft;
+    Signal equalized;
 
     Signalarium();
 

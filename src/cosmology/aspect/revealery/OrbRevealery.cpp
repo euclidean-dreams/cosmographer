@@ -37,21 +37,21 @@ void OrbRevealery::experienceSignal() {
     previousEnergy = signal.energy;
 }
 
-void OrbRevealery::reveal(LumionExcitation excitation) {
-    auto glimmerCount = 20 * excitation.magnitude;
+void OrbRevealery::reveal(
+        Lumion *lumion
+) {
+    auto glimmerCount = 20 * lumion->magnitude;
     if (glimmerCount < 3) {
         glimmerCount = 3;
     }
     for (int count = 0; count < glimmerCount; count++) {
-        auto locus = Point{cast(float, CONSTANTS->latticeWidth / 2),
-                           cast(float, CONSTANTS->latticeHeight / 2)};
         auto color = CLOISTER->chromatica->getColor();
-        color.lightness = 90 - 50 * excitation.magnitude;
+        color.lightness = 90 - 50 * lumion->magnitude;
         auto glimmer = mkup<Glimmer>(
                 community->glimmering->fetchSubcommunity(),
-                locus,
+                lumion,
                 color,
-                calculateBaseSize(excitation.magnitude)
+                calculateBaseSize(lumion->magnitude)
         );
         glimmer->addLively(mkup<Lifespan>(glimmer->glimmerSoul));
 
