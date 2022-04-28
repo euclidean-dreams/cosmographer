@@ -17,7 +17,7 @@ public:
 
     void observe();
 
-    void experienceEssentia(const Essentia *essentia);
+    void experienceEssentia();
 };
 
 }

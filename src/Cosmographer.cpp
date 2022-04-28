@@ -77,9 +77,9 @@ void Cosmographer::activate() {
 
     // experience the essentia
     for (auto &essentiaParcel: essentiaParcelBundle) {
-        auto essentia = Unwrap::Essentia(*essentiaParcel);
-        CLOISTER->chromatica->experienceEssentia(essentia);
-        subCommunity.cosmology->experienceEssentia(essentia);
+        CLOISTER->signalarium->refresh(mv(essentiaParcel));
+        CLOISTER->chromatica->experienceEssentia();
+        subCommunity.cosmology->experienceEssentia();
     }
 
     // todo find a better place for this

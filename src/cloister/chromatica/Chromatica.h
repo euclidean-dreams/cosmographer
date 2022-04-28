@@ -17,7 +17,7 @@ public:
 
     void experiencePhenomenon(const Phenomenon *phenomenon);
 
-    void experienceEssentia(const Essentia *essentia);
+    void experienceEssentia();
 
 };
 

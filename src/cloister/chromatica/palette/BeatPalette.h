@@ -16,7 +16,7 @@ public:
 
     HSLColor getColor() override;
 
-    void experienceEssentia(const Essentia *essentia) override;
+    void experienceEssentia() override;
 };
 
 }

@@ -14,15 +14,10 @@ HSLColor CentrifugalPalette::getColor() {
     return {hue, 100, 50};
 }
 
-void CentrifugalPalette::experienceEssentia(const Essentia *essentia) {
-    auto samples = essentia->stft();
-    float energy = 0;
-    for (int index = 0; index < samples->size(); index++) {
-        auto sample = samples->Get(index);
-        energy += sample;
-    }
-    auto flux = energy - simpleMovingAverage.calculate();
-    simpleMovingAverage.addSample(energy);
+void CentrifugalPalette::experienceEssentia() {
+    auto &stft = CLOISTER->signalarium->stft;
+    auto flux = stft.energy - simpleMovingAverage.calculate();
+    simpleMovingAverage.addSample(stft.energy);
     auto fluxModifier = PALETTE_AXIOM_0;
     if (fluxModifier < 0.01) {
         fluxModifier = 0.01;

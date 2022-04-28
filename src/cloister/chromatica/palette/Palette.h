@@ -12,7 +12,7 @@ class Palette : public Fellow<ChromaticaCommunity> {
 public:
     virtual HSLColor getColor() = 0;
 
-    virtual void experienceEssentia(const Essentia *essentia) {};
+    virtual void experienceEssentia() {};
 };
 
 }

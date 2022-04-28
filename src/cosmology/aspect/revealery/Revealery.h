@@ -19,7 +19,7 @@ public:
             LumionExcitation excitation
     ) = 0;
 
-    virtual void experienceSignal(Signal &signal) {};
+    virtual void experienceSignal() {};
 };
 
 }

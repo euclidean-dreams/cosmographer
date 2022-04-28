@@ -6,7 +6,8 @@ Signal::Signal(
         int size
 ) :
         samples{},
-        energy{0} {
+        energy{0},
+        size{size} {
     samples.reserve(size);
 }
 

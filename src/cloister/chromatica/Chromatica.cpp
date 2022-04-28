@@ -32,8 +32,8 @@ void Chromatica::experiencePhenomenon(const Phenomenon *phenomenon) {
 
 }
 
-void Chromatica::experienceEssentia(const Essentia *essentia) {
-    subCommunity.palette->experienceEssentia(essentia);
+void Chromatica::experienceEssentia() {
+    subCommunity.palette->experienceEssentia();
 }
 
 }

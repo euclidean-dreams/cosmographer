@@ -95,8 +95,36 @@ set(
         # illuminable
         src/cosmology/aspect/glimmering/glimmer/illuminable/Illuminable.h
         src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h
+)
 
-        # unsorted
+if (${VANTAGE} STREQUAL palantir)
+    set(
+            SOURCE_FILES
+            ${SOURCE_FILES}
+            src/vantage/PalantirVantage.cpp src/vantage/PalantirVantage.h
+    )
+endif ()
+if (${VANTAGE} STREQUAL keyhole)
+    set(
+            SOURCE_FILES
+            ${SOURCE_FILES}
+            src/vantage/keyhole/KeyholeConnection.cpp src/vantage/keyhole/KeyholeConnection.h
+            src/vantage/keyhole/KeyholeVantage.cpp src/vantage/keyhole/KeyholeVantage.h
+            src/vantage/keyhole/KeyholeConstants.h
+    )
+endif ()
+if (${VANTAGE} STREQUAL gubbin)
+    set(
+            SOURCE_FILES
+            ${SOURCE_FILES}
+    )
+endif ()
+
+# unsorted stack
+set(
+        SOURCE_FILES
+        ${SOURCE_FILES}
+        src/cloister/Signalarium.cpp src/cloister/Signalarium.h
         src/Default.h
         src/framework/Minimal.h
         src/cosmology/aspect/glimmering/glimmer/lively/Drift.h
@@ -124,31 +152,8 @@ set(
         src/cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.h
         src/cosmology/aspect/revealery/SpectrumRevealery.cpp src/cosmology/aspect/revealery/SpectrumRevealery.h
         src/cosmology/aspect/glimmering/glimmer/lively/Mutator.h
+        src/cosmology/aspect/revealery/TriangleRevealery.cpp src/cosmology/aspect/revealery/TriangleRevealery.h
 )
-
-if (${VANTAGE} STREQUAL palantir)
-    set(
-            SOURCE_FILES
-            ${SOURCE_FILES}
-            src/vantage/PalantirVantage.cpp src/vantage/PalantirVantage.h
-    )
-endif ()
-if (${VANTAGE} STREQUAL keyhole)
-    set(
-            SOURCE_FILES
-            ${SOURCE_FILES}
-            src/vantage/keyhole/KeyholeConnection.cpp src/vantage/keyhole/KeyholeConnection.h
-            src/vantage/keyhole/KeyholeVantage.cpp src/vantage/keyhole/KeyholeVantage.h
-            src/vantage/keyhole/KeyholeConstants.h
-    )
-endif ()
-if (${VANTAGE} STREQUAL gubbin)
-    set(
-            SOURCE_FILES
-            ${SOURCE_FILES}
-    )
-endif ()
-
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

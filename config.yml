@@ -24,7 +24,7 @@ volitiaEndpoint: tcp://10.0.0.85:44440
 # cube
 latticeWidth: 200
 latticeHeight: 200
-lumionPlacement: 1
+lumionPlacement: 3
 
 # keyhole
 #latticeWidth: 20
@@ -36,4 +36,5 @@ latticeInitialSaturation: 0
 latticeInitialLightness: 100
 
 # mesh
-lumionCount: 4097
+#lumionCount: 4097
+lumionCount: 2048

@@ -14,10 +14,9 @@ Lumion::Lumion(
 
 }
 
-void Lumion::excite(
-        Signal &signal
-) {
+void Lumion::excite() {
     // calculate excitation
+    auto &signal = CLOISTER->signalarium->stft;
     auto targetSample = signal.getSample(signalIndex);
 
     // proportion of signal

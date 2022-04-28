@@ -35,11 +35,9 @@ Mesh::Mesh(
 //    }
 }
 
-void Mesh::meld(
-        Signal &signal
-) {
+void Mesh::meld() {
     for (auto &lumion: subCommunity.lumions) {
-        lumion->excite(signal);
+        lumion->excite();
     }
 }
 

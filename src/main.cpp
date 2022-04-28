@@ -29,6 +29,8 @@ int bootstrap() {
     CLOISTER->chromatica->initialize(CLOISTER.get());
     CLOISTER->colorPixie = mkup<ColorPixie>();
     CLOISTER->colorPixie->initialize(CLOISTER.get());
+    CLOISTER->signalarium = mkup<Signalarium>();
+    CLOISTER->signalarium->initialize(CLOISTER.get());
 
     // extras
     paradigm->axioms.resize(CONSTANTS->axiomologySize, 0.5);

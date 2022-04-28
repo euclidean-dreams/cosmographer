@@ -13,6 +13,7 @@ public:
     up<class ColorPixie> colorPixie;
     up<class Constants> constants;
     up<class Randomizer> randomizer;
+    up<class Signalarium> signalarium;
 };
 
 }

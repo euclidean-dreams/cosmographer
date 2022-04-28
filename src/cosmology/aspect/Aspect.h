@@ -20,9 +20,7 @@ public:
             Lattice &lattice
     );
 
-    void experienceEssentia(
-            const Essentia *essentia
-    );
+    void experienceEssentia();
 };
 
 }

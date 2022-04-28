@@ -16,9 +16,7 @@ public:
             int lumionCount
     );
 
-    void meld(
-            Signal &signal
-    );
+    void meld();
 };
 
 }

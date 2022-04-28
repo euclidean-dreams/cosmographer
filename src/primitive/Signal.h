@@ -11,6 +11,7 @@ private:
 
 public:
     float energy;
+    int size;
 
     Signal(
             int size

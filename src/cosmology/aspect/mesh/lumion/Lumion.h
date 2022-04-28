@@ -28,9 +28,7 @@ public:
             Point latticePoint
     );
 
-    void excite(
-            Signal &signal
-    );
+    void excite();
 };
 
 }

@@ -23,7 +23,8 @@ OrbRevealery::OrbRevealery(
 
 }
 
-void OrbRevealery::experienceSignal(Signal &signal) {
+void OrbRevealery::experienceSignal() {
+    auto &signal = CLOISTER->signalarium->stft;
     currentInclination += signal.energy - previousEnergy;
     if (currentInclination > 10) {
         currentInclination = 0;

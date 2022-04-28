@@ -7,6 +7,7 @@
 #include "ColorPixie.h"
 #include "Constants.h"
 #include "Randomizer.h"
+#include "Signalarium.h"
 #include "chromatica/palette/Palette.h"
 #include "chromatica/Chromatica.h"
 

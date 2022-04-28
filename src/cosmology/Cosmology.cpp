@@ -17,8 +17,8 @@ void Cosmology::observe() {
     community->vantage->send(*lattice);
 }
 
-void Cosmology::experienceEssentia(const Essentia *essentia) {
-    subCommunity.aspect->experienceEssentia(essentia);
+void Cosmology::experienceEssentia() {
+    subCommunity.aspect->experienceEssentia();
 }
 
 }
