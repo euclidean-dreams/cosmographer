@@ -3,10 +3,9 @@
 
 #include "cosmology/aspect/glimmering/GlimmeringCommunity.h"
 #include "GlimmerSoul.h"
-#include "cosmology/aspect/glimmering/glimmer/lively//Lively.h"
+#include "cosmology/aspect/glimmering/glimmer/lively/Lively.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/Illuminable.h"
 #include "primitive/Lattice.h"
-#include "cosmology/aspect/mesh/lumion/Lumion.h"
 
 namespace cosmographer {
 
@@ -19,9 +18,7 @@ public:
 
     Glimmer(
             GlimmeringCommunity *glimmeringCommunity,
-            Lumion *lumion,
-            HSLColor color,
-            int size
+            up<GlimmerSoul> glimmerSoulWrapper
     );
 
     void live();

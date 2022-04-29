@@ -14,10 +14,11 @@ Rectangle::Rectangle(
 void Rectangle::illuminate(
         Lattice &lattice
 ) {
+    auto width = glimmerSoul->size * baseSize * SIZE_AXIOM;
+    auto height = width * heightRatio;
+
     auto xLocus = glimmerSoul->locus.x;
     auto yLocus = glimmerSoul->locus.y;
-    auto width = glimmerSoul->size;
-    auto height = glimmerSoul->size * heightRatio;
     auto yMin = yLocus - height / 2;
     auto yMax = yLocus + height / 2;
     auto xMin = xLocus - width / 2;

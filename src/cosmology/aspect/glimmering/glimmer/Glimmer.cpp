@@ -4,18 +4,11 @@ namespace cosmographer {
 
 Glimmer::Glimmer(
         GlimmeringCommunity *glimmeringCommunity,
-        Lumion *lumion,
-        HSLColor color,
-        int size
-) {
+        up<GlimmerSoul> glimmerSoulWrapper
+) :
+        glimmerSoul{glimmerSoulWrapper.get()} {
     initialize(glimmeringCommunity);
-    auto glimmerSoulWrapper = mkup<GlimmerSoul>();
-    glimmerSoul = glimmerSoulWrapper.get();
     constituents.push_back(mv(glimmerSoulWrapper));
-    glimmerSoul->lumion = lumion;
-    glimmerSoul->locus = lumion->latticePoint;
-    glimmerSoul->color = color;
-    glimmerSoul->size = size;
 }
 
 void Glimmer::live() {

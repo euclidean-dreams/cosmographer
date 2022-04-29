@@ -8,10 +8,6 @@
 
 namespace cosmographer {
 
-class LumionExcitation {
-public:
-};
-
 class Lumion : public Fellow<MeshCommunity> {
 public:
     AspectCommunity *aspectCommunity;
@@ -19,6 +15,7 @@ public:
     Point latticePoint;
     bool excited;
     float magnitude;
+    float hue;
 
     Lumion(
             AspectCommunity *aspectCommunity,
@@ -27,6 +24,8 @@ public:
     );
 
     void react();
+
+    void center();
 };
 
 }

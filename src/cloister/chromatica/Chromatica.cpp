@@ -2,6 +2,7 @@
 #include "cloister/chromatica/palette/CentrifugalPalette.h"
 #include "cloister/chromatica/palette/BeatPalette.h"
 #include "cloister/chromatica/palette/SingleColorPalette.h"
+#include "cloister/chromatica/palette/ExplorerPalette.h"
 
 namespace cosmographer {
 
@@ -9,7 +10,8 @@ Chromatica::Chromatica(
         CloisterCommunity *community
 ) :
         Liaison<ChromaticaCommunity>(community) {
-    subCommunity.palette = mkup<CentrifugalPalette>(CONSTANTS->movingAverageSize);
+    subCommunity.palette = mkup<ExplorerPalette>();
+//    subCommunity.palette = mkup<CentrifugalPalette>(CONSTANTS->movingAverageSize);
     subCommunity.palette->initialize(&subCommunity);
 
 }

@@ -33,7 +33,7 @@ lumionPlacement: 1
 
 latticeInitialHue: 0
 latticeInitialSaturation: 0
-latticeInitialLightness: 0
+latticeInitialLightness: 100
 
 # mesh
 #lumionCount: 4097

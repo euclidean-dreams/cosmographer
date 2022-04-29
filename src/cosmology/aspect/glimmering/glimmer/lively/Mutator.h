@@ -16,7 +16,7 @@ public:
             glimmerSoul{glimmerSoul} {}
 
     void live() override {
-        float sizeDeviation = 50 * CHAOS_AXIOM * SIZE_AXIOM;
+        float sizeDeviation = 0.5 * CHAOS_AXIOM * SIZE_AXIOM;
         glimmerSoul->size += RANDOM.generate(sizeDeviation * 2) - sizeDeviation;
         float ageDeviation = 5 * CHAOS_AXIOM;
         glimmerSoul->age += RANDOM.generate(ageDeviation * 2) - ageDeviation;

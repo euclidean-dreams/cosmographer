@@ -11,8 +11,9 @@ Lumion::Lumion(
 ) :
         aspectCommunity{aspectCommunity},
         signalIndex{signalIndex},
-        latticePoint{latticePoint} {
-
+        latticePoint{latticePoint},
+        hue{} {
+//    center();
 }
 
 void Lumion::react() {
@@ -29,17 +30,18 @@ void Lumion::react() {
     // just gimmie that friggan value! And cap it!
     magnitude = Tidbit::bind(targetSample, 0.0, 1.0);
 
-    // float around
-    // takes some serious compute
-    auto distance = 10 * magnitude * MOVEMENT_AXIOM;
-    auto direction = CLOISTER->randomizer->generateProportion() * 2 * M_PI;
-    auto potentialNewLatticePoint = CLOISTER->cartographer->shiftPoint(latticePoint, distance, direction);
-    if (CLOISTER->cartographer->isValid(potentialNewLatticePoint)) {
-        latticePoint = potentialNewLatticePoint;
-    }
     if (excited) {
-        if (magnitude < LUMION_EXCITATION_THRESHOLD_AXIOM / 4) {
+        // float around
+        // takes some serious compute
+        auto distance = 10 * magnitude * MOVEMENT_AXIOM;
+        auto direction = CLOISTER->randomizer->generateProportion() * 2 * M_PI;
+        auto potentialNewLatticePoint = CLOISTER->cartographer->shiftPoint(latticePoint, distance, direction);
+        if (CLOISTER->cartographer->isValid(potentialNewLatticePoint)) {
+            latticePoint = potentialNewLatticePoint;
+        }
+        if (magnitude < LUMION_EXCITATION_THRESHOLD_AXIOM / 32) {
             excited = false;
+//            center();
         }
     } else if (magnitude > LUMION_EXCITATION_THRESHOLD_AXIOM) {
         excited = true;
@@ -48,7 +50,17 @@ void Lumion::react() {
 
     if (excited) {
         aspectCommunity->revealeries[paradigm->macroMode]->reveal(this);
+    } else {
+        // -0.5 <-> 0.5
+//        float variance = PALETTE_AXIOM_0 - 0.5;
+//        hue += variance * RANDOM.generate(10);
+
+        hue = CLOISTER->chromatica->getColor().hue;
     }
+}
+
+void Lumion::center() {
+    latticePoint = {cast(float, CONSTANTS->latticeWidth / 2), cast(float, CONSTANTS->latticeHeight / 2)};
 }
 
 }

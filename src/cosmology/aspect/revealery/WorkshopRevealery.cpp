@@ -24,14 +24,15 @@ void WorkshopRevealery::reveal(
         glimmerCount = 1;
     }
     for (int count = 0; count < glimmerCount; count++) {
-        auto color = CLOISTER->chromatica->getColor();
+        auto color = HSLColor{lumion->hue, cast(int, 100), 50};
         color.lightness = 90 - 50 * lumion->magnitude;
-        auto glimmer = mkup<Glimmer>(
-                community->glimmering->fetchSubcommunity(),
+        auto glimmerSoul = mkup<GlimmerSoul>(
                 lumion,
+                lumion->latticePoint,
                 color,
-                calculateBaseSize(lumion->magnitude)
+                lumion->magnitude
         );
+        auto glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));
         glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
 
         glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));

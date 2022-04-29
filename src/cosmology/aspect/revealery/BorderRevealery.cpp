@@ -28,12 +28,13 @@ void BorderRevealery::reveal(
     for (int count = 0; count < glimmerCount; count++) {
         auto color = CLOISTER->chromatica->getColor();
         color.lightness = 90 - 50 * lumion->magnitude;
-        auto glimmer = mkup<Glimmer>(
-                community->glimmering->fetchSubcommunity(),
+        auto glimmerSoul = mkup<GlimmerSoul>(
                 lumion,
+                lumion->latticePoint,
                 color,
-                calculateBaseSize(lumion->magnitude)
+                lumion->magnitude
         );
+        auto glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));
         glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
 
         glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
@@ -44,15 +45,13 @@ void BorderRevealery::reveal(
 
         community->glimmering->addGlimmer(mv(glimmer));
 
-        color = CLOISTER->chromatica->getColor();
-        color.lightness = 100;
-        glimmer = mkup<Glimmer>(
-                community->glimmering->fetchSubcommunity(),
+        glimmerSoul = mkup<GlimmerSoul>(
                 lumion,
-                color,
-                calculateBaseSize(lumion->magnitude) - 2
+                lumion->latticePoint,
+                CONSTANTS->latticeInitialColor,
+                lumion->magnitude
         );
-        glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
+        glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));
 
         glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
 

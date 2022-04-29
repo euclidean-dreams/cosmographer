@@ -48,12 +48,13 @@ void OrbRevealery::reveal(
     for (int count = 0; count < glimmerCount; count++) {
         auto color = CLOISTER->chromatica->getColor();
         color.lightness = 90 - 50 * lumion->magnitude;
-        auto glimmer = mkup<Glimmer>(
-                community->glimmering->fetchSubcommunity(),
+        auto glimmerSoul = mkup<GlimmerSoul>(
                 lumion,
+                lumion->latticePoint,
                 color,
-                calculateBaseSize(lumion->magnitude)
+                lumion->magnitude
         );
+        auto glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));
         glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
 
         auto mode = paradigm->microMode;

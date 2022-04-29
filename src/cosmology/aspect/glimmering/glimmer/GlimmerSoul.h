@@ -4,18 +4,34 @@
 #include "Default.h"
 #include "primitive/Loci.h"
 #include "primitive/color/HSLColor.h"
-#include "cosmology/aspect/mesh/lumion/Lumion.h"
 
 namespace cosmographer {
 
+class Lumion;
+
 class GlimmerSoul : public Element {
 public:
-    Lumion *lumion = nullptr;
-    Point locus = {0, 0};
-    HSLColor color = {0, 0, 0};
-    float size = 0;
-    int age = 0;
-    bool alive = true;
+    Lumion *lumion;
+    Point locus;
+    HSLColor color;
+    float size;
+    int age;
+    bool alive;
+
+    GlimmerSoul(
+            Lumion *lumion,
+            Point locus,
+            HSLColor color,
+            float size
+    ) :
+            lumion{lumion},
+            locus{locus},
+            color{color},
+            size{size},
+            age{0},
+            alive{true} {
+
+    }
 };
 
 }
