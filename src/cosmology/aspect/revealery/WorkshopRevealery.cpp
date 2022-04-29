@@ -24,8 +24,7 @@ void WorkshopRevealery::reveal(
         glimmerCount = 1;
     }
     for (int count = 0; count < glimmerCount; count++) {
-        auto color = HSLColor{lumion->hue, cast(int, 100), 50};
-        color.lightness = 90 - 50 * lumion->magnitude;
+        auto color = lumion->color;
         auto glimmerSoul = mkup<GlimmerSoul>(
                 lumion,
                 lumion->latticePoint,
@@ -37,7 +36,7 @@ void WorkshopRevealery::reveal(
 
         glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
 
-        float inclinationOffset = cast(float, count) / glimmerCount;
+        float inclinationOffset = cast(float, count) / glimmerCount * 2 * M_PI;
         glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, inclinationOffset));
         glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
 

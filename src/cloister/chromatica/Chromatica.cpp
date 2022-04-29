@@ -10,8 +10,7 @@ Chromatica::Chromatica(
         CloisterCommunity *community
 ) :
         Liaison<ChromaticaCommunity>(community) {
-    subCommunity.palette = mkup<ExplorerPalette>();
-//    subCommunity.palette = mkup<CentrifugalPalette>(CONSTANTS->movingAverageSize);
+    subCommunity.palette = mkup<CentrifugalPalette>(CONSTANTS->movingAverageSize);
     subCommunity.palette->initialize(&subCommunity);
 
 }
@@ -21,16 +20,20 @@ HSLColor Chromatica::getColor() {
 }
 
 void Chromatica::experiencePhenomenon(const Phenomenon *phenomenon) {
-    if (phenomenon->identity() == 0) {
+    if (phenomenon->identity() == 3) {
+        subCommunity.palette = mkup<ExplorerPalette>();
+        subCommunity.palette->initialize(&subCommunity);
+    } else if (phenomenon->identity() == 4) {
         subCommunity.palette = mkup<CentrifugalPalette>(CONSTANTS->movingAverageSize);
         subCommunity.palette->initialize(&subCommunity);
-    } else if (phenomenon->identity() == 1) {
-        subCommunity.palette = mkup<BeatPalette>();
-        subCommunity.palette->initialize(&subCommunity);
-    } else if (phenomenon->identity() == 2) {
-        subCommunity.palette = mkup<SingleColorPalette>();
-        subCommunity.palette->initialize(&subCommunity);
     }
+//    else if (phenomenon->identity() == 2) {
+//        subCommunity.palette = mkup<SingleColorPalette>();
+//        subCommunity.palette->initialize(&subCommunity);
+//    } else if (phenomenon->identity() == 3) {
+//        subCommunity.palette = mkup<BeatPalette>();
+//        subCommunity.palette->initialize(&subCommunity);
+//    }
 
 }
 

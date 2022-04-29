@@ -15,7 +15,7 @@ public:
     Point latticePoint;
     bool excited;
     float magnitude;
-    float hue;
+    HSLColor color;
 
     Lumion(
             AspectCommunity *aspectCommunity,

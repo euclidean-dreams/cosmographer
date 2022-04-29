@@ -46,7 +46,7 @@ void OrbRevealery::reveal(
         glimmerCount = 3;
     }
     for (int count = 0; count < glimmerCount; count++) {
-        auto color = CLOISTER->chromatica->getColor();
+        auto color = lumion->color;
         color.lightness = 90 - 50 * lumion->magnitude;
         auto glimmerSoul = mkup<GlimmerSoul>(
                 lumion,
@@ -77,22 +77,23 @@ void OrbRevealery::reveal(
             }
         } else if (mode == 1) {
             glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerSoul));
-        } else if (mode == 2) {
+        } else {
             auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
             auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
             glimmer->addLively(mkup<DragonCurve>(glimmer->glimmerSoul, painterCommunity, orientation));
-        } else if (mode == 3) {
-            auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
-            auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
-            auto spin = 2 * M_PI * CLOISTER->randomizer->generateProportion();
-            glimmer->addLively(mkup<Curve>(glimmer->glimmerSoul, painterCommunity, orientation, spin));
-        } else if (mode == 4) {
-            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 0.2));
-            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 0.4));
-            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 0.8));
         }
+//        else if (mode == 3) {
+//            auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
+//            auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
+//            auto spin = 2 * M_PI * CLOISTER->randomizer->generateProportion();
+//            glimmer->addLively(mkup<Curve>(glimmer->glimmerSoul, painterCommunity, orientation, spin));
+//        } else if (mode == 4) {
+//            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 0.2));
+//            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 0.4));
+//            glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 0.8));
+//        }
 
-        float inclinationOffset = cast(float, count) / glimmerCount + currentInclination;
+        float inclinationOffset = cast(float, count) / glimmerCount * 2 * M_PI;
         glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
         glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, inclinationOffset));
 

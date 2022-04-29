@@ -12,8 +12,8 @@ Lumion::Lumion(
         aspectCommunity{aspectCommunity},
         signalIndex{signalIndex},
         latticePoint{latticePoint},
-        hue{} {
-//    center();
+        color{0, 0, 0} {
+    color = CLOISTER->chromatica->getColor();
 }
 
 void Lumion::react() {
@@ -29,11 +29,12 @@ void Lumion::react() {
 
     // just gimmie that friggan value! And cap it!
     magnitude = Tidbit::bind(targetSample, 0.0, 1.0);
+    color.lightness = 90 - 50 * magnitude;
 
     if (excited) {
         // float around
         // takes some serious compute
-        auto distance = 10 * magnitude * MOVEMENT_AXIOM;
+        auto distance = 3 * magnitude * MOVEMENT_AXIOM;
         auto direction = CLOISTER->randomizer->generateProportion() * 2 * M_PI;
         auto potentialNewLatticePoint = CLOISTER->cartographer->shiftPoint(latticePoint, distance, direction);
         if (CLOISTER->cartographer->isValid(potentialNewLatticePoint)) {
@@ -41,7 +42,9 @@ void Lumion::react() {
         }
         if (magnitude < LUMION_EXCITATION_THRESHOLD_AXIOM / 32) {
             excited = false;
-//            center();
+//            if (paradigm->macroMode == 3 || paradigm->macroMode == 4) {
+//                center();
+//            }
         }
     } else if (magnitude > LUMION_EXCITATION_THRESHOLD_AXIOM) {
         excited = true;
@@ -55,7 +58,7 @@ void Lumion::react() {
 //        float variance = PALETTE_AXIOM_0 - 0.5;
 //        hue += variance * RANDOM.generate(10);
 
-        hue = CLOISTER->chromatica->getColor().hue;
+        color = CLOISTER->chromatica->getColor();
     }
 }
 
