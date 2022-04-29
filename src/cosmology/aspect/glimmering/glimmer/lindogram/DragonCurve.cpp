@@ -1,6 +1,7 @@
 #include "DragonCurve.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/painter/Painter.h"
 #include "DragonCurveSystem.h"
+#include "cosmology/aspect/mesh/lumion/Lumion.h"
 
 namespace cosmographer {
 
@@ -18,19 +19,20 @@ DragonCurve::DragonCurve(
 void DragonCurve::live() {
     if (glimmerSoul->age == 0) {
         painterCommunity->painter->rotate(initialOrientation);
-    }
-    auto endRuneIndex = glimmerSoul->size * glimmerSoul->age + 10;
-    for (int runeIndex = lastRuneIndex; runeIndex < endRuneIndex && runeIndex < dragonCurveRunes.size(); runeIndex++) {
-        auto rune = dragonCurveRunes[runeIndex];
-        if (rune == DragonCurveRunology::advance) {
-            painterCommunity->painter->advance(1, glimmerSoul->color);
-        } else if (rune == DragonCurveRunology::rotateLeftQuarter) {
-            painterCommunity->painter->rotate(M_PI / 2);
-        } else if (rune == DragonCurveRunology::rotateRightQuarter) {
-            painterCommunity->painter->rotate(-M_PI / 2);
+        auto endRuneIndex = glimmerSoul->size * 100;
+        for (int runeIndex = lastRuneIndex;
+             runeIndex < endRuneIndex && runeIndex < dragonCurveRunes.size(); runeIndex++) {
+            auto rune = dragonCurveRunes[runeIndex];
+            if (rune == DragonCurveRunology::advance) {
+                painterCommunity->painter->advance(1, glimmerSoul->color);
+            } else if (rune == DragonCurveRunology::rotateLeftQuarter) {
+                painterCommunity->painter->rotate(M_PI / 2);
+            } else if (rune == DragonCurveRunology::rotateRightQuarter) {
+                painterCommunity->painter->rotate(-M_PI / 2);
+            }
         }
+        lastRuneIndex = endRuneIndex;
     }
-    lastRuneIndex = endRuneIndex;
 }
 
 }

@@ -14,6 +14,8 @@ public:
     vec<float> axioms;
     int microMode;
     int macroMode;
+    bool palettePickerMode;
+    bool centerMode;
 };
 
 extern up<Paradigm> paradigmWrapper;

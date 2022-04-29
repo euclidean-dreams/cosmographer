@@ -64,10 +64,20 @@ void Cosmographer::activate() {
         auto phenomenon = Unwrap::Phenomenon(*phenomenonParcel);
         auto button = phenomenon->identity();
         if (button < 5) {
-            CLOISTER->chromatica->experiencePhenomenon(phenomenon);
-            paradigm->microMode = phenomenon->identity();
-        } else if (button < 10) {
+            if (paradigm->palettePickerMode) {
+                CLOISTER->chromatica->experiencePhenomenon(phenomenon);
+            } else {
+                paradigm->microMode = phenomenon->identity();
+            }
+        }
+        if (button >= 5 && button < 8) {
             paradigm->macroMode = phenomenon->identity() - 5;
+        }
+        if (button == 8) {
+            paradigm->centerMode = !paradigm->centerMode;
+        }
+        if (button == 9) {
+            paradigm->palettePickerMode = !paradigm->palettePickerMode;
         }
     }
 

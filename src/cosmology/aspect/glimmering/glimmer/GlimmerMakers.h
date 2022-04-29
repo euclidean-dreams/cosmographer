@@ -8,7 +8,10 @@ namespace cosmographer {
 
 class GlimmerMakers {
 public:
-    static PainterCommunity *createPainterCommunity(Glimmer *glimmer);
+    static PainterCommunity *createPainterCommunity(
+            Glimmer *glimmer,
+            bool singleColorCanvas = true
+    );
 };
 
 }

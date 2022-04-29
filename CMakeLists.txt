@@ -143,16 +143,16 @@ set(
         src/cosmology/aspect/glimmering/glimmer/lindogram/DragonCurveSystem.h
         src/primitive/Signal.cpp src/primitive/Signal.h
         src/oddments/Antechamber.cpp src/oddments/Antechamber.h
-        src/cosmology/aspect/glimmering/glimmer/lindogram/Curve.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Curve.h
+        src/cosmology/aspect/glimmering/glimmer/lindogram/Wander.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Wander.h
         src/cosmology/aspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h
-        src/cosmology/aspect/revealery/OrbRevealery.cpp src/cosmology/aspect/revealery/OrbRevealery.h
+        src/cosmology/aspect/revealery/VariationRevealery.cpp src/cosmology/aspect/revealery/VariationRevealery.h
         src/cosmology/aspect/glimmering/glimmer/GlimmerMakers.cpp src/cosmology/aspect/glimmering/glimmer/GlimmerMakers.h
         src/cosmology/aspect/glimmering/glimmer/lively/Lifespan.h
         src/framework/Element.h
         src/cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.h
         src/cosmology/aspect/revealery/SpectrumRevealery.cpp src/cosmology/aspect/revealery/SpectrumRevealery.h
         src/cosmology/aspect/glimmering/glimmer/lively/Mutator.h
-        src/oddments/Tidbit.cpp src/oddments/Tidbit.h src/cosmology/aspect/glimmering/glimmer/lively/LumionMimic.h src/cosmology/aspect/revealery/BorderRevealery.cpp src/cosmology/aspect/revealery/BorderRevealery.h src/cloister/Pole.cpp src/cloister/Pole.h src/cloister/LumionBookie.cpp src/cloister/LumionBookie.h src/cloister/chromatica/palette/ExplorerPalette.cpp src/cloister/chromatica/palette/ExplorerPalette.h)
+        src/oddments/Tidbit.cpp src/oddments/Tidbit.h src/cosmology/aspect/glimmering/glimmer/lively/LumionMimic.h src/cosmology/aspect/revealery/BorderRevealery.cpp src/cosmology/aspect/revealery/BorderRevealery.h src/cloister/Pole.cpp src/cloister/Pole.h src/cloister/LumionBookie.cpp src/cloister/LumionBookie.h src/cloister/chromatica/palette/ExplorerPalette.cpp src/cloister/chromatica/palette/ExplorerPalette.h src/cloister/chromatica/palette/RandomPalette.cpp src/cloister/chromatica/palette/RandomPalette.h src/cosmology/aspect/glimmering/glimmer/lindogram/Ring.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Ring.h src/cosmology/aspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

@@ -6,7 +6,7 @@
 #include "cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h"
 #include "cosmology/aspect/glimmering/glimmer/lindogram/DragonCurve.h"
-#include "cosmology/aspect/glimmering/glimmer/lindogram/Curve.h"
+#include "cosmology/aspect/glimmering/glimmer/lindogram/Wander.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Drift.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Lifespan.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Fade.h"

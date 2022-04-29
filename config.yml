@@ -4,8 +4,8 @@ illuminatorThreadCount: 8
 maxGlimmers: 10000
 
 # sockets
-#palantirEndpoint: tcp://0.0.0.0:44447
-palantirEndpoint: ipc:///tmp/cosmographer
+palantirEndpoint: tcp://0.0.0.0:44447i
+#palantirEndpoint: ipc:///tmp/cosmographer
 essentiaEndpoint: ipc:///tmp/analogorium
 #essentiaEndpoint: tcp://vinculus_chateau-rose:44447
 #essentiaEndpoint: tcp://10.0.0.187:44447
@@ -17,14 +17,14 @@ volitiaEndpoint: tcp://10.0.0.85:44440
 ###########
 
 # fullscreen
-latticeWidth: 192
-latticeHeight: 108
-lumionPlacement: 1
+#latticeWidth: 192
+#latticeHeight: 108
+#lumionPlacement: 1
 
-# cube
-#latticeWidth: 200
-#latticeHeight: 200
-#lumionPlacement: 3
+# square
+latticeWidth: 200
+latticeHeight: 200
+lumionPlacement: 3
 
 # keyhole
 #latticeWidth: 20

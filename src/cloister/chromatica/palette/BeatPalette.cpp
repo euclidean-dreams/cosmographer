@@ -10,7 +10,7 @@ BeatPalette::BeatPalette() :
 }
 
 HSLColor BeatPalette::getColor() {
-    return {hue, 100, 50};
+    return jitter({hue, 100, 70});
 }
 
 void BeatPalette::experienceEssentia() {
