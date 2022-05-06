@@ -16,7 +16,6 @@ void Orchestrator::orchestrate(
     // lifespan
     auto iterator = community->glimmers.begin();
     while (iterator != community->glimmers.end()) {
-        (*iterator)->live();
         if ((*iterator)->shouldTerminate()) {
             iterator = community->glimmers.erase(iterator);
         } else {

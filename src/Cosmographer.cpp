@@ -54,6 +54,10 @@ Cosmographer::Cosmographer(
 void Cosmographer::activate() {
     // wait for a new essentia
     auto essentiaParcelBundle = receiveEssentiaParcelBundle();
+    if(!receivedFirstEssentia) {
+        LOGGER->info("received first essentia!");
+        receivedFirstEssentia = true;
+    }
 
     // refresh the paradigm
     CLOISTER->axiomRefresher->refresh();
@@ -61,6 +65,10 @@ void Cosmographer::activate() {
     // handle new phenomena
     auto newPhenomenonParcels = subCommunity.phenomenology->take();
     for (auto &phenomenonParcel: *newPhenomenonParcels) {
+        if(!receivedFirstPhenomenon) {
+            LOGGER->info("received first phenomenon!");
+            receivedFirstPhenomenon = true;
+        }
         auto phenomenon = Unwrap::Phenomenon(*phenomenonParcel);
         auto button = phenomenon->identity();
         if (button < 5) {

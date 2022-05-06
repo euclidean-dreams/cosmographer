@@ -18,13 +18,13 @@ HSLColor ExplorerPalette::getColor() {
 
 void ExplorerPalette::experienceEssentia() {
     float variance = PALETTE_AXIOM_0;
-    hue += variance * RANDOM.generate(2);
+    hue += variance * CLOISTER->randomizer->generate(2);
 
 //    saturation = LIGHTNESS_AXIOM - 0.5;
-//    saturation = Tidbit::bind(cast(float, saturation + saturation * RANDOM.generate(2)), 80.0f, 100.0f);
+//    saturation = Tidbit::bind(cast(float, saturation + saturation * CLOISTER->randomizer->generate(2)), 80.0f, 100.0f);
 //
 //    lightness = LIGHTNESS_AXIOM - 0.5;
-//    lightness = Tidbit::bind(cast(float, lightness + lightness * RANDOM.generate(3)), 70.0f, 100.0f);
+//    lightness = Tidbit::bind(cast(float, lightness + lightness * CLOISTER->randomizer->generate(3)), 70.0f, 100.0f);
 }
 
 }

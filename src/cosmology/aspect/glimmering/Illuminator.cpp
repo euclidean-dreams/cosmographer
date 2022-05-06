@@ -12,6 +12,7 @@ Illuminator::Illuminator(
 void Illuminator::activate() {
     community->kickoffAntechamber->lounge();
     for (auto glimmer: community->illuminatorTasking[identifier]) {
+        glimmer->live();
         glimmer->illuminate(*community->illuminatorLattices[identifier]);
     }
     community->completionAntechamber->lounge();

@@ -17,17 +17,17 @@ public:
 
     void live() override {
         float sizeDeviation = 0.5 * CHAOS_AXIOM * SIZE_AXIOM;
-        glimmerSoul->size += RANDOM.generate(sizeDeviation * 2) - sizeDeviation;
+        glimmerSoul->size += CLOISTER->randomizer->generate(sizeDeviation * 2) - sizeDeviation;
         float ageDeviation = 5 * CHAOS_AXIOM;
-        glimmerSoul->age += RANDOM.generate(ageDeviation * 2) - ageDeviation;
+        glimmerSoul->age += CLOISTER->randomizer->generate(ageDeviation * 2) - ageDeviation;
         float locusDeviation = 0.5 * CHAOS_AXIOM;
-        glimmerSoul->locus.x += RANDOM.generate(locusDeviation * 2) - locusDeviation;
-        glimmerSoul->locus.y += RANDOM.generate(locusDeviation * 2) - locusDeviation;
+        glimmerSoul->locus.x += CLOISTER->randomizer->generate(locusDeviation * 2) - locusDeviation;
+        glimmerSoul->locus.y += CLOISTER->randomizer->generate(locusDeviation * 2) - locusDeviation;
         float colorDeviation = 25 * HUE_JITTER_AXIOM;
         glimmerSoul->color = {
-                glimmerSoul->color.hue + RANDOM.generate(colorDeviation * 2) - colorDeviation,
-                cast(int, glimmerSoul->color.saturation + RANDOM.generate(colorDeviation * 2) - colorDeviation),
-                cast(int, glimmerSoul->color.lightness + RANDOM.generate(colorDeviation * 2) - colorDeviation)
+                glimmerSoul->color.hue + CLOISTER->randomizer->generate(colorDeviation * 2) - colorDeviation,
+                cast(int, glimmerSoul->color.saturation + CLOISTER->randomizer->generate(colorDeviation * 2) - colorDeviation),
+                cast(int, glimmerSoul->color.lightness + CLOISTER->randomizer->generate(colorDeviation * 2) - colorDeviation)
         };
 //        glimmerSoul->size += RANDOM.generate(max) - max / 2;
     }

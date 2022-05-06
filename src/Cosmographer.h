@@ -9,6 +9,8 @@ namespace cosmographer {
 class Cosmographer : public Liaison<CosmographerCommunity>, public Circulable {
 private:
     vec<up<Parcel>> receiveEssentiaParcelBundle();
+    bool receivedFirstEssentia = false;
+    bool receivedFirstPhenomenon = false;
 
 public:
     Cosmographer(
