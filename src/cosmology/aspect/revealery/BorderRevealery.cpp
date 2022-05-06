@@ -8,7 +8,7 @@
 #include "cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h"
 #include "cosmology/aspect/glimmering/glimmer/lindogram/DragonCurve.h"
-#include "cosmology/aspect/glimmering/glimmer/lindogram/Curve.h"
+#include "cosmology/aspect/glimmering/glimmer/lindogram/Wander.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Drift.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Lifespan.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Fade.h"
@@ -27,10 +27,10 @@ void BorderRevealery::reveal(
     }
     for (int count = 0; count < glimmerCount; count++) {
         auto color = lumion->color;
-        color.lightness = 90 - 50 * lumion->magnitude;
+        color.lightness = 100 - 50 * lumion->magnitude;
         auto glimmerSoul = mkup<GlimmerSoul>(
                 lumion,
-                lumion->latticePoint,
+                Point{lumion->latticePoint.x, lumion->latticePoint.y},
                 color,
                 lumion->magnitude
         );
@@ -47,8 +47,8 @@ void BorderRevealery::reveal(
 
         glimmerSoul = mkup<GlimmerSoul>(
                 lumion,
-                lumion->latticePoint,
-                CONSTANTS->latticeInitialColor,
+                Point{lumion->latticePoint.x, lumion->latticePoint.y},
+                HSLColor{color.hue, 100, 100},
                 lumion->magnitude
         );
         glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));

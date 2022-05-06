@@ -11,7 +11,7 @@ CentrifugalPalette::CentrifugalPalette(
 }
 
 HSLColor CentrifugalPalette::getColor() {
-    return {hue, 100, 80};
+    return jitter({hue, 100, 70});
 }
 
 void CentrifugalPalette::experienceEssentia() {

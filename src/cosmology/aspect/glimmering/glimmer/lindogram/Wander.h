@@ -1,5 +1,5 @@
-#ifndef COSMOGRAPHER_CURVE_H
-#define COSMOGRAPHER_CURVE_H
+#ifndef COSMOGRAPHER_WANDER_H
+#define COSMOGRAPHER_WANDER_H
 
 #include "Default.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h"
@@ -8,18 +8,14 @@
 
 namespace cosmographer {
 
-class Curve : public Lively {
+class Wander : public Lively {
 public:
     GlimmerSoul *glimmerSoul;
     PainterCommunity *painterCommunity;
-    float initialOrientation;
-    float spin;
 
-    Curve(
+    Wander(
             GlimmerSoul *glimmerSoul,
-            PainterCommunity *painterCommunity,
-            float initialOrientation,
-            float spin
+            PainterCommunity *painterCommunity
     );
 
     void live() override;
@@ -27,4 +23,4 @@ public:
 
 }
 
-#endif //COSMOGRAPHER_CURVE_H
+#endif //COSMOGRAPHER_WANDER_H

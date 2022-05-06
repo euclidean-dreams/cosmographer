@@ -33,7 +33,7 @@ public:
 
     // ephemera
     int maxLifespan = 300;
-    int maxGlimmerSpawnCount = 15;
+    int maxGlimmerSpawnCount = 8;
 
     // illuminable
     float parametroTimelingIncrement = 0.05;

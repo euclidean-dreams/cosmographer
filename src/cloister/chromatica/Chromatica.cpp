@@ -3,6 +3,7 @@
 #include "cloister/chromatica/palette/BeatPalette.h"
 #include "cloister/chromatica/palette/SingleColorPalette.h"
 #include "cloister/chromatica/palette/ExplorerPalette.h"
+#include "cloister/chromatica/palette/RandomPalette.h"
 
 namespace cosmographer {
 
@@ -20,20 +21,22 @@ HSLColor Chromatica::getColor() {
 }
 
 void Chromatica::experiencePhenomenon(const Phenomenon *phenomenon) {
-    if (phenomenon->identity() == 3) {
+    if (phenomenon->identity() == 0) {
         subCommunity.palette = mkup<ExplorerPalette>();
         subCommunity.palette->initialize(&subCommunity);
-    } else if (phenomenon->identity() == 4) {
+    } else if (phenomenon->identity() == 1) {
         subCommunity.palette = mkup<CentrifugalPalette>(CONSTANTS->movingAverageSize);
         subCommunity.palette->initialize(&subCommunity);
+    } else if (phenomenon->identity() == 2) {
+        subCommunity.palette = mkup<BeatPalette>();
+        subCommunity.palette->initialize(&subCommunity);
+    } else if (phenomenon->identity() == 3) {
+        subCommunity.palette = mkup<RandomPalette>();
+        subCommunity.palette->initialize(&subCommunity);
+    } else if (phenomenon->identity() == 4) {
+        subCommunity.palette = mkup<SingleColorPalette>();
+        subCommunity.palette->initialize(&subCommunity);
     }
-//    else if (phenomenon->identity() == 2) {
-//        subCommunity.palette = mkup<SingleColorPalette>();
-//        subCommunity.palette->initialize(&subCommunity);
-//    } else if (phenomenon->identity() == 3) {
-//        subCommunity.palette = mkup<BeatPalette>();
-//        subCommunity.palette->initialize(&subCommunity);
-//    }
 
 }
 

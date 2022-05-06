@@ -2,6 +2,26 @@
 <project version="4">
   <component name="PublishConfigData" serverName="pi-cosmographer" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
+      <paths name="clotho-spring (368ef7e7-b87d-44c8-aeb5-fc000a79dddd)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.FQq4jwDyEf" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-local" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-clotho-spring" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-clotho-spring" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-ambrose" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-keyhole_2" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-local" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-keyhole_0" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-gubbin" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-keyhole_1" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
       <paths name="keyhole_0 (708822c4-643e-4a0d-b9b4-a841982e6acc)">
         <serverdata>
           <mappings>

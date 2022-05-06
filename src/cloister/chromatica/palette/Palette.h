@@ -13,6 +13,15 @@ public:
     virtual HSLColor getColor() = 0;
 
     virtual void experienceEssentia() {};
+
+    HSLColor jitter(HSLColor color) {
+        float colorDeviation = 15 * HUE_JITTER_AXIOM;
+        return {
+                color.hue + RANDOM.generate(colorDeviation * 2) - colorDeviation,
+                cast(int, color.saturation + RANDOM.generate(colorDeviation * 2) - colorDeviation),
+                cast(int, color.lightness + RANDOM.generate(colorDeviation * 2) - colorDeviation)
+        };
+    }
 };
 
 }

@@ -8,7 +8,7 @@ namespace cosmographer {
 class SingleColorPalette : public Palette {
 public:
     HSLColor getColor() override {
-        return {cast(int, PALETTE_AXIOM_0 * HSL_HUE_MAX), 100, 50};
+        return jitter({cast(int, PALETTE_AXIOM_0 * HSL_HUE_MAX), 100, 50});
     }
 };
 
