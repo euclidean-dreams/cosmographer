@@ -18,7 +18,7 @@ Lumion::Lumion(
 
 void Lumion::react() {
     // calculate excitation
-    auto &signal = CLOISTER->signalarium->equalized;
+    auto &signal = CLOISTER->signalarium->stft;
     auto targetSample = signal.getSample(signalIndex);
 
     // proportion of signal

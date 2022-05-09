@@ -8,8 +8,7 @@ Signalarium::Signalarium(
 ) :
         essentiaParcel{},
         essentia{},
-        stft{0},
-        equalized{0} {
+        stft{0} {
 
 }
 
@@ -22,11 +21,6 @@ void Signalarium::refresh(
     stft = {cast(int, samples->size())};
     for (auto sample: *samples) {
         stft.addSample(sample);
-    }
-    samples = essentia->equalized();
-    equalized = {cast(int, samples->size())};
-    for (auto sample: *samples) {
-        equalized.addSample(sample);
     }
 }
 
