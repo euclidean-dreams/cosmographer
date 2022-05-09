@@ -10,15 +10,16 @@ Mesh::Mesh(
 
     // glimmer_placement in desmos
     auto latticeSize = CONSTANTS->latticeHeight * CONSTANTS->latticeWidth;
-    auto L = latticeSize;
-    auto G = lumionCount;
-    auto a = CONSTANTS->lumionPlacement * lumionCount;
-    auto b = G / (std::exp(L / a) - 1);
+//    auto L = latticeSize;
+//    auto G = lumionCount;
+//    auto a = CONSTANTS->lumionPlacement * lumionCount;
+//    auto b = G / (std::exp(L / a) - 1);
 
     for (int lumionIndex = 0; lumionIndex < lumionCount; lumionIndex++) {
         auto x = lumionIndex;
-        auto latticeIndex = a * std::log(1 + x / b);
-        auto latticePoint = CLOISTER->cartographer->verticalWrap(latticeIndex);
+//        auto latticeIndex = a * std::log(1 + x / b);
+//        auto latticePoint = CLOISTER->cartographer->verticalWrap(latticeIndex);
+        auto latticePoint = Point{cast(float, CONSTANTS->latticeWidth / 2), cast(float, CONSTANTS->latticeHeight / 2)};
         auto lumion = mkup<Lumion>(community, lumionIndex, latticePoint);
         lumion->initialize(&subCommunity);
         subCommunity.lumions.push_back(mv(lumion));

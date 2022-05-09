@@ -11,6 +11,7 @@ class Lattice : public NonCopyable {
 private:
     // much slower with an unordered map
     vec<vec<HSLColor>> data;
+//    umap<Coordinate, HSLColor, CoordinateHash> dots;
 
 public:
     int width;

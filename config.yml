@@ -1,35 +1,39 @@
 # general
 axiomologySize: 10
-illuminatorThreadCount: 8
-maxGlimmers: 10000
+illuminatorThreadCount: 16
+maxGlimmers: 100000
 
 # sockets
-palantirEndpoint: tcp://0.0.0.0:44447i
 #palantirEndpoint: ipc:///tmp/cosmographer
-essentiaEndpoint: ipc:///tmp/analogorium
-#essentiaEndpoint: tcp://vinculus_chateau-rose:44447
-#essentiaEndpoint: tcp://10.0.0.187:44447
+palantirEndpoint: tcp://0.0.0.0:44442
+
+#essentiaEndpoint: ipc:///tmp/analogorium
+essentiaEndpoint: tcp://pearl:44441
+
 volitiaEndpoint: tcp://10.0.0.85:44440
 #volitiaEndpoint: tcp://192.168.22.161:44440
 
-###########@reboot cd /root/cosmographer && ./cmake-build-release-keyhole_1/cosmographer
+###########
 # lattice #
 ###########
 
 # fullscreen
-#latticeWidth: 192
-#latticeHeight: 108
-#lumionPlacement: 1
+latticeWidth: 192
+latticeHeight: 108
+#latticeWidth: 384
+#latticeHeight: 216
+#latticeWidth: 1920
+#latticeHeight: 1080
+#latticeWidth: 960
+#latticeHeight: 540
 
 # square
-latticeWidth: 200
-latticeHeight: 200
-lumionPlacement: 3
+#latticeWidth: 200
+#latticeHeight: 200
 
 # keyhole
 #latticeWidth: 20
 #latticeHeight: 74
-#lumionPlacement: 0.05
 
 latticeInitialHue: 0
 latticeInitialSaturation: 0
@@ -38,3 +42,6 @@ latticeInitialLightness: 0
 # mesh
 #lumionCount: 4097
 lumionCount: 2048
+
+# deprecated
+lumionPlacement: 1
