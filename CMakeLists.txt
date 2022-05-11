@@ -12,11 +12,6 @@ add_compile_options(-Wno-dev)
 add_compile_definitions(VANTAGE=${VANTAGE})
 
 include(lib/cmake-utils/dependency-integrator.cmake)
-integrate_cmake_dependency(
-        NAME cppzmq
-        GIT_URL git@github.com:zeromq/cppzmq.git
-        GIT_TAG dd663fafd830466d34cba278c2cfd0f92eb67614
-)
 
 integrate_cmake_dependency(
         NAME impresario-utils
