@@ -1,6 +1,8 @@
 #ifndef COSMOGRAPHER_TIDBIT_H
 #define COSMOGRAPHER_TIDBIT_H
 
+#define bnd Tidbit::bind
+
 namespace cosmographer {
 
 class Tidbit {

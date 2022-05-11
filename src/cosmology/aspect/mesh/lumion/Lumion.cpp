@@ -43,16 +43,15 @@ void Lumion::react() {
             excited = false;
         }
     } else if (magnitude > LUMION_EXCITATION_THRESHOLD_AXIOM) {
+        // the flip
         excited = true;
         CLOISTER->lumionBookie->recordActivation(magnitude);
     }
 
     if (excited) {
+        // make some glimmers
         aspectCommunity->revealeries[paradigm->macroMode]->reveal(this);
     } else {
-        // -0.5 <-> 0.5
-//        float variance = PALETTE_AXIOM_0 - 0.5;
-//        hue += variance * CLOISTER->randomizer->generate(10);
         color = CLOISTER->chromatica->getColor();
         if (paradigm->centerMode) {
             center();
