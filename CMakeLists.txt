@@ -4,6 +4,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_compile_options(-Wno-dev)
+option(EUCLID "build euclid" OFF)
 
 # possible vantage types:
 # palantir
