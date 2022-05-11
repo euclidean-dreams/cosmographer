@@ -162,6 +162,9 @@ set(
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 
+list(APPEND TARGETS libcosmographer)
+add_library(libcosmographer ${SOURCE_FILES})
+
 # finalize
 foreach (target IN LISTS TARGETS)
     target_include_directories(${target} PRIVATE src)
