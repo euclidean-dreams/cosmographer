@@ -13,11 +13,13 @@ add_compile_definitions(VANTAGE=${VANTAGE})
 
 include(lib/cmake-utils/dependency-integrator.cmake)
 
-integrate_cmake_dependency(
-        NAME impresario-utils
-        GIT_URL git@github.com:impresario-systems/impresario-utils.git
-        GIT_TAG origin/dev
-)
+if (NOT EUCLID)
+    integrate_cmake_dependency(
+            NAME impresario-utils
+            GIT_URL git@github.com:impresario-systems/impresario-utils.git
+            GIT_TAG origin/dev
+    )
+endif ()
 
 if (${VANTAGE} STREQUAL palantir)
     # no extra config necessary
