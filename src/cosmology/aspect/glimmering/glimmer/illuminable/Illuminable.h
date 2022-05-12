@@ -9,7 +9,7 @@ namespace cosmographer {
 // nothing in subclasses should call out - these are multithreaded
 class Illuminable : public Element {
 protected:
-    int baseSize = (CONSTANTS->latticeWidth * CONSTANTS->latticeHeight) / 1000;
+    int baseSize = (CONSTANTS->percipiaWidth * CONSTANTS->percipiaHeight) / 1000;
 public:
     virtual ~Illuminable() = default;
 

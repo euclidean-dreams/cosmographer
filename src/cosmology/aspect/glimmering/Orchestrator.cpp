@@ -26,8 +26,8 @@ void Orchestrator::orchestrate(
     // lattices
     for (int count = 0; count < illuminatorCount; count++) {
         community->illuminatorLattices[count] = mkup<Lattice>(
-                CONSTANTS->latticeWidth,
-                CONSTANTS->latticeHeight,
+                CONSTANTS->percipiaWidth,
+                CONSTANTS->percipiaHeight,
                 CONSTANTS->latticeInitialColor
         );
     }

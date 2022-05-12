@@ -36,7 +36,16 @@ int bootstrap(std::string configFilePath) {
     CLOISTER->lumionBookie->initialize(CLOISTER.get());
 
     // extras
-    paradigm->axioms.resize(CONSTANTS->axiomologySize, 0.5);
+    paradigm->axioms.push_back(0.3);
+    paradigm->axioms.push_back(0.1);
+    paradigm->axioms.push_back(0.5);
+    paradigm->axioms.push_back(0.4);
+    paradigm->axioms.push_back(0.3);
+    paradigm->axioms.push_back(0.7);
+    paradigm->axioms.push_back(0.2);
+    paradigm->axioms.push_back(0.2);
+    paradigm->axioms.push_back(0.5);
+    paradigm->axioms.push_back(0.5);
     paradigm->microMode = 0;
     paradigm->macroMode = 0;
     paradigm->palettePickerMode = false;

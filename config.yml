@@ -1,7 +1,6 @@
 # general
 axiomologySize: 10
 maxGlimmers: 100000
-illuminatorThreadCount: 8
 lumionCount: 2048
 
 # endpoints
@@ -10,8 +9,8 @@ essentiaEndpoint: ipc:///tmp/analogorium
 volitiaEndpoint: tcp://volitia:44440
 
 # fullscreen
-latticeWidth: 192
-latticeHeight: 108
+percipiaWidth: 192
+percipiaHeight: 108
 latticeInitialHue: 0
 latticeInitialSaturation: 0
 latticeInitialLightness: 0

@@ -60,7 +60,7 @@ void Lumion::react() {
 }
 
 void Lumion::center() {
-    latticePoint = {cast(float, CONSTANTS->latticeWidth / 2), cast(float, CONSTANTS->latticeHeight / 2)};
+    latticePoint = {cast(float, CONSTANTS->percipiaWidth / 2), cast(float, CONSTANTS->percipiaHeight / 2)};
 }
 
 }

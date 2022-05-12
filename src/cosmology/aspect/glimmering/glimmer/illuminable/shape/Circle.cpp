@@ -22,12 +22,12 @@ void Circle::illuminate(
         minY = 0;
     }
     auto maxX = locus.x + radius;
-    if (maxX >= CONSTANTS->latticeWidth) {
-        maxX = CONSTANTS->latticeWidth - 1;
+    if (maxX >= CONSTANTS->percipiaWidth) {
+        maxX = CONSTANTS->percipiaWidth - 1;
     }
     auto maxY = locus.y + radius;
-    if (maxY >= CONSTANTS->latticeHeight) {
-        maxY = CONSTANTS->latticeHeight - 1;
+    if (maxY >= CONSTANTS->percipiaHeight) {
+        maxY = CONSTANTS->percipiaHeight - 1;
     }
     for (int y = minY; y <= maxY; y++) {
         for (int x = minX; x <= maxX; x++) {

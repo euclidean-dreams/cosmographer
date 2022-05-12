@@ -11,7 +11,7 @@ public:
     // general
     uint axiomologySize = Config::getInstance().getUint("axiomologySize");
     int maxGlimmers = Config::getInstance().getInt("maxGlimmers");
-    int illuminatorThreadCount = Config::getInstance().getInt("illuminatorThreadCount");
+    int illuminatorThreadCount = std::thread::hardware_concurrency();
     uint lumionCount = Config::getInstance().getUint("lumionCount");
 
     // endpoints
@@ -20,8 +20,8 @@ public:
     std::string volitiaEndpoint = Config::getInstance().getString("volitiaEndpoint");
 
     // lattice
-    uint latticeWidth = Config::getInstance().getUint("latticeWidth");
-    uint latticeHeight = Config::getInstance().getUint("latticeHeight");
+    uint percipiaWidth = Config::getInstance().getUint("percipiaWidth");
+    uint percipiaHeight = Config::getInstance().getUint("percipiaHeight");
     HSLColor latticeInitialColor = HSLColor{
             Config::getInstance().getInt("latticeInitialHue"),
             Config::getInstance().getInt("latticeInitialSaturation"),
