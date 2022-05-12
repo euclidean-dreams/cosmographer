@@ -2,14 +2,14 @@
 #define COSMOGRAPHER_CENTRIFUGALPALETTE_H
 
 #include "Palette.h"
-#include "oddments/SimpleMovingAverage.h"
+#include "oddments/SignalAverage.h"
 
 namespace cosmographer {
 
 class CentrifugalPalette : public Palette {
 private:
     float hue;
-    SimpleMovingAverage simpleMovingAverage;
+    SignalAverage simpleMovingAverage;
 
 public:
     CentrifugalPalette(

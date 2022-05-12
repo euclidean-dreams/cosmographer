@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_SPECTRUMREVEALERY_H
 
 #include "Revealery.h"
-#include "oddments/SimpleMovingAverage.h"
+#include "oddments/SignalAverage.h"
 
 namespace cosmographer {
 

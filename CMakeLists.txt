@@ -46,7 +46,7 @@ set(
         src/primitive/color/RGBColor.h
 
         # oddments
-        src/oddments/SimpleMovingAverage.cpp src/oddments/SimpleMovingAverage.h
+        src/oddments/SignalAverage.cpp src/oddments/SignalAverage.h
 
 
         # framework
@@ -146,7 +146,6 @@ set(
         src/oddments/Antechamber.cpp src/oddments/Antechamber.h
         src/cosmology/aspect/glimmering/glimmer/lindogram/Wander.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Wander.h
         src/cosmology/aspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h
-        src/cosmology/aspect/revealery/VariationRevealery.cpp src/cosmology/aspect/revealery/VariationRevealery.h
         src/cosmology/aspect/glimmering/glimmer/GlimmerMakers.cpp src/cosmology/aspect/glimmering/glimmer/GlimmerMakers.h
         src/cosmology/aspect/glimmering/glimmer/lively/Lifespan.h
         src/framework/Element.h

@@ -16,7 +16,7 @@ HSLColor CentrifugalPalette::getColor() {
 
 void CentrifugalPalette::experienceEssentia() {
     auto &stft = CLOISTER->signalarium->stft;
-    auto flux = stft.energy - simpleMovingAverage.calculate();
+    auto flux = stft.energy - simpleMovingAverage.value;
     simpleMovingAverage.addSample(stft.energy);
     auto fluxModifier = PALETTE_AXIOM_0;
     if (fluxModifier < 0.01) {

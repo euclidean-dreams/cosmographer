@@ -15,6 +15,6 @@ int Randomizer::generateNumber(int exclusive_max) {
     if (exclusive_max <= 0) {
         return 0;
     }
-    return getCurrentTime() % exclusive_max;
+    return cast(int, community->signalarium->stft.energy * 100000) % exclusive_max;
 }
 }

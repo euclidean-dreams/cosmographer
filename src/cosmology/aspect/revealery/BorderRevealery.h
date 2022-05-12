@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_BORDERREVEALERY_H
 
 #include "Revealery.h"
-#include "oddments/SimpleMovingAverage.h"
+#include "oddments/SignalAverage.h"
 
 namespace cosmographer {
 

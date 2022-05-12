@@ -36,7 +36,7 @@ public:
     int maxFluxRequirement = 100 * 1000;
     int centrifugalPaletteFlux = 10;
     int minimumBeatInterval = 100 * 1000;
-    uint movingAverageSize = 100;
+    uint signalAverageSize = 1000;
 };
 
 }
