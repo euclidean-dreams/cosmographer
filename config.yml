@@ -1,6 +1,6 @@
 # general
 axiomologySize: 10
-maxGlimmers: 100000
+maxGlimmers: 10000
 lumionCount: 2048
 
 # endpoints

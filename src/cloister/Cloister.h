@@ -3,6 +3,7 @@
 
 #include "CloisterCommunity.h"
 #include "AxiomRefresher.h"
+#include "VolitiaGolem.h"
 #include "Cartographer.h"
 #include "ColorPixie.h"
 #include "Constants.h"

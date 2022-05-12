@@ -54,7 +54,7 @@ void VariationRevealery::reveal(
                 glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
             }
         } else {
-            auto shape = RANDOM.generate(5);
+            auto shape = CLOISTER->randomizer->generate(5);
             if (shape == 0) {
                 glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerSoul));
             } else if (shape == 1) {

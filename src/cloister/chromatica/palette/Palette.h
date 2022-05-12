@@ -17,9 +17,9 @@ public:
     HSLColor jitter(HSLColor color) {
         float colorDeviation = 15 * HUE_JITTER_AXIOM;
         return {
-                color.hue + RANDOM.generate(colorDeviation * 2) - colorDeviation,
-                cast(int, color.saturation + RANDOM.generate(colorDeviation * 2) - colorDeviation),
-                cast(int, color.lightness + RANDOM.generate(colorDeviation * 2) - colorDeviation)
+                color.hue + CLOISTER->randomizer->generate(colorDeviation * 2) - colorDeviation,
+                cast(int, color.saturation + CLOISTER->randomizer->generate(colorDeviation * 2) - colorDeviation),
+                cast(int, color.lightness + CLOISTER->randomizer->generate(colorDeviation * 2) - colorDeviation)
         };
     }
 };

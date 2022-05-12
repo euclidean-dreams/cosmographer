@@ -9,6 +9,7 @@ class CloisterCommunity : public Community {
 public:
     up<class Cartographer> cartographer;
     up<class AxiomRefresher> axiomRefresher;
+    up<class VolitiaGolem> volitiaGolem;
     up<class Chromatica> chromatica;
     up<class ColorPixie> colorPixie;
     up<class Constants> constants;

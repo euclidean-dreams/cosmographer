@@ -12,11 +12,11 @@ Wander::Wander(
 }
 
 void Wander::live() {
-    auto directive = RANDOM.generate(2);
+    auto directive = CLOISTER->randomizer->generate(2);
     if (directive == 0) {
-        painterCommunity->painter->advance(RANDOM.generate(10 * CHAOS_AXIOM), glimmerSoul->color);
+        painterCommunity->painter->advance(CLOISTER->randomizer->generate(10 * CHAOS_AXIOM), glimmerSoul->color);
     } else if (directive == 1) {
-        painterCommunity->painter->rotate(RANDOM.generateProportion());
+        painterCommunity->painter->rotate(CLOISTER->randomizer->generateProportion());
     }
 }
 

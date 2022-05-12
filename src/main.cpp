@@ -20,6 +20,8 @@ int bootstrap(std::string configFilePath) {
     CONSTANTS->initialize(CLOISTER.get());
     CLOISTER->axiomRefresher = mkup<AxiomRefresher>(axiomArbiter);
     CLOISTER->axiomRefresher->initialize(CLOISTER.get());
+    CLOISTER->volitiaGolem = mkup<VolitiaGolem>();
+    CLOISTER->volitiaGolem->initialize(CLOISTER.get());
     CLOISTER->randomizer = mkup<Randomizer>();
     CLOISTER->randomizer->initialize(CLOISTER.get());
     CLOISTER->cartographer = mkup<Cartographer>();
@@ -38,7 +40,7 @@ int bootstrap(std::string configFilePath) {
     // extras
     paradigm->axioms.push_back(0.3);
     paradigm->axioms.push_back(0.1);
-    paradigm->axioms.push_back(0.5);
+    paradigm->axioms.push_back(1.0);
     paradigm->axioms.push_back(0.4);
     paradigm->axioms.push_back(0.3);
     paradigm->axioms.push_back(0.7);

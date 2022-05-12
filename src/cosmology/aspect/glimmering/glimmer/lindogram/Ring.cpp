@@ -16,7 +16,7 @@ void Ring::live() {
     if (glimmerSoul->age == 0) {
         auto granularity = SIZE_AXIOM * 50;
         for (int i = 0; i < granularity; i++) {
-            painterCommunity->painter->advance(1 + RANDOM.generate(10) * CHAOS_AXIOM, glimmerSoul->color);
+            painterCommunity->painter->advance(1 + CLOISTER->randomizer->generate(10) * CHAOS_AXIOM, glimmerSoul->color);
             painterCommunity->painter->rotate(2 * M_PI / granularity);
         }
     }

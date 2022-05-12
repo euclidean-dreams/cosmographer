@@ -95,6 +95,7 @@ void Cosmographer::activate() {
         CLOISTER->chromatica->experienceEssentia();
         subCommunity.cosmology->experienceEssentia();
         CLOISTER->pole->refresh();
+        CLOISTER->volitiaGolem->refresh();
         CLOISTER->lumionBookie->clear();
     }
 

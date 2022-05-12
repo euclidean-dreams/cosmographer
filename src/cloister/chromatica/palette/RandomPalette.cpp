@@ -3,6 +3,6 @@
 namespace cosmographer {
 
 HSLColor RandomPalette::getColor() {
-    return jitter({RANDOM.generate(HSL_HUE_MAX), RANDOM.generate(50) + 50, RANDOM.generate(60) + 20});
+    return jitter({CLOISTER->randomizer->generate(HSL_HUE_MAX), CLOISTER->randomizer->generate(50) + 50, CLOISTER->randomizer->generate(60) + 20});
 }
 }
