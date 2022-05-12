@@ -46,13 +46,14 @@ void Lumion::react() {
         // the flip
         excited = true;
         CLOISTER->lumionBookie->recordActivation(magnitude);
+        color = CLOISTER->chromatica->getColor();
     }
 
     if (excited) {
         // make some glimmers
+        color.lightness = 40 + 50 * magnitude;
         aspectCommunity->revealeries[paradigm->macroMode]->reveal(this);
     } else {
-        color = CLOISTER->chromatica->getColor();
         if (paradigm->centerMode) {
             center();
         }

@@ -161,7 +161,7 @@ set(
         src/cloister/chromatica/palette/RandomPalette.cpp src/cloister/chromatica/palette/RandomPalette.h
         src/cosmology/aspect/glimmering/glimmer/lindogram/Ring.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Ring.h
         src/cosmology/aspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.h
-        src/cloister/VolitiaGolem.cpp src/cloister/VolitiaGolem.h)
+        src/cloister/VolitiaGolem.cpp src/cloister/VolitiaGolem.h src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

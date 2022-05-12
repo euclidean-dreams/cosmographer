@@ -13,6 +13,7 @@
 #include "cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Mutator.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/LumionMimic.h"
+#include "cosmology/aspect/glimmering/glimmer/lindogram/Triangle.h"
 
 namespace cosmographer {
 
@@ -24,19 +25,20 @@ void WorkshopRevealery::reveal(
         glimmerCount = 1;
     }
     for (int count = 0; count < glimmerCount; count++) {
-        auto color = lumion->color;
         auto glimmerSoul = mkup<GlimmerSoul>(
                 lumion,
-                lumion->latticePoint,
-                color,
+                Point{lumion->latticePoint.x, lumion->latticePoint.y},
+                lumion->color,
                 lumion->magnitude
         );
         auto glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));
         glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
 
-        glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
-
         float inclinationOffset = cast(float, count) / glimmerCount * 2 * M_PI;
+
+        auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
+        glimmer->addLively(mkup<Triangle>(glimmer->glimmerSoul, painterCommunity, inclinationOffset));
+
         glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, inclinationOffset));
         glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
 

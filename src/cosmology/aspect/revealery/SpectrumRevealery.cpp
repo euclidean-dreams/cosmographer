@@ -24,12 +24,10 @@ void SpectrumRevealery::reveal(
         glimmerCount = 1;
     }
     for (int count = 0; count < glimmerCount; count++) {
-        auto color = lumion->color;
-        color.lightness = 40 + 50 * lumion->magnitude;
         auto glimmerSoul = mkup<GlimmerSoul>(
                 lumion,
                 Point{lumion->latticePoint.x, lumion->latticePoint.y},
-                color,
+                lumion->color,
                 lumion->magnitude
         );
         auto glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));

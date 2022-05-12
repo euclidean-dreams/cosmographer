@@ -20,7 +20,6 @@ void Ring::live() {
             painterCommunity->painter->rotate(2 * M_PI / granularity);
         }
     }
-
 }
 
 }

@@ -26,12 +26,10 @@ void BorderRevealery::reveal(
         glimmerCount = 1;
     }
     for (int count = 0; count < glimmerCount; count++) {
-        auto color = lumion->color;
-        color.lightness = 100 - 50 * lumion->magnitude;
         auto glimmerSoul = mkup<GlimmerSoul>(
                 lumion,
                 Point{lumion->latticePoint.x, lumion->latticePoint.y},
-                color,
+                lumion->color,
                 lumion->magnitude
         );
         auto glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));
@@ -48,7 +46,7 @@ void BorderRevealery::reveal(
         glimmerSoul = mkup<GlimmerSoul>(
                 lumion,
                 Point{lumion->latticePoint.x, lumion->latticePoint.y},
-                HSLColor{color.hue, 100, 100},
+                HSLColor{lumion->color.hue, 100, 100},
                 lumion->magnitude
         );
         glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));
