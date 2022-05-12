@@ -12,9 +12,10 @@ public:
     uint axiomologySize = Config::getInstance().getUint("axiomologySize");
     int maxGlimmers = Config::getInstance().getInt("maxGlimmers");
     int illuminatorThreadCount = Config::getInstance().getInt("illuminatorThreadCount");
+    uint lumionCount = Config::getInstance().getUint("lumionCount");
 
-    // sockets
-    std::string palantirEndpoint = Config::getInstance().getString("palantirEndpoint");
+    // endpoints
+    std::string percipiaEndpoint = Config::getInstance().getString("percipiaEndpoint");
     std::string essentiaEndpoint = Config::getInstance().getString("essentiaEndpoint");
     std::string volitiaEndpoint = Config::getInstance().getString("volitiaEndpoint");
 
@@ -27,25 +28,15 @@ public:
             Config::getInstance().getInt("latticeInitialLightness"),
     };
 
-    // mesh
-    uint lumionCount = Config::getInstance().getUint("lumionCount");
-    float lumionPlacement = Config::getInstance().getFloat("lumionPlacement");
-
     // ephemera
     int maxLifespan = 300;
     int maxGlimmerSpawnCount = 8;
 
-    // illuminable
-    float parametroTimelingIncrement = 0.05;
-
     // palette
-    int maxHueJitter = 100;
     int maxFluxRequirement = 100 * 1000;
     int centrifugalPaletteFlux = 10;
     int minimumBeatInterval = 100 * 1000;
     uint movingAverageSize = 100;
-
-    // TODO finish transition
 };
 
 }

@@ -30,7 +30,7 @@ Cosmographer::Cosmographer(
 #if VANTAGE == palantir
     auto palantirSocket = mkup<NetworkSocket>(
             zmqContext,
-            CONSTANTS->palantirEndpoint,
+            CONSTANTS->percipiaEndpoint,
             zmq::socket_type::pub,
             true
     );

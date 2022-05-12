@@ -1,47 +1,17 @@
 # general
 axiomologySize: 10
-illuminatorThreadCount: 8
 maxGlimmers: 100000
+illuminatorThreadCount: 8
+lumionCount: 2048
 
-# sockets
-palantirEndpoint: ipc:///tmp/percipia
-#palantirEndpoint: tcp://0.0.0.0:44442
-
+# endpoints
+percipiaEndpoint: ipc:///tmp/percipia
 essentiaEndpoint: ipc:///tmp/analogorium
-#essentiaEndpoint: tcp://pearl:44441
-
-volitiaEndpoint: tcp://10.0.0.85:44440
-#volitiaEndpoint: tcp://192.168.22.161:44440
-
-###########
-# lattice #
-###########
+volitiaEndpoint: tcp://volitia:44440
 
 # fullscreen
 latticeWidth: 192
 latticeHeight: 108
-#latticeWidth: 384
-#latticeHeight: 216
-#latticeWidth: 1920
-#latticeHeight: 1080
-#latticeWidth: 960
-#latticeHeight: 540
-
-# square
-#latticeWidth: 200
-#latticeHeight: 200
-
-# keyhole
-#latticeWidth: 20
-#latticeHeight: 74
-
 latticeInitialHue: 0
 latticeInitialSaturation: 0
 latticeInitialLightness: 0
-
-# mesh
-#lumionCount: 4097
-lumionCount: 2048
-
-# deprecated
-lumionPlacement: 1
