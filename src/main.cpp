@@ -53,6 +53,8 @@ int bootstrap(std::string configFilePath) {
     paradigm->palettePickerMode = false;
     paradigm->centerMode = false;
 
+    initializeCoordinateHash();
+
     // percipient
     auto volitiaPercipientThread = VolitiaPercipient::create(
             bootstrapper.getZmqContext(),

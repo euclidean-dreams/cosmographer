@@ -7,13 +7,7 @@ Lattice::Lattice(
         uint height,
         HSLColor nullColor
 ) :
-        data{
-                width,
-                {height,
-                 nullColor
-                }
-        },
-//        dots{},
+        dots{},
         width{cast(int, width)},
         height{cast(int, height)},
         nullColor{nullColor} {
@@ -24,13 +18,12 @@ HSLColor Lattice::getColor(
         int x,
         int y
 ) const {
-    return data[x][y];
-//    auto dot = dots.find({x, y});
-//    if (dot != dots.end()) {
-//        return dot->second;
-//    } else {
-//        return nullColor;
-//    }
+    auto dot = dots.find({x, y});
+    if (dot != dots.end()) {
+        return dot->second;
+    } else {
+        return nullColor;
+    }
 }
 
 void Lattice::setColor(
@@ -38,8 +31,7 @@ void Lattice::setColor(
         int y,
         HSLColor color
 ) {
-    data[x][y] = color;
-//    dots.insert_or_assign({x, y}, color);
+    dots.insert_or_assign({x, y}, color);
 }
 
 int Lattice::size() const {
@@ -59,17 +51,9 @@ bool Lattice::isValid(
 }
 
 void Lattice::meld(Lattice &other) {
-//    for (auto &dot: other.dots) {
-//        if (dots.find(dot.first) == dots.end()) {
-//            dots.insert_or_assign(dot.first, dot.second);
-//        }
-//    }
-    for (int y = 0; y < height; y++) {
-        for (int x = 0; x < width; x++) {
-            auto potentialColor = other.getColor(x, y);
-            if (potentialColor != nullColor) {
-                setColor(x, y, potentialColor);
-            }
+    for (auto &dot: other.dots) {
+        if (dots.find(dot.first) == dots.end()) {
+            dots.insert_or_assign(dot.first, dot.second);
         }
     }
 }

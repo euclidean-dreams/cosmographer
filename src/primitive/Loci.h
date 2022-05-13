@@ -14,15 +14,15 @@ struct Coordinate {
     }
 };
 
-struct CoordinateHash {
-    size_t operator()(const Coordinate &locus) const {
-        return locus.x + locus.y;
-    }
-};
-
 struct Point {
     float x;
     float y;
+};
+
+void initializeCoordinateHash();
+
+struct CoordinateHash {
+    size_t operator()(const Coordinate &locus) const;
 };
 
 }
