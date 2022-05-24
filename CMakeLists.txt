@@ -5,10 +5,24 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_compile_options(-Wno-dev)
 
-# possible vantage types:
-# palantir
-# keyhole
-# gubbin
+# isn't cmake such a nuisance
+
+#       possible vantage types:
+#       palantir: for a screen (  ) <- start with this one
+#       keyhole: for a warble in the weave _-_-_-_
+#       gubbin: for a demonstration of magic *&*
+
+# thanks for checking out my thing
+# what do you make?
+
+# ---<3
+# josiah@_-_-_-_euclideandreams_-_-_-_.art
+# ----------<3
+
+# but without the _-_-_-_
+
+# <3
+
 add_compile_definitions(VANTAGE=${VANTAGE})
 
 include(lib/cmake-utils/dependency-integrator.cmake)
