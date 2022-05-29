@@ -15,7 +15,7 @@ void VolitiaGolem::refresh() {
 //    if (community->lumionBookie->activationCount > 0) {
 //        averageNonZeroLumionActivationCount.addSample(community->lumionBookie->activationCount);
 //    }
-//
+
 //    for (int index = 0; index < paradigm->axioms.size(); index++) {
 //        if (index == 6) {
 //            auto delta = community->lumionBookie->activationCount / averageNonZeroLumionActivationCount.value - 1;
