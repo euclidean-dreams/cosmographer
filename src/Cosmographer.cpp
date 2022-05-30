@@ -30,7 +30,7 @@ Cosmographer::Cosmographer(
 #if VANTAGE == palantir
     auto palantirSocket = mkup<NetworkSocket>(
             zmqContext,
-            CONSTANTS->percipiaEndpoint,
+            constants->percipiaEndpoint,
             zmq::socket_type::pub,
             true
     );
@@ -44,7 +44,7 @@ Cosmographer::Cosmographer(
     // cosmographer
     subCommunity.essentiaSocket = mkup<NetworkSocket>(
             zmqContext,
-            CONSTANTS->essentiaEndpoint,
+            constants->essentiaEndpoint,
             zmq::socket_type::sub,
             false
     );
@@ -60,7 +60,7 @@ void Cosmographer::activate() {
     }
 
     // refresh the paradigm
-    CLOISTER->axiomRefresher->refresh();
+    volitiaParadigmBond->refresh();
 
     // handle new phenomena
     auto newPhenomenonParcels = subCommunity.phenomenology->take();
@@ -72,31 +72,31 @@ void Cosmographer::activate() {
         auto phenomenon = Unwrap::Phenomenon(*phenomenonParcel);
         auto button = phenomenon->identity();
         if (button < 5) {
-            if (paradigm->palettePickerMode) {
-                CLOISTER->chromatica->experiencePhenomenon(phenomenon);
+            if (palettePickerMode) {
+                chromatica->experiencePhenomenon(phenomenon);
             } else {
-                paradigm->microMode = phenomenon->identity();
+                microMode = phenomenon->identity();
             }
         }
         if (button >= 5 && button < 8) {
-            paradigm->macroMode = phenomenon->identity() - 5;
+            macroMode = phenomenon->identity() - 5;
         }
         if (button == 8) {
-            paradigm->centerMode = !paradigm->centerMode;
+            centerMode = !centerMode;
         }
         if (button == 9) {
-            paradigm->palettePickerMode = !paradigm->palettePickerMode;
+            palettePickerMode = !palettePickerMode;
         }
     }
 
     // experience the essentia
     for (auto &essentiaParcel: essentiaParcelBundle) {
-        CLOISTER->signalarium->refresh(mv(essentiaParcel));
-        CLOISTER->chromatica->experienceEssentia();
+        signalarium->refresh(mv(essentiaParcel));
+        chromatica->experienceEssentia();
         subCommunity.cosmology->experienceEssentia();
-        CLOISTER->pole->refresh();
-        CLOISTER->volitiaGolem->refresh();
-        CLOISTER->lumionBookie->clear();
+        pole->refresh();
+        volitiaGolem->refresh();
+        lumionBookie->clear();
     }
 
     // todo find a better place for this

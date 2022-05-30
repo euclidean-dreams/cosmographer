@@ -1,5 +1,4 @@
 #include "Signalarium.h"
-#include "Default.h"
 
 namespace cosmographer {
 

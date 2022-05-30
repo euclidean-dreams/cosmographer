@@ -16,7 +16,7 @@ public:
             glimmerSoul{glimmerSoul} {}
 
     void live() override {
-//        int rate = 10 - paradigm->axioms[5] * 10;
+//        int rate = 10 - axioms[5] * 10;
 //        if (rate == 0) {
 //            rate = 1;
 //        }

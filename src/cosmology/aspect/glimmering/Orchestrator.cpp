@@ -9,7 +9,7 @@ void Orchestrator::orchestrate(
     auto illuminatorCount = community->illuminatorThreads.size();
 
     // trim
-    while (community->glimmers.size() > CONSTANTS->maxGlimmers * POPULATION_SIZE_AXIOM) {
+    while (community->glimmers.size() > constants->maxGlimmers * POPULATION_SIZE_AXIOM) {
         community->glimmers.pop_front();
     }
 
@@ -26,9 +26,9 @@ void Orchestrator::orchestrate(
     // lattices
     for (int count = 0; count < illuminatorCount; count++) {
         community->illuminatorLattices[count] = mkup<Lattice>(
-                CONSTANTS->percipiaWidth,
-                CONSTANTS->percipiaHeight,
-                CONSTANTS->latticeInitialColor
+                constants->percipiaWidth,
+                constants->percipiaHeight,
+                constants->latticeInitialColor
         );
     }
 

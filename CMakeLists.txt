@@ -33,6 +33,8 @@ integrate_cmake_dependency(
         GIT_TAG origin/dev
 )
 
+# thanks to David Blackman and Sebastiano Vigna also for their xoshiro256++ implementation!
+
 if (${VANTAGE} STREQUAL palantir)
     # no extra config necessary
 elseif (${VANTAGE} STREQUAL keyhole)
@@ -71,9 +73,9 @@ set(
         src/framework/Community.h
 
         # cloister
-        src/cloister/Cloister.h src/cloister/CloisterCommunity.h
+        src/cloister/Cloister.h
         src/cloister/Cartographer.cpp src/cloister/Cartographer.h
-        src/cloister/AxiomRefresher.cpp src/cloister/AxiomRefresher.h
+        src/cloister/VolitiaParadigmBond.cpp src/cloister/VolitiaParadigmBond.h
 
         # chromatica
         src/cloister/chromatica/Chromatica.cpp src/cloister/chromatica/Chromatica.h src/cloister/chromatica/ChromaticaCommunity.h

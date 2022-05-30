@@ -1,12 +1,11 @@
 #ifndef COSMOGRAPHER_VOLITIAGOLEM_H
 #define COSMOGRAPHER_VOLITIAGOLEM_H
 
-#include "CloisterCommunity.h"
 #include "oddments/SignalAverage.h"
 
 namespace cosmographer {
 
-class VolitiaGolem : public Fellow<CloisterCommunity> {
+class VolitiaGolem {
 private:
     SignalAverage averageNonZeroLumionActivationCount;
 

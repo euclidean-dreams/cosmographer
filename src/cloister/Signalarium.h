@@ -1,12 +1,11 @@
 #ifndef COSMOGRAPHER_SIGNALARIUM_H
 #define COSMOGRAPHER_SIGNALARIUM_H
 
-#include "CloisterCommunity.h"
 #include "primitive/Signal.h"
 
 namespace cosmographer {
 
-class Signalarium : public Fellow<CloisterCommunity> {
+class Signalarium {
 public:
     up<Parcel> essentiaParcel;
     const Essentia *essentia;

@@ -14,11 +14,11 @@ HSLColor BeatPalette::getColor() {
 }
 
 void BeatPalette::experienceEssentia() {
-    auto &stft = CLOISTER->signalarium->stft;
+    auto &stft = signalarium->stft;
     auto flux = stft.energy - previousEnergy;
-    auto fluxRequirement = CONSTANTS->maxFluxRequirement - CONSTANTS->maxFluxRequirement * PALETTE_AXIOM_0;
-    if (flux > fluxRequirement && getElapsedTime(lastBeat) > CONSTANTS->minimumBeatInterval) {
-        hue += CLOISTER->randomizer->generate(HSL_HUE_MAX * PALETTE_AXIOM_0);
+    auto fluxRequirement = constants->maxFluxRequirement - constants->maxFluxRequirement * PALETTE_AXIOM_0;
+    if (flux > fluxRequirement && getElapsedTime(lastBeat) > constants->minimumBeatInterval) {
+        hue += randomizer->generate(HSL_HUE_MAX * PALETTE_AXIOM_0);
     }
     previousEnergy = stft.energy;
 }

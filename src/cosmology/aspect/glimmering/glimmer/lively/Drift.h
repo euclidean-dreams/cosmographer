@@ -21,10 +21,10 @@ public:
     }
 
     void live() override {
-        auto direction = CLOISTER->pole->pole + inclinationOffset;
+        auto direction = pole->pole + inclinationOffset;
         auto distance = DRIFT_AXIOM * 3;
-        glimmerSoul->locus = CLOISTER->cartographer->shiftPoint(glimmerSoul->locus, distance, direction);
-        if (!CLOISTER->cartographer->isValid(glimmerSoul->locus)) {
+        glimmerSoul->locus = cartographer->shiftPoint(glimmerSoul->locus, distance, direction);
+        if (!cartographer->isValid(glimmerSoul->locus)) {
             glimmerSoul->alive = false;
         }
     }

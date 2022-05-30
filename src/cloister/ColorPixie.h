@@ -1,12 +1,11 @@
 #ifndef COSMOGRAPHER_COLORPIXIE_H
 #define COSMOGRAPHER_COLORPIXIE_H
 
-#include "CloisterCommunity.h"
 #include "primitive/color/HSLColor.h"
 
 namespace cosmographer {
 
-class ColorPixie : public Fellow<CloisterCommunity> {
+class ColorPixie {
 public:
     HSLColor gradiate(
             HSLColor initialColor,

@@ -1,12 +1,11 @@
 #ifndef COSMOGRAPHER_CONSTANTS_H
 #define COSMOGRAPHER_CONSTANTS_H
 
-#include "CloisterCommunity.h"
 #include "primitive/color/HSLColor.h"
 
 namespace cosmographer {
 
-class Constants : public Fellow<CloisterCommunity> {
+class Constants {
 public:
     // general
     uint axiomologySize = Config::getInstance().getUint("axiomologySize");
@@ -30,13 +29,15 @@ public:
 
     // ephemera
     int maxLifespan = 300;
-    int maxGlimmerSpawnCount = 8;
+    int glimmerSpawnCountScaler = 8;
 
     // palette
     int maxFluxRequirement = 100 * 1000;
-    int centrifugalPaletteFlux = 10;
+    int centrifugalPaletteFlux = 1000;
     int minimumBeatInterval = 100 * 1000;
     uint signalAverageSize = 1000;
+
+    float baseGlimmerSize = Config::getInstance().getFloat("baseGlimmerSize");
 };
 
 }

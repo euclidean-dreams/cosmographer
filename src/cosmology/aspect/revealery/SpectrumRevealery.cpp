@@ -19,7 +19,7 @@ namespace cosmographer {
 void SpectrumRevealery::reveal(
         Lumion *lumion
 ) {
-    int glimmerCount = COUNT_AXIOM * CONSTANTS->maxGlimmerSpawnCount * lumion->magnitude;
+    int glimmerCount = COUNT_AXIOM * constants->glimmerSpawnCountScaler * lumion->magnitude / 1000;
     if (glimmerCount < 1) {
         glimmerCount = 1;
     }
@@ -35,15 +35,15 @@ void SpectrumRevealery::reveal(
 
 
         // illuminables
-        if (paradigm->microMode == 0) {
+        if (microMode == 0) {
             glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerSoul));
-        } else if (paradigm->microMode == 1) {
+        } else if (microMode == 1) {
             glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
-        } else if (paradigm->microMode == 2) {
+        } else if (microMode == 2) {
             auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
-            auto orientation = 2 * M_PI * CLOISTER->randomizer->generateProportion();
+            auto orientation = 2 * M_PI * randomizer->generateProportion();
             glimmer->addLively(mkup<DragonCurve>(glimmer->glimmerSoul, painterCommunity, orientation));
-        } else if (paradigm->microMode == 3) {
+        } else if (microMode == 3) {
             auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
             glimmer->addLively(mkup<Wander>(glimmer->glimmerSoul, painterCommunity));
         } else {

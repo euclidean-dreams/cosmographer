@@ -9,7 +9,7 @@ Aspect::Aspect(
         CosmologyCommunity *community
 ) :
         Liaison<AspectCommunity>(community) {
-    subCommunity.mesh = mkup<Mesh>(&subCommunity, CONSTANTS->lumionCount);
+    subCommunity.mesh = mkup<Mesh>(&subCommunity, constants->lumionCount);
     subCommunity.mesh->initialize(&subCommunity);
     subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
     subCommunity.revealeries.push_back(mkup<BorderRevealery>());

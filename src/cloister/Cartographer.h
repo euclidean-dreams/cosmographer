@@ -1,12 +1,11 @@
 #ifndef COSMOGRAPHER_CARTOGRAPHER_H
 #define COSMOGRAPHER_CARTOGRAPHER_H
 
-#include "CloisterCommunity.h"
 #include "primitive/Loci.h"
 
 namespace cosmographer {
 
-class Cartographer : public Fellow<CloisterCommunity> {
+class Cartographer {
 public:
     Point verticalWrap(int index);
 

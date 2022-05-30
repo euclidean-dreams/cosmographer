@@ -1,5 +1,4 @@
 #include "ColorPixie.h"
-#include "Default.h"
 
 namespace cosmographer {
 

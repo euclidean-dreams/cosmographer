@@ -4,17 +4,17 @@
 namespace cosmographer {
 
 Point Cartographer::verticalWrap(int index) {
-    return {cast(float, index % CONSTANTS->percipiaWidth),
-            cast(float, std::floor(index / CONSTANTS->percipiaWidth))};
+    return {cast(float, index % constants->percipiaWidth),
+            cast(float, std::floor(index / constants->percipiaWidth))};
 }
 
 int Cartographer::verticalUnwrap(Point point) {
-    return point.y * CONSTANTS->percipiaWidth + point.x;
+    return point.y * constants->percipiaWidth + point.x;
 }
 
 bool Cartographer::isValid(Point point) {
-    if (point.x > 0 && point.x < CONSTANTS->percipiaWidth) {
-        if (point.y > 0 && point.y < CONSTANTS->percipiaHeight) {
+    if (point.x > 0 && point.x < constants->percipiaWidth) {
+        if (point.y > 0 && point.y < constants->percipiaHeight) {
             return true;
         }
     }

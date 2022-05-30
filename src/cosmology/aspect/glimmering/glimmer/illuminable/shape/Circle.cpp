@@ -11,7 +11,7 @@ Circle::Circle(
 void Circle::illuminate(
         Lattice &lattice
 ) {
-    auto radius = glimmerSoul->size * baseSize * SIZE_AXIOM / 2;
+    auto radius = glimmerSoul->size * constants->baseGlimmerSize * SIZE_AXIOM / 2;
     auto locus = glimmerSoul->locus;
     auto minX = locus.x - radius;
     if (minX < 0) {
@@ -22,12 +22,12 @@ void Circle::illuminate(
         minY = 0;
     }
     auto maxX = locus.x + radius;
-    if (maxX >= CONSTANTS->percipiaWidth) {
-        maxX = CONSTANTS->percipiaWidth - 1;
+    if (maxX >= constants->percipiaWidth) {
+        maxX = constants->percipiaWidth - 1;
     }
     auto maxY = locus.y + radius;
-    if (maxY >= CONSTANTS->percipiaHeight) {
-        maxY = CONSTANTS->percipiaHeight - 1;
+    if (maxY >= constants->percipiaHeight) {
+        maxY = constants->percipiaHeight - 1;
     }
     for (int y = minY; y <= maxY; y++) {
         for (int x = minX; x <= maxX; x++) {

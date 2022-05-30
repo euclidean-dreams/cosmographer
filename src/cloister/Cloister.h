@@ -1,8 +1,7 @@
 #ifndef COSMOGRAPHER_CLOISTER_H
 #define COSMOGRAPHER_CLOISTER_H
 
-#include "CloisterCommunity.h"
-#include "AxiomRefresher.h"
+#include "VolitiaParadigmBond.h"
 #include "VolitiaGolem.h"
 #include "Cartographer.h"
 #include "ColorPixie.h"

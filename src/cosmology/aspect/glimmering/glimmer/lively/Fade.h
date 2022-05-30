@@ -26,7 +26,7 @@ public:
 
     void live() override {
         float fade = glimmerSoul->age / lifespan->value;
-        glimmerSoul->color = CLOISTER->colorPixie->gradiate(
+        glimmerSoul->color = colorPixie->gradiate(
                 glimmerSoul->color,
                 fadeColor,
                 fade

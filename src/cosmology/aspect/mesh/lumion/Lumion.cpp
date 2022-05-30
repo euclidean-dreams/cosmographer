@@ -6,20 +6,29 @@ namespace cosmographer {
 
 Lumion::Lumion(
         AspectCommunity *aspectCommunity,
-        int signalIndex,
+        int firstIndexToWatch,
+        int lastIndexToWatch,
         Point latticePoint
 ) :
         aspectCommunity{aspectCommunity},
-        signalIndex{signalIndex},
+        firstIndexToWatch{firstIndexToWatch},
+        lastIndexToWatch{lastIndexToWatch},
         latticePoint{latticePoint},
         color{0, 0, 0} {
-    color = CLOISTER->chromatica->getColor();
+    color = chromatica->getColor();
 }
 
 void Lumion::react() {
     // calculate excitation
-    auto &signal = CLOISTER->signalarium->stft;
-    auto targetSample = signal.getSample(signalIndex);
+    auto &signal = signalarium->stft;
+    magnitude = 0;
+    for (int index = firstIndexToWatch; index < lastIndexToWatch; index++) {
+//        auto indexValue = signal.getSample(index);
+//        if (indexValue > targetSample) {
+//            targetSample = indexValue;
+//        }
+        magnitude += signal.getSample(index);
+    }
 
     // proportion of signal
 //    auto excitation = targetSample / signal.energy;
@@ -28,40 +37,41 @@ void Lumion::react() {
 //    auto excitation = 1 - 1 / (std::pow(targetSample / (-1 * (10000 - 9950 * LUMION_EXCITATION_AXIOM)), 2) + 1);
 
     // just gimmie that friggan value! And cap it!
-    magnitude = Tidbit::bind(targetSample, 0.0, 1.0);
+//    magnitude = Tidbit::bind(targetSample, 0.0, 1.0);
+    auto excitationThreshold = LUMION_EXCITATION_THRESHOLD_AXIOM * 1000;
 
     if (excited) {
         // float around
-        // takes some serious compute
-        auto distance = 10 * magnitude * MOVEMENT_AXIOM;
-        auto direction = CLOISTER->randomizer->generateProportion() * 2 * M_PI;
-        auto potentialNewLatticePoint = CLOISTER->cartographer->shiftPoint(latticePoint, distance, direction);
-        if (CLOISTER->cartographer->isValid(potentialNewLatticePoint)) {
+        auto distance = magnitude / 75 * MOVEMENT_AXIOM;
+        auto direction = randomizer->generateProportion() * 2 * M_PI;
+        auto potentialNewLatticePoint = cartographer->shiftPoint(latticePoint, distance, direction);
+        if (cartographer->isValid(potentialNewLatticePoint)) {
             latticePoint = potentialNewLatticePoint;
         }
-        if (magnitude < LUMION_EXCITATION_THRESHOLD_AXIOM / 8) {
+        if (magnitude < excitationThreshold / 8) {
             excited = false;
         }
-    } else if (magnitude > LUMION_EXCITATION_THRESHOLD_AXIOM) {
+    } else if (magnitude > excitationThreshold) {
+//        LOGGER->info(magnitude);
         // the flip
         excited = true;
-        CLOISTER->lumionBookie->recordActivation(magnitude);
-        color = CLOISTER->chromatica->getColor();
+        lumionBookie->recordActivation(magnitude);
+        color = chromatica->getColor();
     }
 
     if (excited) {
         // make some glimmers
-        color.lightness = 40 + 50 * magnitude;
-        aspectCommunity->revealeries[paradigm->macroMode]->reveal(this);
+        color.lightness = 40 + magnitude / 25;
+        aspectCommunity->revealeries[macroMode]->reveal(this);
     } else {
-        if (paradigm->centerMode) {
+        if (centerMode) {
             center();
         }
     }
 }
 
 void Lumion::center() {
-    latticePoint = {cast(float, CONSTANTS->percipiaWidth / 2), cast(float, CONSTANTS->percipiaHeight / 2)};
+    latticePoint = {cast(float, constants->percipiaWidth / 2), cast(float, constants->percipiaHeight / 2)};
 }
 
 }
