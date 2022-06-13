@@ -1,15 +1,21 @@
 #ifndef COSMOGRAPHER_VANTAGE_H
 #define COSMOGRAPHER_VANTAGE_H
 
-#include "CosmographerCommunity.h"
-#include "cosmology/Cosmology.h"
+#include "Default.h"
 #include "primitive/Lattice.h"
+#include "CosmographerCommunity.h"
 
 namespace cosmographer {
 
 class Vantage : public Fellow<CosmographerCommunity> {
 public:
-    virtual void send(const Lattice &lattice) = 0;
+    up<NetworkSocket> socket;
+
+    Vantage(
+            up<NetworkSocket> socket
+    );
+
+    void send(const Lattice &lattice);
 };
 
 }

@@ -1,18 +1,6 @@
 #include "Cosmographer.h"
+#include "vantage/Vantage.h"
 
-#if VANTAGE == palantir
-
-#include "vantage/PalantirVantage.h"
-
-#endif
-#if VANTAGE == keyhole
-
-#include "vantage/keyhole/KeyholeVantage.h"
-
-#endif
-#if VANTAGE == gubbin
-
-#endif
 
 namespace cosmographer {
 
@@ -26,19 +14,13 @@ Cosmographer::Cosmographer(
     subCommunity.cosmology->initialize(&subCommunity);
     subCommunity.phenomenology = mv(phenomenology);
 
-    // vantage
-#if VANTAGE == palantir
-    auto palantirSocket = mkup<NetworkSocket>(
+    auto vantageSocket = mkup<NetworkSocket>(
             zmqContext,
             constants->percipiaEndpoint,
             zmq::socket_type::pub,
             true
     );
-    subCommunity.vantage = mkup<PalantirVantage>(mv(palantirSocket));
-#elif VANTAGE == keyhole
-    subCommunity.vantage = mkup<KeyholeVantage>();
-#elif VANTAGE == gubbin
-#endif
+    subCommunity.vantage = mkup<Vantage>(mv(vantageSocket));
     subCommunity.vantage->initialize(&subCommunity);
 
     // cosmographer

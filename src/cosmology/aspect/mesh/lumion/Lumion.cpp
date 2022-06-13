@@ -61,7 +61,7 @@ void Lumion::react() {
 
     if (excited) {
         // make some glimmers
-        color.lightness = 40 + magnitude / 25;
+        color.lightness = 50 + magnitude / 10;
         aspectCommunity->revealeries[macroMode]->reveal(this);
     } else {
         if (centerMode) {

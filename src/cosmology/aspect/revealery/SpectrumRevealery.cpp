@@ -39,10 +39,10 @@ void SpectrumRevealery::reveal(
             glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerSoul));
         } else if (microMode == 1) {
             glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
-        } else if (microMode == 2) {
-            auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
-            auto orientation = 2 * M_PI * randomizer->generateProportion();
-            glimmer->addLively(mkup<DragonCurve>(glimmer->glimmerSoul, painterCommunity, orientation));
+//        } else if (microMode == 2) {
+//            auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
+//            auto orientation = 2 * M_PI * randomizer->generateProportion();
+//            glimmer->addLively(mkup<DragonCurve>(glimmer->glimmerSoul, painterCommunity, orientation));
         } else if (microMode == 3) {
             auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
             glimmer->addLively(mkup<Wander>(glimmer->glimmerSoul, painterCommunity));

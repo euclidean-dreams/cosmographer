@@ -21,6 +21,7 @@ namespace cosmographer {
 void BorderRevealery::reveal(
         Lumion *lumion
 ) {
+    // TODO: leaky biscuits
     int glimmerCount = COUNT_AXIOM * constants->glimmerSpawnCountScaler * lumion->magnitude;
     if (glimmerCount < 1) {
         glimmerCount = 1;

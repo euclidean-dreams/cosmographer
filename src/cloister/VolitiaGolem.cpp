@@ -12,24 +12,24 @@ VolitiaGolem::VolitiaGolem(
 }
 
 void VolitiaGolem::refresh() {
-//    if (community->lumionBookie->activationCount > 0) {
-//        averageNonZeroLumionActivationCount.addSample(community->lumionBookie->activationCount);
-//    }
+    if (lumionBookie->activationCount > 0) {
+        averageNonZeroLumionActivationCount.addSample(lumionBookie->activationCount);
+    }
 
-//    for (int index = 0; index < axioms.size(); index++) {
-//        if (index == 6) {
-//            auto delta = community->lumionBookie->activationCount / averageNonZeroLumionActivationCount.value - 1;
-//            axioms[index] = Tidbit::bind(axioms[index] + 0.1 * delta, 0.1f, 0.9f);
-//        } else if (index != 1 && index != 2) {
-//            auto deltaMax = 0.01 * community->lumionBookie->activationCount / 50;
-//            auto delta = community->randomizer->generateProportion() * deltaMax - deltaMax / 2;
-//            axioms[index] = Tidbit::bind(axioms[index] + delta, 0.1f, 0.9f);
-//        }
-//    }
-//    if (community->lumionBookie->activationCount > averageNonZeroLumionActivationCount.value * 5) {
-//        microMode = randomizer->generate(5);
-//    }
-//    if (community->lumionBookie->activationCount > averageNonZeroLumionActivationCount.value * 10) {
+    for (int index = 0; index < axioms.size(); index++) {
+        if (index == 6) {
+            auto delta = lumionBookie->activationCount / averageNonZeroLumionActivationCount.value - 1;
+            axioms[index] = Tidbit::bind(axioms[index] + 0.1 * delta, 0.4f, 0.7f);
+        } else if (index != 1 && index != 2) {
+            auto deltaMax = 0.01 * lumionBookie->activationCount / 50;
+            auto delta = randomizer->generateProportion() * deltaMax - deltaMax / 2;
+            axioms[index] = Tidbit::bind(axioms[index] + delta, 0.4f, 0.7f);
+        }
+    }
+    if (lumionBookie->activationCount > averageNonZeroLumionActivationCount.value * 5) {
+        microMode = randomizer->generate(5);
+    }
+//    if (lumionBookie->activationCount > averageNonZeroLumionActivationCount.value * 10) {
 //        macroMode = randomizer->generate(5);
 //    }
 }

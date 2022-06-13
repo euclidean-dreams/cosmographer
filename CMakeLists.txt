@@ -5,13 +5,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_compile_options(-Wno-dev)
 
-# isn't cmake such a nuisance
-
-#       possible vantage types:
-#       palantir: for a screen (  ) <- start with this one
-#       keyhole: for a warble in the weave _-_-_-_
-#       gubbin: for a demonstration of magic *&*
-
 # thanks for checking out my thing
 # what do you make?
 
@@ -33,25 +26,9 @@ integrate_cmake_dependency(
         GIT_TAG origin/dev
 )
 
-# thanks to David Blackman and Sebastiano Vigna also for their xoshiro256++ implementation!
+# thanks to the countless devs and dreamers who wrote the software and built the hardware that euclid depends on
 
-if (${VANTAGE} STREQUAL palantir)
-    # no extra config necessary
-elseif (${VANTAGE} STREQUAL keyhole)
-    integrate_cmake_dependency(
-            NAME pigpio
-            GIT_URL git@github.com:joan2937/pigpio.git
-            GIT_TAG c33738a320a3e28824af7807edafda440952c05d
-    )
-elseif (${VANTAGE} STREQUAL gubbin)
-    integrate_cmake_dependency(
-            NAME ws281x
-            GIT_URL git@github.com:jgarff/rpi_ws281x.git
-            GIT_TAG 9be313f77aa494036e2dc205b6ec2860e7ee988c
-    )
-else ()
-    message(FATAL_ERROR "invalid vantage type specified: ${VANTAGE}")
-endif ()
+# thanks to David Blackman and Sebastiano Vigna for their xoshiro256++ implementation!
 
 set(
         SOURCE_FILES
@@ -114,29 +91,6 @@ set(
         src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h
 )
 
-if (${VANTAGE} STREQUAL palantir)
-    set(
-            SOURCE_FILES
-            ${SOURCE_FILES}
-            src/vantage/PalantirVantage.cpp src/vantage/PalantirVantage.h
-    )
-endif ()
-if (${VANTAGE} STREQUAL keyhole)
-    set(
-            SOURCE_FILES
-            ${SOURCE_FILES}
-            src/vantage/keyhole/KeyholeConnection.cpp src/vantage/keyhole/KeyholeConnection.h
-            src/vantage/keyhole/KeyholeVantage.cpp src/vantage/keyhole/KeyholeVantage.h
-            src/vantage/keyhole/KeyholeConstants.h
-    )
-endif ()
-if (${VANTAGE} STREQUAL gubbin)
-    set(
-            SOURCE_FILES
-            ${SOURCE_FILES}
-    )
-endif ()
-
 # unsorted stack
 set(
         SOURCE_FILES
@@ -146,6 +100,7 @@ set(
         src/framework/Minimal.h
         src/cosmology/aspect/glimmering/glimmer/lively/Drift.h
         src/primitive/Loci.h
+        src/vantage/Vantage.cpp src/vantage/Vantage.h
 
         src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h
         src/cosmology/aspect/glimmering/glimmer/lively/Grow.h
@@ -178,19 +133,12 @@ set(
         src/cosmology/aspect/glimmering/glimmer/lindogram/Ring.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Ring.h
         src/cosmology/aspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.h
         src/cloister/VolitiaGolem.cpp src/cloister/VolitiaGolem.h src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.h src/primitive/Loci.cpp)
+
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 
 # finalize
 foreach (target IN LISTS TARGETS)
     target_include_directories(${target} PRIVATE src)
-    if (${VANTAGE} STREQUAL keyhole)
-        target_include_directories(${target} PRIVATE ${CMAKE_BINARY_DIR}/pigpio-src)
-        target_link_libraries(${target} PRIVATE pigpio)
-    endif ()
-    if (${VANTAGE} STREQUAL gubbin)
-        target_include_directories(${target} PRIVATE ${CMAKE_BINARY_DIR}/rpi_ws281x-src)
-        target_link_libraries(${target} PRIVATE ws2811)
-    endif ()
     target_link_libraries(${target} PRIVATE impresario-utils)
 endforeach ()
