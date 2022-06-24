@@ -54,20 +54,13 @@ void Cosmographer::activate() {
         auto phenomenon = Unwrap::Phenomenon(*phenomenonParcel);
         auto button = phenomenon->identity();
         if (button < 5) {
-            if (palettePickerMode) {
-                chromatica->experiencePhenomenon(phenomenon);
-            } else {
-                microMode = phenomenon->identity();
-            }
+            chromatica->experiencePhenomenon(phenomenon);
         }
         if (button >= 5 && button < 8) {
             macroMode = phenomenon->identity() - 5;
         }
         if (button == 8) {
             centerMode = !centerMode;
-        }
-        if (button == 9) {
-            palettePickerMode = !palettePickerMode;
         }
     }
 

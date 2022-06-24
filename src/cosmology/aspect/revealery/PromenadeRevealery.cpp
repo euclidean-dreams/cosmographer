@@ -18,7 +18,8 @@ void PromenadeRevealery::reveal(cosmographer::Lumion *lumion) {
 
     glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
 
-    glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, 0));
+    auto direction = randomizer->generateProportion() * 2 * M_PI;
+    glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, direction));
     glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
     community->glimmering->addGlimmer(mv(glimmer));
 }

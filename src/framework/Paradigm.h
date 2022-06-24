@@ -25,7 +25,6 @@ extern up<class LumionBookie> lumionBookie;
 extern vec<float> axioms;
 extern int microMode;
 extern int macroMode;
-extern bool palettePickerMode;
 extern bool centerMode;
 
 }
