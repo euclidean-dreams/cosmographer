@@ -19,6 +19,8 @@ Lumion::Lumion(
 }
 
 void Lumion::react() {
+    auto magnitude_moduifier = 500;
+
     // calculate excitation
     auto &signal = signalarium->stft;
     magnitude = 0;
@@ -38,11 +40,11 @@ void Lumion::react() {
 
     // just gimmie that friggan value! And cap it!
 //    magnitude = Tidbit::bind(targetSample, 0.0, 1.0);
-    auto excitationThreshold = LUMION_EXCITATION_THRESHOLD_AXIOM * 75;
+    auto excitationThreshold = LUMION_EXCITATION_THRESHOLD_AXIOM * magnitude_moduifier;
 
     if (excited) {
         // float around
-        auto distance = magnitude / 75 * MOVEMENT_AXIOM;
+        auto distance = magnitude / magnitude_moduifier * MOVEMENT_AXIOM;
         auto direction = randomizer->generateProportion() * 2 * M_PI;
         auto potentialNewLatticePoint = cartographer->shiftPoint(latticePoint, distance, direction);
         if (cartographer->isValid(potentialNewLatticePoint)) {

@@ -32,7 +32,7 @@ public:
     int glimmerSpawnCountScaler = 8;
 
     // palette
-    int maxFluxRequirement = 100 * 1000;
+    int maxFluxRequirement = 100 * 10000;
     int minimumBeatInterval = 100 * 1000;
     uint signalAverageSize = 1000;
 
