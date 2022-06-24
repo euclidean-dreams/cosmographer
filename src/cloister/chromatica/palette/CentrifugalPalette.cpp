@@ -2,6 +2,8 @@
 
 namespace cosmographer {
 
+int centrifugalPaletteFlux = 2;
+
 CentrifugalPalette::CentrifugalPalette(
         uint movingAverageSize
 ) :
@@ -22,7 +24,7 @@ void CentrifugalPalette::experienceEssentia() {
     if (fluxModifier < 0.01) {
         fluxModifier = 0.01;
     }
-    auto hueAddendum = (flux / constants->centrifugalPaletteFlux) * fluxModifier;
+    auto hueAddendum = (flux / centrifugalPaletteFlux) * fluxModifier;
     hue += hueAddendum;
 }
 

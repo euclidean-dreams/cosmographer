@@ -12,8 +12,8 @@ essentiaEndpoint: ipc:///tmp/analogorium
 volitiaEndpoint: tcp://volitia:44440
 
 # fullscreen
-percipiaWidth: 200
-percipiaHeight: 200
+percipiaWidth: 192
+percipiaHeight: 108
 latticeInitialHue: 300
 latticeInitialSaturation: 50
 latticeInitialLightness: 7

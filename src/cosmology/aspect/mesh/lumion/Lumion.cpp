@@ -23,11 +23,11 @@ void Lumion::react() {
     auto &signal = signalarium->stft;
     magnitude = 0;
     for (int index = firstIndexToWatch; index < lastIndexToWatch; index++) {
-//        auto indexValue = signal.getSample(index);
-//        if (indexValue > targetSample) {
-//            targetSample = indexValue;
-//        }
-        magnitude += signal.getSample(index);
+        auto indexValue = signal.getSample(index);
+        if (indexValue > magnitude) {
+            magnitude = indexValue;
+        }
+//        magnitude += signal.getSample(index);
     }
 
     // proportion of signal
@@ -38,16 +38,16 @@ void Lumion::react() {
 
     // just gimmie that friggan value! And cap it!
 //    magnitude = Tidbit::bind(targetSample, 0.0, 1.0);
-    auto excitationThreshold = LUMION_EXCITATION_THRESHOLD_AXIOM * 1000;
+    auto excitationThreshold = LUMION_EXCITATION_THRESHOLD_AXIOM * 75;
 
     if (excited) {
         // float around
-        auto distance = magnitude / 75 * MOVEMENT_AXIOM;
-        auto direction = randomizer->generateProportion() * 2 * M_PI;
-        auto potentialNewLatticePoint = cartographer->shiftPoint(latticePoint, distance, direction);
-        if (cartographer->isValid(potentialNewLatticePoint)) {
-            latticePoint = potentialNewLatticePoint;
-        }
+//        auto distance = magnitude / 75 * MOVEMENT_AXIOM;
+//        auto direction = randomizer->generateProportion() * 2 * M_PI;
+//        auto potentialNewLatticePoint = cartographer->shiftPoint(latticePoint, distance, direction);
+//        if (cartographer->isValid(potentialNewLatticePoint)) {
+//            latticePoint = potentialNewLatticePoint;
+//        }
         if (magnitude < excitationThreshold / 8) {
             excited = false;
         }
@@ -61,7 +61,7 @@ void Lumion::react() {
 
     if (excited) {
         // make some glimmers
-        color.lightness = 50 + magnitude / 10;
+        color.lightness = magnitude;
         aspectCommunity->revealeries[macroMode]->reveal(this);
     } else {
         if (centerMode) {

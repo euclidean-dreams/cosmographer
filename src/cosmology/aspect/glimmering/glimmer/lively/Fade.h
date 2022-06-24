@@ -10,22 +10,19 @@ namespace cosmographer {
 class Fade : public Lively {
 public:
     GlimmerSoul *glimmerSoul;
-    Lifespan *lifespan;
     HSLColor fadeColor;
 
     Fade(
             GlimmerSoul *glimmerSoul,
-            Lifespan *lifespan,
             HSLColor fadeColor
     ) :
             glimmerSoul{glimmerSoul},
-            lifespan{lifespan},
             fadeColor{fadeColor} {
 
     }
 
     void live() override {
-        float fade = glimmerSoul->age / lifespan->value;
+        float fade = glimmerSoul->age / 5;
         glimmerSoul->color = colorPixie->gradiate(
                 glimmerSoul->color,
                 fadeColor,
