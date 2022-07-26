@@ -1,6 +1,6 @@
 # general
 axiomologySize: 10
-maxGlimmers: 10000
+maxGlimmers: 5000
 essentiaSize: 2048
 # lumion count should be < essentia size and % = 0
 lumionCount: 2048
