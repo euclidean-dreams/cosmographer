@@ -23,11 +23,11 @@ public:
         float locusDeviation = 0.5 * CHAOS_AXIOM;
         glimmerSoul->locus.x += randomizer->generate(locusDeviation * 2) - locusDeviation;
         glimmerSoul->locus.y += randomizer->generate(locusDeviation * 2) - locusDeviation;
-        float colorDeviation = 5 * HUE_JITTER_AXIOM;
+        float colorDeviation = 10 * HUE_JITTER_AXIOM;
         glimmerSoul->color = {
                 glimmerSoul->color.hue + randomizer->generate(colorDeviation * 2) - colorDeviation,
-                cast(int, glimmerSoul->color.saturation + randomizer->generate(colorDeviation * 2) - colorDeviation),
-                cast(int, glimmerSoul->color.lightness + randomizer->generate(colorDeviation * 2) - colorDeviation)
+                glimmerSoul->color.saturation,
+                glimmerSoul->color.lightness
         };
     }
 };

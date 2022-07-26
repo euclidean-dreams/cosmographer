@@ -33,7 +33,7 @@ public:
 
     // palette
     int maxFluxRequirement = 100 * 1000;
-    int centrifugalPaletteFlux = 1000;
+    int centrifugalPaletteFlux = 5 * 1000; // higher values mean less change
     int minimumBeatInterval = 100 * 1000;
     uint signalAverageSize = 1000;
 
