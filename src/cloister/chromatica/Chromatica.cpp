@@ -9,7 +9,7 @@ namespace cosmographer {
 Chromatica::Chromatica(
 ) :
         Liaison<ChromaticaCommunity>(paradigm) {
-    subCommunity.palette = mkup<ExplorerPalette>();
+    subCommunity.palette = mkup<GradientPalette>();
     subCommunity.palette->initialize(&subCommunity);
 
 }
@@ -20,13 +20,13 @@ HSLColor Chromatica::getColor() {
 
 void Chromatica::experiencePhenomenon(const Phenomenon *phenomenon) {
     if (phenomenon->identity() == 0) {
-        subCommunity.palette = mkup<ExplorerPalette>();
+        subCommunity.palette = mkup<GradientPalette>();
         subCommunity.palette->initialize(&subCommunity);
     } else if (phenomenon->identity() == 1) {
         subCommunity.palette = mkup<CentrifugalPalette>(constants->signalAverageSize);
         subCommunity.palette->initialize(&subCommunity);
     } else if (phenomenon->identity() == 2) {
-        subCommunity.palette = mkup<BeatPalette>();
+        subCommunity.palette = mkup<ExplorerPalette>();
         subCommunity.palette->initialize(&subCommunity);
     } else if (phenomenon->identity() == 3) {
         subCommunity.palette = mkup<RandomPalette>();

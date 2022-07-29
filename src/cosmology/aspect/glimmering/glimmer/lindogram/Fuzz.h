@@ -1,5 +1,5 @@
-#ifndef COSMOGRAPHER_RING_H
-#define COSMOGRAPHER_RING_H
+#ifndef COSMOGRAPHER_FUZZ_H
+#define COSMOGRAPHER_FUZZ_H
 
 #include "Default.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h"
@@ -8,12 +8,12 @@
 
 namespace cosmographer {
 
-class Ring : public Lively {
+class Fuzz : public Lively {
 public:
     GlimmerSoul *glimmerSoul;
     PainterCommunity *painterCommunity;
 
-    Ring(
+    Fuzz(
             GlimmerSoul *glimmerSoul,
             PainterCommunity *painterCommunity
     );
@@ -22,4 +22,4 @@ public:
 };
 
 }
-#endif //COSMOGRAPHER_RING_H
+#endif //COSMOGRAPHER_FUZZ_H

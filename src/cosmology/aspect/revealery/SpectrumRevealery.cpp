@@ -12,7 +12,8 @@
 #include "cosmology/aspect/glimmering/glimmer/lively/Fade.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/Mutator.h"
 #include "cosmology/aspect/glimmering/glimmer/lively/LumionMimic.h"
-#include "cosmology/aspect/glimmering/glimmer/lindogram/Ring.h"
+#include "cosmology/aspect/glimmering/glimmer/lindogram/Fuzz.h"
+#include "cosmology/aspect/glimmering/glimmer/lindogram/Triangle.h"
 
 namespace cosmographer {
 
@@ -41,14 +42,10 @@ void SpectrumRevealery::reveal(
             glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
         } else if (microMode == 2) {
             auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
-            auto orientation = 2 * M_PI * randomizer->generateProportion();
-            glimmer->addLively(mkup<DragonCurve>(glimmer->glimmerSoul, painterCommunity, orientation));
-        } else if (microMode == 3) {
-            auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
-            glimmer->addLively(mkup<Wander>(glimmer->glimmerSoul, painterCommunity));
+            glimmer->addLively(mkup<Fuzz>(glimmer->glimmerSoul, painterCommunity));
         } else {
             auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
-            glimmer->addLively(mkup<Ring>(glimmer->glimmerSoul, painterCommunity));
+            glimmer->addLively(mkup<Triangle>(glimmer->glimmerSoul, painterCommunity, 0));
         }
         glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
 

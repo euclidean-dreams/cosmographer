@@ -100,7 +100,7 @@ set(
         # glimmering
         src/cosmology/aspect/glimmering/Glimmering.cpp src/cosmology/aspect/glimmering/Glimmering.h src/cosmology/aspect/glimmering/GlimmeringCommunity.h
         src/cosmology/aspect/revealery/Revealery.h
-        src/cosmology/aspect/revealery/WorkshopRevealery.cpp src/cosmology/aspect/revealery/WorkshopRevealery.h
+        src/cosmology/aspect/revealery/relics/WorkshopRevealery.cpp src/cosmology/aspect/revealery/relics/WorkshopRevealery.h
 
         # glimmer
         src/cosmology/aspect/glimmering/glimmer/Glimmer.cpp src/cosmology/aspect/glimmering/glimmer/Glimmer.h src/cosmology/aspect/glimmering/glimmer/GlimmerSoul.h
@@ -170,13 +170,17 @@ set(
         src/cosmology/aspect/glimmering/glimmer/lively/Mutator.h
         src/oddments/Tidbit.cpp src/oddments/Tidbit.h
         src/cosmology/aspect/glimmering/glimmer/lively/LumionMimic.h
-        src/cosmology/aspect/revealery/BorderRevealery.cpp src/cosmology/aspect/revealery/BorderRevealery.h
+        src/cosmology/aspect/revealery/relics/BorderRevealery.cpp src/cosmology/aspect/revealery/relics/BorderRevealery.h
         src/cloister/Pole.cpp src/cloister/Pole.h
         src/cloister/LumionBookie.cpp src/cloister/LumionBookie.h
         src/cloister/chromatica/palette/RandomPalette.cpp src/cloister/chromatica/palette/RandomPalette.h
-        src/cosmology/aspect/glimmering/glimmer/lindogram/Ring.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Ring.h
+        src/cosmology/aspect/glimmering/glimmer/lindogram/Fuzz.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Fuzz.h
         src/cosmology/aspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.h
-        src/cloister/VolitiaGolem.cpp src/cloister/VolitiaGolem.h src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.h src/primitive/Loci.cpp src/cosmology/aspect/jitter/Jit.h)
+        src/cloister/VolitiaGolem.cpp src/cloister/VolitiaGolem.h
+        src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.h
+        src/primitive/Loci.cpp
+        src/cosmology/aspect/revealery/Revealeries.h
+        src/cosmology/aspect/glimmering/glimmer/lindogram/Odds.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

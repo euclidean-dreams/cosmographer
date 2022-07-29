@@ -1,9 +1,9 @@
-#include "Ring.h"
+#include "Fuzz.h"
 #include "cosmology/aspect/glimmering/glimmer/illuminable/painter/Painter.h"
 
 namespace cosmographer {
 
-Ring::Ring(
+Fuzz::Fuzz(
         GlimmerSoul *glimmerSoul,
         PainterCommunity *painterCommunity
 ) :
@@ -12,7 +12,7 @@ Ring::Ring(
 
 }
 
-void Ring::live() {
+void Fuzz::live() {
     if (glimmerSoul->age == 0) {
         auto granularity = SIZE_AXIOM * 15;
         for (int i = 0; i < granularity; i++) {

@@ -6,11 +6,13 @@ namespace cosmographer {
 
 Lumion::Lumion(
         AspectCommunity *aspectCommunity,
+        int lumionIndex,
         int firstIndexToWatch,
         int lastIndexToWatch,
         Point latticePoint
 ) :
         aspectCommunity{aspectCommunity},
+        lumionIndex{lumionIndex},
         firstIndexToWatch{firstIndexToWatch},
         lastIndexToWatch{lastIndexToWatch},
         latticePoint{latticePoint} {
@@ -39,7 +41,7 @@ void Lumion::react() {
 //    magnitude = Tidbit::bind(targetSample, 0.0, 1.0);
 
     // anything is possible just beyond the reach of a path
-    auto stateChangeThresholdMax = 1000;
+    auto stateChangeThresholdMax = constants->excitationThresholdMax;
     auto flippedExcitationAxiom = 1 - EXCITATION_AXIOM;
     if (flippedExcitationAxiom == 0)
         flippedExcitationAxiom = 0.01;
@@ -63,7 +65,7 @@ void Lumion::react() {
         if (cartographer->isValid(potentialNewLatticePoint)) {
             latticePoint = potentialNewLatticePoint;
         }
-        if (magnitude < excitationMagnitude / 16 * (1 - EXHAUSTION_AXIOM)) {
+        if (magnitude < excitationThreshold / (8 * EXHAUSTION_AXIOM)) {
             excited = false;
         }
     } else if (magnitude > excitationThreshold) {
@@ -73,11 +75,11 @@ void Lumion::react() {
         excitationMagnitude = magnitude;
         lumionBookie->recordActivation(magnitude);
         color = chromatica->getColor();
+        color = {color.hue, color.saturation, color.lightness};
     }
 
     if (excited) {
         // make some glimmers
-        color = {color.hue, color.saturation, cast(int, 40 + magnitude / 25)};
         aspectCommunity->revealeries[macroMode]->reveal(this);
     } else {
         if (centerMode) {

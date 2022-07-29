@@ -12,8 +12,7 @@ namespace cosmographer {
 class Mesh : public Fellow<AspectCommunity>, public Liaison<MeshCommunity> {
 public:
     Mesh(
-            AspectCommunity *community,
-            int lumionCount
+            AspectCommunity *community
     );
 
     void meld();

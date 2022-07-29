@@ -3,8 +3,7 @@
 namespace cosmographer {
 
 Mesh::Mesh(
-        AspectCommunity *community,
-        int lumionCount
+        AspectCommunity *community
 ) :
         Liaison<MeshCommunity>(community) {
 
@@ -16,8 +15,8 @@ Mesh::Mesh(
 //    auto b = G / (std::exp(L / a) - 1);
 
 //    auto latticeCenter = Point{cast(float, constants->percipiaWidth) / 2, cast(float, constants->percipiaHeight) / 2};
-    auto lumionSpan = Config::getInstance().getInt("essentiaSize") / lumionCount;
-    for (int lumionIndex = 0; lumionIndex < lumionCount; lumionIndex++) {
+    auto lumionSpan = Config::getInstance().getInt("essentiaSize") / constants->lumionCount;
+    for (int lumionIndex = 0; lumionIndex < constants->lumionCount; lumionIndex++) {
 //        auto x = lumionIndex;
 //        auto latticeIndex = a * std::log(1 + x / b);
 //        auto latticePoint = cartographer->verticalWrap(latticeIndex);
@@ -27,7 +26,7 @@ Mesh::Mesh(
         };
         auto firstIndex = lumionIndex * lumionSpan;
         auto lastIndex = firstIndex + lumionSpan;
-        auto lumion = mkup<Lumion>(community, firstIndex, lastIndex, latticePoint);
+        auto lumion = mkup<Lumion>(community, lumionIndex, firstIndex, lastIndex, latticePoint);
         lumion->initialize(&subCommunity);
         subCommunity.lumions.push_back(mv(lumion));
     }

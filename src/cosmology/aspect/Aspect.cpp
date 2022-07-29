@@ -1,7 +1,8 @@
 #include "Aspect.h"
-#include "cosmology/aspect/revealery/WorkshopRevealery.h"
+#include "cosmology/aspect/revealery/relics/WorkshopRevealery.h"
 #include "cosmology/aspect/revealery/SpectrumRevealery.h"
-#include "cosmology/aspect/revealery/BorderRevealery.h"
+#include "cosmology/aspect/revealery/relics/BorderRevealery.h"
+#include "cosmology/aspect/revealery/Revealeries.h"
 
 namespace cosmographer {
 
@@ -9,10 +10,10 @@ Aspect::Aspect(
         CosmologyCommunity *community
 ) :
         Liaison<AspectCommunity>(community) {
-    subCommunity.mesh = mkup<Mesh>(&subCommunity, constants->lumionCount);
+    subCommunity.mesh = mkup<Mesh>(&subCommunity);
     subCommunity.mesh->initialize(&subCommunity);
-    subCommunity.revealeries.push_back(mkup<WorkshopRevealery>());
-    subCommunity.revealeries.push_back(mkup<BorderRevealery>());
+    subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
+    subCommunity.revealeries.push_back(mkup<OddRevealery>());
     subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
     subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
     subCommunity.revealeries.push_back(mkup<BorderRevealery>());

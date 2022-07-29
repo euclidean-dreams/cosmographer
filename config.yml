@@ -6,6 +6,9 @@ essentiaSize: 2048
 lumionCount: 2048
 baseGlimmerSize: 0.08
 
+# sort of like a gain knob
+excitationThresholdMax: 1000
+
 # endpoints
 percipiaEndpoint: ipc:///tmp/percipia
 essentiaEndpoint: ipc:///tmp/analogorium

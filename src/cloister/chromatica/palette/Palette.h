@@ -16,11 +16,11 @@ public:
     virtual void experienceEssentia() {};
 
     HSLColor jitter(HSLColor color) {
-        float colorDeviation = 15 * HUE_JITTER_AXIOM;
+        float colorDeviation = 75 * HUE_JITTER_AXIOM;
         return {
                 color.hue + randomizer->generate(colorDeviation * 2) - colorDeviation,
-                cast(int, color.saturation + randomizer->generate(colorDeviation * 2) - colorDeviation),
-                cast(int, color.lightness + randomizer->generate(colorDeviation * 2) - colorDeviation)
+                cast(int, color.saturation),
+                cast(int, color.lightness)
         };
     }
 };
@@ -54,6 +54,14 @@ public:
 
         lightness = LIGHTNESS_AXIOM - 0.5;
         lightness = Tidbit::bind(cast(float, lightness + lightness * randomizer->generate(3)), 70.0f, 100.0f);
+    }
+
+};
+
+class GradientPalette : public Palette {
+public:
+    HSLColor getColor() override {
+        return jitter({PALETTE_AXIOM_0 * HSL_HUE_MAX, 100, 80});
     }
 
 };

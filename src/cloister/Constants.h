@@ -13,6 +13,8 @@ public:
     int illuminatorThreadCount = std::thread::hardware_concurrency();
     uint lumionCount = Config::getInstance().getUint("lumionCount");
 
+    int excitationThresholdMax = Config::getInstance().getUint("excitationThresholdMax");
+
     // endpoints
     std::string percipiaEndpoint = Config::getInstance().getString("percipiaEndpoint");
     std::string essentiaEndpoint = Config::getInstance().getString("essentiaEndpoint");

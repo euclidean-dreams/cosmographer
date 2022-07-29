@@ -11,6 +11,7 @@ namespace cosmographer {
 class Lumion : public Fellow<MeshCommunity> {
 public:
     AspectCommunity *aspectCommunity;
+    int lumionIndex;
     int firstIndexToWatch;
     int lastIndexToWatch;
     Point latticePoint;
@@ -22,6 +23,7 @@ public:
 
     Lumion(
             AspectCommunity *aspectCommunity,
+            int lumionIndex,
             int initialWatchedIndex,
             int lastIndexToWatch,
             Point latticePoint

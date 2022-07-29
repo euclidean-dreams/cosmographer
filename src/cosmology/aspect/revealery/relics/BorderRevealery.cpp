@@ -21,7 +21,7 @@ namespace cosmographer {
 void BorderRevealery::reveal(
         Lumion *lumion
 ) {
-    int glimmerCount = SIZE_AXIOM * constants->glimmerSpawnCountScaler * lumion->magnitude;
+    int glimmerCount = SIZE_AXIOM * constants->glimmerSpawnCountScaler * lumion->magnitude / 1000;
     if (glimmerCount < 1) {
         glimmerCount = 1;
     }
