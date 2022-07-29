@@ -173,7 +173,6 @@ set(
         src/cosmology/aspect/revealery/BorderRevealery.cpp src/cosmology/aspect/revealery/BorderRevealery.h
         src/cloister/Pole.cpp src/cloister/Pole.h
         src/cloister/LumionBookie.cpp src/cloister/LumionBookie.h
-        src/cloister/chromatica/palette/ExplorerPalette.cpp src/cloister/chromatica/palette/ExplorerPalette.h
         src/cloister/chromatica/palette/RandomPalette.cpp src/cloister/chromatica/palette/RandomPalette.h
         src/cosmology/aspect/glimmering/glimmer/lindogram/Ring.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Ring.h
         src/cosmology/aspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.h

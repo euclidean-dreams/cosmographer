@@ -2,7 +2,6 @@
 #include "cloister/chromatica/palette/CentrifugalPalette.h"
 #include "cloister/chromatica/palette/BeatPalette.h"
 #include "cloister/chromatica/palette/SingleColorPalette.h"
-#include "cloister/chromatica/palette/ExplorerPalette.h"
 #include "cloister/chromatica/palette/RandomPalette.h"
 
 namespace cosmographer {

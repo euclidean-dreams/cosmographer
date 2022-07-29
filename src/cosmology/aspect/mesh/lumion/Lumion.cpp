@@ -42,7 +42,7 @@ void Lumion::react() {
 
     if (excited) {
         // float around
-        auto distance = magnitude / 75 * MOVEMENT_AXIOM;
+        auto distance = magnitude / 150 * MOVEMENT_AXIOM;
         auto direction = randomizer->generateProportion() * 2 * M_PI;
         auto potentialNewLatticePoint = cartographer->shiftPoint(latticePoint, distance, direction);
         if (cartographer->isValid(potentialNewLatticePoint)) {
@@ -61,7 +61,7 @@ void Lumion::react() {
 
     if (excited) {
         // make some glimmers
-        color.lightness = 40 + magnitude / 25;
+        color.lightness = 40 + magnitude / 30;
         aspectCommunity->revealeries[macroMode]->reveal(this);
     } else {
         if (centerMode) {
