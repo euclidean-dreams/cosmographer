@@ -19,7 +19,7 @@ namespace cosmographer {
 void SpectrumRevealery::reveal(
         Lumion *lumion
 ) {
-    int glimmerCount = COUNT_AXIOM * constants->glimmerSpawnCountScaler * lumion->magnitude / 1000;
+    int glimmerCount = SIZE_AXIOM * constants->glimmerSpawnCountScaler * lumion->magnitude / 1000;
     if (glimmerCount < 1) {
         glimmerCount = 1;
     }

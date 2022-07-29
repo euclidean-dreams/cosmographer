@@ -11,9 +11,9 @@ Aspect::Aspect(
         Liaison<AspectCommunity>(community) {
     subCommunity.mesh = mkup<Mesh>(&subCommunity, constants->lumionCount);
     subCommunity.mesh->initialize(&subCommunity);
-    subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
-    subCommunity.revealeries.push_back(mkup<BorderRevealery>());
     subCommunity.revealeries.push_back(mkup<WorkshopRevealery>());
+    subCommunity.revealeries.push_back(mkup<BorderRevealery>());
+    subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
     subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
     subCommunity.revealeries.push_back(mkup<BorderRevealery>());
     for (auto &revealery: subCommunity.revealeries) {

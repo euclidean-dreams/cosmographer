@@ -13,8 +13,7 @@ Lumion::Lumion(
         aspectCommunity{aspectCommunity},
         firstIndexToWatch{firstIndexToWatch},
         lastIndexToWatch{lastIndexToWatch},
-        latticePoint{latticePoint},
-        color{0, 0, 0} {
+        latticePoint{latticePoint} {
     color = chromatica->getColor();
 }
 
@@ -38,7 +37,23 @@ void Lumion::react() {
 
     // just gimmie that friggan value! And cap it!
 //    magnitude = Tidbit::bind(targetSample, 0.0, 1.0);
-    auto excitationThreshold = LUMION_EXCITATION_THRESHOLD_AXIOM * 1000;
+
+    // anything is possible just beyond the reach of a path
+    auto stateChangeThresholdMax = 250;
+    auto flippedExcitationAxiom = 1 - EXCITATION_AXIOM;
+    if (flippedExcitationAxiom == 0)
+        flippedExcitationAxiom = 0.01;
+    auto excitationThreshold = flippedExcitationAxiom * stateChangeThresholdMax;
+
+    // scry
+    // attempt to figure out what the magnitude one step in the future is going to be based on
+    // magnitude of most recent change
+    auto signalDeltarivative = magnitude - previousMagnitude;
+    auto oneStepAheadSample = magnitude + signalDeltarivative;
+
+//    auto excitationThreshold = EXCITATION_AXIOM * 1000;
+
+
 
     if (excited) {
         // float around
@@ -48,26 +63,28 @@ void Lumion::react() {
         if (cartographer->isValid(potentialNewLatticePoint)) {
             latticePoint = potentialNewLatticePoint;
         }
-        if (magnitude < excitationThreshold / 8) {
+        if (magnitude < excitationMagnitude * (1 - EXHAUSTION_AXIOM)/ 2) {
             excited = false;
         }
     } else if (magnitude > excitationThreshold) {
-//        LOGGER->info(magnitude);
         // the flip
+//        LOGGER->info(magnitude);
         excited = true;
+        excitationMagnitude = magnitude;
         lumionBookie->recordActivation(magnitude);
         color = chromatica->getColor();
     }
 
     if (excited) {
         // make some glimmers
-        color.lightness = 40 + magnitude / 30;
+        color = {color.hue, color.saturation, cast(int, 40 + magnitude / 25)};
         aspectCommunity->revealeries[macroMode]->reveal(this);
     } else {
         if (centerMode) {
             center();
         }
     }
+    previousMagnitude = magnitude;
 }
 
 void Lumion::center() {

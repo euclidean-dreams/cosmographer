@@ -20,30 +20,20 @@ namespace cosmographer {
 void WorkshopRevealery::reveal(
         Lumion *lumion
 ) {
-    int glimmerCount = COUNT_AXIOM * constants->glimmerSpawnCountScaler * lumion->magnitude;
-    if (glimmerCount < 1) {
-        glimmerCount = 1;
-    }
-    for (int count = 0; count < glimmerCount; count++) {
-        auto glimmerSoul = mkup<GlimmerSoul>(
-                lumion,
-                Point{lumion->latticePoint.x, lumion->latticePoint.y},
-                lumion->color,
-                lumion->magnitude
-        );
-        auto glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));
-        glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
+    auto glimmerSoul = mkup<GlimmerSoul>(
+            lumion,
+            Point{lumion->latticePoint.x, lumion->latticePoint.y},
+            lumion->color,
+            lumion->magnitude
+    );
+    auto glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));
+    glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
 
-        float inclinationOffset = cast(float, count) / glimmerCount * 2 * M_PI;
+    glimmer->addIlluminable(mkup<Rectangle>(glimmer->glimmerSoul, 1));
 
-        auto painterCommunity = GlimmerMakers::createPainterCommunity(glimmer.get());
-        glimmer->addLively(mkup<Triangle>(glimmer->glimmerSoul, painterCommunity, inclinationOffset));
-
-        glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, inclinationOffset));
-        glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
-
-        community->glimmering->addGlimmer(mv(glimmer));
-    }
+    float inclinationOffset = 2 * M_PI;
+    glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, inclinationOffset));
+    community->glimmering->addGlimmer(mv(glimmer));
 }
 
 }

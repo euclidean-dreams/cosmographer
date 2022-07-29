@@ -15,8 +15,10 @@ public:
     int lastIndexToWatch;
     Point latticePoint;
     bool excited;
-    float magnitude;
-    HSLColor color;
+    float excitationMagnitude;
+    float magnitude = 0;
+    float previousMagnitude = 0;
+    HSLColor color = {0, 0, 0};
 
     Lumion(
             AspectCommunity *aspectCommunity,

@@ -11,4 +11,6 @@
 #define umap std::unordered_map
 #define cast(type, object) static_cast<type>(object)
 
+#define PROJECT_NAMESPACE cosmographer
+
 #endif //COSMOGRAPHER_MACROS_H
