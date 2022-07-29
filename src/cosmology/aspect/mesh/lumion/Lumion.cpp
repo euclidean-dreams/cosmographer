@@ -39,7 +39,7 @@ void Lumion::react() {
 //    magnitude = Tidbit::bind(targetSample, 0.0, 1.0);
 
     // anything is possible just beyond the reach of a path
-    auto stateChangeThresholdMax = 250;
+    auto stateChangeThresholdMax = 1000;
     auto flippedExcitationAxiom = 1 - EXCITATION_AXIOM;
     if (flippedExcitationAxiom == 0)
         flippedExcitationAxiom = 0.01;
@@ -63,7 +63,7 @@ void Lumion::react() {
         if (cartographer->isValid(potentialNewLatticePoint)) {
             latticePoint = potentialNewLatticePoint;
         }
-        if (magnitude < excitationMagnitude * (1 - EXHAUSTION_AXIOM)/ 2) {
+        if (magnitude < excitationMagnitude / 16 * (1 - EXHAUSTION_AXIOM)) {
             excited = false;
         }
     } else if (magnitude > excitationThreshold) {
