@@ -1,8 +1,8 @@
 #include "Cosmographer.h"
 
-#if VANTAGE == palantir
+#if VANTAGE == percipia
 
-#include "vantage/PalantirVantage.h"
+#include "vantage/PercipiaVantage.h"
 
 #endif
 #if VANTAGE == keyhole
@@ -27,14 +27,14 @@ Cosmographer::Cosmographer(
     subCommunity.phenomenology = mv(phenomenology);
 
     // vantage
-#if VANTAGE == palantir
-    auto palantirSocket = mkup<NetworkSocket>(
+#if VANTAGE == percipia
+    auto percipiaSocket = mkup<NetworkSocket>(
             zmqContext,
             constants->percipiaEndpoint,
             zmq::socket_type::pub,
             true
     );
-    subCommunity.vantage = mkup<PalantirVantage>(mv(palantirSocket));
+    subCommunity.vantage = mkup<PercipiaVantage>(mv(percipiaSocket));
 #elif VANTAGE == keyhole
     subCommunity.vantage = mkup<KeyholeVantage>();
 #elif VANTAGE == gubbin

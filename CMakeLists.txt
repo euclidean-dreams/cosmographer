@@ -8,7 +8,7 @@ add_compile_options(-Wno-dev)
 # isn't cmake such a nuisance
 
 #       possible vantage types:
-#       palantir: for a screen (  ) <- start with this one
+#       percipia: for a screen (  ) <- start with this one
 #       keyhole: for a warble in the weave _-_-_-_
 #       gubbin: for a demonstration of magic *&*
 
@@ -35,7 +35,7 @@ integrate_cmake_dependency(
 
 # thanks to David Blackman and Sebastiano Vigna also for their xoshiro256++ implementation!
 
-if (${VANTAGE} STREQUAL palantir)
+if (${VANTAGE} STREQUAL percipia)
     # no extra config necessary
 elseif (${VANTAGE} STREQUAL keyhole)
     integrate_cmake_dependency(
@@ -114,11 +114,11 @@ set(
         src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h
 )
 
-if (${VANTAGE} STREQUAL palantir)
+if (${VANTAGE} STREQUAL percipia)
     set(
             SOURCE_FILES
             ${SOURCE_FILES}
-            src/vantage/PalantirVantage.cpp src/vantage/PalantirVantage.h
+            src/vantage/PercipiaVantage.cpp src/vantage/PercipiaVantage.h
     )
 endif ()
 if (${VANTAGE} STREQUAL keyhole)

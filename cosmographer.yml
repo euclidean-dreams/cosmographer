@@ -1,10 +1,10 @@
 # general
 axiomologySize: 10
-maxGlimmers: 5000
+maxGlimmers: 500
 essentiaSize: 2048
 # lumion count should be < essentia size and % = 0
-lumionCount: 2048
-baseGlimmerSize: 0.08
+lumionCount: 64
+baseGlimmerSize: 0.0001
 
 # sort of like a gain knob
 excitationThresholdMax: 1000
@@ -15,8 +15,8 @@ essentiaEndpoint: ipc:///tmp/analogorium
 volitiaEndpoint: tcp://volitia:44440
 
 # fullscreen
-percipiaWidth: 200
-percipiaHeight: 200
+percipiaWidth: 90
+percipiaHeight: 1
 latticeInitialHue: 100
 latticeInitialSaturation: 100
-latticeInitialLightness: 100
+latticeInitialLightness: 0

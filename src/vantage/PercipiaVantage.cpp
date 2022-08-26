@@ -1,15 +1,15 @@
-#include "PalantirVantage.h"
+#include "PercipiaVantage.h"
 
 namespace cosmographer {
 
-PalantirVantage::PalantirVantage(
+PercipiaVantage::PercipiaVantage(
         up<NetworkSocket> socket
 ) :
         socket{mv(socket)} {
-    LOGGER->info("initializing palantir vantage");
+    LOGGER->info("initializing percipia vantage");
 }
 
-void PalantirVantage::send(const Lattice &lattice) {
+void PercipiaVantage::send(const Lattice &lattice) {
     vec<Color> sendBuffer{};
     sendBuffer.reserve(lattice.size() * 3);
     for (int y = lattice.height - 1; y >= 0; y--) {

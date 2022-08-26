@@ -1,15 +1,15 @@
-#ifndef COSMOGRAPHER_PALANTIRVANTAGE_H
-#define COSMOGRAPHER_PALANTIRVANTAGE_H
+#ifndef COSMOGRAPHER_PERCIPIAVANTAGE_H
+#define COSMOGRAPHER_PERCIPIAVANTAGE_H
 
 #include "vantage/Vantage.h"
 
 namespace cosmographer {
 
-class PalantirVantage : public Vantage {
+class PercipiaVantage : public Vantage {
 public:
     up<NetworkSocket> socket;
 
-    PalantirVantage(
+    PercipiaVantage(
             up<NetworkSocket> socket
     );
 
@@ -18,4 +18,4 @@ public:
 
 }
 
-#endif //COSMOGRAPHER_PALANTIRVANTAGE_H
+#endif //COSMOGRAPHER_PERCIPIAVANTAGE_H
