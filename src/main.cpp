@@ -47,16 +47,16 @@ int bootstrap(std::string configFilePath) {
     lumionBookie = mkup<LumionBookie>();
 
     // extras
-    axioms.push_back(0.3);
-    axioms.push_back(0.1);
+    axioms.push_back(0.9);
+    axioms.push_back(0.8);
+    axioms.push_back(0.5);
     axioms.push_back(1.0);
-    axioms.push_back(0.4);
-    axioms.push_back(0.3);
-    axioms.push_back(0.7);
-    axioms.push_back(0.2);
-    axioms.push_back(0.2);
-    axioms.push_back(0.5);
-    axioms.push_back(0.5);
+    axioms.push_back(1.0);
+    axioms.push_back(1.0);
+    axioms.push_back(0.8);
+    axioms.push_back(1.0);
+    axioms.push_back(1.0);
+    axioms.push_back(0.6);
 
     initializeCoordinateHash();
 
