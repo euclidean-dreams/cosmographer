@@ -20,3 +20,15 @@ percipiaHeight: 1
 latticeInitialHue: 100
 latticeInitialSaturation: 100
 latticeInitialLightness: 0
+
+# axioms
+initial_axiom_0: 0.9
+initial_axiom_1: 0.4
+initial_axiom_2: 0.2
+initial_axiom_3: 0.4
+initial_axiom_4: 0.5
+initial_axiom_5: 0.1
+initial_axiom_6: 0.25
+initial_axiom_7: 0.25
+initial_axiom_8: 1.0
+initial_axiom_9: 0.2

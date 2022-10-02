@@ -54,7 +54,7 @@ Cosmographer::Cosmographer(
 void Cosmographer::activate() {
     // wait for a new essentia
     auto essentiaParcelBundle = receiveEssentiaParcelBundle();
-    if(!receivedFirstEssentia) {
+    if (!receivedFirstEssentia) {
         LOGGER->info("received first essentia!");
         receivedFirstEssentia = true;
     }
@@ -65,7 +65,7 @@ void Cosmographer::activate() {
     // handle new phenomena
     auto newPhenomenonParcels = subCommunity.phenomenology->take();
     for (auto &phenomenonParcel: *newPhenomenonParcels) {
-        if(!receivedFirstPhenomenon) {
+        if (!receivedFirstPhenomenon) {
             LOGGER->info("received first phenomenon!");
             receivedFirstPhenomenon = true;
         }
@@ -82,7 +82,17 @@ void Cosmographer::activate() {
             macroMode = phenomenon->identity() - 5;
         }
         if (button == 8) {
-            centerMode = !centerMode;
+            LOGGER->info("((~)> current parameters:");
+            LOGGER->info("((~)> 0: {}", axioms[0]);
+            LOGGER->info("((~)> 1: {}", axioms[1]);
+            LOGGER->info("((~)> 2: {}", axioms[2]);
+            LOGGER->info("((~)> 3: {}", axioms[3]);
+            LOGGER->info("((~)> 4: {}", axioms[4]);
+            LOGGER->info("((~)> 5: {}", axioms[5]);
+            LOGGER->info("((~)> 6: {}", axioms[6]);
+            LOGGER->info("((~)> 7: {}", axioms[7]);
+            LOGGER->info("((~)> 8: {}", axioms[8]);
+            LOGGER->info("((~)> 9: {}", axioms[9]);
         }
         if (button == 9) {
             palettePickerMode = !palettePickerMode;

@@ -35,22 +35,22 @@ integrate_cmake_dependency(
 
 # thanks to David Blackman and Sebastiano Vigna also for their xoshiro256++ implementation!
 
-if (${_vantage} STREQUAL percipia)
+if (_vantage STREQUAL percipia)
     # no extra config necessary
-elseif (${_vantage} STREQUAL keyhole)
+elseif (_vantage STREQUAL keyhole)
     integrate_cmake_dependency(
             NAME pigpio
             GIT_URL git@github.com:joan2937/pigpio.git
             GIT_TAG c33738a320a3e28824af7807edafda440952c05d
     )
-elseif (${_vantage} STREQUAL gubbin)
+elseif (_vantage STREQUAL gubbin)
     integrate_cmake_dependency(
             NAME ws281x
             GIT_URL git@github.com:jgarff/rpi_ws281x.git
             GIT_TAG 9be313f77aa494036e2dc205b6ec2860e7ee988c
     )
 else ()
-    message(FATAL_ERROR "invalid vantage type specified: ${_vantage}")
+    message(FATAL_ERROR "invalid vantage type specified: _vantage")
 endif ()
 
 set(
@@ -114,14 +114,14 @@ set(
         src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h
 )
 
-if (${_vantage} STREQUAL percipia)
+if (_vantage STREQUAL percipia)
     set(
             SOURCE_FILES
             ${SOURCE_FILES}
             src/vantage/PercipiaVantage.cpp src/vantage/PercipiaVantage.h
     )
 endif ()
-if (${_vantage} STREQUAL keyhole)
+if (_vantage STREQUAL keyhole)
     set(
             SOURCE_FILES
             ${SOURCE_FILES}
@@ -130,7 +130,7 @@ if (${_vantage} STREQUAL keyhole)
             src/vantage/keyhole/KeyholeConstants.h
     )
 endif ()
-if (${_vantage} STREQUAL gubbin)
+if (_vantage STREQUAL gubbin)
     set(
             SOURCE_FILES
             ${SOURCE_FILES}
@@ -187,11 +187,11 @@ add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 # finalize
 foreach (target IN LISTS TARGETS)
     target_include_directories(${target} PRIVATE src)
-    if (${_vantage} STREQUAL keyhole)
+    if (_vantage STREQUAL keyhole)
         target_include_directories(${target} PRIVATE ${CMAKE_BINARY_DIR}/pigpio-src)
         target_link_libraries(${target} PRIVATE pigpio)
     endif ()
-    if (${_vantage} STREQUAL gubbin)
+    if (_vantage STREQUAL gubbin)
         target_include_directories(${target} PRIVATE ${CMAKE_BINARY_DIR}/rpi_ws281x-src)
         target_link_libraries(${target} PRIVATE ws2811)
     endif ()

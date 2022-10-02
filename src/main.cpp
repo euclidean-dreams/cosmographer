@@ -47,16 +47,16 @@ int bootstrap(std::string configFilePath) {
     lumionBookie = mkup<LumionBookie>();
 
     // extras
-    axioms.push_back(0.9);
-    axioms.push_back(0.8);
-    axioms.push_back(0.5);
-    axioms.push_back(1.0);
-    axioms.push_back(1.0);
-    axioms.push_back(1.0);
-    axioms.push_back(0.8);
-    axioms.push_back(1.0);
-    axioms.push_back(1.0);
-    axioms.push_back(0.6);
+    axioms.push_back(Config::getInstance().getFloat("initial_axiom_0"));
+    axioms.push_back(Config::getInstance().getFloat("initial_axiom_1"));
+    axioms.push_back(Config::getInstance().getFloat("initial_axiom_2"));
+    axioms.push_back(Config::getInstance().getFloat("initial_axiom_3"));
+    axioms.push_back(Config::getInstance().getFloat("initial_axiom_4"));
+    axioms.push_back(Config::getInstance().getFloat("initial_axiom_5"));
+    axioms.push_back(Config::getInstance().getFloat("initial_axiom_6"));
+    axioms.push_back(Config::getInstance().getFloat("initial_axiom_7"));
+    axioms.push_back(Config::getInstance().getFloat("initial_axiom_8"));
+    axioms.push_back(Config::getInstance().getFloat("initial_axiom_9"));
 
     initializeCoordinateHash();
 
