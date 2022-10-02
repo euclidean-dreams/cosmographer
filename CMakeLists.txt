@@ -180,7 +180,7 @@ set(
         src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.h
         src/primitive/Loci.cpp
         src/cosmology/aspect/revealery/Revealeries.h
-        src/cosmology/aspect/glimmering/glimmer/lindogram/Odds.h)
+        src/cosmology/aspect/glimmering/glimmer/lindogram/Odds.h src/cosmology/aspect/glimmering/glimmer/illuminable/Illuminables.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

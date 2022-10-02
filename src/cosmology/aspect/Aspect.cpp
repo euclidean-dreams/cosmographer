@@ -14,7 +14,7 @@ Aspect::Aspect(
     subCommunity.mesh->initialize(&subCommunity);
     subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
     subCommunity.revealeries.push_back(mkup<OddRevealery>());
-    subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
+    subCommunity.revealeries.push_back(mkup<LanternRevealery>());
     subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
     subCommunity.revealeries.push_back(mkup<BorderRevealery>());
     for (auto &revealery: subCommunity.revealeries) {

@@ -61,7 +61,7 @@ public:
 class GradientPalette : public Palette {
 public:
     HSLColor getColor() override {
-        return jitter({PALETTE_AXIOM_0 * HSL_HUE_MAX, 100, 80});
+        return jitter({PALETTE_AXIOM_0 * HSL_HUE_MAX, 100, 50});
     }
 
 };

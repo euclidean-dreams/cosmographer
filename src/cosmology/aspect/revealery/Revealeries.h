@@ -9,6 +9,8 @@
 #include "cosmology/aspect/glimmering/glimmer/lindogram/Fuzz.h"
 #include "cosmology/aspect/glimmering/glimmer/lindogram/Odds.h"
 #include "cosmology/aspect/glimmering/glimmer/lindogram/DragonCurve.h"
+#include "cosmology/aspect/glimmering/glimmer/illuminable/Illuminables.h"
+#include "cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h"
 
 namespace PROJECT_NAMESPACE {
 
@@ -39,6 +41,27 @@ public:
         glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
         glimmer->addLively(mkup<Drift>(glimmer->glimmerSoul, 0));
 
+        community->glimmering->addGlimmer(mv(glimmer));
+    }
+};
+
+class LanternRevealery : public Revealery {
+public:
+    void reveal(
+            Lumion *lumion
+    ) override {
+        auto glimmerSoul = mkup<GlimmerSoul>(
+                lumion,
+                Point{lumion->latticePoint.x, lumion->latticePoint.y},
+                lumion->color,
+                lumion->magnitude
+        );
+        auto glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));
+        glimmer->addLively(mkup<LumionMimic>(glimmer->glimmerSoul));
+
+        glimmer->addIlluminable(mkup<Dot>(glimmer->glimmerSoul));
+
+        glimmer->addLively(mkup<Mutator>(glimmer->glimmerSoul));
         community->glimmering->addGlimmer(mv(glimmer));
     }
 };
