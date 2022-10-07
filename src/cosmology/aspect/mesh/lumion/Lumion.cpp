@@ -60,11 +60,11 @@ void Lumion::react() {
     if (excited) {
         // float around
         auto distance = magnitude / 50 * MOVEMENT_AXIOM;
-//        auto direction = randomizer->generateProportion() * 2 * M_PI;
-        float direction = 0;
-        if (randomizer->generateProportion() > 0.5) {
-            direction = M_PI;
-        }
+        auto direction = randomizer->generateProportion() * 2 * M_PI;
+//        float direction = 0;
+//        if (randomizer->generateProportion() > 0.5) {
+//            direction = M_PI;
+//        }
         auto potentialNewLatticePoint = cartographer->shiftPoint(latticePoint, distance, direction);
         if (cartographer->isValid(potentialNewLatticePoint)) {
             latticePoint = potentialNewLatticePoint;
