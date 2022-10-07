@@ -4,9 +4,9 @@
 
 namespace cosmographer {
 
-// <3
+// (~) <3
 // put world seed here
-// <3
+// (~) <3
 uint64_t worldSeed[4] = {444777444, 446777644, 456777654, 456787654};
 
 up<Paradigm> paradigmWrapper = mkup<Paradigm>();
@@ -26,6 +26,7 @@ int microMode = 0;
 int macroMode = 0;
 bool palettePickerMode = false;
 bool centerMode = false;
+int profile = 0;
 
 int bootstrap(std::string configFilePath) {
     Bootstrapper bootstrapper(configFilePath, 1);
@@ -57,6 +58,8 @@ int bootstrap(std::string configFilePath) {
     axioms.push_back(Config::getInstance().getFloat("initial_axiom_7"));
     axioms.push_back(Config::getInstance().getFloat("initial_axiom_8"));
     axioms.push_back(Config::getInstance().getFloat("initial_axiom_9"));
+
+    profile = Config::getInstance().getInt("profile");
 
     initializeCoordinateHash();
 

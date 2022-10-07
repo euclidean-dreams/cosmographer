@@ -27,6 +27,10 @@ extern int microMode;
 extern int macroMode;
 extern bool palettePickerMode;
 extern bool centerMode;
+extern int profile;
+
+#define OPUS_PROFILE 0
+#define LANTERN_PROFILE 1
 
 }
 

@@ -12,7 +12,11 @@ Aspect::Aspect(
         Liaison<AspectCommunity>(community) {
     subCommunity.mesh = mkup<Mesh>(&subCommunity);
     subCommunity.mesh->initialize(&subCommunity);
-    subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
+    if (profile == LANTERN_PROFILE) {
+        subCommunity.revealeries.push_back(mkup<LanternRevealery>());
+    } else {
+        subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
+    }
     subCommunity.revealeries.push_back(mkup<OddRevealery>());
     subCommunity.revealeries.push_back(mkup<LanternRevealery>());
     subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
