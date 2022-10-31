@@ -16,22 +16,20 @@ public:
             glimmerSoul{glimmerSoul} {}
 
     void live() override {
-        float sizeDeviation = 0.1 * CHAOS_AXIOM * SIZE_AXIOM;
-        glimmerSoul->size += randomizer->generate(sizeDeviation * 2) - sizeDeviation;
-        float ageDeviation = 5 * CHAOS_AXIOM;
-        glimmerSoul->age += randomizer->generate(ageDeviation * 2) - ageDeviation;
         float locusDeviation = 0.5 * CHAOS_AXIOM;
         glimmerSoul->locus.x += randomizer->generate(locusDeviation * 2) - locusDeviation;
         glimmerSoul->locus.y += randomizer->generate(locusDeviation * 2) - locusDeviation;
-        float colorDeviation = 16 * LIGHTNESS_AXIOM;
-        glimmerSoul->color = {
-                glimmerSoul->color.hue,
-                glimmerSoul->color.saturation - randomizer->generate(colorDeviation),
-                glimmerSoul->color.lightness - randomizer->generate(colorDeviation)
-        };
-        if (glimmerSoul->color.lightness <= 0 || glimmerSoul->color.saturation <= 0) {
-            glimmerSoul->alive = false;
-        }
+//        float lightnessDeviation = 2 * COLOR_ACCENT_AXIOM;
+//        glimmerSoul->color = {
+//                glimmerSoul->color.hue,
+//                cast(int, glimmerSoul->color.saturation),
+//                cast(int,
+//                     glimmerSoul->color.lightness + randomizer->generate(lightnessDeviation * 2) - lightnessDeviation)
+//        };
+//        if (glimmerSoul->color.lightness <= 0 || glimmerSoul->color.lightness >= 100 ||
+//            glimmerSoul->color.saturation <= 0 || glimmerSoul->color.saturation >= 100) {
+//            glimmerSoul->alive = false;
+//        }
     }
 };
 

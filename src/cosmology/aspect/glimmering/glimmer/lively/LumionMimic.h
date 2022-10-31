@@ -16,9 +16,12 @@ public:
             glimmerSoul{glimmerSoul} {}
 
     void live() override {
-        if (!glimmerSoul->lumion->excited) {
-            glimmerSoul->alive = false;
-        }
+//        if (!glimmerSoul->lumion->excited) {
+//            glimmerSoul->alive = false;
+//        }
+//        if (glimmerSoul->age > 0) {
+//            glimmerSoul->alive = false;
+//        }
     }
 };
 

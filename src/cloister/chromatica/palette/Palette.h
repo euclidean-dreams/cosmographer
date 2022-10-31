@@ -11,16 +11,17 @@ namespace cosmographer {
 
 class Palette : public Fellow<ChromaticaCommunity> {
 public:
-    virtual HSLColor getColor() = 0;
+    virtual HSLColor get_color() = 0;
 
     virtual void experienceEssentia() {};
 
     HSLColor jitter(HSLColor color) {
-        float colorDeviation = 75 * HUE_JITTER_AXIOM;
+        float colorDeviation = 75 * COLOR_ACCENT_AXIOM;
+        float lightnessDeviation = 25 * COLOR_ACCENT_AXIOM;
         return {
                 color.hue + randomizer->generate(colorDeviation * 2) - colorDeviation,
-                cast(int, color.saturation),
-                cast(int, color.lightness)
+                cast(int, color.saturation + randomizer->generate(lightnessDeviation * 2) - lightnessDeviation),
+                cast(int, color.lightness + randomizer->generate(lightnessDeviation * 2) - lightnessDeviation)
         };
     }
 };
@@ -41,18 +42,18 @@ public:
 
     }
 
-    HSLColor getColor() override {
+    HSLColor get_color() override {
         return {hue, cast(int, saturation), cast(int, lightness)};
     }
 
     void experienceEssentia() override {
-        float variance = PALETTE_AXIOM_0;
+        float variance = COLOR_BASE_AXIOM;
         hue += variance * randomizer->generate(2);
 
-        saturation = LIGHTNESS_AXIOM - 0.5;
+        saturation = COLOR_ACCENT_AXIOM - 0.5;
         saturation = Tidbit::bind(cast(float, saturation + saturation * randomizer->generate(2)), 80.0f, 100.0f);
 
-        lightness = LIGHTNESS_AXIOM - 0.5;
+        lightness = COLOR_ACCENT_AXIOM - 0.5;
         lightness = Tidbit::bind(cast(float, lightness + lightness * randomizer->generate(3)), 70.0f, 100.0f);
     }
 
@@ -60,8 +61,8 @@ public:
 
 class GradientPalette : public Palette {
 public:
-    HSLColor getColor() override {
-        return jitter({PALETTE_AXIOM_0 * HSL_HUE_MAX, 100, 50});
+    HSLColor get_color() override {
+        return jitter({COLOR_BASE_AXIOM * HSL_HUE_MAX, 100, 50});
     }
 
 };

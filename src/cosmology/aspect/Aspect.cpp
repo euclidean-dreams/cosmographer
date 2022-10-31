@@ -1,6 +1,5 @@
 #include "Aspect.h"
 #include "cosmology/aspect/revealery/relics/WorkshopRevealery.h"
-#include "cosmology/aspect/revealery/SpectrumRevealery.h"
 #include "cosmology/aspect/revealery/relics/BorderRevealery.h"
 #include "cosmology/aspect/revealery/Revealeries.h"
 
@@ -18,9 +17,9 @@ Aspect::Aspect(
         subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
     }
     subCommunity.revealeries.push_back(mkup<OddRevealery>());
-    subCommunity.revealeries.push_back(mkup<LanternRevealery>());
+    subCommunity.revealeries.push_back(mkup<RandomRevealery>());
+    subCommunity.revealeries.push_back(mkup<RandomRevealery>());
     subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
-    subCommunity.revealeries.push_back(mkup<BorderRevealery>());
     for (auto &revealery: subCommunity.revealeries) {
         revealery->initialize(&subCommunity);
     }

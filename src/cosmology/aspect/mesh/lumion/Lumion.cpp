@@ -30,6 +30,7 @@ void Lumion::react() {
 //        }
         magnitude += signal.getSample(index);
     }
+    auto derivative = magnitude - previousMagnitude;
 
     // proportion of signal
 //    auto excitation = targetSample / signal.energy;
@@ -45,21 +46,11 @@ void Lumion::react() {
     auto flippedExcitationAxiom = 1 - EXCITATION_AXIOM;
     if (flippedExcitationAxiom == 0)
         flippedExcitationAxiom = 0.01;
-    auto excitationThreshold = flippedExcitationAxiom * stateChangeThresholdMax;
+    auto cutoffThreshold = flippedExcitationAxiom * stateChangeThresholdMax;
 
-    // scry
-    // attempt to figure out what the magnitude one step in the future is going to be based on
-    // magnitude of most recent change
-    auto signalDeltarivative = magnitude - previousMagnitude;
-    auto oneStepAheadSample = magnitude + signalDeltarivative;
-
-//    auto excitationThreshold = EXCITATION_AXIOM * 1000;
-
-
-
-    if (excited) {
-        // float around
-        auto distance = magnitude / 50 * MOVEMENT_AXIOM;
+    if (magnitude > cutoffThreshold) {
+        excited = true;
+        auto distance = magnitude / 100 * LUMION_AXIOM;
         float direction = 0;
         if (profile == LANTERN_PROFILE) {
             if (randomizer->generateProportion() > 0.5) {
@@ -68,32 +59,18 @@ void Lumion::react() {
         } else {
             direction = randomizer->generateProportion() * 2 * M_PI;
         }
+
         auto potentialNewLatticePoint = cartographer->shiftPoint(latticePoint, distance, direction);
         if (cartographer->isValid(potentialNewLatticePoint)) {
             latticePoint = potentialNewLatticePoint;
         }
-        if (magnitude < excitationThreshold / (8 * EXHAUSTION_AXIOM)) {
-            excited = false;
-        }
-    } else if (magnitude > excitationThreshold) {
-        // the flip
-//        LOGGER->info(magnitude);
-        excited = true;
-        excitationMagnitude = magnitude;
-        lumionBookie->recordActivation(magnitude);
-        color = chromatica->getColor();
-        color = {color.hue, color.saturation, color.lightness};
-    }
-
-    if (excited) {
-        // make some glimmers
         aspectCommunity->revealeries[macroMode]->reveal(this);
     } else {
-        if (centerMode) {
-            center();
-        }
+        excited = false;
     }
+
     previousMagnitude = magnitude;
+    previousDerivative = derivative;
 }
 
 void Lumion::center() {

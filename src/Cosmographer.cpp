@@ -94,9 +94,9 @@ void Cosmographer::activate() {
             LOGGER->info("((~)> 8: {}", axioms[8]);
             LOGGER->info("((~)> 9: {}", axioms[9]);
         }
-        if (button == 9) {
-            palettePickerMode = !palettePickerMode;
-        }
+//        if (button == 9) {
+//            palettePickerMode = !palettePickerMode;
+//        }
     }
 
     // experience the essentia

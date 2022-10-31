@@ -81,7 +81,6 @@ set(
         src/cloister/chromatica/Chromatica.cpp src/cloister/chromatica/Chromatica.h src/cloister/chromatica/ChromaticaCommunity.h
         src/cloister/ColorPixie.cpp src/cloister/ColorPixie.h
         src/cloister/chromatica/palette/Palette.h
-        src/cloister/chromatica/palette/SingleColorPalette.h
         src/cloister/chromatica/palette/BeatPalette.cpp src/cloister/chromatica/palette/BeatPalette.h
         src/cloister/chromatica/palette/CentrifugalPalette.cpp src/cloister/chromatica/palette/CentrifugalPalette.h
 
@@ -166,7 +165,6 @@ set(
         src/cosmology/aspect/glimmering/glimmer/lively/Lifespan.h
         src/framework/Element.h
         src/cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.h
-        src/cosmology/aspect/revealery/SpectrumRevealery.cpp src/cosmology/aspect/revealery/SpectrumRevealery.h
         src/cosmology/aspect/glimmering/glimmer/lively/Mutator.h
         src/oddments/Tidbit.cpp src/oddments/Tidbit.h
         src/cosmology/aspect/glimmering/glimmer/lively/LumionMimic.h
@@ -180,7 +178,7 @@ set(
         src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.h
         src/primitive/Loci.cpp
         src/cosmology/aspect/revealery/Revealeries.h
-        src/cosmology/aspect/glimmering/glimmer/lindogram/Odds.h src/cosmology/aspect/glimmering/glimmer/illuminable/Illuminables.h)
+        src/cosmology/aspect/glimmering/glimmer/lindogram/Odds.h src/cosmology/aspect/glimmering/glimmer/illuminable/Illuminables.h src/cloister/chromatica/Palettes.h src/oddments/Oddments.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

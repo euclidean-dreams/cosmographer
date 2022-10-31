@@ -14,7 +14,7 @@ private:
 public:
     BeatPalette();
 
-    HSLColor getColor() override;
+    HSLColor get_color() override;
 
     void experienceEssentia() override;
 };

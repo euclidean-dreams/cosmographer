@@ -7,7 +7,7 @@ namespace cosmographer {
 
 class RandomPalette : public Palette {
 public:
-    HSLColor getColor() override;
+    HSLColor get_color() override;
 };
 
 }

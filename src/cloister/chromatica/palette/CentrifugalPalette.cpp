@@ -10,7 +10,7 @@ CentrifugalPalette::CentrifugalPalette(
 
 }
 
-HSLColor CentrifugalPalette::getColor() {
+HSLColor CentrifugalPalette::get_color() {
     return jitter({hue, 100, 70});
 }
 
@@ -18,7 +18,7 @@ void CentrifugalPalette::experienceEssentia() {
     auto &stft = signalarium->stft;
     auto flux = stft.energy - simpleMovingAverage.value;
     simpleMovingAverage.addSample(stft.energy);
-    auto fluxModifier = PALETTE_AXIOM_0;
+    auto fluxModifier = COLOR_BASE_AXIOM;
     if (fluxModifier < 0.01) {
         fluxModifier = 0.01;
     }

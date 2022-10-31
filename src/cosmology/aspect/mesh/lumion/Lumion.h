@@ -19,6 +19,7 @@ public:
     float excitationMagnitude;
     float magnitude = 0;
     float previousMagnitude = 0;
+    float previousDerivative = 0;
     HSLColor color = {0, 0, 0};
 
     Lumion(

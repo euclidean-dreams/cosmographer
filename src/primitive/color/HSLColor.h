@@ -37,6 +37,8 @@ public:
 
     void darken(int amount);
 
+    void desaturate(int amount);
+
     RGBColor convertToRGB() const;
 };
 

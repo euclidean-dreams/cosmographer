@@ -14,7 +14,6 @@ public:
     Lumion *lumion;
     Point locus;
     HSLColor color;
-    float size;
     int age;
     bool alive;
 
@@ -27,7 +26,6 @@ public:
             lumion{lumion},
             locus{locus},
             color{color},
-            size{size},
             age{0},
             alive{true} {
 

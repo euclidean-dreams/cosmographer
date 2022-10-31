@@ -22,6 +22,9 @@ public:
     }
 
     void live() {
+        if (glimmerSoul->age == 0) {
+            painterCommunity->painter->rotate(2 * M_PI * randomizer->generateProportion());
+        }
         for (int i = 0; i < SIZE_AXIOM * 2; i++) {
             painterCommunity->painter->advance(1, glimmerSoul->color);
             painterCommunity->painter->rotate(M_PI / 16 * randomizer->generateProportion());
@@ -44,6 +47,9 @@ public:
     }
 
     void live() {
+        if (glimmerSoul->age == 0) {
+            painterCommunity->painter->rotate(2 * M_PI * randomizer->generateProportion());
+        }
         for (int i = 0; i < SIZE_AXIOM * 2; i++) {
             painterCommunity->painter->advance(1, glimmerSoul->color);
             if (directionSwitch) {
@@ -72,6 +78,9 @@ public:
     }
 
     void live() {
+        if (glimmerSoul->age == 0) {
+            painterCommunity->painter->rotate(2 * M_PI * randomizer->generateProportion());
+        }
         painterCommunity->painter->advance(1, glimmerSoul->color);
         if (glimmerSoul->age % 2 == 0) {
             painterCommunity->painter->rotate(M_PI / 16 * SIZE_AXIOM);

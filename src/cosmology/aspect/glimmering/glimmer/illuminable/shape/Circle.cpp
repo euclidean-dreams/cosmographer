@@ -11,10 +11,7 @@ Circle::Circle(
 void Circle::illuminate(
         Lattice &lattice
 ) {
-    auto radius = glimmerSoul->size * constants->baseGlimmerSize * SIZE_AXIOM;
-    if (radius < 3) {
-        radius = 3;
-    }
+    auto radius = glimmerSoul->lumion->magnitude * constants->baseGlimmerSize * SIZE_AXIOM;
     auto locus = glimmerSoul->locus;
     auto minX = locus.x - radius;
     if (minX < 0) {

@@ -114,4 +114,11 @@ bool HSLColor::operator!=(HSLColor &other) const {
     } else return false;
 }
 
+void HSLColor::desaturate(int amount) {
+    saturation -= amount;
+    if (saturation > 100) {
+        saturation = 100;
+    }
+}
+
 }

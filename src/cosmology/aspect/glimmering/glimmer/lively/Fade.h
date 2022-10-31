@@ -10,28 +10,21 @@ namespace cosmographer {
 class Fade : public Lively {
 public:
     GlimmerSoul *glimmerSoul;
-    Lifespan *lifespan;
-    HSLColor fadeColor;
 
     Fade(
-            GlimmerSoul *glimmerSoul,
-            Lifespan *lifespan,
-            HSLColor fadeColor
+            GlimmerSoul *glimmerSoul
     ) :
-            glimmerSoul{glimmerSoul},
-            lifespan{lifespan},
-            fadeColor{fadeColor} {
+            glimmerSoul{glimmerSoul} {
 
     }
 
     void live() override {
-        float fade = glimmerSoul->age / lifespan->value;
-        glimmerSoul->color = colorPixie->gradiate(
-                glimmerSoul->color,
-                fadeColor,
-                fade
-        );
-        if (glimmerSoul->color == fadeColor) {
+        glimmerSoul->color.desaturate(2 * EXHAUSTION_AXIOM);
+        if (glimmerSoul->color.saturation <= 0) {
+            glimmerSoul->alive = false;
+        }
+        glimmerSoul->color.darken(5 * EXHAUSTION_AXIOM);
+        if (glimmerSoul->color.lightness <= 0) {
             glimmerSoul->alive = false;
         }
     }

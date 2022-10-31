@@ -14,9 +14,9 @@ Rectangle::Rectangle(
 void Rectangle::illuminate(
         Lattice &lattice
 ) {
-    auto width = glimmerSoul->size * constants->baseGlimmerSize * SIZE_AXIOM;
-    if (width < 3) {
-        width = 3;
+    auto width = glimmerSoul->lumion->magnitude * constants->baseGlimmerSize * SIZE_AXIOM;
+    if (width < 1) {
+        width = 1;
     }
     auto height = width * heightRatio;
 
