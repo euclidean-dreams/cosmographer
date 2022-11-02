@@ -23,8 +23,8 @@ public:
         if (glimmerSoul->color.saturation <= 0) {
             glimmerSoul->alive = false;
         }
-        glimmerSoul->color.darken(5 * EXHAUSTION_AXIOM);
-        if (glimmerSoul->color.lightness <= 0) {
+        glimmerSoul->color.lighten(5 * EXHAUSTION_AXIOM);
+        if (glimmerSoul->color.lightness >= 100) {
             glimmerSoul->alive = false;
         }
     }

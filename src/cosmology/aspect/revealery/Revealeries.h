@@ -36,7 +36,7 @@ public:
             auto glimmer = mkup<Glimmer>(community->glimmering->fetchSubcommunity(), mv(glimmerSoul));
 
             // illuminables
-            float inclinationOffset = pole->pole + cast(float, count) / glimmerCount * 2 * M_PI;
+            float inclinationOffset = pole->pole + cast(float, count) / glimmerCount * M_PI / 2 - M_PI / 4;
             if (microMode == 0) {
                 glimmer->addIlluminable(mkup<Circle>(glimmer->glimmerSoul));
             } else if (microMode == 1) {
