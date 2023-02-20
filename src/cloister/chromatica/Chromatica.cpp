@@ -19,19 +19,19 @@ HSLColor Chromatica::getColor() {
 }
 
 void Chromatica::experiencePhenomenon(const Phenomenon *phenomenon) {
-    if (phenomenon->identity() == 0) {
+    if (phenomenon->identity() == 200) {
         subCommunity.palette = mkup<LfoPalette>();
         subCommunity.palette->initialize(&subCommunity);
-    } else if (phenomenon->identity() == 1) {
+    } else if (phenomenon->identity() == 201) {
         subCommunity.palette = mkup<CentrifugalPalette>(constants->signalAverageSize);
         subCommunity.palette->initialize(&subCommunity);
-    } else if (phenomenon->identity() == 2) {
+    } else if (phenomenon->identity() == 202) {
         subCommunity.palette = mkup<ExplorerPalette>();
         subCommunity.palette->initialize(&subCommunity);
-    } else if (phenomenon->identity() == 3) {
+    } else if (phenomenon->identity() == 203) {
         subCommunity.palette = mkup<RandomPalette>();
         subCommunity.palette->initialize(&subCommunity);
-    } else if (phenomenon->identity() == 4) {
+    } else if (phenomenon->identity() == 204) {
         subCommunity.palette = mkup<SingleColorPalette>();
         subCommunity.palette->initialize(&subCommunity);
     }

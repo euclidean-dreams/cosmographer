@@ -1,6 +1,6 @@
 # general
 axiomologySize: 10
-maxGlimmers: 1000
+maxGlimmers: 10000
 essentiaSize: 2048
 # lumion count should be < essentia size and % = 0
 lumionCount: 2048
@@ -21,10 +21,10 @@ volitiaEndpoint: tcp://volitia:44440
 
 # fullscreen
 percipiaWidth: 256
-percipiaHeight: 204
+percipiaHeight: 166
 latticeInitialHue: 100
-latticeInitialSaturation: 100
-latticeInitialLightness: 0
+latticeInitialSaturation: 0
+latticeInitialLightness: 100
 
 # axioms
 initial_axiom_0: 0.9

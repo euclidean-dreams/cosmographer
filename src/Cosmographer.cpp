@@ -65,23 +65,17 @@ void Cosmographer::activate() {
     // handle new phenomena
     auto newPhenomenonParcels = subCommunity.phenomenology->take();
     for (auto &phenomenonParcel: *newPhenomenonParcels) {
-        if (!receivedFirstPhenomenon) {
-            LOGGER->info("received first phenomenon!");
-            receivedFirstPhenomenon = true;
-        }
         auto phenomenon = Unwrap::Phenomenon(*phenomenonParcel);
-        auto button = phenomenon->identity();
-        if (button < 5) {
-            if (palettePickerMode) {
-                chromatica->experiencePhenomenon(phenomenon);
-            } else {
-                microMode = phenomenon->identity();
-            }
+        auto identity = phenomenon->identity();
+        LOGGER->info("received phenomenon! {}", identity);
+        if (0 <= identity && identity < 5) {
+            microMode = phenomenon->identity();
+        } else if (100 <= identity && identity < 105) {
+            macroMode = phenomenon->identity() - 100;
+        } else if (200 <= identity && identity < 205) {
+            chromatica->experiencePhenomenon(phenomenon);
         }
-        if (button >= 5 && button < 8) {
-            macroMode = phenomenon->identity() - 5;
-        }
-        if (button == 8) {
+        if (identity == 1000) {
             LOGGER->info("((~)> current parameters:");
             LOGGER->info("((~)> 0: {}", axioms[0]);
             LOGGER->info("((~)> 1: {}", axioms[1]);
@@ -94,9 +88,6 @@ void Cosmographer::activate() {
             LOGGER->info("((~)> 8: {}", axioms[8]);
             LOGGER->info("((~)> 9: {}", axioms[9]);
         }
-//        if (button == 9) {
-//            palettePickerMode = !palettePickerMode;
-//        }
     }
 
     // experience the essentia

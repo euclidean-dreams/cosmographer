@@ -24,7 +24,6 @@ up<LumionBookie> lumionBookie;
 vec<float> axioms;
 int microMode = 0;
 int macroMode = 0;
-bool palettePickerMode = false;
 bool centerMode = false;
 int profile = 0;
 
