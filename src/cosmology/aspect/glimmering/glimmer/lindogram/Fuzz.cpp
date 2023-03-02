@@ -14,9 +14,9 @@ Fuzz::Fuzz(
 
 void Fuzz::live() {
     if (glimmerSoul->age == 0) {
-        auto granularity = SIZE_AXIOM * 15;
+        auto granularity = MAGNITUDE_AXIOM * 15;
         for (int i = 0; i < granularity; i++) {
-            painterCommunity->painter->advance(1 + randomizer->generate(25) * SIZE_AXIOM, glimmerSoul->color);
+            painterCommunity->painter->advance(1 + randomizer->generate(25) * MAGNITUDE_AXIOM, glimmerSoul->color);
             painterCommunity->painter->rotate(2 * M_PI / granularity);
         }
     }

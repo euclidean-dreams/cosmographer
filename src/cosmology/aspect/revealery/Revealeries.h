@@ -22,7 +22,7 @@ public:
     void reveal(
             Lumion *lumion
     ) override {
-        int glimmerCount = SIZE_AXIOM * constants->glimmerSpawnCountScaler * lumion->magnitude / 100;
+        int glimmerCount = MAGNITUDE_AXIOM * constants->glimmerSpawnCountScaler * lumion->magnitude / 100;
         if (glimmerCount < 1) {
             glimmerCount = 1;
         }

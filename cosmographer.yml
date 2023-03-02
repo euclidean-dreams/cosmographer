@@ -27,13 +27,14 @@ latticeInitialSaturation: 0
 latticeInitialLightness: 100
 
 # axioms
-initial_axiom_0: 0.9
-initial_axiom_1: 0.7
-initial_axiom_2: 0.3
-initial_axiom_3: 0.9
-initial_axiom_4: 0.5
-initial_axiom_5: 0.1
-initial_axiom_6: 0.25
-initial_axiom_7: 0.25
-initial_axiom_8: 0.3
-initial_axiom_9: 0.2
+COSMOLOGY_SIZE: 0.5
+PLACEMENT: 0.5
+EXCITATION: 0.5
+EXHAUSTION: 0.5
+MAGNITUDE: 0.5
+CHANGE: 0.5
+CHAOS: 0.5
+PLACEHOLDER: 0.5
+OSCILLATION: 0.5
+COLOR_BASE: 0.5
+COLOR_ACCENT: 0.5

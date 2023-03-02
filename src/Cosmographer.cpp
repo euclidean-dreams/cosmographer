@@ -77,16 +77,17 @@ void Cosmographer::activate() {
         }
         if (identity == 1000) {
             LOGGER->info("((~)> current parameters:");
-            LOGGER->info("((~)> 0: {}", axioms[0]);
-            LOGGER->info("((~)> 1: {}", axioms[1]);
-            LOGGER->info("((~)> 2: {}", axioms[2]);
-            LOGGER->info("((~)> 3: {}", axioms[3]);
-            LOGGER->info("((~)> 4: {}", axioms[4]);
-            LOGGER->info("((~)> 5: {}", axioms[5]);
-            LOGGER->info("((~)> 6: {}", axioms[6]);
-            LOGGER->info("((~)> 7: {}", axioms[7]);
-            LOGGER->info("((~)> 8: {}", axioms[8]);
-            LOGGER->info("((~)> 9: {}", axioms[9]);
+            LOGGER->info("((~)> COSMOLOGY_SIZE: {}", COSMOLOGY_SIZE_AXIOM);
+            LOGGER->info("((~)> PLACEMENT: {}", PLACEMENT_AXIOM);
+            LOGGER->info("((~)> EXCITATION: {}", EXCITATION_AXIOM);
+            LOGGER->info("((~)> EXHAUSTION: {}", EXHAUSTION_AXIOM);
+            LOGGER->info("((~)> MAGNITUDE: {}", MAGNITUDE_AXIOM);
+            LOGGER->info("((~)> CHANGE: {}", CHANGE_AXIOM);
+            LOGGER->info("((~)> CHAOS: {}", CHAOS_AXIOM);
+            LOGGER->info("((~)> PLACEHOLDER: {}", PLACEHOLDER_AXIOM);
+            LOGGER->info("((~)> OSCILLATION: {}", OSCILLATION_AXIOM);
+            LOGGER->info("((~)> COLOR_BASE: {}", COLOR_BASE_AXIOM);
+            LOGGER->info("((~)> COLOR_ACCENT: {}", COLOR_ACCENT_AXIOM);
         }
     }
 

@@ -20,7 +20,7 @@ void DragonCurve::live() {
     if (glimmerSoul->age == 0) {
         painterCommunity->painter->rotate(initialOrientation);
     }
-    auto endRuneIndex = 4 * glimmerSoul->lumion->magnitude * SIZE_AXIOM;
+    auto endRuneIndex = 4 * glimmerSoul->lumion->magnitude * MAGNITUDE_AXIOM;
     for (int runeIndex = lastRuneIndex;
          runeIndex < endRuneIndex && runeIndex < dragonCurveRunes.size(); runeIndex++) {
         auto rune = dragonCurveRunes[runeIndex];

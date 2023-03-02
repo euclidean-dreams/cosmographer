@@ -22,7 +22,7 @@ public:
 
     void live() override {
         auto direction = pole->pole + inclinationOffset;
-        auto distance = MOVEMENT_AXIOM * 3;
+        auto distance = CHANGE_AXIOM * 3;
         glimmerSoul->locus = cartographer->shiftPoint(glimmerSoul->locus, distance, direction);
         if (!cartographer->isValid(glimmerSoul->locus)) {
             glimmerSoul->alive = false;

@@ -47,16 +47,17 @@ int bootstrap(std::string configFilePath) {
     lumionBookie = mkup<LumionBookie>();
 
     // extras
-    axioms.push_back(Config::getInstance().getFloat("initial_axiom_0"));
-    axioms.push_back(Config::getInstance().getFloat("initial_axiom_1"));
-    axioms.push_back(Config::getInstance().getFloat("initial_axiom_2"));
-    axioms.push_back(Config::getInstance().getFloat("initial_axiom_3"));
-    axioms.push_back(Config::getInstance().getFloat("initial_axiom_4"));
-    axioms.push_back(Config::getInstance().getFloat("initial_axiom_5"));
-    axioms.push_back(Config::getInstance().getFloat("initial_axiom_6"));
-    axioms.push_back(Config::getInstance().getFloat("initial_axiom_7"));
-    axioms.push_back(Config::getInstance().getFloat("initial_axiom_8"));
-    axioms.push_back(Config::getInstance().getFloat("initial_axiom_9"));
+    axioms.push_back(Config::getInstance().getFloat("COSMOLOGY_SIZE"));
+    axioms.push_back(Config::getInstance().getFloat("PLACEMENT"));
+    axioms.push_back(Config::getInstance().getFloat("EXCITATION"));
+    axioms.push_back(Config::getInstance().getFloat("EXHAUSTION"));
+    axioms.push_back(Config::getInstance().getFloat("MAGNITUDE"));
+    axioms.push_back(Config::getInstance().getFloat("CHANGE"));
+    axioms.push_back(Config::getInstance().getFloat("CHAOS"));
+    axioms.push_back(Config::getInstance().getFloat("PLACEHOLDER"));
+    axioms.push_back(Config::getInstance().getFloat("OSCILLATION"));
+    axioms.push_back(Config::getInstance().getFloat("COLOR_BASE"));
+    axioms.push_back(Config::getInstance().getFloat("COLOR_ACCENT"));
 
     profile = Config::getInstance().getInt("profile");
 
