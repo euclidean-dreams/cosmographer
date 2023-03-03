@@ -79,7 +79,7 @@ Point Lumion::place() {
 //            latticePoint = potentialNewLatticePoint;
 //        }
     std::complex<double> radius(0.3, 0);
-    std::complex<double> spacing(PLACEMENT_AXIOM / 10, 0);
+    std::complex<double> spacing(PLACEMENT_AXIOM / 1000, 0);
     std::complex<double> t(lumionIndex, 0);
     const std::complex<double> i(0, 1);
     auto complexPoint = radius * t * exp(-2 * M_PI * i * pow(t, 2) * spacing);
