@@ -6,6 +6,7 @@
 #include "cosmology/aspect/glimmering/Glimmering.h"
 #include "cosmology/aspect/revealery/Revealery.h"
 #include "cosmology/aspect/mesh/lumion/Lumion.h"
+#include <complex>
 
 namespace cosmographer {
 

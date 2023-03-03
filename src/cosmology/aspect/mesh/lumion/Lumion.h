@@ -5,6 +5,7 @@
 #include "primitive/Loci.h"
 #include "primitive/Signal.h"
 #include "cosmology/aspect/AspectCommunity.h"
+#include <complex>
 
 namespace cosmographer {
 
@@ -26,13 +27,14 @@ public:
             AspectCommunity *aspectCommunity,
             int lumionIndex,
             int initialWatchedIndex,
-            int lastIndexToWatch,
-            Point latticePoint
+            int lastIndexToWatch
     );
 
     void react();
 
     void center();
+
+    Point place();
 };
 
 }
