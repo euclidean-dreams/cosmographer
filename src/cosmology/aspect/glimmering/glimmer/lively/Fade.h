@@ -20,11 +20,11 @@ public:
 
     void live() override {
         auto fade = EXHAUSTION_AXIOM;
-        glimmerSoul->color.desaturate(4 * fade);
+        glimmerSoul->color.desaturate(2 * fade);
         if (glimmerSoul->color.saturation <= 0) {
             glimmerSoul->alive = false;
         }
-        glimmerSoul->color.lighten(4 * fade);
+        glimmerSoul->color.lighten(2 * fade);
         if (glimmerSoul->color.lightness >= 100) {
             glimmerSoul->alive = false;
         }
