@@ -4,7 +4,7 @@
 #include "CosmographerCommunity.h"
 #include "CosmologyCommunity.h"
 #include "vantage/Vantage.h"
-#include "aspect/Aspect.h"
+#include "Aspect.h"
 #include "primitive/Lattice.h"
 
 namespace cosmographer {

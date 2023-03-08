@@ -1,5 +1,5 @@
 #include "Cosmology.h"
-#include "cosmology/aspect/revealery/relics/WorkshopRevealery.h"
+#include "cosmology/revealery/relics/WorkshopRevealery.h"
 
 namespace cosmographer {
 

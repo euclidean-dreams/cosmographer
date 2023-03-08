@@ -88,27 +88,27 @@ set(
         # cosmographer
         src/Cosmographer.cpp src/Cosmographer.h src/CosmographerCommunity.h
         src/cosmology/Cosmology.cpp src/cosmology/Cosmology.h src/cosmology/CosmologyCommunity.h
-        src/cosmology/aspect/Aspect.cpp src/cosmology/aspect/Aspect.h src/cosmology/aspect/AspectCommunity.h
+        src/cosmology/Aspect.h src/cosmology/AspectCommunity.h
 
         # mesh
-        src/cosmology/aspect/mesh/Mesh.cpp src/cosmology/aspect/mesh/Mesh.h src/cosmology/aspect/mesh/MeshCommunity.h
-        src/cosmology/aspect/mesh/lumion/Lumion.cpp src/cosmology/aspect/mesh/lumion/Lumion.h
+        src/cosmology/mesh/Mesh.cpp src/cosmology/mesh/Mesh.h src/cosmology/mesh/MeshCommunity.h
+        src/cosmology/mesh/lumion/Lumion.cpp src/cosmology/mesh/lumion/Lumion.h
 
         # glimmering
-        src/cosmology/aspect/glimmering/Glimmering.cpp src/cosmology/aspect/glimmering/Glimmering.h src/cosmology/aspect/glimmering/GlimmeringCommunity.h
-        src/cosmology/aspect/revealery/Revealery.h
-        src/cosmology/aspect/revealery/relics/WorkshopRevealery.cpp src/cosmology/aspect/revealery/relics/WorkshopRevealery.h
+        src/cosmology/glimmering/Glimmering.cpp src/cosmology/glimmering/Glimmering.h src/cosmology/glimmering/GlimmeringCommunity.h
+        src/cosmology/revealery/Revealery.h
+        src/cosmology/revealery/relics/WorkshopRevealery.cpp src/cosmology/revealery/relics/WorkshopRevealery.h
 
         # glimmer
-        src/cosmology/aspect/glimmering/glimmer/Glimmer.cpp src/cosmology/aspect/glimmering/glimmer/Glimmer.h src/cosmology/aspect/glimmering/glimmer/GlimmerSoul.h
+        src/cosmology/glimmering/glimmer/Glimmer.cpp src/cosmology/glimmering/glimmer/Glimmer.h src/cosmology/glimmering/glimmer/GlimmerSoul.h
 
         # ephemera
-        src/cosmology/aspect/glimmering/glimmer/lively/Lively.h
-        src/cosmology/aspect/glimmering/glimmer/lively/Fade.h
+        src/cosmology/glimmering/glimmer/lively/Lively.h
+        src/cosmology/glimmering/glimmer/lively/Fade.h
 
         # illuminable
-        src/cosmology/aspect/glimmering/glimmer/illuminable/Illuminable.h
-        src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Circle.h
+        src/cosmology/glimmering/glimmer/illuminable/Illuminable.h
+        src/cosmology/glimmering/glimmer/illuminable/shape/Circle.cpp src/cosmology/glimmering/glimmer/illuminable/shape/Circle.h
 )
 
 if (_vantage STREQUAL percipia)
@@ -141,42 +141,42 @@ set(
         src/cloister/Signalarium.cpp src/cloister/Signalarium.h
         src/Default.h
         src/framework/Minimal.h
-        src/cosmology/aspect/glimmering/glimmer/lively/Drift.h
+        src/cosmology/glimmering/glimmer/lively/Drift.h
         src/primitive/Loci.h
 
-        src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/shape/Rectangle.h
-        src/cosmology/aspect/glimmering/glimmer/lively/Grow.h
-        src/cosmology/aspect/glimmering/Orchestrator.cpp src/cosmology/aspect/glimmering/Orchestrator.h
-        src/cosmology/aspect/glimmering/Illuminator.cpp src/cosmology/aspect/glimmering/Illuminator.h
+        src/cosmology/glimmering/glimmer/illuminable/shape/Rectangle.cpp src/cosmology/glimmering/glimmer/illuminable/shape/Rectangle.h
+        src/cosmology/glimmering/glimmer/lively/Grow.h
+        src/cosmology/glimmering/Orchestrator.cpp src/cosmology/glimmering/Orchestrator.h
+        src/cosmology/glimmering/Illuminator.cpp src/cosmology/glimmering/Illuminator.h
         src/cloister/Constants.h
         src/framework/Bindings.h
         src/cloister/Randomizer.cpp src/cloister/Randomizer.h
-        src/cosmology/aspect/glimmering/glimmer/illuminable/painter/Canvas.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/painter/Canvas.h
-        src/cosmology/aspect/glimmering/glimmer/illuminable/painter/Painter.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/painter/Painter.h
-        src/cosmology/aspect/glimmering/glimmer/lindogram/DragonCurve.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/DragonCurve.h
-        src/cosmology/aspect/glimmering/glimmer/lindogram/DragonCurveSystem.h
+        src/cosmology/glimmering/glimmer/illuminable/painter/Canvas.cpp src/cosmology/glimmering/glimmer/illuminable/painter/Canvas.h
+        src/cosmology/glimmering/glimmer/illuminable/painter/Painter.cpp src/cosmology/glimmering/glimmer/illuminable/painter/Painter.h
+        src/cosmology/glimmering/glimmer/lindogram/DragonCurve.cpp src/cosmology/glimmering/glimmer/lindogram/DragonCurve.h
+        src/cosmology/glimmering/glimmer/lindogram/DragonCurveSystem.h
         src/primitive/Signal.cpp src/primitive/Signal.h
         src/oddments/Antechamber.cpp src/oddments/Antechamber.h
-        src/cosmology/aspect/glimmering/glimmer/lindogram/Wander.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Wander.h
-        src/cosmology/aspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h
-        src/cosmology/aspect/glimmering/glimmer/GlimmerMakers.cpp src/cosmology/aspect/glimmering/glimmer/GlimmerMakers.h
-        src/cosmology/aspect/glimmering/glimmer/lively/Lifespan.h
+        src/cosmology/glimmering/glimmer/lindogram/Wander.cpp src/cosmology/glimmering/glimmer/lindogram/Wander.h
+        src/cosmology/glimmering/glimmer/illuminable/painter/PainterCommunity.h
+        src/cosmology/glimmering/glimmer/GlimmerMakers.cpp src/cosmology/glimmering/glimmer/GlimmerMakers.h
+        src/cosmology/glimmering/glimmer/lively/Lifespan.h
         src/framework/Element.h
-        src/cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/WorkshopCurve.h
-        src/cosmology/aspect/glimmering/glimmer/lively/Mutator.h
+        src/cosmology/glimmering/glimmer/lindogram/WorkshopCurve.cpp src/cosmology/glimmering/glimmer/lindogram/WorkshopCurve.h
+        src/cosmology/glimmering/glimmer/lively/Mutator.h
         src/oddments/Tidbit.cpp src/oddments/Tidbit.h
-        src/cosmology/aspect/glimmering/glimmer/lively/LumionMimic.h
-        src/cosmology/aspect/revealery/relics/BorderRevealery.cpp src/cosmology/aspect/revealery/relics/BorderRevealery.h
+        src/cosmology/glimmering/glimmer/lively/LumionMimic.h
+        src/cosmology/revealery/relics/BorderRevealery.cpp src/cosmology/revealery/relics/BorderRevealery.h
         src/cloister/Pole.cpp src/cloister/Pole.h
         src/cloister/LumionBookie.cpp src/cloister/LumionBookie.h
         src/cloister/chromatica/palette/RandomPalette.cpp src/cloister/chromatica/palette/RandomPalette.h
-        src/cosmology/aspect/glimmering/glimmer/lindogram/Fuzz.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Fuzz.h
-        src/cosmology/aspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.cpp src/cosmology/aspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.h
+        src/cosmology/glimmering/glimmer/lindogram/Fuzz.cpp src/cosmology/glimmering/glimmer/lindogram/Fuzz.h
+        src/cosmology/glimmering/glimmer/illuminable/painter/SingleColorCanvas.cpp src/cosmology/glimmering/glimmer/illuminable/painter/SingleColorCanvas.h
         src/cloister/VolitiaGolem.cpp src/cloister/VolitiaGolem.h
-        src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.cpp src/cosmology/aspect/glimmering/glimmer/lindogram/Triangle.h
+        src/cosmology/glimmering/glimmer/lindogram/Triangle.cpp src/cosmology/glimmering/glimmer/lindogram/Triangle.h
         src/primitive/Loci.cpp
-        src/cosmology/aspect/revealery/Revealeries.h
-        src/cosmology/aspect/glimmering/glimmer/lindogram/Odds.h src/cosmology/aspect/glimmering/glimmer/illuminable/Illuminables.h src/cloister/chromatica/Palettes.h src/oddments/Oddments.h)
+        src/cosmology/revealery/Revealeries.h
+        src/cosmology/glimmering/glimmer/lindogram/Odds.h src/cosmology/glimmering/glimmer/illuminable/Illuminables.h src/cloister/chromatica/Palettes.h src/oddments/Oddments.h)
 list(APPEND TARGETS cosmographer)
 add_executable(cosmographer src/main.cpp ${SOURCE_FILES})
 

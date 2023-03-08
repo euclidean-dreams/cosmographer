@@ -1,0 +1,26 @@
+#ifndef COSMOGRAPHER_WANDER_H
+#define COSMOGRAPHER_WANDER_H
+
+#include "Default.h"
+#include "cosmology/glimmering/glimmer/illuminable/painter/PainterCommunity.h"
+#include "cosmology/glimmering/glimmer/lively/Lively.h"
+#include "cosmology/glimmering/glimmer/GlimmerSoul.h"
+
+namespace cosmographer {
+
+class Wander : public Lively {
+public:
+    GlimmerSoul *glimmerSoul;
+    PainterCommunity *painterCommunity;
+
+    Wander(
+            GlimmerSoul *glimmerSoul,
+            PainterCommunity *painterCommunity
+    );
+
+    void live() override;
+};
+
+}
+
+#endif //COSMOGRAPHER_WANDER_H
