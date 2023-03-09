@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_ASPECT_H
 
 #include "cosmology/CosmologyCommunity.h"
-#include "AspectCommunity.h"
+#include "RevealeryAspectCommunity.h"
 #include "primitive/Lattice.h"
 #include "cosmology/glimmering/Glimmering.h"
 #include "cosmology/mesh/Mesh.h"
@@ -12,13 +12,19 @@
 #include "cosmology/revealery/Revealeries.h"
 
 namespace cosmographer {
-
-    class Aspect : public Fellow<CosmologyCommunity>, public Liaison<AspectCommunity> {
+    class Aspect : public Fellow<CosmologyCommunity> {
     public:
-        Aspect(
+        virtual void manifest(Lattice &lattice) = 0;
+
+        virtual void experienceEssentia() = 0;
+    };
+
+    class RevealeryAspect : public Aspect, public Liaison<RevealeryAspectCommunity> {
+    public:
+        RevealeryAspect(
                 CosmologyCommunity *community
         ) :
-                Liaison<AspectCommunity>(community) {
+                Liaison<RevealeryAspectCommunity>(community) {
             subCommunity.mesh = mkup<Mesh>(&subCommunity);
             subCommunity.mesh->initialize(&subCommunity);
             if (profile == LANTERN_PROFILE) {
@@ -39,11 +45,11 @@ namespace cosmographer {
 
         void manifest(
                 Lattice &lattice
-        ) {
+        ) override {
             subCommunity.glimmering->illuminate(lattice);
         }
 
-        void experienceEssentia() {
+        void experienceEssentia() override {
             for (auto &revealery: subCommunity.revealeries) {
                 revealery->experienceSignal();
             }

@@ -4,14 +4,14 @@
 #include "cosmology/mesh/MeshCommunity.h"
 #include "primitive/Loci.h"
 #include "primitive/Signal.h"
-#include "cosmology/AspectCommunity.h"
+#include "cosmology/RevealeryAspectCommunity.h"
 #include <complex>
 
 namespace cosmographer {
 
 class Lumion : public Fellow<MeshCommunity> {
 public:
-    AspectCommunity *aspectCommunity;
+    RevealeryAspectCommunity *aspectCommunity;
     int lumionIndex;
     int firstIndexToWatch;
     int lastIndexToWatch;
@@ -24,7 +24,7 @@ public:
     HSLColor color = {0, 0, 0};
 
     Lumion(
-            AspectCommunity *aspectCommunity,
+            RevealeryAspectCommunity *aspectCommunity,
             int lumionIndex,
             int initialWatchedIndex,
             int lastIndexToWatch

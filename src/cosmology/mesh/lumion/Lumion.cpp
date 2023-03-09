@@ -5,7 +5,7 @@
 namespace cosmographer {
 
 Lumion::Lumion(
-        AspectCommunity *aspectCommunity,
+        RevealeryAspectCommunity *aspectCommunity,
         int lumionIndex,
         int firstIndexToWatch,
         int lastIndexToWatch

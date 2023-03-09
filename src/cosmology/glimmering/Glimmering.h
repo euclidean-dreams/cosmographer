@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_GLIMMERING_H
 
 #include "GlimmeringCommunity.h"
-#include "cosmology/AspectCommunity.h"
+#include "cosmology/RevealeryAspectCommunity.h"
 #include "cosmology/revealery/Revealery.h"
 #include "cosmology/glimmering/glimmer/Glimmer.h"
 #include "cosmology/mesh/lumion/Lumion.h"
@@ -12,10 +12,10 @@
 
 namespace cosmographer {
 
-class Glimmering : public Fellow<AspectCommunity>, public Liaison<GlimmeringCommunity> {
+class Glimmering : public Fellow<RevealeryAspectCommunity>, public Liaison<GlimmeringCommunity> {
 public:
     Glimmering(
-            AspectCommunity *community
+            RevealeryAspectCommunity *community
     );
 
     void illuminate(

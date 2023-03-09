@@ -7,7 +7,7 @@ Cosmology::Cosmology(
         CosmographerCommunity *community
 ) :
         Liaison<CosmologyCommunity>(community) {
-    subCommunity.aspect = mkup<Aspect>(&subCommunity);
+    subCommunity.aspect = mkup<RevealeryAspect>(&subCommunity);
     subCommunity.aspect->initialize(&subCommunity);
 }
 

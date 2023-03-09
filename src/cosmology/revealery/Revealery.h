@@ -1,13 +1,13 @@
 #ifndef COSMOGRAPHER_REVEALERY_H
 #define COSMOGRAPHER_REVEALERY_H
 
-#include "cosmology/AspectCommunity.h"
+#include "cosmology/RevealeryAspectCommunity.h"
 #include "cosmology/glimmering/Glimmering.h"
 #include "cosmology/mesh/lumion/Lumion.h"
 
 namespace cosmographer {
 
-class Revealery : public Fellow<AspectCommunity> {
+class Revealery : public Fellow<RevealeryAspectCommunity> {
 public:
     virtual void reveal(
             Lumion *lumion

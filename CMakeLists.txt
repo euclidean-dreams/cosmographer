@@ -88,7 +88,7 @@ set(
         # cosmographer
         src/Cosmographer.cpp src/Cosmographer.h src/CosmographerCommunity.h
         src/cosmology/Cosmology.cpp src/cosmology/Cosmology.h src/cosmology/CosmologyCommunity.h
-        src/cosmology/Aspect.h src/cosmology/AspectCommunity.h
+        src/cosmology/Aspect.h src/cosmology/RevealeryAspectCommunity.h
 
         # mesh
         src/cosmology/mesh/Mesh.cpp src/cosmology/mesh/Mesh.h src/cosmology/mesh/MeshCommunity.h

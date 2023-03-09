@@ -3,7 +3,7 @@
 namespace cosmographer {
 
 Glimmering::Glimmering(
-        AspectCommunity *community
+        RevealeryAspectCommunity *community
 ) :
         Liaison<GlimmeringCommunity>(community) {
     subCommunity.orchestrator = mkup<Orchestrator>();

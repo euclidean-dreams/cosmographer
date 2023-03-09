@@ -4,7 +4,7 @@
 namespace cosmographer {
 
 Mesh::Mesh(
-        AspectCommunity *community
+        RevealeryAspectCommunity *community
 ) :
         Liaison<MeshCommunity>(community) {
 
