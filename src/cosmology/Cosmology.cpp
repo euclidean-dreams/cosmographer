@@ -1,5 +1,4 @@
 #include "Cosmology.h"
-#include "cosmology/revealery/relics/WorkshopRevealery.h"
 
 namespace cosmographer {
 
@@ -12,7 +11,8 @@ Cosmology::Cosmology(
 }
 
 void Cosmology::observe() {
-    auto lattice = mkup<Lattice>(constants->percipiaWidth, constants->percipiaHeight, constants->latticeInitialColor);
+    auto lattice = mkup<Lattice>(constants->percipiaWidth, constants->percipiaHeight,
+                                 constants->latticeInitialColor);
     subCommunity.aspect->manifest(*lattice);
     community->vantage->send(*lattice);
 }
