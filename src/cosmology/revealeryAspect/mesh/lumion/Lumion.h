@@ -34,7 +34,7 @@ public:
 
     void center();
 
-    Point place();
+    void place();
 };
 
 }

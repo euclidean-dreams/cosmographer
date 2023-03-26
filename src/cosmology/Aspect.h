@@ -1,5 +1,4 @@
-#ifndef COSMOGRAPHER_ASPECT_H
-#define COSMOGRAPHER_ASPECT_H
+#pragma once
 
 #include "cosmology/CosmologyCommunity.h"
 #include "cosmology/revealeryaspect/RevealeryAspectCommunity.h"
@@ -32,10 +31,6 @@ public:
         } else {
             subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
         }
-        subCommunity.revealeries.push_back(mkup<OddRevealery>());
-        subCommunity.revealeries.push_back(mkup<RandomRevealery>());
-        subCommunity.revealeries.push_back(mkup<RandomRevealery>());
-        subCommunity.revealeries.push_back(mkup<SpectrumRevealery>());
         for (auto &revealery: subCommunity.revealeries) {
             revealery->initialize(&subCommunity);
         }
@@ -57,6 +52,21 @@ public:
     }
 };
 
-}
+class ParticleAspect : public Aspect {
+public:
+    ParticleAspect() {
 
-#endif //COSMOGRAPHER_ASPECT_H
+    }
+
+    void manifest(
+            Lattice &lattice
+    ) override {
+
+    }
+
+    void experienceEssentia() override {
+
+    }
+};
+
+}

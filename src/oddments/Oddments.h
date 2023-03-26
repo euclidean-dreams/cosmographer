@@ -22,9 +22,9 @@ public:
         }
 
         if (going_up) {
-            current += 0.0001 * OSCILLATION_AXIOM;
+            current += 0.000001 * OSCILLATION_AXIOM;
         } else {
-            current -= 0.0001 * OSCILLATION_AXIOM;
+            current -= 0.000001 * OSCILLATION_AXIOM;
         }
         return current;
     }

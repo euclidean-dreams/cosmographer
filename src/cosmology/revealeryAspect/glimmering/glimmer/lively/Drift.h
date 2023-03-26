@@ -17,7 +17,6 @@ public:
     ) :
             glimmerSoul{glimmerSoul},
             inclinationOffset{inclinationOffset} {
-
     }
 
     void live() override {

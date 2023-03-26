@@ -8,7 +8,6 @@ namespace cosmographer {
 class Constants {
 public:
     // general
-    uint axiomologySize = Config::getInstance().getUint("axiomologySize");
     int maxGlimmers = Config::getInstance().getInt("maxGlimmers");
     int illuminatorThreadCount = std::thread::hardware_concurrency();
     uint lumionCount = Config::getInstance().getUint("lumionCount");

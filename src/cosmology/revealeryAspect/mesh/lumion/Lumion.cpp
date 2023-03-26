@@ -14,11 +14,15 @@ Lumion::Lumion(
         lumionIndex{lumionIndex},
         firstIndexToWatch{firstIndexToWatch},
         lastIndexToWatch{lastIndexToWatch},
-        latticePoint{place()} {
-    color = chromatica->getColor();
+        latticePoint{0, 0} {
+    place();
 }
 
 void Lumion::react() {
+    place();
+    color = chromatica->getColor();
+    color.hue += lumionIndex * COLOR_ACCENT_AXIOM;
+
     // calculate excitation
     auto &signal = signalarium->stft;
     magnitude = 0;
@@ -50,7 +54,7 @@ void Lumion::react() {
     if (magnitude > cutoffThreshold) {
         excited = true;
         place();
-        aspectCommunity->revealeries[macroMode]->reveal(this);
+        aspectCommunity->revealeries[0]->reveal(this);
     } else {
         excited = false;
     }
@@ -63,7 +67,7 @@ void Lumion::center() {
     latticePoint = {cast(float, constants->percipiaWidth / 2), cast(float, constants->percipiaHeight / 2)};
 }
 
-Point Lumion::place() {
+void Lumion::place() {
 //        auto distance = magnitude / 100 * PLACEMENT_AXIOM;
 //        float direction = 0;
 //        if (profile == LANTERN_PROFILE) {
@@ -79,10 +83,14 @@ Point Lumion::place() {
 //            latticePoint = potentialNewLatticePoint;
 //        }
     std::complex<double> radius(0.3, 0);
+    if (lumionIndex > constants->lumionCount / 4) {
+        radius = {0.1, 0};
+    }
+    std::complex<double> poleShifter(pole->pole, 0);
     std::complex<double> spacing(PLACEMENT_AXIOM / 1000, 0);
     std::complex<double> t(lumionIndex, 0);
     const std::complex<double> i(0, 1);
-    auto complexPoint = radius * t * exp(-2 * M_PI * i * pow(t, 2) * spacing);
+    auto complexPoint = radius * t * exp(-2 * M_PI * i * pow(t, 2) * spacing * poleShifter);
     latticePoint = Point{
             cast(float, complexPoint.real()) + cast(float, constants->percipiaWidth) / 2,
             cast(float, complexPoint.imag()) + cast(float, constants->percipiaHeight) / 2,

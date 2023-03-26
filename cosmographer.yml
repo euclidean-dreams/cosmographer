@@ -1,10 +1,9 @@
 # general
-axiomologySize: 10
 maxGlimmers: 5000
 essentiaSize: 2048
 # lumion count should be < essentia size and % = 0
 lumionCount: 2048
-baseGlimmerSize: 0.1
+baseGlimmerSize: 0.2
 
 # (~) profile
 # opus: 0
@@ -12,7 +11,7 @@ baseGlimmerSize: 0.1
 profile: 0
 
 # sort of like a gain knob
-excitationThresholdMax: 100
+excitationThresholdMax: 10
 
 # endpoints
 percipiaEndpoint: ipc:///tmp/percipia
@@ -34,7 +33,7 @@ EXHAUSTION: 0.5
 MAGNITUDE: 0.5
 CHANGE: 0.5
 CHAOS: 0.5
-PLACEHOLDER: 0.5
+GROWTH: 0.5
 OSCILLATION: 0.5
 COLOR_BASE: 0.5
 COLOR_ACCENT: 0.5

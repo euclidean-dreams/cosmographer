@@ -2,6 +2,7 @@
 #define COSMOGRAPHER_RANDOMIZER_H
 
 #include <stdint.h>
+#include "Default.h"
 
 namespace cosmographer {
 
@@ -100,12 +101,30 @@ public:
 
 class Randomizer {
 private:
-    int generateNumber(int exclusive_max);
+    static int generateNumber(int exclusive_max) {
+        if (exclusive_max <= 0) {
+            return 0;
+        }
+        return xorshiro::next() % exclusive_max;
+    }
 
 public:
-    int generate(int exclusive_max);
+    static int generate(int exclusive_max) {
+        return generateNumber(exclusive_max);
+    }
 
-    float generateProportion();
+    static float generateProportion() {
+        return cast(float, generateNumber(10000)) / 9999;
+    }
+
+    static float generateSign() {
+        auto comparable = generateProportion() * 20 - 10;
+        if (comparable > 0) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
 };
 
 }

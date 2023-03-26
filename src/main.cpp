@@ -22,7 +22,7 @@ up<Signalarium> signalarium;
 up<Pole> pole;
 up<LumionBookie> lumionBookie;
 vec<float> axioms;
-int microMode = 0;
+int microMode = 1;
 int macroMode = 0;
 bool centerMode = false;
 int profile = 0;
@@ -54,7 +54,7 @@ int bootstrap(std::string configFilePath) {
     axioms.push_back(Config::getInstance().getFloat("MAGNITUDE"));
     axioms.push_back(Config::getInstance().getFloat("CHANGE"));
     axioms.push_back(Config::getInstance().getFloat("CHAOS"));
-    axioms.push_back(Config::getInstance().getFloat("PLACEHOLDER"));
+    axioms.push_back(Config::getInstance().getFloat("GROWTH"));
     axioms.push_back(Config::getInstance().getFloat("OSCILLATION"));
     axioms.push_back(Config::getInstance().getFloat("COLOR_BASE"));
     axioms.push_back(Config::getInstance().getFloat("COLOR_ACCENT"));

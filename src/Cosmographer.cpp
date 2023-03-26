@@ -68,9 +68,9 @@ void Cosmographer::activate() {
         auto phenomenon = Unwrap::Phenomenon(*phenomenonParcel);
         auto identity = phenomenon->identity();
         LOGGER->info("received phenomenon! {}", identity);
-        if (0 <= identity && identity < 5) {
+        if (0 <= identity && identity < 100) {
             microMode = phenomenon->identity();
-        } else if (100 <= identity && identity < 105) {
+        } else if (100 <= identity && identity < 200) {
             macroMode = phenomenon->identity() - 100;
         } else if (200 <= identity && identity < 205) {
             chromatica->experiencePhenomenon(phenomenon);
@@ -84,7 +84,7 @@ void Cosmographer::activate() {
             LOGGER->info("((~)> MAGNITUDE: {}", MAGNITUDE_AXIOM);
             LOGGER->info("((~)> CHANGE: {}", CHANGE_AXIOM);
             LOGGER->info("((~)> CHAOS: {}", CHAOS_AXIOM);
-            LOGGER->info("((~)> PLACEHOLDER: {}", PLACEHOLDER_AXIOM);
+            LOGGER->info("((~)> GROWTH: {}", GROWTH_AXIOM);
             LOGGER->info("((~)> OSCILLATION: {}", OSCILLATION_AXIOM);
             LOGGER->info("((~)> COLOR_BASE: {}", COLOR_BASE_AXIOM);
             LOGGER->info("((~)> COLOR_ACCENT: {}", COLOR_ACCENT_AXIOM);
