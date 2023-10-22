@@ -1,5 +1,5 @@
 # general
-maxGlimmers: 1000
+maxGlimmers: 3333
 essentiaSize: 2048
 # lumion count should be < essentia size and % = 0
 lumionCount: 2048

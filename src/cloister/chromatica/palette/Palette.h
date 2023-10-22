@@ -19,9 +19,9 @@ public:
         float colorDeviation = 75 * COLOR_ACCENT_AXIOM;
         float lightnessDeviation = 25 * COLOR_ACCENT_AXIOM;
         return {
-                color.hue + randomizer->generate(colorDeviation * 2) - colorDeviation,
-                cast(int, color.saturation + randomizer->generate(lightnessDeviation * 2) - lightnessDeviation),
-                cast(int, color.lightness + randomizer->generate(lightnessDeviation * 2) - lightnessDeviation)
+                color.hue + randomizer->generate(colorDeviation * 2 + 1) - colorDeviation,
+                cast(int, color.saturation + randomizer->generate(lightnessDeviation * 2 + 1) - lightnessDeviation),
+                cast(int, color.lightness + randomizer->generate(lightnessDeviation * 2 + 1) - lightnessDeviation)
         };
     }
 };

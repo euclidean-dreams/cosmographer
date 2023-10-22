@@ -17,14 +17,14 @@ public:
 
     void live() override {
         float locusDeviation = 0.5 * CHAOS_AXIOM;
-        glimmerSoul->locus.x += randomizer->generate(locusDeviation * 2) - locusDeviation;
-        glimmerSoul->locus.y += randomizer->generate(locusDeviation * 2) - locusDeviation;
+        glimmerSoul->locus.x += randomizer->generate(locusDeviation * 2 + 1) - locusDeviation;
+        glimmerSoul->locus.y += randomizer->generate(locusDeviation * 2 + 1) - locusDeviation;
 //        float lightnessDeviation = 2 * COLOR_ACCENT_AXIOM;
 //        glimmerSoul->color = {
 //                glimmerSoul->color.hue,
 //                cast(int, glimmerSoul->color.saturation),
 //                cast(int,
-//                     glimmerSoul->color.lightness + randomizer->generate(lightnessDeviation * 2) - lightnessDeviation)
+//                     glimmerSoul->color.lightness + randomizer->generate(lightnessDeviation * 2 + 1) - lightnessDeviation)
 //        };
 //        if (glimmerSoul->color.lightness <= 0 || glimmerSoul->color.lightness >= 100 ||
 //            glimmerSoul->color.saturation <= 0 || glimmerSoul->color.saturation >= 100) {

@@ -21,7 +21,7 @@ public:
 
     void live() override {
         auto direction = pole->pole + inclinationOffset;
-        auto distance = CHANGE_AXIOM;
+        auto distance = CHANGE_AXIOM / 10;
         glimmerSoul->locus = cartographer->shiftPoint(glimmerSoul->locus, distance, direction);
     }
 };
