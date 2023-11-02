@@ -18,7 +18,7 @@ Pole::Pole(
 
 void Pole::refresh() {
     // sensible spins
-    auto delta = 0.0001 * CHAOS_AXIOM;
+    auto delta = 0.000001 * CHAOS_AXIOM;
 
     // wacky nonsense
 //    auto delta = 1 * CHAOS_AXIOM;

@@ -82,10 +82,7 @@ void Lumion::place() {
 //        if (cartographer->isValid(potentialNewLatticePoint)) {
 //            latticePoint = potentialNewLatticePoint;
 //        }
-    std::complex<double> radius(0.3, 0);
-    if (lumionIndex > constants->lumionCount / 4) {
-        radius = {0.1, 0};
-    }
+    std::complex<double> radius(0.133, 0);
     std::complex<double> poleShifter(pole->pole, 0);
     std::complex<double> spacing(PLACEMENT_AXIOM / 100, 0);
     std::complex<double> t(lumionIndex, 0);

@@ -9,7 +9,7 @@ namespace cosmographer {
 Chromatica::Chromatica(
 ) :
         Liaison<ChromaticaCommunity>(paradigm) {
-    subCommunity.palette = mkup<LfoPalette>();
+    subCommunity.palette = mkup<CentrifugalPalette>(constants->signalAverageSize);
     subCommunity.palette->initialize(&subCommunity);
 
 }

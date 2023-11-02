@@ -22,7 +22,7 @@ up<Signalarium> signalarium;
 up<Pole> pole;
 up<LumionBookie> lumionBookie;
 vec<float> axioms;
-int microMode = 1;
+int microMode = 2;
 int macroMode = 0;
 bool centerMode = false;
 int profile = 0;

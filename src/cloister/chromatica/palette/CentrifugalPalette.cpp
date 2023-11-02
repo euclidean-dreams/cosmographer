@@ -18,7 +18,7 @@ void CentrifugalPalette::experienceEssentia() {
     auto &stft = signalarium->stft;
     auto flux = stft.energy - simpleMovingAverage.value;
     simpleMovingAverage.addSample(stft.energy);
-    auto fluxModifier = COLOR_BASE_AXIOM;
+    auto fluxModifier = COLOR_BASE_AXIOM * 10;
     if (fluxModifier < 0.01) {
         fluxModifier = 0.01;
     }

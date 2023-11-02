@@ -20,8 +20,8 @@ public:
 
     void live() override {
         if (randomizer->generateProportion() < EXHAUSTION_AXIOM * 3) {
-            glimmerSoul->color.lighten(1);
-            if (glimmerSoul->color.lightness >= 100) {
+            glimmerSoul->color.darken(1);
+            if (glimmerSoul->color.lightness <= 0) {
                 glimmerSoul->alive = false;
             }
         }
