@@ -1,9 +1,9 @@
 #ifndef COSMOGRAPHER_REVEALERY_H
 #define COSMOGRAPHER_REVEALERY_H
 
-#include "cosmology/revealeryaspect/RevealeryAspectCommunity.h"
-#include "cosmology/revealeryaspect/glimmering/Glimmering.h"
-#include "cosmology/revealeryaspect/mesh/lumion/Lumion.h"
+#include "cosmology/revealeryAspect/RevealeryAspectCommunity.h"
+#include "cosmology/revealeryAspect/glimmering/Glimmering.h"
+#include "cosmology/revealeryAspect/mesh/lumion/Lumion.h"
 
 namespace cosmographer {
 

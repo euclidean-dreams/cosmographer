@@ -2,9 +2,9 @@
 #define COSMOGRAPHER_TRIANGLE_H
 
 #include "Default.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/lively/Lively.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/GlimmerSoul.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/lively/Lively.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/GlimmerSoul.h"
 
 namespace cosmographer {
 

@@ -1,19 +1,19 @@
 #pragma once
 
 #include "Revealery.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/lively/LumionMimic.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/lively/Mutator.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/lively/Drift.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/GlimmerMakers.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/lindogram/Wander.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/lindogram/Fuzz.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/lindogram/Odds.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/lindogram/DragonCurve.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/illuminable/Illuminables.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/illuminable/shape/Rectangle.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/illuminable/shape/Circle.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/lindogram/Triangle.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/lively/Fade.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/lively/LumionMimic.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/lively/Mutator.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/lively/Drift.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/GlimmerMakers.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/lindogram/Wander.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/lindogram/Fuzz.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/lindogram/Odds.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/lindogram/DragonCurve.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/illuminable/Illuminables.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/illuminable/shape/Rectangle.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/illuminable/shape/Circle.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/lindogram/Triangle.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/lively/Fade.h"
 
 namespace PROJECT_NAMESPACE {
 

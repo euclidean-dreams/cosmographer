@@ -1,10 +1,10 @@
 #ifndef COSMOGRAPHER_LUMION_H
 #define COSMOGRAPHER_LUMION_H
 
-#include "cosmology/revealeryaspect/mesh/MeshCommunity.h"
+#include "cosmology/revealeryAspect/mesh/MeshCommunity.h"
 #include "primitive/Loci.h"
 #include "primitive/Signal.h"
-#include "cosmology/revealeryaspect/RevealeryAspectCommunity.h"
+#include "cosmology/revealeryAspect/RevealeryAspectCommunity.h"
 #include <complex>
 
 namespace cosmographer {

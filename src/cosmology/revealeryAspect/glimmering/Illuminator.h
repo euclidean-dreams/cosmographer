@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_ILLUMINATOR_H
 
 #include "GlimmeringCommunity.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/Glimmer.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/Glimmer.h"
 
 namespace cosmographer {
 

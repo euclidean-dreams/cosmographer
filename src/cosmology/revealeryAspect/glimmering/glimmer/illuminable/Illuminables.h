@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Default.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/GlimmerSoul.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/GlimmerSoul.h"
 #include "Illuminable.h"
 
 namespace PROJECT_NAMESPACE {

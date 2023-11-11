@@ -1,7 +1,7 @@
 #ifndef COSMOGRAPHER_WORKSHOPREVEALERY_H
 #define COSMOGRAPHER_WORKSHOPREVEALERY_H
 
-#include "cosmology/revealeryaspect/revealery/Revealery.h"
+#include "cosmology/revealeryAspect/revealery/Revealery.h"
 #include "oddments/SignalAverage.h"
 
 namespace cosmographer {

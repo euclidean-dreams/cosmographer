@@ -25,10 +25,11 @@ add_compile_definitions(VANTAGE=${_vantage})
 
 include(lib/cmake-utils/dependency-integrator.cmake)
 
+# this should be flow for macs and sjofn for pis
 integrate_cmake_dependency(
         NAME impresario-utils
         GIT_URL git@github.com:impresario-systems/impresario-utils.git
-        GIT_TAG origin/flow
+        GIT_TAG origin/sjofn
 )
 
 # thanks to David Blackman and Sebastiano Vigna also for their xoshiro256++ implementation!

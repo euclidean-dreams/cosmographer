@@ -3,7 +3,7 @@
 
 #include "Default.h"
 #include "primitive/Lattice.h"
-#include "cosmology/revealeryaspect/mesh/lumion/Lumion.h"
+#include "cosmology/revealeryAspect/mesh/lumion/Lumion.h"
 
 namespace cosmographer {
 

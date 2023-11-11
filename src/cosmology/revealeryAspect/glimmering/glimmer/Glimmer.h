@@ -1,10 +1,10 @@
 #ifndef COSMOGRAPHER_GLIMMER_H
 #define COSMOGRAPHER_GLIMMER_H
 
-#include "cosmology/revealeryaspect/glimmering/GlimmeringCommunity.h"
+#include "cosmology/revealeryAspect/glimmering/GlimmeringCommunity.h"
 #include "GlimmerSoul.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/lively/Lively.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/illuminable/Illuminable.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/lively/Lively.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/illuminable/Illuminable.h"
 #include "primitive/Lattice.h"
 
 namespace cosmographer {

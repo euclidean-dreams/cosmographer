@@ -1,14 +1,14 @@
 #pragma once
 
 #include "cosmology/CosmologyCommunity.h"
-#include "cosmology/revealeryaspect/RevealeryAspectCommunity.h"
+#include "cosmology/revealeryAspect/RevealeryAspectCommunity.h"
 #include "primitive/Lattice.h"
-#include "cosmology/revealeryaspect/glimmering/Glimmering.h"
-#include "cosmology/revealeryaspect/mesh/Mesh.h"
-#include "cosmology/revealeryaspect/revealery/Revealery.h"
-#include "cosmology/revealeryaspect/revealery/relics/WorkshopRevealery.h"
-#include "cosmology/revealeryaspect/revealery/relics/BorderRevealery.h"
-#include "cosmology/revealeryaspect/revealery/Revealeries.h"
+#include "cosmology/revealeryAspect/glimmering/Glimmering.h"
+#include "cosmology/revealeryAspect/mesh/Mesh.h"
+#include "cosmology/revealeryAspect/revealery/Revealery.h"
+#include "cosmology/revealeryAspect/revealery/relics/WorkshopRevealery.h"
+#include "cosmology/revealeryAspect/revealery/relics/BorderRevealery.h"
+#include "cosmology/revealeryAspect/revealery/Revealeries.h"
 
 namespace cosmographer {
 class Aspect : public Fellow<CosmologyCommunity> {

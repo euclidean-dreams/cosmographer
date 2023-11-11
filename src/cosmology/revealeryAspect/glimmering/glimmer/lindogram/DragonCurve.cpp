@@ -1,7 +1,7 @@
 #include "DragonCurve.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/illuminable/painter/Painter.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/illuminable/painter/Painter.h"
 #include "DragonCurveSystem.h"
-#include "cosmology/revealeryaspect/mesh/lumion/Lumion.h"
+#include "cosmology/revealeryAspect/mesh/lumion/Lumion.h"
 
 namespace cosmographer {
 

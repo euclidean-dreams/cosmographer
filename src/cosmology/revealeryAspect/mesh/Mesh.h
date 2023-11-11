@@ -2,10 +2,10 @@
 #define COSMOGRAPHER_MESH_H
 
 #include "MeshCommunity.h"
-#include "cosmology/revealeryaspect/RevealeryAspectCommunity.h"
-#include "cosmology/revealeryaspect/glimmering/Glimmering.h"
-#include "cosmology/revealeryaspect/revealery/Revealery.h"
-#include "cosmology/revealeryaspect/mesh/lumion/Lumion.h"
+#include "cosmology/revealeryAspect/RevealeryAspectCommunity.h"
+#include "cosmology/revealeryAspect/glimmering/Glimmering.h"
+#include "cosmology/revealeryAspect/revealery/Revealery.h"
+#include "cosmology/revealeryAspect/mesh/lumion/Lumion.h"
 #include <complex>
 
 namespace cosmographer {

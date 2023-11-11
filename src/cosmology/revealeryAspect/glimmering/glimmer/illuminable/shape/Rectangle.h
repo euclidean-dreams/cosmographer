@@ -1,8 +1,8 @@
 #ifndef COSMOGRAPHER_RECTANGLE_H
 #define COSMOGRAPHER_RECTANGLE_H
 
-#include "cosmology/revealeryaspect/glimmering/glimmer/GlimmerSoul.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/illuminable/Illuminable.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/GlimmerSoul.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/illuminable/Illuminable.h"
 
 namespace cosmographer {
 

@@ -1,5 +1,5 @@
 #include "Triangle.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/illuminable/painter/Painter.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/illuminable/painter/Painter.h"
 
 namespace cosmographer {
 

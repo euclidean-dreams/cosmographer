@@ -1,8 +1,8 @@
 # general
-maxGlimmers: 36963
+maxGlimmers: 3696
 essentiaSize: 2048
 # lumion count should be < essentia size and % = 0
-lumionCount: 2048
+lumionCount: 1024
 baseGlimmerSize: 0.2
 
 # (~) profile
@@ -11,10 +11,10 @@ baseGlimmerSize: 0.2
 profile: 0
 
 # sort of like a gain knob
-excitationThresholdMax: 66
+excitationThresholdMax: 33
 
 # endpoints
-percipiaEndpoint: tcp://0.0.0.0:36963
+percipiaEndpoint: ipc:///tmp/cosmographer
 essentiaEndpoint: ipc:///tmp/analogorium
 volitiaEndpoint: tcp://volitia:44440
 

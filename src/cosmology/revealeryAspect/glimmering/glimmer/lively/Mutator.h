@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_MUTATOR_H
 
 #include "Lively.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/GlimmerSoul.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/GlimmerSoul.h"
 
 namespace cosmographer {
 

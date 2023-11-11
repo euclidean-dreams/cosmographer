@@ -1,6 +1,6 @@
 #include "Lumion.h"
 #include "oddments/Tidbit.h"
-#include "cosmology/revealeryaspect/revealery/Revealery.h"
+#include "cosmology/revealeryAspect/revealery/Revealery.h"
 
 namespace cosmographer {
 

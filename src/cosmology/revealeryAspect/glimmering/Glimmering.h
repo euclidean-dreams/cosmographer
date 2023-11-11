@@ -2,10 +2,10 @@
 #define COSMOGRAPHER_GLIMMERING_H
 
 #include "GlimmeringCommunity.h"
-#include "cosmology/revealeryaspect/RevealeryAspectCommunity.h"
-#include "cosmology/revealeryaspect/revealery/Revealery.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/Glimmer.h"
-#include "cosmology/revealeryaspect/mesh/lumion/Lumion.h"
+#include "cosmology/revealeryAspect/RevealeryAspectCommunity.h"
+#include "cosmology/revealeryAspect/revealery/Revealery.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/Glimmer.h"
+#include "cosmology/revealeryAspect/mesh/lumion/Lumion.h"
 #include "primitive/Lattice.h"
 #include "Illuminator.h"
 #include "Orchestrator.h"

@@ -1,5 +1,5 @@
 #include "Orchestrator.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/Glimmer.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/Glimmer.h"
 
 namespace cosmographer {
 

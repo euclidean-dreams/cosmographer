@@ -2,7 +2,7 @@
 #define COSMOGRAPHER_GLIMMERMAKERS_H
 
 #include "Glimmer.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/illuminable/painter/PainterCommunity.h"
 
 namespace cosmographer {
 

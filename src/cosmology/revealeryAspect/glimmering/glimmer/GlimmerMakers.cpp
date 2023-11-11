@@ -1,7 +1,7 @@
 #include "GlimmerMakers.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/illuminable/painter/Painter.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/illuminable/painter/Canvas.h"
-#include "cosmology/revealeryaspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/illuminable/painter/Painter.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/illuminable/painter/Canvas.h"
+#include "cosmology/revealeryAspect/glimmering/glimmer/illuminable/painter/SingleColorCanvas.h"
 
 namespace cosmographer {
 
