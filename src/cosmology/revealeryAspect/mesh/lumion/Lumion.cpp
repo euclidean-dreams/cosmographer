@@ -59,6 +59,7 @@ void Lumion::react() {
         aspectCommunity->revealeries[0]->reveal(this);
     } else {
         excited = false;
+        center();
     }
 
     previousMagnitude = magnitude;

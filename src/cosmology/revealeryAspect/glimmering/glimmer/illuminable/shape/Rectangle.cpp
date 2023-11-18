@@ -18,6 +18,9 @@ void Rectangle::illuminate(
     if (width < 1) {
         width = 1;
     }
+    if (width > lattice.width / 3) {
+        width = lattice.width / 3;
+    }
     auto height = width * heightRatio;
 
     auto xLocus = glimmerSoul->locus.x;

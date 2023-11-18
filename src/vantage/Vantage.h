@@ -9,7 +9,7 @@ namespace cosmographer {
 
 class Vantage : public Fellow<CosmographerCommunity> {
 public:
-    virtual void send(const Lattice &lattice) = 0;
+    virtual void send(up<Lattice> lattice) = 0;
 };
 
 }

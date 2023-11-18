@@ -14,7 +14,7 @@ void Cosmology::observe() {
     auto lattice = mkup<Lattice>(constants->percipiaWidth, constants->percipiaHeight,
                                  constants->latticeInitialColor);
     subCommunity.aspect->manifest(*lattice);
-    community->vantage->send(*lattice);
+    community->vantage->send(mv(lattice));
 }
 
 void Cosmology::experienceEssentia() {

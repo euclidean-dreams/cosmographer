@@ -1,16 +1,18 @@
 #include "Cosmographer.h"
 
-#if VANTAGE == percipia
+#ifdef PERCIPIA
 
 #include "vantage/PercipiaVantage.h"
 
 #endif
-#if VANTAGE == keyhole
+#ifdef KEYHOLE
 
 #include "vantage/keyhole/KeyholeVantage.h"
 
 #endif
-#if VANTAGE == gubbin
+#ifdef WAVELET
+
+#include "vantage/wavelet/WaveletVantage.h"
 
 #endif
 
@@ -27,7 +29,7 @@ Cosmographer::Cosmographer(
     subCommunity.phenomenology = mv(phenomenology);
 
     // vantage
-#if VANTAGE == percipia
+#ifdef PERCIPIA
     auto percipiaSocket = mkup<NetworkSocket>(
             zmqContext,
             constants->percipiaEndpoint,
@@ -35,9 +37,13 @@ Cosmographer::Cosmographer(
             true
     );
     subCommunity.vantage = mkup<PercipiaVantage>(mv(percipiaSocket));
-#elif VANTAGE == keyhole
+#endif
+#ifdef KEYHOLE
     subCommunity.vantage = mkup<KeyholeVantage>();
-#elif VANTAGE == gubbin
+#endif
+#ifdef WAVELET
+    subCommunity.vantage = mkup<WaveletVantage>();
+
 #endif
     subCommunity.vantage->initialize(&subCommunity);
 
@@ -54,6 +60,9 @@ Cosmographer::Cosmographer(
 void Cosmographer::activate() {
     // wait for a new essentia
     auto essentiaParcelBundle = receiveEssentiaParcelBundle();
+    while (essentiaParcelBundle.size() > 333) {
+        essentiaParcelBundle = receiveEssentiaParcelBundle();
+    }
     if (!receivedFirstEssentia) {
         LOGGER->info("received first essentia!");
         receivedFirstEssentia = true;

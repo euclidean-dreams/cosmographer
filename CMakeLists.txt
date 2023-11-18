@@ -21,8 +21,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # <3
 
-add_compile_definitions(VANTAGE=${_vantage})
-
 include(lib/cmake-utils/dependency-integrator.cmake)
 
 # this should be flow for macs and sjofn for pis
@@ -36,18 +34,21 @@ integrate_cmake_dependency(
 
 if (_vantage STREQUAL percipia)
     # no extra config necessary
+    add_compile_definitions(PERCIPIA)
 elseif (_vantage STREQUAL keyhole)
     integrate_cmake_dependency(
             NAME pigpio
             GIT_URL git@github.com:joan2937/pigpio.git
             GIT_TAG c33738a320a3e28824af7807edafda440952c05d
     )
-elseif (_vantage STREQUAL gubbin)
+    add_compile_definitions(KEYHOLE)
+elseif (_vantage STREQUAL wavelet)
     integrate_cmake_dependency(
-            NAME ws281x
-            GIT_URL git@github.com:jgarff/rpi_ws281x.git
-            GIT_TAG 9be313f77aa494036e2dc205b6ec2860e7ee988c
+            NAME pigpio
+            GIT_URL git@github.com:joan2937/pigpio.git
+            GIT_TAG c33738a320a3e28824af7807edafda440952c05d
     )
+    add_compile_definitions(WAVELET)
 else ()
     message(FATAL_ERROR "invalid vantage type specified: _vantage")
 endif ()
@@ -128,10 +129,13 @@ if (_vantage STREQUAL keyhole)
             src/vantage/keyhole/KeyholeConstants.h
     )
 endif ()
-if (_vantage STREQUAL gubbin)
+if (_vantage STREQUAL wavelet)
     set(
             SOURCE_FILES
             ${SOURCE_FILES}
+            src/vantage/wavelet/SPIConnection.cpp src/vantage/wavelet/SPIConnection.h
+            src/vantage/wavelet/WaveletVantage.cpp src/vantage/wavelet/WaveletVantage.h
+            src/vantage/wavelet/WaveletConstants.h
     )
 endif ()
 
@@ -188,9 +192,9 @@ foreach (target IN LISTS TARGETS)
         target_include_directories(${target} PRIVATE ${CMAKE_BINARY_DIR}/pigpio-src)
         target_link_libraries(${target} PRIVATE pigpio)
     endif ()
-    if (_vantage STREQUAL gubbin)
-        target_include_directories(${target} PRIVATE ${CMAKE_BINARY_DIR}/rpi_ws281x-src)
-        target_link_libraries(${target} PRIVATE ws2811)
+    if (_vantage STREQUAL wavelet)
+        target_include_directories(${target} PRIVATE ${CMAKE_BINARY_DIR}/pigpio-src)
+        target_link_libraries(${target} PRIVATE pigpio)
     endif ()
     target_link_libraries(${target} PRIVATE impresario-utils)
 endforeach ()

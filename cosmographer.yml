@@ -2,7 +2,7 @@
 maxGlimmers: 2346
 essentiaSize: 2048
 # lumion count should be < essentia size and % = 0
-lumionCount: 1024
+lumionCount: 512
 baseGlimmerSize: 0.2
 
 # (~) profile
@@ -30,10 +30,10 @@ COSMOLOGY_SIZE: 0.1
 PLACEMENT: 0.3
 EXCITATION: 0.66900045
 EXHAUSTION: 0.111
-MAGNITUDE: 0.2
+MAGNITUDE: 0.1
 CHANGE: 0.13
 CHAOS: 0.5
 GROWTH: 0.1
-OSCILLATION: 0.3
+OSCILLATION: 0.1
 COLOR_BASE: 0.3
 COLOR_ACCENT: 0.333
