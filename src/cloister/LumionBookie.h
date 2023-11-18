@@ -6,11 +6,11 @@ namespace cosmographer {
 class LumionBookie {
 public:
     int activationCount;
-    float maxActivation;
+    float maxExcitation;
 
     LumionBookie();
 
-    void recordActivation(float activation);
+    void recordExcitation(float magnitude);
 
     void clear();
 };

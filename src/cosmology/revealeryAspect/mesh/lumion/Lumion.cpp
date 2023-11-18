@@ -15,6 +15,8 @@ Lumion::Lumion(
         firstIndexToWatch{firstIndexToWatch},
         lastIndexToWatch{lastIndexToWatch},
         latticePoint{0, 0} {
+    latticePoint.x = randomizer->generate(64);
+    latticePoint.y = randomizer->generate(64);
     place();
 }
 
@@ -68,30 +70,30 @@ void Lumion::center() {
 }
 
 void Lumion::place() {
-//        auto distance = magnitude / 100 * PLACEMENT_AXIOM;
-//        float direction = 0;
-//        if (profile == LANTERN_PROFILE) {
-//            if (randomizer->generateProportion() > 0.5) {
-//                direction = M_PI;
-//            }
-//        } else {
-//            direction = randomizer->generateProportion() * 2 * M_PI;
-//        }
-//
-//        auto potentialNewLatticePoint = cartographer->shiftPoint(latticePoint, distance, direction);
-//        if (cartographer->isValid(potentialNewLatticePoint)) {
-//            latticePoint = potentialNewLatticePoint;
-//        }
-    std::complex<double> radius(0.133, 0);
-    std::complex<double> poleShifter(pole->pole, 0);
-    std::complex<double> spacing(PLACEMENT_AXIOM / 100, 0);
-    std::complex<double> t(lumionIndex, 0);
-    const std::complex<double> i(0, 1);
-    auto complexPoint = radius * t * exp(-2 * M_PI * i * pow(t, 2) * spacing * poleShifter);
-    latticePoint = Point{
-            cast(float, complexPoint.real()) + cast(float, constants->percipiaWidth) / 2,
-            cast(float, complexPoint.imag()) + cast(float, constants->percipiaHeight) / 2,
-    };
+        auto distance = magnitude / 100 * PLACEMENT_AXIOM;
+        float direction = 0;
+        if (profile == LANTERN_PROFILE) {
+            if (randomizer->generateProportion() > 0.5) {
+                direction = M_PI;
+            }
+        } else {
+            direction = randomizer->generateProportion() * 2 * M_PI;
+        }
+
+        auto potentialNewLatticePoint = cartographer->shiftPoint(latticePoint, distance, direction);
+        if (cartographer->isValid(potentialNewLatticePoint)) {
+            latticePoint = potentialNewLatticePoint;
+        }
+//    std::complex<double> radius(0.133, 0);
+//    std::complex<double> poleShifter(pole->pole, 0);
+//    std::complex<double> spacing(PLACEMENT_AXIOM / 100, 0);
+//    std::complex<double> t(lumionIndex, 0);
+//    const std::complex<double> i(0, 1);
+//    auto complexPoint = radius * t * exp(-2 * M_PI * i * pow(t, 2) * spacing * poleShifter);
+//    latticePoint = Point{
+//            cast(float, complexPoint.real()) + cast(float, constants->percipiaWidth) / 2,
+//            cast(float, complexPoint.imag()) + cast(float, constants->percipiaHeight) / 2,
+//    };
 }
 
 }

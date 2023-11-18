@@ -88,4 +88,14 @@ public:
     }
 };
 
+
+class HappyPinkHearts : public Revealery {
+public:
+    void reveal(
+            Lumion *lumion
+    ) override {
+
+    }
+};
+
 }

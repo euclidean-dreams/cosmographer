@@ -101,8 +101,6 @@ void Cosmographer::activate() {
         lumionBookie->clear();
     }
 
-    // todo find a better place for this
-
     // generate lattice and send frame
     subCommunity.cosmology->observe();
 }

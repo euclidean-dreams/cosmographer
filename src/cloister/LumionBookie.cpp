@@ -6,19 +6,19 @@ LumionBookie::LumionBookie(
 
 ) :
         activationCount{0},
-        maxActivation{0} {
+        maxExcitation{0} {
 }
 
-void LumionBookie::recordActivation(float activation) {
+void LumionBookie::recordExcitation(float magnitude) {
     activationCount++;
-    if (activation > maxActivation) {
-        maxActivation = activation;
+    if (magnitude > maxExcitation) {
+        maxExcitation = magnitude;
     }
 }
 
 void LumionBookie::clear() {
     activationCount = 0;
-    maxActivation = 0;
+    maxExcitation = 0;
 }
 
 }
